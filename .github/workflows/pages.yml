@@ -11,7 +11,14 @@ concurrency:
   group: pages
   cancel-in-progress: true
 jobs:
+  enable:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/configure-pages@v5
+        with:
+          enablement: true
   deploy:
+    needs: enable
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -22,9 +29,6 @@ jobs:
         run: |
           mkdir -p _site
           rsync -a --exclude='.git' --exclude='.github' --exclude='_site' ./ _site/
-      - uses: actions/configure-pages@v5
-        with:
-          enablement: true
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
