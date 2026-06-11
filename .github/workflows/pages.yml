@@ -6,6 +6,7 @@ on:
 permissions:
   contents: write
   pages: write
+  id-token: write
 concurrency:
   group: pages
   cancel-in-progress: true
@@ -19,7 +20,7 @@ jobs:
           mkdir -p /tmp/_site
           rsync -a --exclude='.git' --exclude='.github' ./ /tmp/_site/
           touch /tmp/_site/.nojekyll
-      - name: Push to gh-pages branch
+      - name: Keep gh-pages branch updated (legacy fallback)
         run: |
           cd /tmp/_site
           git init -q -b gh-pages
@@ -28,18 +29,11 @@ jobs:
           git add -A
           git commit -qm "Publish site"
           git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" gh-pages
-      - name: Set Pages source to gh-pages (legacy mode)
-        run: |
-          curl -sf -X PUT \
-            -H "Authorization: Bearer ${{ github.token }}" \
-            -H "Accept: application/vnd.github+json" \
-            "https://api.github.com/repos/${{ github.repository }}/pages" \
-            -d '{"build_type":"legacy","source":{"branch":"gh-pages","path":"/"}}' \
-          && echo "Pages source updated" || {
-            echo "PUT failed, trying POST (create)"
-            curl -sf -X POST \
-              -H "Authorization: Bearer ${{ github.token }}" \
-              -H "Accept: application/vnd.github+json" \
-              "https://api.github.com/repos/${{ github.repository }}/pages" \
-              -d '{"build_type":"legacy","source":{"branch":"gh-pages","path":"/"}}'
-          }
+      - uses: actions/configure-pages@v5
+        with:
+          enablement: true
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: /tmp/_site
+      - id: deployment
+        uses: actions/deploy-pages@v4
