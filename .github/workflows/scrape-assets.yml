@@ -1,5 +1,9 @@
 name: Scrape brand assets
-on: workflow_dispatch
+on:
+  push:
+    branches: ["claude/gracious-ritchie-4jmy59"]
+    paths: [".github/workflows/scrape-assets.yml"]
+  workflow_dispatch:
 permissions:
   contents: write
 jobs:
