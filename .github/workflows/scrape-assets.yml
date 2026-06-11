@@ -20,8 +20,8 @@ jobs:
             curl -sL --max-time 40 -A "$UA" "$1" -o "$2" && echo "OK $1 ($(wc -c < "$2") bytes)" || echo "FAIL $1"
           }
           fetch "https://gruaslozano.netlify.app/" scrape/pages/redesign.html
-          for p in "" gruas plataformas-elevadoras ingenieria sectores historia contacto delegaciones servicios empresa; do
-            n="$p"; [ -z "$n" ] && n=home
+          for p in "" gruas plataformas-elevadoras ingenieria sectores historia contacto servicios formacion calidad noticias camiones-grua-autocargantes camiones-grua plataformas-elevadoras/plataformas-articuladas plataformas-elevadoras/plataformas-de-tijera plataformas-elevadoras/plataformas-especiales plataformas-elevadoras/plataformas-telescopicas; do
+            n=$(echo "$p" | tr '/' '_'); [ -z "$n" ] && n=home
             fetch "https://gruaslozano.com/$p/" "scrape/pages/orig_$n.html"
           done
           ls -la scrape/pages
