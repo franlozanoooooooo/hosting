@@ -41,7 +41,7 @@ jobs:
           }
           i=0
           while read -r u; do
-            i=$((i+1)); [ "$i" -gt 90 ] && break
+            i=$((i+1)); [ "$i" -gt 400 ] && break
             dl "$u"
           done < scrape/asset-urls.txt
           # segunda pasada: imagenes referenciadas dentro de los CSS descargados
