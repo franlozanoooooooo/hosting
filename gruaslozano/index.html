@@ -44,7 +44,7 @@
   --hdr-h:84px;
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:calc(var(--hdr-h) + 8px)}
+html{scroll-behavior:smooth;overflow-anchor:none}
 body{
   font:400 1rem/1.65 var(--fd);
   background:var(--ink);
@@ -92,6 +92,44 @@ fieldset{min-inline-size:0;border:none}
 }
 .sec--paper .sec-idx{-webkit-text-stroke:1.5px rgba(45,41,38,.09)}
 .shead{position:relative;z-index:1;margin-bottom:clamp(2.6rem,5vw,4rem)}
+
+/* ---------- sistema de páginas (router por hash) ---------- */
+.pg:not(.act){display:none !important}
+.pg.act{animation:pgin .55s var(--ease) both}
+@keyframes pgin{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.phead{
+  position:relative;margin-top:var(--hdr-h);height:clamp(220px,32vh,330px);
+  display:flex;align-items:flex-end;overflow:hidden;background:var(--ink);
+  border-bottom:4px solid var(--or);
+}
+.phead img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5;filter:saturate(.85)}
+.phead::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,12,14,.6),rgba(11,12,14,.15) 50%,rgba(11,12,14,.88))}
+.phead .wrap{position:relative;z-index:1;padding-bottom:1.8rem}
+.phead .crumb{font:500 .66rem/1 var(--fm);letter-spacing:.26em;text-transform:uppercase;color:var(--or)}
+.phead .crumb a{color:var(--dim);text-decoration:none;transition:color .3s}
+.phead .crumb a:hover{color:#fff}
+.phead h1{margin-top:.7rem;font-weight:860;font-stretch:113%;text-transform:uppercase;color:#fff;font-size:clamp(2rem,5vw,3.2rem);line-height:1;letter-spacing:-.01em}
+.pgnav{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:clamp(3rem,6vw,4.5rem)}
+.sec--paper .pgnav{background:var(--line-ink);border-color:var(--line-ink)}
+.pn{display:flex;flex-direction:column;gap:.45rem;padding:1.3rem 1.5rem;text-decoration:none;background:var(--ink-2);transition:background .3s}
+.pn:hover{background:var(--ink-3)}
+.sec--paper .pn{background:#fff}
+.sec--paper .pn:hover{background:var(--paper)}
+.pn small{font:500 .6rem/1 var(--fm);letter-spacing:.22em;color:var(--dim);text-transform:uppercase}
+.sec--paper .pn small{color:var(--dim-ink)}
+.pn b{font-weight:800;font-stretch:108%;text-transform:uppercase;font-size:1.05rem}
+.pn b i{font-style:normal;color:var(--or)}
+.pn:hover b{color:var(--or)}
+.pn--next{text-align:right;align-items:flex-end}
+.sec:not(.sec--paper) .sect{border-color:var(--line)}
+.nws{position:relative;z-index:1;display:flex;flex-direction:column;border:1px solid var(--line-ink);background:#fff}
+.nws .nitem{display:flex;align-items:center;gap:1.1rem;padding:1.15rem 1.4rem;border-bottom:1px solid var(--line-ink);text-decoration:none;transition:background .3s,padding-left .3s var(--ease)}
+.nws .nitem:last-child{border-bottom:none}
+.nws .nitem:hover{background:var(--paper);padding-left:1.9rem}
+.nitem .tagy{font:600 .64rem/1 var(--fm);letter-spacing:.1em;background:var(--or);color:#170D04;padding:.4rem .6rem;flex:none}
+.nitem b{font-weight:740;font-stretch:104%;font-size:.98rem;line-height:1.35}
+.nitem small{margin-left:auto;font:600 .62rem/1 var(--fm);letter-spacing:.16em;color:var(--or-d);flex:none}
+@media (max-width:680px){.nitem b{font-size:.88rem}.nitem small{display:none}}
 
 /* reveals de línea en titulares */
 .tl-l{display:block;overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em}
@@ -152,10 +190,10 @@ fieldset{min-inline-size:0;border:none}
 .logo{display:flex;align-items:center;text-decoration:none;flex:none}
 .logo img{height:46px;width:auto;transition:height .4s var(--ease)}
 .hdr.sc .logo img{height:38px}
-.nav{display:flex;gap:1.9rem;margin-left:auto}
+.nav{display:flex;gap:1.15rem;margin-left:auto}
 .nav a{
   position:relative;text-decoration:none;padding:.4rem 0;
-  font:500 .74rem/1 var(--fm);letter-spacing:.18em;text-transform:uppercase;color:var(--dim);
+  font:500 .7rem/1 var(--fm);letter-spacing:.1em;text-transform:uppercase;color:var(--dim);
   transition:color .3s;
 }
 .nav a::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:100%;background:var(--or);transform:scaleX(0);transform-origin:right;transition:transform .4s var(--ease)}
@@ -177,13 +215,14 @@ fieldset{min-inline-size:0;border:none}
 /* menú móvil */
 .mmenu{
   position:fixed;inset:0;z-index:145;background:var(--ink);
-  display:flex;flex-direction:column;justify-content:center;padding:6rem 8vw 3rem;
+  display:flex;flex-direction:column;justify-content:center;padding:5.2rem 8vw 2rem;
   clip-path:inset(0 0 100% 0);transition:clip-path .6s var(--ease);
+  overflow-y:auto;
 }
 .mmenu.open{clip-path:inset(0)}
 .mmenu a.mlink{
   text-decoration:none;font-weight:830;font-stretch:110%;text-transform:uppercase;
-  font-size:clamp(1.9rem,8vw,3rem);line-height:1.22;color:var(--txt);
+  font-size:clamp(1.15rem,4.2vh,1.85rem);line-height:1.5;color:var(--txt);
   display:flex;align-items:baseline;gap:1rem;
   opacity:0;transform:translateY(24px);transition:.5s var(--ease);
 }
@@ -627,11 +666,18 @@ input[type="date"]::-webkit-calendar-picker-indicator{filter:invert(.7)}
 .mbar a.go{background:var(--or);color:#170D04}
 
 /* ---------- responsive ---------- */
-@media (max-width:1100px){
+@media (max-width:1600px){
+  .hdr .wrap{gap:1.4rem}
+  .hdr-tel{display:none}
+}
+@media (max-width:1380px){
+  .hdr-tel{display:flex}
   .nav{display:none}
   .hdr-tel{margin-left:auto}
-  .hdr .btn{display:none}
   .burger{display:flex;margin-left:.5rem}
+}
+@media (max-width:1100px){
+  .hdr .btn{display:none}
   .hero-grid{grid-template-columns:1fr;gap:2rem}
   .hero-side,.hero-scroll{display:none}
   .svc-grid{grid-template-columns:repeat(2,1fr)}
@@ -681,10 +727,14 @@ input[type="date"]::-webkit-calendar-picker-indicator{filter:invert(.7)}
       <img src="assets/logo-light.png" alt="LOZANO — Elevación, Ingeniería y Transporte" width="464" height="103">
     </a>
     <nav class="nav" aria-label="Principal">
+      <a href="#historia" data-spy="historia">Historia</a>
       <a href="#servicios" data-spy="servicios">Servicios</a>
       <a href="#flota" data-spy="flota">Flota</a>
+      <a href="#sectores" data-spy="sectores">Sectores</a>
       <a href="#ingenieria" data-spy="ingenieria">Ingeniería</a>
-      <a href="#empresa" data-spy="empresa">Historia</a>
+      <a href="#formacion" data-spy="formacion">Formación</a>
+      <a href="#certificaciones" data-spy="certificaciones">Certificaciones</a>
+      <a href="#noticias" data-spy="noticias">Noticias</a>
       <a href="#delegaciones" data-spy="delegaciones">Delegaciones</a>
     </nav>
     <a class="hdr-tel" href="tel:+34955634500">
@@ -700,12 +750,16 @@ input[type="date"]::-webkit-calendar-picker-indicator{filter:invert(.7)}
 
 <!-- menú móvil -->
 <nav class="mmenu" id="mmenu" aria-label="Menú móvil">
-  <a class="mlink" style="--i:0" href="#servicios"><small>01</small>Servicios</a>
-  <a class="mlink" style="--i:1" href="#flota"><small>02</small>Flota</a>
-  <a class="mlink" style="--i:2" href="#ingenieria"><small>03</small>Ingeniería</a>
-  <a class="mlink" style="--i:3" href="#empresa"><small>04</small>Historia</a>
-  <a class="mlink" style="--i:4" href="#delegaciones"><small>05</small>Delegaciones</a>
-  <a class="mlink" style="--i:5" href="#presupuesto"><small>06</small>Presupuesto</a>
+  <a class="mlink" style="--i:0" href="#historia"><small>01</small>Historia</a>
+  <a class="mlink" style="--i:1" href="#servicios"><small>02</small>Servicios</a>
+  <a class="mlink" style="--i:2" href="#flota"><small>03</small>Flota</a>
+  <a class="mlink" style="--i:3" href="#sectores"><small>04</small>Sectores</a>
+  <a class="mlink" style="--i:4" href="#ingenieria"><small>05</small>Ingeniería</a>
+  <a class="mlink" style="--i:5" href="#formacion"><small>06</small>Formación</a>
+  <a class="mlink" style="--i:6" href="#certificaciones"><small>07</small>Certificaciones</a>
+  <a class="mlink" style="--i:7" href="#noticias"><small>08</small>Noticias</a>
+  <a class="mlink" style="--i:8" href="#delegaciones"><small>09</small>Delegaciones</a>
+  <a class="mlink" style="--i:9" href="#presupuesto"><small>10</small>Presupuesto</a>
   <div class="mmenu-foot">
     <a href="tel:+34955634500">955 634 500</a>
     <span class="mono" style="font-size:.62rem;letter-spacing:.24em;color:var(--dim)">ELEVACIÓN, INGENIERÍA Y TRANSPORTE · 1959</span>
@@ -715,7 +769,7 @@ input[type="date"]::-webkit-calendar-picker-indicator{filter:invert(.7)}
 <main>
 
 <!-- ======================= HERO ======================= -->
-<section class="hero" id="inicio">
+<section class="hero pg" data-pg="inicio">
   <p class="hero-side">GRÚAS Y PLATAFORMAS LOZANO — P.I. LA RED · ALCALÁ DE GUADAÍRA · SEVILLA</p>
 
   <div class="wrap hero-grid">
@@ -761,11 +815,11 @@ input[type="date"]::-webkit-calendar-picker-indicator{filter:invert(.7)}
     </ul>
   </div>
 
-  <a class="hero-scroll" href="#servicios" aria-label="Bajar a servicios">DESPLÁCESE<i></i></a>
+  <a class="hero-scroll" href="#historia" aria-label="Ir a historia">CONOZCA EL GRUPO<i></i></a>
 </section>
 
 <!-- ======================= MARQUEE ======================= -->
-<div class="mq" aria-hidden="true">
+<div class="mq pg" data-pg="inicio" aria-hidden="true">
   <div class="mq-track">
     <div class="mq-set">
       <span><b>ISO 9001</b> CALIDAD</span>
@@ -793,11 +847,18 @@ input[type="date"]::-webkit-calendar-picker-indicator{filter:invert(.7)}
 </div>
 
 <!-- ======================= SERVICIOS ======================= -->
-<section class="sec sec--paper" id="servicios">
-  <span class="sec-idx" aria-hidden="true">01</span>
+<header class="phead pg" data-pg="servicios">
+  <img src="assets/ph-servicios.jpg" alt="Operario de Grúas Lozano">
+  <div class="wrap">
+    <p class="crumb"><a href="#inicio">INICIO</a> — SERVICIOS</p>
+    <h1>Servicios</h1>
+  </div>
+</header>
+<section class="sec sec--paper pg" data-pg="servicios">
+  <span class="sec-idx" aria-hidden="true">02</span>
   <div class="wrap">
     <header class="shead rv">
-      <p class="eyebrow"><span class="tick"></span>01 · SERVICIOS</p>
+      <p class="eyebrow"><span class="tick"></span>02 · SERVICIOS</p>
       <h2 class="title tl">
         <span class="tl-l"><span>Servicio integral</span></span>
         <span class="tl-l"><span>en la <em>elevación.</em></span></span>
@@ -858,15 +919,27 @@ input[type="date"]::-webkit-calendar-picker-indicator{filter:invert(.7)}
         </div>
       </article>
     </div>
+
+    <nav class="pgnav rv" aria-label="Navegación entre páginas">
+      <a class="pn" href="#historia"><small>← Anterior</small><b><i>←</i> Historia</b></a>
+      <a class="pn pn--next" href="#flota"><small>Siguiente →</small><b>Flota <i>→</i></b></a>
+    </nav>
   </div>
 </section>
 
 <!-- ======================= FLOTA ======================= -->
-<section class="sec" id="flota">
-  <span class="sec-idx" aria-hidden="true">02</span>
+<header class="phead pg" data-pg="flota">
+  <img src="assets/ph-flota.jpg" alt="Grúas móviles del parque de Grúas Lozano">
+  <div class="wrap">
+    <p class="crumb"><a href="#inicio">INICIO</a> — FLOTA</p>
+    <h1>Flota</h1>
+  </div>
+</header>
+<section class="sec pg" data-pg="flota">
+  <span class="sec-idx" aria-hidden="true">03</span>
   <div class="wrap">
     <header class="shead rv">
-      <p class="eyebrow"><span class="tick"></span>02 · PARQUE DE MAQUINARIA</p>
+      <p class="eyebrow"><span class="tick"></span>03 · PARQUE DE MAQUINARIA</p>
       <h2 class="title tl">
         <span class="tl-l"><span>Flota propia.</span></span>
         <span class="tl-l"><span>Fichas técnicas <em>reales.</em></span></span>
@@ -1390,17 +1463,29 @@ input[type="date"]::-webkit-calendar-picker-indicator{filter:invert(.7)}
       <p><b>Esto es solo una selección.</b> El parque completo suma 13 grúas móviles, más de 50 modelos de plataformas (600 unidades) y 8 camiones grúa, todos con ficha técnica oficial. ¿No encuentra su configuración? Se la localizamos.</p>
       <a class="btn btn--or" href="#presupuesto"><span>Consultar disponibilidad</span><svg class="ar" width="14" height="12" viewBox="0 0 14 12" fill="none"><path d="M1 6h11M8 1l5 5-5 5" stroke="currentColor" stroke-width="1.8"/></svg></a>
     </div>
+
+    <nav class="pgnav rv" aria-label="Navegación entre páginas">
+      <a class="pn" href="#servicios"><small>← Anterior</small><b><i>←</i> Servicios</b></a>
+      <a class="pn pn--next" href="#sectores"><small>Siguiente →</small><b>Sectores <i>→</i></b></a>
+    </nav>
   </div>
 </section>
 
-<!-- ======================= INGENIERÍA + SECTORES ======================= -->
-<section class="sec sec--paper" id="ingenieria">
-  <span class="sec-idx" aria-hidden="true">03</span>
+<!-- ======================= INGENIERÍA ======================= -->
+<header class="phead pg" data-pg="ingenieria">
+  <img src="assets/ph-ingenieria.jpg" alt="Maniobra de ingeniería de Grúas Lozano">
+  <div class="wrap">
+    <p class="crumb"><a href="#inicio">INICIO</a> — INGENIERÍA</p>
+    <h1>Ingeniería</h1>
+  </div>
+</header>
+<section class="sec sec--paper pg" data-pg="ingenieria">
+  <span class="sec-idx" aria-hidden="true">05</span>
   <div class="wrap">
     <div class="ing-grid">
       <div>
         <header class="shead rv" style="margin-bottom:0">
-          <p class="eyebrow"><span class="tick"></span>03 · DEPARTAMENTO TÉCNICO</p>
+          <p class="eyebrow"><span class="tick"></span>05 · DEPARTAMENTO TÉCNICO</p>
           <h2 class="title tl">
             <span class="tl-l"><span>La maniobra se gana</span></span>
             <span class="tl-l"><span>sobre el <em>plano.</em></span></span>
@@ -1453,7 +1538,34 @@ input[type="date"]::-webkit-calendar-picker-indicator{filter:invert(.7)}
       </figure>
     </div>
 
-    <div class="sect-grid">
+    <nav class="pgnav rv" aria-label="Navegación entre páginas">
+      <a class="pn" href="#sectores"><small>← Anterior</small><b><i>←</i> Sectores</b></a>
+      <a class="pn pn--next" href="#formacion"><small>Siguiente →</small><b>Formación <i>→</i></b></a>
+    </nav>
+  </div>
+</section>
+
+<!-- ======================= SECTORES ======================= -->
+<header class="phead pg" data-pg="sectores">
+  <img src="assets/ph-sectores.jpg" alt="Sectores de actividad del Grupo Lozano">
+  <div class="wrap">
+    <p class="crumb"><a href="#inicio">INICIO</a> — SECTORES</p>
+    <h1>Sectores</h1>
+  </div>
+</header>
+<section class="sec pg" data-pg="sectores">
+  <span class="sec-idx" aria-hidden="true">04</span>
+  <div class="wrap">
+    <header class="shead rv">
+      <p class="eyebrow"><span class="tick"></span>04 · SECTORES</p>
+      <h2 class="title tl">
+        <span class="tl-l"><span>Donde hay que elevar,</span></span>
+        <span class="tl-l"><span>allí <em>estamos.</em></span></span>
+      </h2>
+      <p class="sub">Las empresas del Grupo Lozano atesoran una larga experiencia desde sus orígenes en una amplia gama de sectores, abarcando <b>todas las actividades donde hay alquiler de maquinaria de elevación</b>. En el sector naval somos proveedores directos de las principales empresas de Andalucía.</p>
+    </header>
+
+    <div class="sect-grid" style="margin-top:0">
       <figure class="sect rv"><img src="assets/sec-industria.jpg" alt="Sector industria" loading="lazy"><h4>Industria<small>SIDERÚRGICAS · CEMENTERAS · QUÍMICO</small></h4></figure>
       <figure class="sect rv" style="--d:.06s"><img src="assets/sec-mineria.jpg" alt="Sector minería" loading="lazy"><h4>Minería<small>PROVEEDORES ACREDITADOS</small></h4></figure>
       <figure class="sect rv" style="--d:.12s"><img src="assets/sec-construccion.jpg" alt="Sector construcción" loading="lazy"><h4>Construcción<small>OBRA CIVIL · PREFABRICADOS</small></h4></figure>
@@ -1461,16 +1573,28 @@ input[type="date"]::-webkit-calendar-picker-indicator{filter:invert(.7)}
       <figure class="sect rv" style="--d:.24s"><img src="assets/sec-termosolares.jpg" alt="Sector termosolar y fotovoltaico" loading="lazy"><h4>Solar<small>FOTOVOLTAICA · TERMOSOLAR</small></h4></figure>
       <figure class="sect rv" style="--d:.3s"><img src="assets/sec-otros.jpg" alt="Otros sectores" loading="lazy"><h4>Naval y otros<small>AEROPUERTOS · GRANDES EVENTOS</small></h4></figure>
     </div>
+
+    <nav class="pgnav rv" aria-label="Navegación entre páginas">
+      <a class="pn" href="#flota"><small>← Anterior</small><b><i>←</i> Flota</b></a>
+      <a class="pn pn--next" href="#ingenieria"><small>Siguiente →</small><b>Ingeniería <i>→</i></b></a>
+    </nav>
   </div>
 </section>
 
 <!-- ======================= HISTORIA ======================= -->
-<section class="sec" id="empresa">
-  <span class="sec-idx" aria-hidden="true">04</span>
+<header class="phead pg" data-pg="historia">
+  <img src="assets/ph-historia.jpg" alt="Historia del Grupo Lozano">
+  <div class="wrap">
+    <p class="crumb"><a href="#inicio">INICIO</a> — HISTORIA</p>
+    <h1>Historia</h1>
+  </div>
+</header>
+<section class="sec pg" data-pg="historia">
+  <span class="sec-idx" aria-hidden="true">01</span>
   <div class="wrap">
     <div class="hist-top">
       <header class="shead rv" style="margin-bottom:0">
-        <p class="eyebrow"><span class="tick"></span>04 · HISTORIA · DESDE 1959</p>
+        <p class="eyebrow"><span class="tick"></span>01 · HISTORIA · DESDE 1959</p>
         <h2 class="title tl">
           <span class="tl-l"><span>La primera grúa</span></span>
           <span class="tl-l"><span>de <em>Sevilla.</em></span></span>
@@ -1502,7 +1626,85 @@ input[type="date"]::-webkit-calendar-picker-indicator{filter:invert(.7)}
       </div>
     </div>
 
-    <div class="certs rv">
+    <nav class="pgnav rv" aria-label="Navegación entre páginas">
+      <a class="pn" href="#inicio"><small>← Anterior</small><b><i>←</i> Inicio</b></a>
+      <a class="pn pn--next" href="#servicios"><small>Siguiente →</small><b>Servicios <i>→</i></b></a>
+    </nav>
+  </div>
+</section>
+
+<!-- ======================= FORMACIÓN ======================= -->
+<header class="phead pg" data-pg="formacion">
+  <img src="assets/svc-plataformas.jpg" alt="Plataformas elevadoras móviles para personal">
+  <div class="wrap">
+    <p class="crumb"><a href="#inicio">INICIO</a> — FORMACIÓN</p>
+    <h1>Formación</h1>
+  </div>
+</header>
+<section class="sec pg" data-pg="formacion">
+  <span class="sec-idx" aria-hidden="true">06</span>
+  <div class="wrap">
+    <div class="ing-grid">
+      <div>
+        <header class="shead rv" style="margin-bottom:0">
+          <p class="eyebrow"><span class="tick"></span>06 · FORMACIÓN PEMP</p>
+          <h2 class="title tl">
+            <span class="tl-l"><span>Formamos a quienes</span></span>
+            <span class="tl-l"><span>trabajan en <em>altura.</em></span></span>
+          </h2>
+          <p class="sub">PLATAFORMAS LOZANO está adscrita a los centros de formación de <b>ANAPAT e IPAF</b>: formamos a su personal en las condiciones que establece la norma <b>UNE-58923</b>, expidiendo el carnet homologado en cada una de las categorías de PEMP.</p>
+        </header>
+
+        <ul class="q-points rv">
+          <li><span class="pk">✓</span><span><b>Carnet homologado</b> por ANAPAT e IPAF en cada categoría de plataforma.</span></li>
+          <li><span class="pk">✓</span><span><b>Norma UNE-58923:</b> requisito cada vez más exigido en todos los trabajos con plataformas elevadoras móviles para personal.</span></li>
+          <li><span class="pk">✓</span><span><b>Empresas homologadas en los principales portales CAE</b>, requisito indispensable para prestar servicios actualmente.</span></li>
+        </ul>
+
+        <div class="q-alt rv">
+          <small>SOLICITE SU FORMACIÓN</small>
+          <a href="mailto:direccion.comercial@plataformaslozano.com" style="font-size:1.05rem">direccion.comercial@plataformaslozano.com</a>
+          <p style="margin-top:.2rem"><a href="mailto:plataformas@plataformaslozano.com" style="color:var(--txt);text-decoration:none">plataformas@plataformaslozano.com</a></p>
+        </div>
+      </div>
+
+      <figure class="frame rv" style="--d:.15s">
+        <img src="assets/svc-plataformas.jpg" alt="Plataformas elevadoras trabajando en entorno urbano" loading="lazy">
+        <figcaption>
+          <span>EMPRESA FORMADORA AUTORIZADA</span>
+          <b>ANAPAT · IPAF · UNE-58923</b>
+        </figcaption>
+      </figure>
+    </div>
+
+    <nav class="pgnav rv" aria-label="Navegación entre páginas">
+      <a class="pn" href="#ingenieria"><small>← Anterior</small><b><i>←</i> Ingeniería</b></a>
+      <a class="pn pn--next" href="#certificaciones"><small>Siguiente →</small><b>Certificaciones <i>→</i></b></a>
+    </nav>
+  </div>
+</section>
+
+<!-- ======================= CERTIFICACIONES ======================= -->
+<header class="phead pg" data-pg="certificaciones">
+  <img src="assets/ph-certificaciones.jpg" alt="Certificaciones del Grupo Lozano">
+  <div class="wrap">
+    <p class="crumb"><a href="#inicio">INICIO</a> — CERTIFICACIONES</p>
+    <h1>Certificaciones</h1>
+  </div>
+</header>
+<section class="sec pg" data-pg="certificaciones">
+  <span class="sec-idx" aria-hidden="true">07</span>
+  <div class="wrap">
+    <header class="shead rv">
+      <p class="eyebrow"><span class="tick"></span>07 · ACREDITACIONES</p>
+      <h2 class="title tl">
+        <span class="tl-l"><span>Certificados</span></span>
+        <span class="tl-l"><span>que puede <em>verificar.</em></span></span>
+      </h2>
+      <p class="sub">Las empresas del Grupo están certificadas en las normas <b>UNE-EN-ISO 9001, 14001 y 45001</b> por una entidad acreditada por ENAC, y bajo ANAPAT en la norma <b>ISO 18878</b> de formación de operadores de plataformas elevadoras móviles para personal.</p>
+    </header>
+
+    <div class="certs rv" style="margin-top:0">
       <a class="cert" href="https://gruaslozano.com/wp-content/uploads/2026/01/GRUAS-LOZANO-ISO-9001.2015-CALIDAD.pdf" target="_blank" rel="noopener">
         <span class="cert-img"><img src="assets/cert-9001.png" alt="Certificado SGS ISO 9001" loading="lazy"></span>
         <h5>ISO 9001:2015</h5>
@@ -1537,15 +1739,75 @@ input[type="date"]::-webkit-calendar-picker-indicator{filter:invert(.7)}
         <p>Empresas homologadas en los principales portales de coordinación de actividades empresariales.</p>
       </div>
     </div>
+
+    <nav class="pgnav rv" aria-label="Navegación entre páginas">
+      <a class="pn" href="#formacion"><small>← Anterior</small><b><i>←</i> Formación</b></a>
+      <a class="pn pn--next" href="#noticias"><small>Siguiente →</small><b>Noticias <i>→</i></b></a>
+    </nav>
+  </div>
+</section>
+
+<!-- ======================= NOTICIAS ======================= -->
+<header class="phead pg" data-pg="noticias">
+  <img src="assets/ph-noticias.jpg" alt="Actualidad del Grupo Lozano">
+  <div class="wrap">
+    <p class="crumb"><a href="#inicio">INICIO</a> — NOTICIAS</p>
+    <h1>Noticias</h1>
+  </div>
+</header>
+<section class="sec sec--paper pg" data-pg="noticias">
+  <span class="sec-idx" aria-hidden="true">08</span>
+  <div class="wrap">
+    <header class="shead rv">
+      <p class="eyebrow"><span class="tick"></span>08 · NOTICIAS</p>
+      <h2 class="title tl">
+        <span class="tl-l"><span>Información</span></span>
+        <span class="tl-l"><span>corporativa <em>oficial.</em></span></span>
+      </h2>
+      <p class="sub">Convocatorias y anuncios oficiales de las sociedades del Grupo Lozano, publicados en gruaslozano.com.</p>
+    </header>
+
+    <div class="nws rv">
+      <a class="nitem" href="https://gruaslozano.com/convocatoria-junta-general-ordinaria-2026-gruas-lozano-sa/" target="_blank" rel="noopener">
+        <span class="tagy">2026</span><b>Convocatoria Junta General Ordinaria — Grúas Lozano S.A.</b><small>LEER ↗</small>
+      </a>
+      <a class="nitem" href="https://gruaslozano.com/convocatoria-junta-general-ordinaria-2026-plataformas-lozano-sl/" target="_blank" rel="noopener">
+        <span class="tagy">2026</span><b>Convocatoria Junta General Ordinaria — Plataformas Lozano S.L.</b><small>LEER ↗</small>
+      </a>
+      <a class="nitem" href="https://gruaslozano.com/convocatoria-junta-general-ordinaria-2026-tecniplataformas-lozano-sl/" target="_blank" rel="noopener">
+        <span class="tagy">2026</span><b>Convocatoria Junta General Ordinaria — Tecniplataformas Lozano S.L.</b><small>LEER ↗</small>
+      </a>
+      <a class="nitem" href="https://gruaslozano.com/convocatoria-junta-general-ordinaria-2026-loain-sl/" target="_blank" rel="noopener">
+        <span class="tagy">2026</span><b>Convocatoria Junta General Ordinaria — Loain S.L.</b><small>LEER ↗</small>
+      </a>
+      <a class="nitem" href="https://gruaslozano.com/convocatoria-junta-general-ordinaria-2026-garde-activos-sl/" target="_blank" rel="noopener">
+        <span class="tagy">2026</span><b>Convocatoria Junta General Ordinaria — Garde Activos S.L.</b><small>LEER ↗</small>
+      </a>
+      <a class="nitem" href="https://gruaslozano.com/noticias/" target="_blank" rel="noopener">
+        <span class="tagy" style="background:var(--ink);color:var(--paper)">+</span><b>Ver todas las noticias en gruaslozano.com</b><small>IR ↗</small>
+      </a>
+    </div>
+
+    <nav class="pgnav rv" aria-label="Navegación entre páginas">
+      <a class="pn" href="#certificaciones"><small>← Anterior</small><b><i>←</i> Certificaciones</b></a>
+      <a class="pn pn--next" href="#delegaciones"><small>Siguiente →</small><b>Delegaciones <i>→</i></b></a>
+    </nav>
   </div>
 </section>
 
 <!-- ======================= DELEGACIONES ======================= -->
-<section class="sec sec--paper" id="delegaciones">
-  <span class="sec-idx" aria-hidden="true">05</span>
+<header class="phead pg" data-pg="delegaciones">
+  <img src="assets/ph-contacto.jpg" alt="Delegaciones del Grupo Lozano">
+  <div class="wrap">
+    <p class="crumb"><a href="#inicio">INICIO</a> — DELEGACIONES</p>
+    <h1>Delegaciones</h1>
+  </div>
+</header>
+<section class="sec sec--paper pg" data-pg="delegaciones">
+  <span class="sec-idx" aria-hidden="true">09</span>
   <div class="wrap">
     <header class="shead rv">
-      <p class="eyebrow"><span class="tick"></span>05 · RED TERRITORIAL</p>
+      <p class="eyebrow"><span class="tick"></span>09 · RED TERRITORIAL</p>
       <h2 class="title tl">
         <span class="tl-l"><span>11 delegaciones.</span></span>
         <span class="tl-l"><span>Una grúa siempre <em>cerca.</em></span></span>
@@ -1667,17 +1929,29 @@ input[type="date"]::-webkit-calendar-picker-indicator{filter:invert(.7)}
         </div>
       </div>
     </div>
+
+    <nav class="pgnav rv" aria-label="Navegación entre páginas">
+      <a class="pn" href="#noticias"><small>← Anterior</small><b><i>←</i> Noticias</b></a>
+      <a class="pn pn--next" href="#presupuesto"><small>Siguiente →</small><b>Presupuesto <i>→</i></b></a>
+    </nav>
   </div>
 </section>
 
 <!-- ======================= PRESUPUESTO ======================= -->
-<section class="sec" id="presupuesto">
-  <span class="sec-idx" aria-hidden="true">06</span>
+<header class="phead pg" data-pg="presupuesto">
+  <img src="assets/ph-presupuesto.jpg" alt="Contacto y presupuesto Grúas Lozano">
+  <div class="wrap">
+    <p class="crumb"><a href="#inicio">INICIO</a> — PRESUPUESTO</p>
+    <h1>Presupuesto</h1>
+  </div>
+</header>
+<section class="sec pg" data-pg="presupuesto">
+  <span class="sec-idx" aria-hidden="true">10</span>
   <div class="wrap">
     <div class="q-grid">
       <div>
         <header class="shead rv" style="margin-bottom:0">
-          <p class="eyebrow"><span class="tick"></span>06 · PRESUPUESTO</p>
+          <p class="eyebrow"><span class="tick"></span>10 · PRESUPUESTO</p>
           <h2 class="title tl">
             <span class="tl-l"><span>Su presupuesto,</span></span>
             <span class="tl-l"><span>en tres <em>pasos.</em></span></span>
@@ -1859,6 +2133,11 @@ input[type="date"]::-webkit-calendar-picker-indicator{filter:invert(.7)}
         </div>
       </form>
     </div>
+
+    <nav class="pgnav rv" aria-label="Navegación entre páginas">
+      <a class="pn" href="#delegaciones"><small>← Anterior</small><b><i>←</i> Delegaciones</b></a>
+      <a class="pn pn--next" href="#inicio"><small>Volver →</small><b>Inicio <i>→</i></b></a>
+    </nav>
   </div>
 </section>
 
@@ -1991,21 +2270,28 @@ function setMenu(open){
 burger.addEventListener('click',function(){setMenu(!mmenu.classList.contains('open'))});
 $$('.mmenu a').forEach(function(a){a.addEventListener('click',function(){setMenu(false)})});
 
-/* ---------- scrollspy ---------- */
-var spyLinks=$$('.nav a[data-spy]'),spyMap={};
-spyLinks.forEach(function(a){
-  var el=document.getElementById(a.getAttribute('data-spy'));
-  if(el)spyMap[el.id]=a;
+/* ---------- router de páginas (hash) ---------- */
+var ROUTES=['inicio','historia','servicios','flota','sectores','ingenieria','formacion','certificaciones','noticias','delegaciones','presupuesto'];
+var navLinks=$$('.nav a[data-spy]');
+function currentRoute(){
+  var h=(location.hash||'').replace(/^#\/?/,'');
+  return ROUTES.indexOf(h)>=0?h:'inicio';
+}
+function toTop(){try{window.scrollTo({top:0,left:0,behavior:'instant'})}catch(e){window.scrollTo(0,0)}}
+function showPage(r){
+  $$('.pg').forEach(function(p){p.classList.toggle('act',p.getAttribute('data-pg')===r)});
+  navLinks.forEach(function(a){a.classList.toggle('act',a.getAttribute('data-spy')===r)});
+  toTop();
+  clearTimeout(showPage._t);
+  showPage._t=setTimeout(toTop,90);
+  onScroll();
+}
+window.addEventListener('hashchange',function(){showPage(currentRoute())});
+showPage(currentRoute());
+if('scrollRestoration' in history)history.scrollRestoration='manual';
+window.addEventListener('load',function(){
+  setTimeout(function(){try{window.scrollTo({top:0,left:0,behavior:'instant'})}catch(e){window.scrollTo(0,0)}},60);
 });
-var spyObs=new IntersectionObserver(function(es){
-  es.forEach(function(e){
-    if(e.isIntersecting){
-      spyLinks.forEach(function(a){a.classList.remove('act')});
-      spyMap[e.target.id].classList.add('act');
-    }
-  });
-},{rootMargin:'-35% 0px -55% 0px'});
-Object.keys(spyMap).forEach(function(id){spyObs.observe(document.getElementById(id))});
 
 /* ---------- reveals al hacer scroll ---------- */
 var rvObs=new IntersectionObserver(function(es){
@@ -2115,7 +2401,7 @@ $$('.fcard [data-model]').forEach(function(b){
     var val=svcMap[b.getAttribute('data-svc')];
     var radio=document.querySelector('#qform input[name="svc"][value="'+val+'"]');
     if(radio)radio.checked=true;
-    document.getElementById('presupuesto').scrollIntoView({behavior:reduced?'auto':'smooth'});
+    if(currentRoute()==='presupuesto'){showPage('presupuesto')}else{location.hash='#presupuesto'}
   });
 });
 $('#prefillRm').addEventListener('click',function(){
