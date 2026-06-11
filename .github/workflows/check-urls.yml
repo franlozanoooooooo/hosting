@@ -1,0 +1,19 @@
+name: Check public URLs
+on: workflow_dispatch
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Curl candidates
+        run: |
+          for u in \
+            "https://raw.githack.com/franlozanoooooooo/hosting/main/gruaslozano/index.html" \
+            "https://cdn.statically.io/gh/franlozanoooooooo/hosting/main/gruaslozano/index.html" \
+            "https://franlozanoooooooo.github.io/hosting/gruaslozano/" ; do
+            code=$(curl -s -o /tmp/body -w "%{http_code}" -L --max-time 30 "$u")
+            size=$(wc -c < /tmp/body)
+            title=$(grep -oE '<title>[^<]*' /tmp/body | head -1 || true)
+            echo "RESULT :: $code :: $size bytes :: $title :: $u"
+          done
