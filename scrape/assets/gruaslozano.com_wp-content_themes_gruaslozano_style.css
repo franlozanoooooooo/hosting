@@ -1,0 +1,135 @@
+/*
+Theme Name: Gruas Lozano
+Template: salient
+Version: 1.0
+*/
+
+/* Colores por defecto */
+/*
+var(--nectar-accent-color)
+var(--nectar-extra-color-1)
+var(--nectar-extra-color-2)
+var(--nectar-extra-color-3)
+*/
+.wpb_row h1 strong,.wpb_row h2 strong,.wpb_row h3 strong,.wpb_row h4 strong,.wpb_row h5 strong,.wpb_row h6 strong{color:var(--nectar-accent-color);}
+.icon_image{display:none;}
+/* Slider Home */
+.ns-heading-el{margin-bottom:50px;}
+.ns-heading-el strong{color:#fff !important;}
+.ns-heading-el::after{content:'';position:relative;top:20px;left:0;height:2px;background-color:#fff;width:40%;display:block;max-width:130px;}
+.swiper-slide .content p{max-width:300px;}
+.swiper-slide .content .button-wrap a{border-radius:100px !important;-webkit-border-radius:100px !important;}
+.wpb_gallery_slidesflickity_static_height_style .nectar-flickity:not(.masonry) .flickity-viewport{margin-top:0 !important;}
+/* Header */
+#header-outer:not(.transparent) #top{border-bottom: 0px}
+#header-secondary-outer ul{height:auto;}
+body #page-header-bg h1{text-align: center;}
+#header-secondary-outer[data-full-width=true]>.container nav{border-bottom: 1px solid #fff;}
+/*#ajax-content-wrap{margin-top:15px;}*/
+#header-secondary-outer .nectar-center-text{top:25%;transform:translateX(-50%) translateY(-25%);padding-top:7px !important;}
+.material #header-secondary-outer>.container>nav{min-height:25px;}
+.material #header-secondary-outer,.material #header-secondary-outer>.container {min-height: 25px;}
+#header-outer.transparent #top nav > ul > li > a, #header-outer.transparent #top nav > .sf-menu > li > a, #header-outer.transparent .slide-out-widget-area-toggle a i.label, #header-outer.transparent #top .span_9 > .slide-out-widget-area-toggle a.using-label .label, #header-outer.transparent #top nav ul #search-btn a .icon-salient-search, #header-outer.transparent #top nav ul #nectar-user-account a span, #header-outer.transparent #top nav > ul > li > a > .sf-sub-indicator i, #header-outer.transparent .cart-menu .cart-icon-wrap .icon-salient-cart, .ascend #boxed #header-outer.transparent .cart-menu .cart-icon-wrap .icon-salient-cart, #header-outer.transparent #top .sf-menu > li.nectar-regular-menu-item > a > .nectar-menu-icon, #header-outer.transparent .nectar-header-text-content, #header-outer.transparent .nectar-mobile-only.mobile-header li:not([class*="menu-item-btn-style"]) a{
+	opacity: 1 !important;
+}
+body #header-secondary-outer .nectar-center-text{max-width:80%;text-align:right;}
+.social-top{position:absolute;right:0;top:2px;padding:1px 0 12px 0;}
+body #header-secondary-outer .nectar-center-text,.social-top a{color:#2d2926;font-size:13px;line-height:13px !important;letter-spacing:1px;}
+.social-top a i{color:#fff !important;}
+body.material #header-secondary-outer #social li a i{padding-top: 1px}
+#header-secondary-outer #social{}
+body.material #header-secondary-outer .nectar-center-text{padding-right: 190px}
+body #header-secondary-outer .nectar-center-text{max-width: 100%}
+
+/* Sectores */
+
+#sectores.wpb_row .row-bg{opacity:0.5;background-size:65% auto;}
+
+
+/* Especiales */
+body .plataformas .nectar-post-grid .nectar-post-grid-item-bg img{width:auto;height:80%;top:50%;    left: 50%;
+    transform: translateX(-50%) translateY(-50%);}
+.nectar-post-grid .nectar-post-grid-item .content .post-heading a span{color:#fff !important}
+.plataformas .nectar-post-grid-item-bg:after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    content: '';
+	opacity:0.8;
+    background-image: url(./images/angulo_naranja.png);
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: bottom right;
+}
+body .plataformas .nectar-post-grid .nectar-post-grid-item-bg-wrap-inner{background:#fff;}
+.nectar-icon-list-item{margin-bottom: 30px;}
+.nectar-icon-list-item .content{color: inherit;}
+html body .full-width-content.vc_row-fluid .wpb_column {
+    padding: inherit;
+}
+.text-front{position:relative;z-index:100;float:right;max-width:460px;}
+.full-width-content.vc_row-fluid .wpb_column .column-image-bg-wrap[data-bg-pos="right bottom"] .column-image-bg{background-position:right bottom;}
+
+/* Especiales */
+.servicios .column-image-bg{background-size: auto !important;background-repeat: no-repeat;}
+
+.delegaciones .column-image-bg{
+    background-size: cover !important;
+    background-position: right center !important;
+    background-repeat: no-repeat;
+}
+
+a.extra-color-gradient-1{
+     background: rgb(176,74,0) !important;
+background: -moz-linear-gradient(270deg, rgba(176,74,0,1) 0%, rgba(255,107,0,1) 100%) !important;
+background: -webkit-linear-gradient(270deg, rgba(176,74,0,1) 0%, rgba(255,107,0,1) 100%) !important;
+background: linear-gradient(270deg, rgba(176,74,0,1) 0%, rgba(255,107,0,1) 100%) !important;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#b04a00",endColorstr="#ff6b00",GradientType=1) !important; 
+}
+.swiper-slide .button a{
+    text-transform: inherit;
+}
+
+/* Portfolio */
+.lista-gruas .post-heading a>span{color:#fff !important;font-weight:bold;}
+.nectar-post-grid-wrap[data-style=content_under_image] .nectar-post-grid[data-card=yes][data-text-align=center] .nectar-post-grid-item .content {
+    padding: 20px;
+}
+.nectar-post-grid-wrap[data-style=content_under_image].nectar-browser-window-style [data-text-color=light] .nectar-post-grid-item .inner:before{display:none;}
+
+.nectar-post-grid-item-bg.img-loaded:after{position:absolute;right:0;bottom:0;content:'';background-image:url('./images/angulo_naranja.png');width:100%;height:100%;background-repeat:no-repeat;background-position:bottom right;opacity:0.8;}
+ .nectar-post-grid[data-text-color=light] .nectar-post-grid-item .content *{color:#ff6b00 !important ;}
+
+/* Tabs */
+.wpb_tabs_nav .menu-item{margin-bottom: 15px}
+.tabbed[data-style*="material"] .wpb_tabs_nav:after{height:5px;opacity:1;}
+/* Footer */
+#footer-outer .widget_media_image img{max-width: 150px !important}
+
+/* Hack para plantilla Slider Only */
+body .vc_row-fluid[data-column-margin="none"] .wpb_column:not(.child_column),body .container-wrap .inner_row[data-column-margin="none"] .child_column{padding-left:0;padding-right:0;}
+
+/* Vertical tabs */
+.wpb_row:not(#sectores) .wpb_tabs_nav .menu-item{margin-bottom: 15px !important}
+.wpb_row:not(#sectores) .wpb_tabs_nav .menu-item.active-tab a{font-weight: 700 !important}
+.nectar-sticky-tabs .active-tab .tab-nav-heading:before{ width:3px;height:26px; }
+.wpb_row:not(#sectores) .nectar-sticky-tabs .scrolling-tab-nav ul li:before{content:'';position:absolute;left:-24px;height:35px;width:1px;background-color:#d9d9d9;}
+.wpb_row:not(#sectores) .nectar-sticky-tabs .scrolling-tab-nav{width:auto !important;}
+
+@media screen and (max-width:476px)
+{
+.vc_custom_heading.text-front{ font-size:1.1rem !important;line-height:1.1rem !important;padding-right:60px !important; }	
+.ns-heading-el::after{top:-5px;}
+	#sectores.wpb_row .row-bg{background-size:100% auto;}
+}
+
+@media screen and (min-width:477px) AND (max-width:960px)
+{
+    .vc_custom_heading.text-front {
+        font-size: 2.1rem !important;
+        line-height: 2.1rem !important;
+        padding-right: 100px !important;
+    }	
+
+}
