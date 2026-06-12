@@ -664,6 +664,29 @@ body.ld .hero [data-h="5"]{transition-delay:.66s}
 .sect{will-change:transform}
 .mq{will-change:transform}
 
+/* ---------- intro de entrada (logo + líneas, fundido) ---------- */
+#intro{
+  position:fixed;inset:0;z-index:300;background:#fff;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.3rem;
+}
+#intro.done{opacity:0;visibility:hidden;transition:opacity .7s ease,visibility .7s ease}
+.intro-row{display:flex;align-items:center;gap:1.6rem;width:min(760px,88vw)}
+.intro-line{height:2px;flex:1;background:var(--or);transform:scaleX(0);animation:introline 1.1s var(--ease) .35s forwards}
+.intro-line:first-child{transform-origin:right}
+.intro-line:last-child{transform-origin:left}
+@keyframes introline{to{transform:scaleX(1)}}
+.intro-row img{
+  width:clamp(170px,24vw,240px);flex:none;
+  opacity:0;transform:scale(.9);animation:intrologo .8s var(--ease) .1s forwards;
+}
+@keyframes intrologo{to{opacity:1;transform:none}}
+.intro-tag{
+  font:550 .6rem/1.6 var(--fm);letter-spacing:.26em;text-transform:uppercase;color:var(--dim);
+  opacity:0;animation:introfade .7s ease .8s forwards;text-align:center;padding:0 6vw;
+}
+@keyframes introfade{to{opacity:1}}
+@media (prefers-reduced-motion:reduce){#intro{display:none}}
+
 /* ---------- responsive ---------- */
 @media (max-width:1600px){
   .hdr .wrap{gap:1.4rem}
@@ -715,6 +738,15 @@ body.ld .hero [data-h="5"]{transition-delay:.66s}
 </style>
 </head>
 <body>
+
+<div id="intro" aria-hidden="true">
+  <div class="intro-row">
+    <span class="intro-line"></span>
+    <img src="assets/logo-dark.jpg" alt="">
+    <span class="intro-line"></span>
+  </div>
+  <span class="intro-tag">ELEVACIÓN, INGENIERÍA Y TRANSPORTE — DESDE 1959</span>
+</div>
 
 <div id="pbar" aria-hidden="true"></div>
 
@@ -2142,10 +2174,28 @@ var $=function(s,c){return (c||document).querySelector(s)};
 var $$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
 var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/* ---------- entrada del hero ---------- */
+/* ---------- intro de entrada + arranque del hero ---------- */
 function setLoaded(){document.body.classList.add('ld')}
-window.addEventListener('load',setLoaded);
-setTimeout(setLoaded,900);
+var intro=document.getElementById('intro');
+if(intro&&!reduced){
+  document.documentElement.style.overflow='hidden';
+  var t0=Date.now();
+  var closeIntro=function(){
+    if(intro._closed)return;intro._closed=true;
+    intro.classList.add('done');
+    document.documentElement.style.overflow='';
+    setTimeout(setLoaded,250);
+    setTimeout(function(){if(intro.parentNode)intro.parentNode.removeChild(intro)},850);
+  };
+  window.addEventListener('load',function(){
+    setTimeout(closeIntro,Math.max(0,2000-(Date.now()-t0)));
+  });
+  setTimeout(closeIntro,3500);
+}else{
+  if(intro&&intro.parentNode)intro.parentNode.removeChild(intro);
+  window.addEventListener('load',setLoaded);
+  setTimeout(setLoaded,900);
+}
 
 /* ---------- reloj Sevilla ---------- */
 var clock=$('#clock');
