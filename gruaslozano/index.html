@@ -664,6 +664,31 @@ body.ld .hero [data-h="5"]{transition-delay:.66s}
 .sect{will-change:transform}
 .mq{will-change:transform}
 
+/* ---------- intro de entrada (logo + cortina) ---------- */
+#intro{
+  position:fixed;inset:0;z-index:300;background:var(--bg);
+  display:flex;align-items:center;justify-content:center;
+}
+#intro::after{content:"";position:absolute;left:0;right:0;bottom:0;height:6px;background:repeating-linear-gradient(-45deg,var(--or) 0 12px,transparent 12px 26px)}
+#intro.done{transform:translateY(-101%);transition:transform .8s cubic-bezier(.65,0,.35,1)}
+.intro-inner{text-align:center;padding:0 6vw}
+.intro-inner img{
+  width:clamp(220px,38vw,360px);margin:0 auto;mix-blend-mode:multiply;
+  opacity:0;transform:scale(.9) translateY(12px);
+  animation:intrologo .9s var(--ease) .15s forwards;
+}
+@keyframes intrologo{to{opacity:1;transform:none}}
+.intro-tag{
+  display:block;margin-top:1.3rem;
+  font:550 .62rem/1.6 var(--fm);letter-spacing:.26em;text-transform:uppercase;color:var(--dim);
+  opacity:0;animation:introfade .7s ease .55s forwards;
+}
+@keyframes introfade{to{opacity:1}}
+.intro-bar{display:block;width:min(280px,60vw);height:4px;border-radius:99px;background:var(--bg3);margin:1.5rem auto 0;overflow:hidden}
+.intro-bar b{display:block;height:100%;border-radius:99px;background:var(--or);transform:scaleX(0);transform-origin:left;animation:introload 1.5s var(--ease) .2s forwards}
+@keyframes introload{to{transform:scaleX(1)}}
+@media (prefers-reduced-motion:reduce){#intro{display:none}}
+
 /* ---------- responsive ---------- */
 @media (max-width:1600px){
   .hdr .wrap{gap:1.4rem}
@@ -715,6 +740,14 @@ body.ld .hero [data-h="5"]{transition-delay:.66s}
 </style>
 </head>
 <body>
+
+<div id="intro" aria-hidden="true">
+  <div class="intro-inner">
+    <img src="assets/logo-dark.jpg" alt="">
+    <span class="intro-tag">ELEVACIÓN, INGENIERÍA Y TRANSPORTE — DESDE 1959</span>
+    <i class="intro-bar"><b></b></i>
+  </div>
+</div>
 
 <div id="pbar" aria-hidden="true"></div>
 
@@ -2142,10 +2175,28 @@ var $=function(s,c){return (c||document).querySelector(s)};
 var $$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
 var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/* ---------- entrada del hero ---------- */
+/* ---------- intro de entrada + arranque del hero ---------- */
 function setLoaded(){document.body.classList.add('ld')}
-window.addEventListener('load',setLoaded);
-setTimeout(setLoaded,900);
+var intro=document.getElementById('intro');
+if(intro&&!reduced){
+  document.documentElement.style.overflow='hidden';
+  var t0=Date.now();
+  var closeIntro=function(){
+    if(intro._closed)return;intro._closed=true;
+    intro.classList.add('done');
+    document.documentElement.style.overflow='';
+    setTimeout(setLoaded,250);
+    setTimeout(function(){if(intro.parentNode)intro.parentNode.removeChild(intro)},1000);
+  };
+  window.addEventListener('load',function(){
+    setTimeout(closeIntro,Math.max(0,1800-(Date.now()-t0)));
+  });
+  setTimeout(closeIntro,3500);
+}else{
+  if(intro&&intro.parentNode)intro.parentNode.removeChild(intro);
+  window.addEventListener('load',setLoaded);
+  setTimeout(setLoaded,900);
+}
 
 /* ---------- reloj Sevilla ---------- */
 var clock=$('#clock');
