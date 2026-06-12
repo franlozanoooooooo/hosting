@@ -11,8 +11,6 @@
 <link rel="icon" type="image/jpeg" href="assets/favicon.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-<script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"LocalBusiness","name":"Grúas y Plataformas Lozano","foundingDate":"1959","telephone":"+34955634500","email":"gruaslozano@gruaslozano.com","address":{"@type":"PostalAddress","streetAddress":"Polígono Industrial La Red, calle 9, nº 1. Carretera de Sevilla a Málaga Km 5,200","addressLocality":"Alcalá de Guadaíra","addressRegion":"Sevilla","postalCode":"41500","addressCountry":"ES"},"areaServed":["Andalucía","Extremadura"]}
@@ -465,23 +463,12 @@ body.ld .hero [data-h="5"]{transition-delay:.66s}
 /* ---------- delegaciones / mapa ---------- */
 .del-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.12fr .88fr;gap:clamp(1.8rem,4vw,3rem);align-items:stretch}
 .map-panel{position:relative;background:var(--bg2);border:1px solid var(--line);border-radius:var(--r-lg);padding:1rem;box-shadow:var(--sh);display:flex;flex-direction:column}
-#map{height:520px;flex:1;min-height:420px;border-radius:18px;background:var(--bg3);z-index:1}
-.map-hint{
-  position:absolute;top:1.8rem;right:1.8rem;z-index:500;
-  background:rgba(33,29,25,.86);color:#fff;border-radius:999px;
-  font:550 .66rem/1 var(--fm);letter-spacing:.04em;padding:.65rem 1.05rem;
-  pointer-events:none;box-shadow:var(--sh-sm);
-}
+.gmap{flex:1;min-height:420px;border-radius:18px;overflow:hidden;background:var(--bg3)}
+.gmap iframe{width:100%;height:100%;min-height:520px;border:0;display:block}
 .map-legend{display:flex;flex-wrap:wrap;gap:1.4rem;padding:.95rem .6rem .25rem;font:500 .85rem/1.4 var(--fd);color:var(--ink)}
 .map-legend span{display:flex;align-items:center;gap:.55rem}
 .map-legend .lg{width:14px;height:14px;border-radius:50%;background:var(--or);border:3px solid #fff;box-shadow:0 0 0 1.5px var(--or),0 3px 6px rgba(45,41,38,.3);flex:none}
 .map-legend .lg--hq{background:var(--or-d);width:16px;height:16px;box-shadow:0 0 0 2px var(--or-d),0 3px 6px rgba(45,41,38,.3)}
-.lmark{display:block;width:18px;height:18px;border-radius:50%;background:var(--or);border:3px solid #fff;box-shadow:0 0 0 1.5px var(--or),0 4px 8px rgba(45,41,38,.35)}
-.lmark--hq{width:24px;height:24px;background:var(--or-d);box-shadow:0 0 0 2px var(--or-d),0 4px 10px rgba(45,41,38,.4)}
-.leaflet-popup-content-wrapper{border-radius:14px;font-family:var(--fd)}
-.leaflet-popup-content{margin:.85rem 1.05rem;line-height:1.5}
-.leaflet-popup-content b{font-weight:750;text-transform:uppercase;font-size:.92rem}
-.leaflet-popup-content small{color:var(--dim);display:block;margin-top:.15rem}
 .dlist{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--bg2);overflow:hidden;box-shadow:var(--sh)}
 .dl-scroll{overflow-y:auto;max-height:360px;scrollbar-width:thin}
 .ditem{
@@ -669,7 +656,7 @@ body.ld .hero [data-h="5"]{transition-delay:.66s}
   .sect-grid{grid-template-columns:repeat(3,1fr)}
   .certs{grid-template-columns:repeat(3,1fr)}
   .foot-grid{grid-template-columns:1fr 1fr}
-  #map{height:440px}
+  .gmap iframe{min-height:440px}
 }
 @media (max-width:860px){
   :root{--hdr-h:70px}
@@ -686,8 +673,8 @@ body.ld .hero [data-h="5"]{transition-delay:.66s}
   .fnav{flex-direction:column-reverse}
   .fnav .btn--back{width:100%}
   .hist-shot .badge{width:88px;right:1.2rem;bottom:3.2rem}
-  #map{height:380px;min-height:320px}
-  .map-hint{display:none}
+  .gmap{min-height:340px}
+  .gmap iframe{min-height:340px}
 }
 @media (max-width:560px){
   .hdr-tel{display:none}
@@ -1760,14 +1747,14 @@ body.ld .hero [data-h="5"]{transition-delay:.66s}
 
     <div class="del-grid">
       <div class="map-panel rv">
-        <div id="map" aria-label="Mapa de delegaciones del Grupo Lozano en Andalucía y Extremadura"></div>
-        <span class="map-hint">Arrastra y usa la rueda o + / − para ampliar</span>
+        <div class="gmap">
+          <iframe id="gmap" src="https://www.google.com/maps?q=Gr%C3%BAas%20Lozano%2C%20Pol%C3%ADgono%20Industrial%20La%20Red%2C%20Alcal%C3%A1%20de%20Guada%C3%ADra&z=8&hl=es&output=embed" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" title="Mapa de Google con las delegaciones del Grupo Lozano"></iframe>
+        </div>
         <div class="map-legend">
           <span><i class="lg lg--hq"></i>Sede central · Alcalá de Guadaíra</span>
-          <span><i class="lg"></i>Delegación de grúas y plataformas</span>
+          <span><i class="lg"></i>Toque una delegación de la lista para situarla en el mapa</span>
         </div>
       </div>
-
       <div class="dlist rv" style="--d:.15s">
         <div class="dl-scroll" id="dlist">
           <button class="ditem act" data-d="sev" data-ll="37.358,-5.846" data-tag="SEDE CENTRAL" data-tel="955634500" data-telshow="955 634 500" data-img="assets/del-sevilla.jpg" data-cover="Servicios Generales del Grupo y Grúas Lozano Sevilla: P.I. La Red, calle 9 nº 1, Ctra. Sevilla–Málaga km 5,2 · Alcalá de Guadaíra. Plataformas Lozano en P.I. La Red nº 13 e instalaciones en Mercasevilla.">
@@ -2397,42 +2384,17 @@ form.addEventListener('submit',function(e){
   },900);
 });
 
-/* ---------- delegaciones: mapa real (Leaflet) + lista ---------- */
+/* ---------- delegaciones: Google Maps + lista ---------- */
 var ditems=$$('.ditem');
 var dcity=$('#dcity'),dtag=$('#dtag'),dcover=$('#dcover'),dimg=$('#dimg'),dtel=$('#dtel'),dtelshow=$('#dtelshow');
 var userLocked=false,cycleI=0,cycleT=null;
-var lmap=null,lmarkers={};
-function initMap(){
-  if(lmap||!window.L||!document.getElementById('map'))return;
-  lmap=L.map('map',{scrollWheelZoom:true,zoomControl:true});
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
-    maxZoom:18,
-    attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-  }).addTo(lmap);
-  var bounds=[];
-  ditems.forEach(function(it){
-    var ll=(it.getAttribute('data-ll')||'').split(',').map(Number);
-    if(ll.length!==2||isNaN(ll[0]))return;
-    var id=it.getAttribute('data-d');
-    var hq=id==='sev';
-    var icon=L.divIcon({
-      className:'',
-      html:'<span class="lmark'+(hq?' lmark--hq':'')+'"></span>',
-      iconSize:[hq?24:18,hq?24:18],
-      iconAnchor:[hq?12:9,hq?12:9]
-    });
-    var m=L.marker(ll,{icon:icon}).addTo(lmap);
-    m.bindPopup('<b>'+it.querySelector('b').textContent+'</b><small>'+it.getAttribute('data-tag')+' · Tel. '+it.getAttribute('data-telshow')+'</small>');
-    m.on('click',function(){selectD(id,true,false)});
-    lmarkers[id]=m;
-    bounds.push(ll);
-  });
-  if(bounds.length)lmap.fitBounds(bounds,{padding:[36,36]});
+var gmap=document.getElementById('gmap');
+function gmapTo(it){
+  if(!gmap)return;
+  var ll=(it.getAttribute('data-ll')||'').trim();
+  if(!ll)return;
+  gmap.src='https://www.google.com/maps?q='+encodeURIComponent(ll)+'&z=15&hl=es&output=embed';
 }
-window.addEventListener('load',initMap);
-var mapTry=setInterval(function(){if(window.L){initMap();clearInterval(mapTry)}},400);
-setTimeout(function(){clearInterval(mapTry)},10000);
-
 function selectD(id,fromUser,fly){
   ditems.forEach(function(it){
     var on=it.getAttribute('data-d')===id;
@@ -2444,10 +2406,7 @@ function selectD(id,fromUser,fly){
       dimg.src=it.getAttribute('data-img');
       dtel.href='tel:+34'+it.getAttribute('data-tel');
       dtelshow.textContent=it.getAttribute('data-telshow');
-      if(lmap&&lmarkers[id]&&fromUser){
-        if(fly!==false)lmap.flyTo(lmarkers[id].getLatLng(),9,{duration:.9});
-        lmarkers[id].openPopup();
-      }
+      if(fromUser)gmapTo(it);
     }
   });
   if(fromUser){
