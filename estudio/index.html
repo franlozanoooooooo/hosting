@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lozano &amp; Peralta — Estudio Web · Creamos y mejoramos las webs de las empresas</title>
+<meta name="description" content="Estudio web fundado por Francisco Lozano y Pedro Peralta. Diseñamos webs nuevas y reinventamos las existentes: diseño a medida, rendimiento, SEO y visión de futuro.">
+<meta property="og:title" content="Lozano &amp; Peralta — Estudio Web">
+<meta property="og:description" content="Creamos y mejoramos las webs de las empresas. Diseño a medida, magic scroll, rendimiento y visión de futuro.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2307080C'/%3E%3Cpath d='M18 16v26h14' stroke='%236BFFB8' stroke-width='6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M36 48V22h8a8 8 0 0 1 0 16h-8' stroke='%235EA8FF' stroke-width='6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"Lozano & Peralta — Estudio Web","description":"Creación y mejora de páginas web para empresas.","email":"franlozano.500@gmail.com","founder":[{"@type":"Person","name":"Francisco Lozano"},{"@type":"Person","name":"Pedro Peralta"}],"foundingDate":"2026","areaServed":"ES","knowsAbout":["Diseño web","Rediseño web","SEO","Rendimiento web"]}
+</script>
+<script>document.documentElement.className='js'</script>
+<style>
+/* ============================================================
+   LOZANO & PERALTA — Estudio Web
+   Tema oscuro «Señal en la noche» · una página, scroll continuo
+   Magic scroll: manifiesto scrubbed + proceso pinned + parallax
+   ============================================================ */
+:root{
+  --bg:#07080C;
+  --bg2:#0C0E15;
+  --bg3:#11141D;
+  --ink:#F2F4F8;
+  --dim:#98A1B3;
+  --faint:#5A6275;
+  --acc:#6BFFB8;
+  --acc2:#5EA8FF;
+  --grad:linear-gradient(92deg,#6BFFB8 0%,#5EA8FF 100%);
+  --line:rgba(242,244,248,.1);
+  --line-soft:rgba(242,244,248,.06);
+  --card:rgba(255,255,255,.025);
+  --r:18px;
+  --r-lg:28px;
+  --fd:'Space Grotesk',system-ui,-apple-system,sans-serif;
+  --fm:'IBM Plex Mono',ui-monospace,'SF Mono',monospace;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --hdr-h:78px;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--hdr-h) + 14px)}
+body{
+  font:400 1rem/1.7 var(--fd);
+  background:var(--bg);
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+::selection{background:var(--acc);color:#06140D}
+img,svg,canvas{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+.wrap{width:min(1200px,92vw);margin-inline:auto}
+.mono{font-family:var(--fm)}
+
+/* ---------- utilidades de marca ---------- */
+.eyebrow{
+  display:flex;align-items:center;gap:.8rem;
+  font:600 .7rem/1 var(--fm);letter-spacing:.22em;text-transform:uppercase;color:var(--acc);
+  margin-bottom:1.4rem;
+}
+.eyebrow .tick{width:30px;height:1px;background:var(--acc);flex:none;position:relative}
+.eyebrow .tick::after{content:"";position:absolute;right:0;top:-2.5px;width:6px;height:6px;border-radius:50%;background:var(--acc)}
+.title{
+  font-weight:700;letter-spacing:-.03em;
+  font-size:clamp(2.1rem,4.6vw,3.6rem);line-height:1.05;color:var(--ink);
+}
+.title em{
+  font-style:normal;background:var(--grad);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.sub{max-width:56ch;color:var(--dim);margin-top:1.3rem;font-size:1.06rem}
+.sub b{color:var(--ink);font-weight:600}
+.sec{position:relative;padding:clamp(5rem,9vw,8.5rem) 0;overflow:hidden}
+.sec--panel{background:var(--bg2);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
+.sec-idx{
+  position:absolute;top:1rem;right:-.5rem;z-index:0;pointer-events:none;user-select:none;
+  font-weight:700;line-height:.8;font-size:clamp(6rem,15vw,12rem);letter-spacing:-.04em;
+  color:transparent;-webkit-text-stroke:1px rgba(242,244,248,.055);
+}
+.shead{position:relative;z-index:1;margin-bottom:clamp(2.6rem,5vw,4rem)}
+
+/* reveals de línea en titulares */
+.tl-l{display:block;overflow:hidden;padding-bottom:.1em;margin-bottom:-.1em}
+.tl-l>span{display:block;transform:translateY(115%);transition:transform 1s var(--ease)}
+.on .tl-l>span,.tl.on .tl-l>span{transform:none}
+.tl-l:nth-child(2)>span{transition-delay:.1s}
+.tl-l:nth-child(3)>span{transition-delay:.18s}
+
+/* reveal genérico */
+.js .rv{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease) var(--d,0s),transform .9s var(--ease) var(--d,0s)}
+.js .rv.on{opacity:1;transform:none}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important}
+  html{scroll-behavior:auto}
+  .js .rv,.tl-l>span{opacity:1;transform:none}
+}
+
+/* ---------- botones ---------- */
+.btn{
+  position:relative;display:inline-flex;align-items:center;justify-content:center;gap:.7rem;
+  padding:1.05rem 1.8rem;overflow:hidden;text-decoration:none;white-space:nowrap;border-radius:999px;
+  font:600 .78rem/1 var(--fm);letter-spacing:.13em;text-transform:uppercase;
+  transition:color .35s var(--ease),border-color .35s var(--ease),transform .35s var(--ease),box-shadow .35s;
+}
+.btn>*{position:relative;z-index:1}
+.btn::before{content:"";position:absolute;inset:0;transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+.btn:hover::before{transform:scaleX(1)}
+.btn:active{transform:translateY(1px)}
+.btn .ar{transition:transform .35s var(--ease)}
+.btn:hover .ar{transform:translateX(5px)}
+.btn--acc{background:var(--acc);color:#06140D}
+.btn--acc::before{background:#fff}
+.btn--acc:hover{box-shadow:0 8px 32px -8px rgba(107,255,184,.45)}
+.btn--ghost{border:1px solid var(--line);color:var(--ink)}
+.btn--ghost::before{background:var(--ink)}
+.btn--ghost:hover{color:#07080C;border-color:var(--ink)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:6px}
+
+/* ---------- barra de progreso scroll ---------- */
+#pbar{position:fixed;top:0;left:0;height:2px;width:100%;z-index:300;transform-origin:left;transform:scaleX(0);background:var(--grad)}
+
+/* ---------- header ---------- */
+.hdr{
+  position:fixed;inset:0 0 auto;z-index:200;height:var(--hdr-h);
+  display:flex;align-items:center;
+  transition:background .4s,border-color .4s,height .4s var(--ease);
+  border-bottom:1px solid transparent;
+}
+.hdr.scrolled{height:64px;background:rgba(7,8,12,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line-soft)}
+.hdr .wrap{display:flex;align-items:center;justify-content:space-between;gap:1.5rem}
+.logo{display:flex;align-items:center;gap:.75rem;text-decoration:none}
+.logo-mark{
+  width:36px;height:36px;border-radius:10px;flex:none;
+  display:grid;place-items:center;
+  background:var(--bg3);border:1px solid var(--line);
+  font:700 .82rem/1 var(--fm);letter-spacing:-.05em;
+}
+.logo-mark b{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:700}
+.logo-word{font:600 .76rem/1.35 var(--fm);letter-spacing:.18em;text-transform:uppercase}
+.logo-word small{display:block;font-size:.58rem;letter-spacing:.26em;color:var(--faint);font-weight:500}
+.nav{display:flex;align-items:center;gap:2rem}
+.nav a{
+  position:relative;font:500 .72rem/1 var(--fm);letter-spacing:.16em;text-transform:uppercase;
+  color:var(--dim);text-decoration:none;padding:.4rem 0;transition:color .3s;
+}
+.nav a::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:var(--acc);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
+.nav a:hover{color:var(--ink)}
+.nav a:hover::after{transform:scaleX(1)}
+.hdr .btn{padding:.78rem 1.25rem;font-size:.66rem}
+.burger{display:none;flex-direction:column;gap:5px;padding:.6rem;z-index:2}
+.burger span{display:block;width:22px;height:2px;background:var(--ink);transition:transform .35s var(--ease),opacity .3s}
+.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media (max-width:920px){
+  .nav{
+    position:fixed;inset:0;flex-direction:column;justify-content:center;gap:2.2rem;
+    background:rgba(7,8,12,.97);backdrop-filter:blur(20px);
+    opacity:0;pointer-events:none;transition:opacity .4s;
+  }
+  .nav.open{opacity:1;pointer-events:auto}
+  .nav a{font-size:1rem}
+  .burger{display:flex}
+  .hdr .btn{display:none}
+}
+
+/* ---------- intro overlay ---------- */
+#intro{
+  position:fixed;inset:0;z-index:400;background:var(--bg);
+  display:grid;place-items:center;
+  transition:transform .9s var(--ease),visibility 0s .9s;
+}
+#intro.done{transform:translateY(-101%);visibility:hidden}
+#intro .i-in{text-align:center;position:relative;padding:2rem 3rem}
+#intro .i-line{position:absolute;background:var(--grad);opacity:0}
+#intro .i-line--t{top:0;left:0;height:1px;width:100%;transform:scaleX(0);transform-origin:left}
+#intro .i-line--b{bottom:0;right:0;height:1px;width:100%;transform:scaleX(0);transform-origin:right}
+#intro.go .i-line{opacity:1;transition:transform .8s var(--ease) .1s,opacity .2s}
+#intro.go .i-line--t,#intro.go .i-line--b{transform:scaleX(1)}
+#intro .i-name{overflow:hidden}
+#intro .i-name span{
+  display:block;font:700 clamp(1.4rem,4.5vw,2.4rem)/1.15 var(--fd);letter-spacing:-.02em;
+  transform:translateY(110%);transition:transform .8s var(--ease) .35s;
+}
+#intro.go .i-name span{transform:none}
+#intro .i-tag{
+  margin-top:.7rem;font:500 .62rem/1 var(--fm);letter-spacing:.34em;text-transform:uppercase;color:var(--acc);
+  opacity:0;transition:opacity .6s .8s;
+}
+#intro.go .i-tag{opacity:1}
+.no-js #intro,#intro.skip{display:none}
+
+/* ---------- hero ---------- */
+.hero{
+  position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:center;
+  padding:calc(var(--hdr-h) + 3rem) 0 6rem;overflow:hidden;
+}
+#net{position:absolute;inset:0;opacity:.55}
+.hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(620px 420px at 78% 18%,rgba(94,168,255,.14),transparent 65%),
+    radial-gradient(560px 460px at 12% 82%,rgba(107,255,184,.1),transparent 65%);
+}
+.hero::after{content:"";position:absolute;inset:auto 0 0;height:34vh;background:linear-gradient(180deg,transparent,var(--bg));pointer-events:none}
+.hero .wrap{position:relative;z-index:1;will-change:transform}
+.h-eyebrow{display:inline-flex;align-items:center;gap:.7rem;border:1px solid var(--line);border-radius:999px;padding:.55rem 1.05rem;font:500 .64rem/1 var(--fm);letter-spacing:.2em;text-transform:uppercase;color:var(--dim)}
+.h-eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--acc);box-shadow:0 0 12px var(--acc);animation:pulse 2.4s infinite}
+@keyframes pulse{50%{opacity:.35}}
+.h-title{
+  margin-top:2rem;font-weight:700;letter-spacing:-.035em;
+  font-size:clamp(2.7rem,7.4vw,5.6rem);line-height:1.02;max-width:14ch;
+}
+.h-title em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.h-sub{margin-top:1.8rem;max-width:54ch;color:var(--dim);font-size:clamp(1rem,1.4vw,1.15rem)}
+.h-sub b{color:var(--ink);font-weight:600}
+.h-cta{margin-top:2.6rem;display:flex;flex-wrap:wrap;gap:1rem}
+.h-meta{
+  margin-top:4rem;display:flex;flex-wrap:wrap;gap:2.6rem;
+  font:500 .66rem/1.7 var(--fm);letter-spacing:.14em;text-transform:uppercase;color:var(--faint);
+}
+.h-meta b{display:block;color:var(--ink);font-size:.82rem;letter-spacing:.06em}
+.scroll-cue{
+  position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:1;
+  display:flex;flex-direction:column;align-items:center;gap:.6rem;
+  font:500 .58rem/1 var(--fm);letter-spacing:.3em;text-transform:uppercase;color:var(--faint);
+}
+.scroll-cue::after{
+  content:"";width:1px;height:44px;
+  background:linear-gradient(180deg,var(--acc),transparent);
+  animation:cue 1.8s var(--ease) infinite;
+}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ---------- marquee ---------- */
+.marquee{
+  position:relative;padding:1.15rem 0;overflow:hidden;white-space:nowrap;
+  border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);background:var(--bg2);
+}
+.marquee-track{display:inline-flex;gap:3.2rem;animation:mq 30s linear infinite;will-change:transform}
+.marquee span{font:600 .74rem/1 var(--fm);letter-spacing:.26em;text-transform:uppercase;color:var(--dim)}
+.marquee i{font-style:normal;color:var(--acc)}
+@keyframes mq{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.marquee-track{animation:none}}
+
+/* ---------- magic scroll 1: manifiesto scrubbed ---------- */
+.mani{position:relative;height:240vh;background:var(--bg)}
+.mani-sticky{position:sticky;top:0;height:100svh;display:flex;align-items:center;overflow:hidden}
+.mani-bg{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;user-select:none;
+  font:700 clamp(16rem,46vw,34rem)/1 var(--fd);letter-spacing:-.06em;
+  color:transparent;-webkit-text-stroke:1px rgba(242,244,248,.045);white-space:nowrap;
+}
+.mani-txt{
+  position:relative;z-index:1;
+  font-weight:600;letter-spacing:-.02em;
+  font-size:clamp(1.7rem,4.1vw,3.1rem);line-height:1.32;max-width:24ch;
+}
+.mani-txt .w{color:rgba(242,244,248,.14);transition:color .35s}
+.mani-txt .w.lit{color:var(--ink)}
+.mani-txt .w.key.lit{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.mani-firma{
+  margin-top:2.4rem;font:500 .68rem/1 var(--fm);letter-spacing:.22em;text-transform:uppercase;color:var(--faint);
+  opacity:0;transform:translateY(14px);transition:opacity .6s var(--ease),transform .6s var(--ease);
+}
+.mani-firma.lit{opacity:1;transform:none}
+@media (max-width:760px){.mani{height:200vh}}
+@media (prefers-reduced-motion:reduce){
+  .mani{height:auto}
+  .mani-sticky{position:static;height:auto;padding:6rem 0}
+  .mani-txt .w{color:var(--ink)}
+  .mani-firma{opacity:1;transform:none}
+}
+
+/* ---------- servicios ---------- */
+.svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem}
+@media (max-width:860px){.svc-grid{grid-template-columns:1fr}}
+.svc{
+  position:relative;border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:2.2rem 2.1rem 2.4rem;background:var(--card);overflow:hidden;
+  transition:transform .5s var(--ease),border-color .4s,background .4s;
+}
+.svc::before{
+  content:"";position:absolute;inset:0;opacity:0;transition:opacity .5s;pointer-events:none;
+  background:radial-gradient(420px 260px at var(--mx,80%) var(--my,0%),rgba(107,255,184,.07),transparent 70%);
+}
+.svc:hover{transform:translateY(-5px);border-color:rgba(107,255,184,.32);background:rgba(255,255,255,.04)}
+.svc:hover::before{opacity:1}
+.svc-num{font:600 .7rem/1 var(--fm);letter-spacing:.2em;color:var(--acc)}
+.svc h3{margin-top:1.1rem;font-size:1.32rem;font-weight:600;letter-spacing:-.015em}
+.svc p{margin-top:.8rem;color:var(--dim);font-size:.96rem;max-width:46ch}
+.svc-tags{margin-top:1.5rem;display:flex;flex-wrap:wrap;gap:.5rem}
+.svc-tags span{
+  font:500 .6rem/1 var(--fm);letter-spacing:.12em;text-transform:uppercase;color:var(--dim);
+  border:1px solid var(--line);border-radius:999px;padding:.42rem .7rem;
+}
+.svc .svc-ico{
+  position:absolute;top:1.9rem;right:1.9rem;width:42px;height:42px;border-radius:12px;
+  display:grid;place-items:center;border:1px solid var(--line);color:var(--acc);
+  transition:transform .5s var(--ease),border-color .4s;
+}
+.svc:hover .svc-ico{transform:rotate(-8deg) scale(1.08);border-color:rgba(107,255,184,.4)}
+
+/* ---------- magic scroll 2: proceso pinned ---------- */
+.proc{position:relative;height:380vh;background:var(--bg2)}
+.proc-sticky{
+  position:sticky;top:0;height:100svh;overflow:hidden;
+  display:flex;flex-direction:column;justify-content:center;
+  border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);
+}
+.proc-bg{
+  position:absolute;right:-2%;bottom:-6%;pointer-events:none;user-select:none;
+  font:700 clamp(14rem,38vw,30rem)/0.8 var(--fd);letter-spacing:-.05em;
+  color:transparent;-webkit-text-stroke:1.5px rgba(107,255,184,.1);
+  transition:opacity .3s;
+}
+.proc-head{margin-bottom:clamp(1.6rem,3vh,3rem)}
+.proc-stage{position:relative;z-index:1;min-height:15rem}
+.proc-step{
+  position:absolute;inset:0;max-width:54ch;
+  opacity:0;transform:translateY(34px);
+  transition:opacity .3s var(--ease),transform .3s var(--ease);
+  pointer-events:none;
+}
+.proc-step.on{opacity:1;transform:none;pointer-events:auto;transition:opacity .6s var(--ease) .16s,transform .6s var(--ease) .16s}
+.proc-step .ps-tag{font:600 .68rem/1 var(--fm);letter-spacing:.22em;text-transform:uppercase;color:var(--acc)}
+.proc-step h3{margin-top:1rem;font-size:clamp(1.7rem,3.4vw,2.6rem);font-weight:700;letter-spacing:-.025em;line-height:1.1}
+.proc-step p{margin-top:1.1rem;color:var(--dim);font-size:1.02rem}
+.proc-rail{position:relative;z-index:1;margin-top:clamp(1.8rem,4vh,3.2rem);display:flex;align-items:center;gap:1.4rem}
+.proc-rail .pr-track{position:relative;flex:1;height:2px;background:var(--line);border-radius:99px;overflow:hidden}
+.proc-rail .pr-fill{position:absolute;inset:0;background:var(--grad);transform:scaleX(0);transform-origin:left}
+.proc-rail .pr-n{font:600 .72rem/1 var(--fm);letter-spacing:.14em;color:var(--dim);min-width:5.2ch;text-align:right}
+.proc-rail .pr-n b{color:var(--acc);font-weight:600}
+.proc-dots{position:relative;z-index:1;margin-top:1.1rem;display:flex;gap:.55rem}
+.proc-dots i{width:26px;height:3px;border-radius:99px;background:var(--line);transition:background .4s}
+.proc-dots i.on{background:var(--acc)}
+@media (max-width:760px){
+  .proc{height:340vh}
+  .proc-stage{min-height:19rem}
+}
+@media (prefers-reduced-motion:reduce){
+  .proc{height:auto}
+  .proc-sticky{position:static;height:auto;padding:6rem 0}
+  .proc-stage{min-height:0;display:grid;gap:3rem}
+  .proc-step{position:static;opacity:1;transform:none;pointer-events:auto}
+  .proc-rail,.proc-dots,.proc-bg{display:none}
+}
+
+/* ---------- proyectos ---------- */
+.case{
+  position:relative;display:grid;grid-template-columns:1.25fr 1fr;gap:0;
+  border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;background:var(--bg3);
+}
+@media (max-width:920px){.case{grid-template-columns:1fr}}
+.case-media{position:relative;min-height:340px;overflow:hidden;background:#15120E}
+.case-media img{
+  position:absolute;left:0;top:-12%;width:100%;height:124%;object-fit:cover;
+  filter:saturate(.92);will-change:transform;transform:translateY(var(--py,0px));
+  transition:scale .8s var(--ease);scale:1.01;
+}
+.case:hover .case-media img{scale:1.06}
+.case-media::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(7,8,12,.25),transparent 55%)}
+.case-badge{
+  position:absolute;top:1.3rem;left:1.3rem;z-index:1;
+  font:600 .6rem/1 var(--fm);letter-spacing:.18em;text-transform:uppercase;
+  background:rgba(7,8,12,.78);backdrop-filter:blur(8px);color:var(--acc);
+  border:1px solid rgba(107,255,184,.3);border-radius:999px;padding:.55rem .95rem;
+}
+.case-body{padding:clamp(1.9rem,3.4vw,3rem);display:flex;flex-direction:column;justify-content:center}
+.case-kicker{font:600 .66rem/1 var(--fm);letter-spacing:.22em;text-transform:uppercase;color:var(--acc)}
+.case h3{margin-top:1rem;font-size:clamp(1.5rem,2.6vw,2.1rem);font-weight:700;letter-spacing:-.02em;line-height:1.12}
+.case-body>p{margin-top:1rem;color:var(--dim);font-size:.99rem}
+.case-feats{margin-top:1.5rem;display:grid;gap:.65rem;list-style:none}
+.case-feats li{display:flex;gap:.7rem;align-items:baseline;color:var(--dim);font-size:.92rem}
+.case-feats li::before{content:"→";color:var(--acc);font-family:var(--fm);flex:none}
+.case-cta{margin-top:2rem}
+.case-next{
+  margin-top:1.2rem;border:1px dashed var(--line);border-radius:var(--r-lg);
+  padding:2rem 2.1rem;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.2rem;
+  color:var(--dim);transition:border-color .4s,background .4s;
+}
+.case-next:hover{border-color:rgba(107,255,184,.35);background:var(--card)}
+.case-next b{color:var(--ink);font-weight:600;letter-spacing:-.01em;font-size:1.12rem}
+.case-next .mono{font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--faint)}
+
+/* ---------- visión futura ---------- */
+.vis{background:var(--bg)}
+.vis-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(2.5rem,6vw,5rem);align-items:start}
+@media (max-width:920px){.vis-grid{grid-template-columns:1fr}}
+.vis-copy{position:sticky;top:calc(var(--hdr-h) + 2rem)}
+@media (max-width:920px){.vis-copy{position:static}}
+.vis-copy .sub{margin-top:1.4rem}
+.road{position:relative;padding-left:2.2rem}
+.road::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:1px;background:var(--line)}
+.road-fill{position:absolute;left:7px;top:8px;width:1px;height:calc(100% - 16px);background:var(--grad);transform:scaleY(0);transform-origin:top}
+.road-item{position:relative;padding:0 0 2.6rem}
+.road-item:last-child{padding-bottom:0}
+.road-item::before{
+  content:"";position:absolute;left:-2.2rem;top:8px;width:15px;height:15px;border-radius:50%;
+  background:var(--bg);border:2px solid var(--faint);transition:border-color .4s,box-shadow .4s;
+}
+.road-item.on::before{border-color:var(--acc);box-shadow:0 0 14px rgba(107,255,184,.5)}
+.road-item .r-when{font:600 .66rem/1 var(--fm);letter-spacing:.22em;text-transform:uppercase;color:var(--acc)}
+.road-item h3{margin-top:.6rem;font-size:1.28rem;font-weight:600;letter-spacing:-.015em}
+.road-item p{margin-top:.55rem;color:var(--dim);font-size:.95rem;max-width:48ch}
+
+/* ---------- fundadores ---------- */
+.team-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem}
+@media (max-width:760px){.team-grid{grid-template-columns:1fr}}
+.member{
+  position:relative;border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:2.4rem 2.2rem;background:var(--card);overflow:hidden;
+  transition:transform .5s var(--ease),border-color .4s;
+}
+.member:hover{transform:translateY(-5px);border-color:rgba(94,168,255,.35)}
+.member::after{
+  content:"";position:absolute;right:-30%;top:-40%;width:70%;aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(closest-side,rgba(94,168,255,.12),transparent);pointer-events:none;
+}
+.avatar{
+  width:74px;height:74px;border-radius:22px;display:grid;place-items:center;
+  background:var(--bg3);border:1px solid var(--line);
+  font:700 1.3rem/1 var(--fd);letter-spacing:-.02em;
+}
+.avatar span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.member h3{margin-top:1.4rem;font-size:1.42rem;font-weight:700;letter-spacing:-.02em}
+.member .role{margin-top:.35rem;font:600 .64rem/1.6 var(--fm);letter-spacing:.2em;text-transform:uppercase;color:var(--acc)}
+.member p{margin-top:1rem;color:var(--dim);font-size:.95rem}
+.team-note{
+  margin-top:1.2rem;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--bg3);
+  padding:1.7rem 2.1rem;display:flex;gap:1.1rem;align-items:baseline;color:var(--dim);font-size:.97rem;
+}
+.team-note .mono{color:var(--acc);font-size:.8rem;flex:none}
+
+/* ---------- contacto ---------- */
+.contact{position:relative;background:var(--bg2);border-top:1px solid var(--line-soft)}
+.contact::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(700px 380px at 50% 110%,rgba(107,255,184,.09),transparent 70%);
+}
+.contact .wrap{position:relative;text-align:center}
+.contact .title{margin-inline:auto;max-width:18ch}
+.contact .sub{margin-inline:auto;text-align:center}
+.contact-cta{margin-top:2.8rem;display:flex;flex-wrap:wrap;gap:1rem;justify-content:center}
+.contact-mail{
+  margin-top:2.2rem;display:inline-block;font:500 .8rem/1 var(--fm);letter-spacing:.12em;color:var(--dim);
+  text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:.35rem;transition:color .3s,border-color .3s;
+}
+.contact-mail:hover{color:var(--acc);border-color:var(--acc)}
+
+/* ---------- footer ---------- */
+.ftr{padding:2.6rem 0;border-top:1px solid var(--line-soft)}
+.ftr .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem}
+.ftr p{font:500 .66rem/1.8 var(--fm);letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+.ftr p b{color:var(--dim);font-weight:500}
+.totop{
+  display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;
+  font:600 .64rem/1 var(--fm);letter-spacing:.2em;text-transform:uppercase;color:var(--dim);transition:color .3s;
+}
+.totop:hover{color:var(--acc)}
+</style>
+</head>
+<body>
+
+<!-- intro -->
+<div id="intro" aria-hidden="true">
+  <div class="i-in">
+    <span class="i-line i-line--t"></span>
+    <div class="i-name"><span>Lozano &amp; Peralta</span></div>
+    <p class="i-tag">Estudio web · Visión de futuro</p>
+    <span class="i-line i-line--b"></span>
+  </div>
+</div>
+
+<div id="pbar" aria-hidden="true"></div>
+
+<!-- header -->
+<header class="hdr" id="hdr">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Lozano y Peralta — inicio">
+      <span class="logo-mark"><b>L/P</b></span>
+      <span class="logo-word">Lozano &amp; Peralta<small>Estudio web</small></span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Principal">
+      <a href="#servicios">Servicios</a>
+      <a href="#proceso">Proceso</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#vision">Visión</a>
+      <a href="#equipo">Equipo</a>
+    </nav>
+    <a class="btn btn--acc" href="#contacto"><span>Empezar proyecto</span><span class="ar">→</span></a>
+    <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ======================= HERO ======================= -->
+<section class="hero" aria-label="Presentación">
+  <canvas id="net" aria-hidden="true"></canvas>
+  <div class="wrap" id="heroWrap">
+    <span class="h-eyebrow rv"><span class="dot"></span>Estudio web · Fundado por dos estudiantes emprendedores</span>
+    <h1 class="h-title tl">
+      <span class="tl-l"><span>Tu empresa merece</span></span>
+      <span class="tl-l"><span>una web <em>a la altura</em></span></span>
+      <span class="tl-l"><span>de su futuro.</span></span>
+    </h1>
+    <p class="h-sub rv" style="--d:.25s">
+      Somos <b>Francisco Lozano</b> y <b>Pedro Peralta</b>. Creamos páginas web desde cero
+      y reinventamos las que se han quedado atrás: diseño a medida, animaciones con
+      <b>magic scroll</b> y una obsesión por el rendimiento.
+    </p>
+    <div class="h-cta rv" style="--d:.4s">
+      <a class="btn btn--acc" href="#contacto"><span>Hablemos de tu web</span><span class="ar">→</span></a>
+      <a class="btn btn--ghost" href="#proyectos"><span>Ver nuestro trabajo</span></a>
+    </div>
+    <div class="h-meta rv" style="--d:.55s">
+      <div><b>Diseño a medida</b>Cero plantillas</div>
+      <div><b>Código ligero</b>Carga en segundos</div>
+      <div><b>Trato directo</b>Hablas con quien lo hace</div>
+    </div>
+  </div>
+  <div class="scroll-cue" aria-hidden="true">Scroll</div>
+</section>
+
+<!-- marquee -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Diseño web <i>·</i> Rediseño <i>·</i> Magic scroll <i>·</i> Rendimiento <i>·</i> SEO <i>·</i> Mantenimiento <i>·</i> Identidad digital <i>·</i></span>
+    <span>Diseño web <i>·</i> Rediseño <i>·</i> Magic scroll <i>·</i> Rendimiento <i>·</i> SEO <i>·</i> Mantenimiento <i>·</i> Identidad digital <i>·</i></span>
+  </div>
+</div>
+
+<!-- ======================= MAGIC SCROLL: MANIFIESTO ======================= -->
+<section class="mani" aria-label="Manifiesto">
+  <div class="mani-sticky">
+    <div class="mani-bg" aria-hidden="true">L/P</div>
+    <div class="wrap">
+      <p class="mani-txt" id="maniTxt">
+        Una web no es un trámite: es la <u>primera impresión</u> de tu empresa.
+        Nosotros la convertimos en tu <u>mejor comercial</u>, trabajando las 24 horas.
+      </p>
+      <p class="mani-firma" id="maniFirma">— El manifiesto de Lozano &amp; Peralta</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= SERVICIOS ======================= -->
+<section class="sec sec--panel" id="servicios" aria-label="Servicios">
+  <span class="sec-idx" aria-hidden="true">01</span>
+  <div class="wrap">
+    <div class="shead">
+      <p class="eyebrow rv"><span class="tick"></span>Servicios</p>
+      <h2 class="title tl">
+        <span class="tl-l"><span>Creamos webs nuevas.</span></span>
+        <span class="tl-l"><span><em>Resucitamos</em> las antiguas.</span></span>
+      </h2>
+      <p class="sub rv" style="--d:.15s">Dos caminos, un mismo destino: que tu presencia digital esté a la altura de tu negocio.</p>
+    </div>
+    <div class="svc-grid">
+      <article class="svc rv">
+        <span class="svc-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l2.5 2.5M16.5 16.5L19 19M19 5l-2.5 2.5M7.5 16.5L5 19"/></svg></span>
+        <span class="svc-num">/01</span>
+        <h3>Creación de webs desde cero</h3>
+        <p>Diseñamos y desarrollamos tu web a medida: estructura, textos, identidad visual y animaciones. Sin plantillas genéricas, sin webs clónicas.</p>
+        <div class="svc-tags"><span>Diseño UI</span><span>Desarrollo</span><span>Contenido</span></div>
+      </article>
+      <article class="svc rv" style="--d:.1s">
+        <span class="svc-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v6h-6"/></svg></span>
+        <span class="svc-num">/02</span>
+        <h3>Rediseño y mejora</h3>
+        <p>¿Tu web se quedó en otra década? La modernizamos por completo: nuevo diseño, mejor estructura y una experiencia que invita a quedarse.</p>
+        <div class="svc-tags"><span>Auditoría</span><span>Rediseño</span><span>Migración</span></div>
+      </article>
+      <article class="svc rv" style="--d:.05s">
+        <span class="svc-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg></span>
+        <span class="svc-num">/03</span>
+        <h3>Rendimiento y SEO</h3>
+        <p>Código ligero que carga en segundos, optimizado para móvil y preparado para que Google te encuentre. La velocidad también vende.</p>
+        <div class="svc-tags"><span>Core Web Vitals</span><span>SEO técnico</span><span>Accesibilidad</span></div>
+      </article>
+      <article class="svc rv" style="--d:.15s">
+        <span class="svc-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5-2 8-6 8-11V5l-8-3-8 3v6c0 5 3 9 8 11z"/><path d="m9 12 2 2 4-4"/></svg></span>
+        <span class="svc-num">/04</span>
+        <h3>Evolución continua</h3>
+        <p>Una web no se termina: se cultiva. Nos quedamos contigo para actualizarla, medir resultados y hacerla crecer junto a tu empresa.</p>
+        <div class="svc-tags"><span>Mantenimiento</span><span>Analítica</span><span>Mejora continua</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= MAGIC SCROLL: PROCESO ======================= -->
+<section class="proc" id="proceso" aria-label="Nuestro proceso">
+  <div class="proc-sticky">
+    <div class="proc-bg" id="procBg" aria-hidden="true">01</div>
+    <div class="wrap">
+      <div class="proc-head">
+        <p class="eyebrow"><span class="tick"></span>Proceso · Sigue haciendo scroll</p>
+        <h2 class="title" style="font-size:clamp(1.8rem,3.6vw,2.8rem)">De la primera llamada <em>al despegue</em>.</h2>
+      </div>
+      <div class="proc-stage">
+        <div class="proc-step on" data-step="0">
+          <span class="ps-tag">Fase 01 — Descubrir</span>
+          <h3>Escuchamos tu negocio antes de tocar una línea de código.</h3>
+          <p>Nos sentamos contigo, estudiamos tu sector y tu competencia, y definimos qué tiene que conseguir la web: más clientes, más confianza, más ventas.</p>
+        </div>
+        <div class="proc-step" data-step="1">
+          <span class="ps-tag">Fase 02 — Diseñar</span>
+          <h3>Un diseño a medida que podrás ver y tocar antes de aprobarlo.</h3>
+          <p>Creamos una propuesta visual navegable con tu identidad, tus textos y tus fotos. Iteramos contigo hasta que digas «esta es mi web».</p>
+        </div>
+        <div class="proc-step" data-step="2">
+          <span class="ps-tag">Fase 03 — Construir</span>
+          <h3>Código limpio, rápido y con animaciones que enamoran.</h3>
+          <p>Desarrollamos la web con tecnología ligera: magic scroll, parallax y microinteracciones que se sienten premium sin sacrificar ni un segundo de carga.</p>
+        </div>
+        <div class="proc-step" data-step="3">
+          <span class="ps-tag">Fase 04 — Despegar</span>
+          <h3>Publicamos, medimos y seguimos a tu lado.</h3>
+          <p>Nos ocupamos del dominio, el hosting y el SEO inicial. Y después seguimos cerca: tu web evoluciona con tu empresa, no se queda congelada.</p>
+        </div>
+      </div>
+      <div class="proc-rail" aria-hidden="true">
+        <div class="pr-track"><div class="pr-fill" id="prFill"></div></div>
+        <span class="pr-n"><b id="prNow">01</b> / 04</span>
+      </div>
+      <div class="proc-dots" id="procDots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= PROYECTOS ======================= -->
+<section class="sec" id="proyectos" aria-label="Proyectos">
+  <span class="sec-idx" aria-hidden="true">02</span>
+  <div class="wrap">
+    <div class="shead">
+      <p class="eyebrow rv"><span class="tick"></span>Proyectos</p>
+      <h2 class="title tl">
+        <span class="tl-l"><span>Trabajo real,</span></span>
+        <span class="tl-l"><span>resultados <em>reales</em>.</span></span>
+      </h2>
+    </div>
+    <article class="case rv">
+      <div class="case-media">
+        <span class="case-badge">Caso destacado</span>
+        <img src="../gruaslozano/assets/hero.jpg" alt="Vista de la web de Grúas y Plataformas Lozano" loading="lazy" data-para="0.12">
+      </div>
+      <div class="case-body">
+        <span class="case-kicker">Propuesta web · Industria</span>
+        <h3>Grúas y Plataformas Lozano</h3>
+        <p>Una empresa con más de 60 años de historia merecía una web que estuviera a su altura. Diseñamos una one-page con scroll continuo que cuenta su historia desde 1959 hasta hoy.</p>
+        <ul class="case-feats">
+          <li>Magic scroll con sección pinned: el año viaja de 1959 a hoy mientras haces scroll.</li>
+          <li>Parallax profundo en cabeceras y banda de flota con scrub horizontal.</li>
+          <li>Catálogo completo de grúas y plataformas con mapa de 11 delegaciones.</li>
+          <li>Intro de entrada con logo y líneas, tema claro con la identidad de la marca.</li>
+        </ul>
+        <div class="case-cta">
+          <a class="btn btn--ghost" href="../gruaslozano/" target="_blank" rel="noopener"><span>Visitar el proyecto</span><span class="ar">→</span></a>
+        </div>
+      </div>
+    </article>
+    <a class="case-next rv" href="#contacto" style="--d:.1s;text-decoration:none">
+      <div>
+        <span class="mono">Siguiente proyecto</span><br>
+        <b>¿Tu empresa? Este hueco está reservado para tu web.</b>
+      </div>
+      <span class="btn btn--acc" style="pointer-events:none"><span>Reservar este hueco</span><span class="ar">→</span></span>
+    </a>
+  </div>
+</section>
+
+<!-- ======================= VISIÓN FUTURA ======================= -->
+<section class="sec sec--panel vis" id="vision" aria-label="Visión de futuro">
+  <span class="sec-idx" aria-hidden="true">03</span>
+  <div class="wrap">
+    <div class="vis-grid">
+      <div class="vis-copy">
+        <p class="eyebrow rv"><span class="tick"></span>Visión futura</p>
+        <h2 class="title tl">
+          <span class="tl-l"><span>Empezamos como</span></span>
+          <span class="tl-l"><span>estudiantes. Pensamos</span></span>
+          <span class="tl-l"><span>como <em>empresa</em>.</span></span>
+        </h2>
+        <p class="sub rv" style="--d:.15s">
+          No queremos hacer «webs y ya». Queremos construir el estudio al que las
+          empresas acuden cuando quieren dar el salto digital. Esta es la ruta,
+          y acaba de empezar.
+        </p>
+      </div>
+      <div class="road" id="road">
+        <span class="road-fill" id="roadFill" aria-hidden="true"></span>
+        <div class="road-item rv">
+          <span class="r-when">Hoy · 2026</span>
+          <h3>Primeros proyectos reales</h3>
+          <p>Compaginamos los estudios con los primeros encargos. Cada proyecto que entregamos es nuestra mejor carta de presentación.</p>
+        </div>
+        <div class="road-item rv" style="--d:.08s">
+          <span class="r-when">Próximo paso</span>
+          <h3>Una cartera de empresas que confían en nosotros</h3>
+          <p>Ayudar a los negocios de nuestro entorno —talleres, industria, comercios, profesionales— a tener la web que se merecen.</p>
+        </div>
+        <div class="road-item rv" style="--d:.16s">
+          <span class="r-when">A medio plazo</span>
+          <h3>Estudio a tiempo completo</h3>
+          <p>Convertir Lozano &amp; Peralta en nuestro proyecto de vida: equipo propio, procesos sólidos y clientes en toda España.</p>
+        </div>
+        <div class="road-item rv" style="--d:.24s">
+          <span class="r-when">El horizonte</span>
+          <h3>Más que webs: productos digitales</h3>
+          <p>Herramientas propias, automatización e inteligencia artificial aplicada a los negocios de nuestros clientes. El futuro no se espera: se construye.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= EQUIPO ======================= -->
+<section class="sec" id="equipo" aria-label="Equipo fundador">
+  <span class="sec-idx" aria-hidden="true">04</span>
+  <div class="wrap">
+    <div class="shead">
+      <p class="eyebrow rv"><span class="tick"></span>Equipo fundador</p>
+      <h2 class="title tl">
+        <span class="tl-l"><span>Dos socios,</span></span>
+        <span class="tl-l"><span>una <em>obsesión</em>.</span></span>
+      </h2>
+    </div>
+    <div class="team-grid">
+      <article class="member rv">
+        <div class="avatar"><span>FL</span></div>
+        <h3>Francisco Lozano</h3>
+        <p class="role">Cofundador</p>
+        <p>Estudiante y emprendedor. Le pone a cada web el mismo cariño que pondría en la suya: detalle, movimiento y una experiencia que se recuerda.</p>
+      </article>
+      <article class="member rv" style="--d:.1s">
+        <div class="avatar"><span>PP</span></div>
+        <h3>Pedro Peralta</h3>
+        <p class="role">Cofundador</p>
+        <p>Estudiante y emprendedor. El socio que se asegura de que cada proyecto tenga sentido para el negocio: estrategia, claridad y resultados.</p>
+      </article>
+    </div>
+    <div class="team-note rv" style="--d:.15s">
+      <span class="mono">[+]</span>
+      <span>Nos hemos unido con una idea sencilla: las pequeñas y medianas empresas también merecen webs de primer nivel. Ser estudiantes no es un límite — es la razón por la que trabajamos con más hambre que nadie.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= CONTACTO ======================= -->
+<section class="sec contact" id="contacto" aria-label="Contacto">
+  <div class="wrap">
+    <p class="eyebrow rv" style="justify-content:center"><span class="tick"></span>Contacto</p>
+    <h2 class="title tl">
+      <span class="tl-l"><span>¿Hacemos despegar</span></span>
+      <span class="tl-l"><span><em>tu web</em>?</span></span>
+    </h2>
+    <p class="sub rv" style="--d:.15s">
+      Cuéntanos qué necesita tu empresa — una web nueva o una buena puesta a punto —
+      y te respondemos con ideas concretas, sin compromiso.
+    </p>
+    <div class="contact-cta rv" style="--d:.25s">
+      <a class="btn btn--acc" href="mailto:franlozano.500@gmail.com?subject=Quiero%20mejorar%20la%20web%20de%20mi%20empresa"><span>Escribir un email</span><span class="ar">→</span></a>
+      <a class="btn btn--ghost" href="#proyectos"><span>Ver el trabajo primero</span></a>
+    </div>
+    <a class="contact-mail rv" style="--d:.35s" href="mailto:franlozano.500@gmail.com">franlozano.500@gmail.com</a>
+  </div>
+</section>
+
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <p><b>Lozano &amp; Peralta</b> · Estudio web · © 2026</p>
+    <p>Hecho a mano, sin plantillas.</p>
+    <a class="totop" href="#top">Volver arriba ↑</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+"use strict";
+var $=function(s,c){return (c||document).querySelector(s)};
+var $$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+var clamp=function(v,a,b){return Math.max(a,Math.min(b,v))};
+var reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---------- intro (una vez por sesión) ---------- */
+var intro=$('#intro');
+if(intro){
+  var seen=false;
+  try{seen=sessionStorage.getItem('lp-intro')==='1'}catch(e){}
+  if(seen||reduced){intro.classList.add('skip')}
+  else{
+    document.body.style.overflow='hidden';
+    requestAnimationFrame(function(){intro.classList.add('go')});
+    setTimeout(function(){
+      intro.classList.add('done');
+      document.body.style.overflow='';
+      try{sessionStorage.setItem('lp-intro','1')}catch(e){}
+    },1900);
+  }
+}
+
+/* ---------- header + menú móvil ---------- */
+var hdr=$('#hdr'),nav=$('#nav'),burger=$('#burger');
+if(burger){
+  burger.addEventListener('click',function(){
+    var open=nav.classList.toggle('open');
+    burger.classList.toggle('open',open);
+    burger.setAttribute('aria-expanded',open?'true':'false');
+    document.body.style.overflow=open?'hidden':'';
+  });
+  $$('a',nav).forEach(function(a){a.addEventListener('click',function(){
+    nav.classList.remove('open');burger.classList.remove('open');
+    burger.setAttribute('aria-expanded','false');document.body.style.overflow='';
+  })});
+}
+
+/* ---------- reveals (IntersectionObserver) ---------- */
+var io=new IntersectionObserver(function(es){
+  es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}});
+},{threshold:.18,rootMargin:'0px 0px -6% 0px'});
+$$('.rv,.tl').forEach(function(el){io.observe(el)});
+
+/* ---------- manifiesto: trocear en palabras ---------- */
+var maniTxt=$('#maniTxt'),maniWords=[];
+if(maniTxt){
+  var parts=[];
+  maniTxt.childNodes.forEach&&Array.prototype.slice.call(maniTxt.childNodes).forEach(function(n){
+    if(n.nodeType===3){
+      n.textContent.split(/\s+/).forEach(function(w){if(w)parts.push({t:w,key:false})});
+    }else if(n.nodeType===1){
+      n.textContent.split(/\s+/).forEach(function(w){if(w)parts.push({t:w,key:true})});
+    }
+  });
+  /* la puntuación suelta se pega a la palabra anterior */
+  parts=parts.reduce(function(acc,p){
+    if(acc.length&&!/[\wÀ-ÿ]/.test(p.t)){acc[acc.length-1].t+=p.t}
+    else acc.push(p);
+    return acc;
+  },[]);
+  maniTxt.innerHTML=parts.map(function(p){
+    return '<span class="w'+(p.key?' key':'')+'">'+p.t+'</span>';
+  }).join(' ');
+  maniWords=$$('.w',maniTxt);
+}
+
+/* ---------- canvas hero: red de puntos ---------- */
+var net=$('#net'),netOn=true,mouse={x:-999,y:-999};
+if(net&&!reduced){
+  var ctx=net.getContext('2d'),pts=[],W=0,H=0,dpr=Math.min(devicePixelRatio||1,2);
+  var sizeNet=function(){
+    var r=net.parentElement.getBoundingClientRect();
+    W=r.width;H=r.height;
+    net.width=W*dpr;net.height=H*dpr;
+    net.style.width=W+'px';net.style.height=H+'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    var n=Math.round(clamp(W*H/16000,40,110));
+    pts=[];
+    for(var i=0;i<n;i++)pts.push({
+      x:Math.random()*W,y:Math.random()*H,
+      vx:(Math.random()-.5)*.28,vy:(Math.random()-.5)*.28
+    });
+  };
+  sizeNet();
+  addEventListener('resize',sizeNet);
+  net.parentElement.addEventListener('pointermove',function(e){
+    var r=net.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top;
+  });
+  net.parentElement.addEventListener('pointerleave',function(){mouse.x=-999;mouse.y=-999});
+  new IntersectionObserver(function(es){netOn=es[0].isIntersecting},{threshold:0}).observe(net);
+  var drawNet=function(){
+    if(netOn){
+      ctx.clearRect(0,0,W,H);
+      var i,j,p,q,dx,dy,d;
+      for(i=0;i<pts.length;i++){
+        p=pts[i];
+        p.x+=p.vx;p.y+=p.vy;
+        if(p.x<0||p.x>W)p.vx*=-1;
+        if(p.y<0||p.y>H)p.vy*=-1;
+        dx=p.x-mouse.x;dy=p.y-mouse.y;d=dx*dx+dy*dy;
+        if(d<14400&&d>1){p.x+=dx/Math.sqrt(d)*.6;p.y+=dy/Math.sqrt(d)*.6}
+        ctx.fillStyle='rgba(152,161,179,.5)';
+        ctx.fillRect(p.x-.8,p.y-.8,1.6,1.6);
+      }
+      for(i=0;i<pts.length;i++)for(j=i+1;j<pts.length;j++){
+        p=pts[i];q=pts[j];dx=p.x-q.x;dy=p.y-q.y;d=dx*dx+dy*dy;
+        if(d<13000){
+          ctx.strokeStyle='rgba(107,255,184,'+(0.16*(1-d/13000)).toFixed(3)+')';
+          ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(drawNet);
+  };
+  drawNet();
+}
+
+/* ---------- scroll maestro: progreso, parallax, scrubs ---------- */
+var pbar=$('#pbar'),heroWrap=$('#heroWrap'),hero=$('.hero');
+var mani=$('.mani'),maniFirma=$('#maniFirma');
+var proc=$('.proc'),procSteps=$$('.proc-step'),procBg=$('#procBg'),
+    prFill=$('#prFill'),prNow=$('#prNow'),procDots=$$('#procDots i');
+var road=$('#road'),roadFill=$('#roadFill'),roadItems=$$('.road-item');
+var paras=$$('[data-para]');
+var lastStep=0,ticking=false;
+
+function onScroll(){
+  var y=scrollY,vh=innerHeight,r,p;
+
+  /* barra de progreso */
+  var max=document.documentElement.scrollHeight-vh;
+  if(pbar)pbar.style.transform='scaleX('+(max>0?y/max:0)+')';
+
+  /* header */
+  hdr.classList.toggle('scrolled',y>30);
+
+  if(reduced)return;
+
+  /* hero: leve parallax + fade */
+  if(heroWrap&&y<vh){
+    heroWrap.style.transform='translateY('+y*.18+'px)';
+    heroWrap.style.opacity=String(clamp(1-y/(vh*.85),0,1));
+  }
+
+  /* manifiesto: iluminar palabras según el avance */
+  if(mani&&maniWords.length){
+    r=mani.getBoundingClientRect();
+    p=clamp(-r.top/(r.height-vh),0,1);
+    var lit=Math.round(p*1.18*maniWords.length);
+    for(var i=0;i<maniWords.length;i++)maniWords[i].classList.toggle('lit',i<lit);
+    if(maniFirma)maniFirma.classList.toggle('lit',p>.86);
+  }
+
+  /* proceso pinned: scrub de fases */
+  if(proc&&procSteps.length){
+    r=proc.getBoundingClientRect();
+    p=clamp(-r.top/(r.height-vh),0,1);
+    var idx=Math.min(procSteps.length-1,Math.floor(p*procSteps.length));
+    if(idx!==lastStep){
+      procSteps.forEach(function(s,k){s.classList.toggle('on',k===idx)});
+      procDots.forEach(function(d,k){d.classList.toggle('on',k<=idx)});
+      if(procBg)procBg.textContent='0'+(idx+1);
+      if(prNow)prNow.textContent='0'+(idx+1);
+      lastStep=idx;
+    }
+    if(prFill)prFill.style.transform='scaleX('+p+')';
+  }
+
+  /* visión: línea del roadmap se rellena */
+  if(road&&roadFill){
+    r=road.getBoundingClientRect();
+    p=clamp((vh*.78-r.top)/r.height,0,1);
+    roadFill.style.transform='scaleY('+p+')';
+    roadItems.forEach(function(it){
+      it.classList.toggle('on',it.getBoundingClientRect().top<vh*.78);
+    });
+  }
+
+  /* parallax genérico data-para */
+  paras.forEach(function(el){
+    var er=el.parentElement.getBoundingClientRect();
+    if(er.bottom<0||er.top>vh)return;
+    var f=parseFloat(el.dataset.para)||.1;
+    el.style.setProperty('--py',((er.top+er.height/2-vh/2)*f).toFixed(1)+'px');
+  });
+}
+addEventListener('scroll',function(){
+  if(!ticking){requestAnimationFrame(function(){onScroll();ticking=false});ticking=true}
+},{passive:true});
+addEventListener('resize',onScroll);
+onScroll();
+
+/* ---------- foco luminoso en cards de servicio ---------- */
+$$('.svc').forEach(function(card){
+  card.addEventListener('pointermove',function(e){
+    var r=card.getBoundingClientRect();
+    card.style.setProperty('--mx',((e.clientX-r.left)/r.width*100).toFixed(1)+'%');
+    card.style.setProperty('--my',((e.clientY-r.top)/r.height*100).toFixed(1)+'%');
+  });
+});
+})();
+</script>
+</body>
+</html>
