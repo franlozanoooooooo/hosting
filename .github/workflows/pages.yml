@@ -1,15 +1,10 @@
-name: Deploy site to GitHub Pages
+name: Publish site to GitHub Pages
 on:
   push:
     branches: ["main"]
   workflow_dispatch:
 permissions:
   contents: write
-  pages: write
-  id-token: write
-concurrency:
-  group: pages
-  cancel-in-progress: true
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -20,7 +15,7 @@ jobs:
           mkdir -p /tmp/_site
           rsync -a --exclude='.git' --exclude='.github' ./ /tmp/_site/
           touch /tmp/_site/.nojekyll
-      - name: Keep gh-pages branch updated (legacy fallback)
+      - name: Push to gh-pages branch
         run: |
           cd /tmp/_site
           git init -q -b gh-pages
@@ -29,11 +24,3 @@ jobs:
           git add -A
           git commit -qm "Publish site"
           git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" gh-pages
-      - uses: actions/configure-pages@v5
-        with:
-          enablement: true
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: /tmp/_site
-      - id: deployment
-        uses: actions/deploy-pages@v4
