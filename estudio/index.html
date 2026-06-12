@@ -71,8 +71,11 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
   font-size:clamp(2.1rem,4.6vw,3.6rem);line-height:1.05;color:var(--ink);
 }
 .title em{
-  font-style:normal;background:var(--grad);
+  font-style:normal;
+  background:linear-gradient(92deg,#6BFFB8,#5EA8FF 38%,#B49CFF 62%,#6BFFB8);
+  background-size:260% 100%;
   -webkit-background-clip:text;background-clip:text;color:transparent;
+  animation:hueflow 7s ease-in-out infinite alternate;
 }
 .sub{max-width:56ch;color:var(--dim);margin-top:1.3rem;font-size:1.06rem}
 .sub b{color:var(--ink);font-weight:600}
@@ -125,6 +128,57 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
 
 /* ---------- barra de progreso scroll ---------- */
 #pbar{position:fixed;top:0;left:0;height:2px;width:100%;z-index:300;transform-origin:left;transform:scaleX(0);background:var(--grad)}
+
+/* ---------- aura: el color del ambiente viaja con el scroll ---------- */
+#aura{
+  position:fixed;inset:0;z-index:90;pointer-events:none;mix-blend-mode:screen;opacity:.6;
+  background:
+    radial-gradient(56vw 44vh at 86% 6%,hsla(calc(216 - var(--ah,0)*80),95%,62%,.085),transparent 62%),
+    radial-gradient(48vw 46vh at 6% 96%,hsla(calc(152 + var(--ah,0)*80),95%,60%,.075),transparent 62%);
+}
+
+/* ---------- grano de película ---------- */
+#grain{
+  position:fixed;inset:-60px;z-index:91;pointer-events:none;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='0.62'/%3E%3C/svg%3E");
+  background-size:220px 220px;
+  animation:grain .9s steps(3) infinite;
+}
+@keyframes grain{0%{transform:translate(0,0)}33%{transform:translate(-28px,18px)}66%{transform:translate(22px,-24px)}100%{transform:translate(0,0)}}
+
+/* ---------- cursor futurista ---------- */
+#cur,#curDot{position:fixed;top:0;left:0;pointer-events:none;z-index:600;border-radius:50%;display:none}
+#cur{
+  width:36px;height:36px;border:1.5px solid rgba(107,255,184,.6);
+  transition:width .25s var(--ease),height .25s var(--ease),border-color .25s,background .25s,margin .25s var(--ease);
+}
+#cur.hot{width:58px;height:58px;background:rgba(107,255,184,.08);border-color:rgba(107,255,184,.95)}
+#curDot{width:5px;height:5px;background:var(--acc);box-shadow:0 0 12px var(--acc)}
+@media (hover:hover) and (pointer:fine){
+  html.cur-live,html.cur-live a,html.cur-live button{cursor:none}
+  html.cur-live #cur,html.cur-live #curDot{display:block}
+}
+
+/* ---------- hud lateral de secciones ---------- */
+#hud{position:fixed;right:1.4rem;top:50%;transform:translateY(-50%);z-index:150;display:flex;flex-direction:column;gap:1.05rem}
+#hud a{
+  position:relative;width:9px;height:9px;border-radius:50%;
+  background:rgba(242,244,248,.16);
+  transition:background .3s,box-shadow .3s,transform .3s var(--ease);
+}
+#hud a:hover{background:var(--dim)}
+#hud a.on{background:var(--acc);box-shadow:0 0 12px rgba(107,255,184,.8);transform:scale(1.3)}
+#hud a::after{
+  content:attr(data-label);position:absolute;right:24px;top:50%;
+  transform:translateY(-50%) translateX(8px);
+  font:600 .56rem/1 var(--fm);letter-spacing:.18em;text-transform:uppercase;color:var(--ink);
+  background:rgba(12,14,21,.92);border:1px solid var(--line);border-radius:99px;padding:.45rem .75rem;
+  opacity:0;pointer-events:none;white-space:nowrap;
+  transition:opacity .25s,transform .25s var(--ease);
+}
+#hud a:hover::after{opacity:1;transform:translateY(-50%)}
+@media (max-width:1100px),(pointer:coarse){#hud{display:none}}
+@keyframes hueflow{from{background-position:0% 0}to{background-position:100% 0}}
 
 /* ---------- header ---------- */
 .hdr{
@@ -218,7 +272,13 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
   margin-top:2rem;font-weight:700;letter-spacing:-.035em;
   font-size:clamp(2.7rem,7.4vw,5.6rem);line-height:1.02;max-width:14ch;
 }
-.h-title em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.h-title em{
+  font-style:normal;
+  background:linear-gradient(92deg,#6BFFB8,#5EA8FF 38%,#B49CFF 62%,#6BFFB8);
+  background-size:260% 100%;
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  animation:hueflow 7s ease-in-out infinite alternate;
+}
 .h-sub{margin-top:1.8rem;max-width:54ch;color:var(--dim);font-size:clamp(1rem,1.4vw,1.15rem)}
 .h-sub b{color:var(--ink);font-weight:600}
 .h-cta{margin-top:2.6rem;display:flex;flex-wrap:wrap;gap:1rem}
@@ -279,20 +339,51 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
   .mani-firma{opacity:1;transform:none}
 }
 
-/* ---------- servicios ---------- */
-.svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem}
-@media (max-width:860px){.svc-grid{grid-template-columns:1fr}}
+/* ---------- magic scroll 3: servicios en banda horizontal pinned ---------- */
+.svcs{position:relative;background:var(--bg2);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
+.svc-pin{height:300vh}
+.svc-sticky{
+  position:sticky;top:0;height:100svh;overflow:hidden;
+  display:flex;flex-direction:column;justify-content:center;
+}
+.svcs .shead{margin-bottom:2rem}
+.svcs .title{font-size:clamp(1.8rem,3.4vw,2.7rem)}
+.svc-track{display:flex;align-items:stretch;gap:1.2rem;width:max-content;will-change:transform}
 .svc{
-  position:relative;border:1px solid var(--line);border-radius:var(--r-lg);
+  position:relative;width:min(430px,78vw);flex:none;
+  border:1px solid var(--line);border-radius:var(--r-lg);
   padding:2.2rem 2.1rem 2.4rem;background:var(--card);overflow:hidden;
-  transition:transform .5s var(--ease),border-color .4s,background .4s;
+  transform:perspective(900px) translateY(var(--ty,0px)) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));
+  transition:transform .4s ease-out,border-color .4s,background .4s;
 }
 .svc::before{
   content:"";position:absolute;inset:0;opacity:0;transition:opacity .5s;pointer-events:none;
   background:radial-gradient(420px 260px at var(--mx,80%) var(--my,0%),rgba(107,255,184,.07),transparent 70%);
 }
-.svc:hover{transform:translateY(-5px);border-color:rgba(107,255,184,.32);background:rgba(255,255,255,.04)}
+.svc:hover{--ty:-5px;border-color:rgba(107,255,184,.32);background:rgba(255,255,255,.04)}
 .svc:hover::before{opacity:1}
+.svc--cta{
+  display:flex;flex-direction:column;justify-content:center;align-items:flex-start;
+  border-style:dashed;text-decoration:none;
+}
+.svc-rail{margin-top:2.2rem;display:flex;align-items:center;gap:1.2rem}
+.svc-rail .sr-track{position:relative;flex:1;height:2px;background:var(--line);border-radius:99px;overflow:hidden}
+.svc-rail .sr-fill{position:absolute;inset:0;background:var(--grad);transform:scaleX(0);transform-origin:left}
+.svc-rail .sr-n{font:600 .62rem/1 var(--fm);letter-spacing:.22em;text-transform:uppercase;color:var(--faint)}
+@media (max-width:860px){
+  .svc-pin{height:auto}
+  .svc-sticky{position:static;height:auto;padding:5rem 0;overflow:visible}
+  .svc-track{display:grid;grid-template-columns:1fr;width:auto}
+  .svc{width:auto}
+  .svc-rail{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .svc-pin{height:auto}
+  .svc-sticky{position:static;height:auto;padding:6rem 0;overflow:visible}
+  .svc-track{display:grid;grid-template-columns:repeat(2,1fr);width:auto}
+  .svc{width:auto}
+  .svc-rail{display:none}
+}
 .svc-num{font:600 .7rem/1 var(--fm);letter-spacing:.2em;color:var(--acc)}
 .svc h3{margin-top:1.1rem;font-size:1.32rem;font-weight:600;letter-spacing:-.015em}
 .svc p{margin-top:.8rem;color:var(--dim);font-size:.96rem;max-width:46ch}
@@ -362,7 +453,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
 .case-media{position:relative;min-height:340px;overflow:hidden;background:#15120E}
 .case-media img{
   position:absolute;left:0;top:-12%;width:100%;height:124%;object-fit:cover;
-  filter:saturate(.92);will-change:transform;transform:translateY(var(--py,0px));
+  filter:saturate(.92);will-change:transform;
+  transform:translateY(var(--py,0px)) scale(var(--zs,1.12));
   transition:scale .8s var(--ease);scale:1.01;
 }
 .case:hover .case-media img{scale:1.06}
@@ -417,9 +509,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
 .member{
   position:relative;border:1px solid var(--line);border-radius:var(--r-lg);
   padding:2.4rem 2.2rem;background:var(--card);overflow:hidden;
-  transition:transform .5s var(--ease),border-color .4s;
+  transform:perspective(900px) translateY(var(--ty,0px)) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));
+  transition:transform .4s ease-out,border-color .4s;
 }
-.member:hover{transform:translateY(-5px);border-color:rgba(94,168,255,.35)}
+.member:hover{--ty:-5px;border-color:rgba(94,168,255,.35)}
 .member::after{
   content:"";position:absolute;right:-30%;top:-40%;width:70%;aspect-ratio:1;border-radius:50%;
   background:radial-gradient(closest-side,rgba(94,168,255,.12),transparent);pointer-events:none;
@@ -480,6 +573,22 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
 </div>
 
 <div id="pbar" aria-hidden="true"></div>
+<div id="aura" aria-hidden="true"></div>
+<div id="grain" aria-hidden="true"></div>
+<div id="cur" aria-hidden="true"></div>
+<div id="curDot" aria-hidden="true"></div>
+
+<!-- hud lateral de navegación -->
+<nav id="hud" aria-label="Progreso de secciones">
+  <a href="#top" data-label="Inicio"></a>
+  <a href="#manifiesto" data-label="Manifiesto"></a>
+  <a href="#servicios" data-label="Servicios"></a>
+  <a href="#proceso" data-label="Proceso"></a>
+  <a href="#proyectos" data-label="Proyectos"></a>
+  <a href="#vision" data-label="Visión"></a>
+  <a href="#equipo" data-label="Equipo"></a>
+  <a href="#contacto" data-label="Contacto"></a>
+</nav>
 
 <!-- header -->
 <header class="hdr" id="hdr">
@@ -508,7 +617,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
 <section class="hero" aria-label="Presentación">
   <canvas id="net" aria-hidden="true"></canvas>
   <div class="wrap" id="heroWrap">
-    <span class="h-eyebrow rv"><span class="dot"></span>Estudio web · Fundado por dos estudiantes emprendedores</span>
+    <span class="h-eyebrow rv"><span class="dot"></span><span data-scramble>Estudio web · Fundado por dos estudiantes emprendedores</span></span>
     <h1 class="h-title tl">
       <span class="tl-l"><span>Tu empresa merece</span></span>
       <span class="tl-l"><span>una web <em>a la altura</em></span></span>
@@ -541,10 +650,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
 </div>
 
 <!-- ======================= MAGIC SCROLL: MANIFIESTO ======================= -->
-<section class="mani" aria-label="Manifiesto">
+<section class="mani" id="manifiesto" aria-label="Manifiesto">
   <div class="mani-sticky">
     <div class="mani-bg" aria-hidden="true">L/P</div>
-    <div class="wrap">
+    <div class="wrap vskew">
       <p class="mani-txt" id="maniTxt">
         Una web no es un trámite: es la <u>primera impresión</u> de tu empresa.
         Nosotros la convertimos en tu <u>mejor comercial</u>, trabajando las 24 horas.
@@ -554,19 +663,20 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
   </div>
 </section>
 
-<!-- ======================= SERVICIOS ======================= -->
-<section class="sec sec--panel" id="servicios" aria-label="Servicios">
-  <span class="sec-idx" aria-hidden="true">01</span>
-  <div class="wrap">
-    <div class="shead">
-      <p class="eyebrow rv"><span class="tick"></span>Servicios</p>
-      <h2 class="title tl">
-        <span class="tl-l"><span>Creamos webs nuevas.</span></span>
-        <span class="tl-l"><span><em>Resucitamos</em> las antiguas.</span></span>
-      </h2>
-      <p class="sub rv" style="--d:.15s">Dos caminos, un mismo destino: que tu presencia digital esté a la altura de tu negocio.</p>
-    </div>
-    <div class="svc-grid">
+<!-- ======================= MAGIC SCROLL: SERVICIOS EN BANDA HORIZONTAL ======================= -->
+<section class="svcs" id="servicios" aria-label="Servicios">
+  <div class="svc-pin">
+    <div class="svc-sticky">
+      <span class="sec-idx" aria-hidden="true">01</span>
+      <div class="wrap" id="svcWrap">
+        <div class="shead">
+          <p class="eyebrow rv"><span class="tick"></span><span data-scramble>Servicios · El scroll avanza en horizontal</span></p>
+          <h2 class="title tl">
+            <span class="tl-l"><span>Creamos webs nuevas.</span></span>
+            <span class="tl-l"><span><em>Resucitamos</em> las antiguas.</span></span>
+          </h2>
+        </div>
+        <div class="svc-track" id="svcTrack">
       <article class="svc rv">
         <span class="svc-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l2.5 2.5M16.5 16.5L19 19M19 5l-2.5 2.5M7.5 16.5L5 19"/></svg></span>
         <span class="svc-num">/01</span>
@@ -595,6 +705,18 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
         <p>Una web no se termina: se cultiva. Nos quedamos contigo para actualizarla, medir resultados y hacerla crecer junto a tu empresa.</p>
         <div class="svc-tags"><span>Mantenimiento</span><span>Analítica</span><span>Mejora continua</span></div>
       </article>
+          <a class="svc svc--cta rv" href="#contacto" style="--d:.2s">
+            <span class="svc-num">/05</span>
+            <h3>¿Algo que no está aquí?</h3>
+            <p>Las mejores webs empiezan con una idea difícil de etiquetar. Cuéntanosla y le buscamos forma juntos.</p>
+            <span class="btn btn--acc" style="margin-top:1.6rem;pointer-events:none"><span>Hablemos</span><span class="ar">→</span></span>
+          </a>
+        </div>
+        <div class="svc-rail" aria-hidden="true">
+          <div class="sr-track"><div class="sr-fill" id="svcFill"></div></div>
+          <span class="sr-n">Sigue el scroll →</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -605,10 +727,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
     <div class="proc-bg" id="procBg" aria-hidden="true">01</div>
     <div class="wrap">
       <div class="proc-head">
-        <p class="eyebrow"><span class="tick"></span>Proceso · Sigue haciendo scroll</p>
+        <p class="eyebrow"><span class="tick"></span><span data-scramble>Proceso · Sigue haciendo scroll</span></p>
         <h2 class="title" style="font-size:clamp(1.8rem,3.6vw,2.8rem)">De la primera llamada <em>al despegue</em>.</h2>
       </div>
-      <div class="proc-stage">
+      <div class="proc-stage vskew">
         <div class="proc-step on" data-step="0">
           <span class="ps-tag">Fase 01 — Descubrir</span>
           <h3>Escuchamos tu negocio antes de tocar una línea de código.</h3>
@@ -642,9 +764,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
 <!-- ======================= PROYECTOS ======================= -->
 <section class="sec" id="proyectos" aria-label="Proyectos">
   <span class="sec-idx" aria-hidden="true">02</span>
-  <div class="wrap">
+  <div class="wrap vskew">
     <div class="shead">
-      <p class="eyebrow rv"><span class="tick"></span>Proyectos</p>
+      <p class="eyebrow rv"><span class="tick"></span><span data-scramble>Proyectos</span></p>
       <h2 class="title tl">
         <span class="tl-l"><span>Trabajo real,</span></span>
         <span class="tl-l"><span>resultados <em>reales</em>.</span></span>
@@ -686,7 +808,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
   <div class="wrap">
     <div class="vis-grid">
       <div class="vis-copy">
-        <p class="eyebrow rv"><span class="tick"></span>Visión futura</p>
+        <p class="eyebrow rv"><span class="tick"></span><span data-scramble>Visión futura</span></p>
         <h2 class="title tl">
           <span class="tl-l"><span>Empezamos como</span></span>
           <span class="tl-l"><span>estudiantes. Pensamos</span></span>
@@ -698,7 +820,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
           y acaba de empezar.
         </p>
       </div>
-      <div class="road" id="road">
+      <div class="road vskew" id="road">
         <span class="road-fill" id="roadFill" aria-hidden="true"></span>
         <div class="road-item rv">
           <span class="r-when">Hoy · 2026</span>
@@ -728,9 +850,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
 <!-- ======================= EQUIPO ======================= -->
 <section class="sec" id="equipo" aria-label="Equipo fundador">
   <span class="sec-idx" aria-hidden="true">04</span>
-  <div class="wrap">
+  <div class="wrap vskew">
     <div class="shead">
-      <p class="eyebrow rv"><span class="tick"></span>Equipo fundador</p>
+      <p class="eyebrow rv"><span class="tick"></span><span data-scramble>Equipo fundador</span></p>
       <h2 class="title tl">
         <span class="tl-l"><span>Dos socios,</span></span>
         <span class="tl-l"><span>una <em>obsesión</em>.</span></span>
@@ -760,7 +882,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
 <!-- ======================= CONTACTO ======================= -->
 <section class="sec contact" id="contacto" aria-label="Contacto">
   <div class="wrap">
-    <p class="eyebrow rv" style="justify-content:center"><span class="tick"></span>Contacto</p>
+    <p class="eyebrow rv" style="justify-content:center"><span class="tick"></span><span data-scramble>Contacto</span></p>
     <h2 class="title tl">
       <span class="tl-l"><span>¿Hacemos despegar</span></span>
       <span class="tl-l"><span><em>tu web</em>?</span></span>
@@ -907,80 +1029,207 @@ if(net&&!reduced){
   drawNet();
 }
 
-/* ---------- scroll maestro: progreso, parallax, scrubs ---------- */
-var pbar=$('#pbar'),heroWrap=$('#heroWrap'),hero=$('.hero');
+/* ---------- scramble: textos que se decodifican ---------- */
+var GLYPHS='!<>-_/[]{}—=+*#?';
+function scramble(el,final,dur){
+  if(!el)return;
+  if(reduced){el.textContent=final;return}
+  var start=performance.now(),len=final.length;
+  (function frame(t){
+    var p=clamp(((t||performance.now())-start)/dur,0,1),lock=Math.ceil(p*len),out='',i,ch;
+    for(i=0;i<len;i++){
+      ch=final.charAt(i);
+      out+=(i<lock||ch===' ')?ch:GLYPHS.charAt((Math.random()*GLYPHS.length)|0);
+    }
+    el.textContent=out;
+    if(p<1)requestAnimationFrame(frame);
+  })(start);
+}
+var sio=new IntersectionObserver(function(es){
+  es.forEach(function(e){
+    if(e.isIntersecting){sio.unobserve(e.target);scramble(e.target,e.target.dataset.final,950)}
+  });
+},{threshold:.5});
+$$('[data-scramble]').forEach(function(el){el.dataset.final=el.textContent;sio.observe(el)});
+
+/* ---------- cursor futurista + botones magnéticos + tilt 3D ---------- */
+var fine=matchMedia('(hover: hover) and (pointer: fine)').matches;
+var cur=$('#cur'),curDot=$('#curDot'),curX=innerWidth/2,curY=innerHeight/2,cx=curX,cy=curY;
+if(fine&&!reduced){
+  document.documentElement.classList.add('cur-live');
+  addEventListener('pointermove',function(e){curX=e.clientX;curY=e.clientY},{passive:true});
+  document.addEventListener('pointerover',function(e){
+    if(e.target.closest&&e.target.closest('a,button,.svc,.member'))cur.classList.add('hot');
+  });
+  document.addEventListener('pointerout',function(e){
+    if(e.target.closest&&e.target.closest('a,button,.svc,.member'))cur.classList.remove('hot');
+  });
+  $$('.btn').forEach(function(b){
+    b.addEventListener('pointermove',function(e){
+      var r=b.getBoundingClientRect();
+      b.style.transform='translate('+((e.clientX-r.left-r.width/2)*.22).toFixed(1)+'px,'+((e.clientY-r.top-r.height/2)*.3).toFixed(1)+'px)';
+    });
+    b.addEventListener('pointerleave',function(){b.style.transform=''});
+  });
+  $$('.svc,.member').forEach(function(c){
+    c.addEventListener('pointermove',function(e){
+      var r=c.getBoundingClientRect();
+      c.style.setProperty('--rx',((.5-(e.clientY-r.top)/r.height)*7).toFixed(2)+'deg');
+      c.style.setProperty('--ry',(((e.clientX-r.left)/r.width-.5)*9).toFixed(2)+'deg');
+    });
+    c.addEventListener('pointerleave',function(){
+      c.style.setProperty('--rx','0deg');c.style.setProperty('--ry','0deg');
+    });
+  });
+}
+
+/* ---------- bucle maestro: progreso, hud, aura, skew y scrubs ---------- */
+var pbar=$('#pbar'),heroWrap=$('#heroWrap');
 var mani=$('.mani'),maniFirma=$('#maniFirma');
 var proc=$('.proc'),procSteps=$$('.proc-step'),procBg=$('#procBg'),
     prFill=$('#prFill'),prNow=$('#prNow'),procDots=$$('#procDots i');
+var psTags=procSteps.map(function(s){var t=$('.ps-tag',s);return {el:t,txt:t?t.textContent:''}});
+var svcPin=$('.svc-pin'),svcTrack=$('#svcTrack'),svcWrapEl=$('#svcWrap'),svcFill=$('#svcFill');
 var road=$('#road'),roadFill=$('#roadFill'),roadItems=$$('.road-item');
-var paras=$$('[data-para]');
-var lastStep=0,ticking=false;
+var caseImg=$('.case-media img');
+var paras=$$('[data-para]'),vskews=$$('.vskew');
+var hudLinks=$$('#hud a');
+var hudSecs=hudLinks.map(function(a){return $(a.getAttribute('href'))});
+hudLinks.forEach(function(a){a.setAttribute('aria-label',a.dataset.label)});
+var narrow=matchMedia('(max-width: 860px)');
+var rootStyle=document.documentElement.style;
+var py=scrollY,sv=0,lastStep=0,lastHud=-1,lastSk='',heroLive=true,mqAnim;
 
-function onScroll(){
-  var y=scrollY,vh=innerHeight,r,p;
+function loop(){
+  var y=scrollY,vh=innerHeight,r,p,i;
+  var v=y-py;py=y;sv+=(v-sv)*.1;
+  var max=document.documentElement.scrollHeight-vh,gp=max>0?y/max:0;
 
-  /* barra de progreso */
-  var max=document.documentElement.scrollHeight-vh;
-  if(pbar)pbar.style.transform='scaleX('+(max>0?y/max:0)+')';
-
-  /* header */
+  if(pbar)pbar.style.transform='scaleX('+gp+')';
   hdr.classList.toggle('scrolled',y>30);
 
-  if(reduced)return;
-
-  /* hero: leve parallax + fade */
-  if(heroWrap&&y<vh){
-    heroWrap.style.transform='translateY('+y*.18+'px)';
-    heroWrap.style.opacity=String(clamp(1-y/(vh*.85),0,1));
+  /* hud lateral */
+  var hi=0;
+  for(i=0;i<hudSecs.length;i++){
+    if(hudSecs[i]&&hudSecs[i].getBoundingClientRect().top<vh*.45)hi=i;
+  }
+  if(hi!==lastHud){
+    hudLinks.forEach(function(a,k){a.classList.toggle('on',k===hi)});
+    lastHud=hi;
   }
 
-  /* manifiesto: iluminar palabras según el avance */
-  if(mani&&maniWords.length){
-    r=mani.getBoundingClientRect();
-    p=clamp(-r.top/(r.height-vh),0,1);
-    var lit=Math.round(p*1.18*maniWords.length);
-    for(var i=0;i<maniWords.length;i++)maniWords[i].classList.toggle('lit',i<lit);
-    if(maniFirma)maniFirma.classList.toggle('lit',p>.86);
+  /* cursor con estela */
+  if(fine&&!reduced&&cur){
+    cx+=(curX-cx)*.18;cy+=(curY-cy)*.18;
+    cur.style.transform='translate3d('+cx.toFixed(1)+'px,'+cy.toFixed(1)+'px,0) translate(-50%,-50%)';
+    curDot.style.transform='translate3d('+curX+'px,'+curY+'px,0) translate(-50%,-50%)';
   }
 
-  /* proceso pinned: scrub de fases */
-  if(proc&&procSteps.length){
-    r=proc.getBoundingClientRect();
-    p=clamp(-r.top/(r.height-vh),0,1);
-    var idx=Math.min(procSteps.length-1,Math.floor(p*procSteps.length));
-    if(idx!==lastStep){
-      procSteps.forEach(function(s,k){s.classList.toggle('on',k===idx)});
-      procDots.forEach(function(d,k){d.classList.toggle('on',k<=idx)});
-      if(procBg)procBg.textContent='0'+(idx+1);
-      if(prNow)prNow.textContent='0'+(idx+1);
-      lastStep=idx;
+  if(!reduced){
+    /* aura: el color ambiental viaja con el scroll */
+    rootStyle.setProperty('--ah',gp.toFixed(3));
+
+    /* la marquesina acelera con la velocidad del scroll */
+    if(mqAnim===undefined){
+      try{var an=$('.marquee-track').getAnimations();mqAnim=an.length?an[0]:undefined}catch(e){mqAnim=null}
     }
-    if(prFill)prFill.style.transform='scaleX('+p+')';
-  }
+    if(mqAnim)mqAnim.playbackRate=1+Math.min(3,Math.abs(sv)*.07);
 
-  /* visión: línea del roadmap se rellena */
-  if(road&&roadFill){
-    r=road.getBoundingClientRect();
-    p=clamp((vh*.78-r.top)/r.height,0,1);
-    roadFill.style.transform='scaleY('+p+')';
-    roadItems.forEach(function(it){
-      it.classList.toggle('on',it.getBoundingClientRect().top<vh*.78);
+    /* skew sutil por velocidad de scroll */
+    var sk=clamp(sv*.05,-1.3,1.3).toFixed(3);
+    if(sk!==lastSk){
+      for(i=0;i<vskews.length;i++)vskews[i].style.transform='skewY('+sk+'deg)';
+      lastSk=sk;
+    }
+
+    /* hero: parallax + desenfoque al salir */
+    if(heroWrap){
+      if(y<vh){
+        heroLive=true;p=y/vh;
+        heroWrap.style.transform='translateY('+(y*.18).toFixed(1)+'px)';
+        heroWrap.style.opacity=String(clamp(1-p/.85,0,1));
+        heroWrap.style.filter=p>.02?'blur('+(p*5).toFixed(2)+'px)':'';
+      }else if(heroLive){
+        heroLive=false;heroWrap.style.filter='';
+      }
+    }
+
+    /* manifiesto: palabras que se encienden */
+    if(mani&&maniWords.length){
+      r=mani.getBoundingClientRect();
+      if(r.bottom>0&&r.top<vh){
+        p=clamp(-r.top/(r.height-vh),0,1);
+        var lit=Math.round(p*1.18*maniWords.length);
+        for(i=0;i<maniWords.length;i++)maniWords[i].classList.toggle('lit',i<lit);
+        if(maniFirma)maniFirma.classList.toggle('lit',p>.86);
+      }
+    }
+
+    /* servicios: banda horizontal scrubbed */
+    if(svcPin&&svcTrack&&!narrow.matches){
+      r=svcPin.getBoundingClientRect();
+      if(r.bottom>0&&r.top<vh){
+        p=clamp(-r.top/(r.height-vh),0,1);
+        var shift=svcTrack.scrollWidth-svcWrapEl.clientWidth;
+        svcTrack.style.transform='translate3d('+(-p*shift).toFixed(1)+'px,0,0) skewY('+sk+'deg)';
+        if(svcFill)svcFill.style.transform='scaleX('+p+')';
+      }
+    }else if(svcTrack&&svcTrack.style.transform){
+      svcTrack.style.transform='';
+    }
+
+    /* proceso pinned: scrub de fases + número que se decodifica */
+    if(proc&&procSteps.length){
+      r=proc.getBoundingClientRect();
+      if(r.bottom>0&&r.top<vh){
+        p=clamp(-r.top/(r.height-vh),0,1);
+        var idx=Math.min(procSteps.length-1,Math.floor(p*procSteps.length));
+        if(idx!==lastStep){
+          procSteps.forEach(function(s,k){s.classList.toggle('on',k===idx)});
+          procDots.forEach(function(d,k){d.classList.toggle('on',k<=idx)});
+          scramble(procBg,'0'+(idx+1),420);
+          scramble(prNow,'0'+(idx+1),360);
+          if(psTags[idx]&&psTags[idx].el)scramble(psTags[idx].el,psTags[idx].txt,650);
+          lastStep=idx;
+        }
+        if(prFill)prFill.style.transform='scaleX('+p+')';
+        if(procBg)procBg.style.transform='translateY('+((p-.5)*70).toFixed(1)+'px) rotate('+((p-.5)*8).toFixed(2)+'deg)';
+      }
+    }
+
+    /* proyectos: zoom-out de la imagen al entrar */
+    if(caseImg){
+      var cm=caseImg.parentElement.getBoundingClientRect();
+      if(cm.bottom>0&&cm.top<vh){
+        var vp=clamp((vh-cm.top)/(vh+cm.height),0,1);
+        caseImg.style.setProperty('--zs',(1.16-.16*clamp(vp*1.5,0,1)).toFixed(3));
+      }
+    }
+
+    /* visión: la línea del roadmap se rellena */
+    if(road&&roadFill){
+      r=road.getBoundingClientRect();
+      if(r.bottom>0&&r.top<vh){
+        p=clamp((vh*.78-r.top)/r.height,0,1);
+        roadFill.style.transform='scaleY('+p+')';
+        roadItems.forEach(function(it){
+          it.classList.toggle('on',it.getBoundingClientRect().top<vh*.78);
+        });
+      }
+    }
+
+    /* parallax genérico data-para */
+    paras.forEach(function(el){
+      var er=el.parentElement.getBoundingClientRect();
+      if(er.bottom<0||er.top>vh)return;
+      var f=parseFloat(el.dataset.para)||.1;
+      el.style.setProperty('--py',((er.top+er.height/2-vh/2)*f).toFixed(1)+'px');
     });
   }
 
-  /* parallax genérico data-para */
-  paras.forEach(function(el){
-    var er=el.parentElement.getBoundingClientRect();
-    if(er.bottom<0||er.top>vh)return;
-    var f=parseFloat(el.dataset.para)||.1;
-    el.style.setProperty('--py',((er.top+er.height/2-vh/2)*f).toFixed(1)+'px');
-  });
+  requestAnimationFrame(loop);
 }
-addEventListener('scroll',function(){
-  if(!ticking){requestAnimationFrame(function(){onScroll();ticking=false});ticking=true}
-},{passive:true});
-addEventListener('resize',onScroll);
-onScroll();
+requestAnimationFrame(loop);
 
 /* ---------- foco luminoso en cards de servicio ---------- */
 $$('.svc').forEach(function(card){
