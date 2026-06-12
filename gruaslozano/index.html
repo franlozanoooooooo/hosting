@@ -86,16 +86,16 @@ fieldset{min-inline-size:0;border:none}
 
 /* bandas de imagen entre secciones (con parallax) */
 .phead{
-  position:relative;height:clamp(230px,34vh,340px);
+  position:relative;height:clamp(250px,38vh,400px);
   display:flex;align-items:flex-end;overflow:hidden;background:var(--dark);
 }
 .phead img{
-  position:absolute;left:0;right:0;top:-18%;height:136%;width:100%;
+  position:absolute;left:0;right:0;top:-26%;height:152%;width:100%;
   object-fit:cover;opacity:.6;filter:saturate(.9);
   will-change:transform;transform:translateY(var(--py,0px));
 }
 .phead::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(33,29,25,.45),rgba(33,29,25,.1) 50%,rgba(33,29,25,.78))}
-.phead .wrap{position:relative;z-index:1;padding-bottom:1.7rem}
+.phead .wrap{position:relative;z-index:1;padding-bottom:1.7rem;will-change:transform}
 .phead .crumb{font:600 .64rem/1 var(--fm);letter-spacing:.24em;text-transform:uppercase;color:var(--or)}
 .phead h1{margin-top:.6rem;font-weight:850;font-stretch:112%;text-transform:uppercase;color:#fff;font-size:clamp(1.9rem,4.6vw,3rem);line-height:1;letter-spacing:-.01em}
 
@@ -636,6 +636,34 @@ body.ld .hero [data-h="5"]{transition-delay:.66s}
 .mbar a.call{color:var(--ink);border-right:1px solid var(--line)}
 .mbar a.go{background:var(--or);color:#fff}
 
+/* ---------- magic scroll: declaración pinned ---------- */
+.magic{position:relative;height:250vh;background:var(--bg2)}
+.magic-sticky{position:sticky;top:0;height:100svh;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+.m-bg{
+  position:absolute;right:-3%;top:50%;transform:translateY(-50%);
+  font-weight:900;font-stretch:74%;line-height:1;
+  font-size:clamp(11rem,30vw,24rem);
+  color:transparent;-webkit-text-stroke:2.5px rgba(255,107,0,.16);
+  pointer-events:none;user-select:none;font-family:var(--fd);
+}
+.m-kicker{font:600 .72rem/1 var(--fm);letter-spacing:.24em;text-transform:uppercase;color:var(--or-d);margin-bottom:1.5rem}
+.m-lines{display:flex;flex-direction:column;gap:.45rem}
+.m-l{
+  font-weight:850;font-stretch:112%;text-transform:uppercase;color:var(--ink);
+  font-size:clamp(2rem,6.4vw,5.4rem);line-height:1.04;letter-spacing:-.015em;
+  will-change:transform,opacity,filter;
+}
+.m-l em{font-style:normal;color:var(--or)}
+.m-hint{margin-top:2.2rem;font:550 .62rem/1 var(--fm);letter-spacing:.26em;text-transform:uppercase;color:var(--dim)}
+@media (prefers-reduced-motion:reduce){
+  .magic{height:auto}
+  .magic-sticky{position:static;height:auto;padding:5rem 0}
+  .m-l{opacity:1!important;transform:none!important;filter:none!important}
+}
+@media (max-width:860px){.magic{height:220vh}.m-bg{font-size:clamp(8rem,38vw,14rem);right:-6%}}
+.sect{will-change:transform}
+.mq{will-change:transform}
+
 /* ---------- responsive ---------- */
 @media (max-width:1600px){
   .hdr .wrap{gap:1.4rem}
@@ -815,6 +843,23 @@ body.ld .hero [data-h="5"]{transition-delay:.66s}
     </div>
   </div>
 </div>
+
+<!-- ======================= MAGIC SCROLL ======================= -->
+<section class="magic" aria-label="Grupo Lozano en cifras">
+  <div class="magic-sticky">
+    <span class="m-bg" id="mbig" aria-hidden="true">1959</span>
+    <div class="wrap">
+      <p class="m-kicker">GRUPO LOZANO — TRES GENERACIONES DE OFICIO</p>
+      <h2 class="m-lines">
+        <span class="m-l">Elevamos</span>
+        <span class="m-l">hasta <em>700 toneladas</em></span>
+        <span class="m-l">a <em>150 metros</em> de altura,</span>
+        <span class="m-l">en cualquier punto de Andalucía <em>y Extremadura.</em></span>
+      </h2>
+      <p class="m-hint">SIGA BAJANDO ↓</p>
+    </div>
+  </div>
+</section>
 
 <!-- ======================= SERVICIOS ======================= -->
 <header class="phead" data-prlx>
@@ -2119,6 +2164,10 @@ var hdr=$('#hdr'),pbar=$('#pbar');
 var heroCopy=$('.hero-copy'),heroShot=$('.hero-shot'),heroShotImg=$('.hero-shot img');
 var pheads=$$('.phead');
 var tline=$('#tline'),tsec=$('#historia');
+var magicSec=$('.magic'),mLines=$$('.m-l'),mBig=$('#mbig');
+var sectTiles=$$('.sect'),sectGrid=$('.sect-grid');
+var mqBand=$('.mq');
+var lastY=0;
 var vh=window.innerHeight,ticking=false;
 window.addEventListener('resize',function(){vh=window.innerHeight},{passive:true});
 function paint(){
@@ -2129,12 +2178,46 @@ function paint(){
   pbar.style.transform='scaleX('+(max>0?y/max:0)+')';
   if(reduced)return;
   /* hero: el texto sube más lento y se desvanece; la foto respira */
-  if(heroCopy&&y<vh*1.2){
-    heroCopy.style.transform='translateY('+(y*.16)+'px)';
-    heroCopy.style.opacity=String(Math.max(0,1-y/(vh*.85)));
+  var dv=y-lastY;lastY=y;
+  if(heroCopy&&y<vh*1.3){
+    heroCopy.style.transform='translateY('+(y*.22)+'px)';
+    heroCopy.style.opacity=String(Math.max(0,1-y/(vh*.72)));
     if(heroShot){
-      heroShot.style.transform='translateY('+(y*.07)+'px)';
-      if(heroShotImg)heroShotImg.style.setProperty('--pz',String(1+Math.min(.08,y/vh*.12)));
+      heroShot.style.transform='translateY('+(y*.1)+'px) rotate('+Math.min(1.2,y/vh*1.6)+'deg)';
+      if(heroShotImg)heroShotImg.style.setProperty('--pz',String(1+Math.min(.14,y/vh*.2)));
+    }
+  }
+  /* declaración pinned: líneas + año gigante 1959→hoy */
+  if(magicSec){
+    var mr=magicSec.getBoundingClientRect();
+    if(mr.top<vh&&mr.bottom>0){
+      var span=Math.max(1,mr.height-vh);
+      var mp=Math.min(1,Math.max(0,-mr.top/span));
+      for(var j=0;j<mLines.length;j++){
+        var lp=Math.min(1,Math.max(0,mp*5-j*1.1));
+        mLines[j].style.opacity=String(.08+.92*lp);
+        mLines[j].style.transform='translateY('+((1-lp)*46).toFixed(1)+'px)';
+        mLines[j].style.filter='blur('+((1-lp)*7).toFixed(1)+'px)';
+      }
+      if(mBig)mBig.textContent=String(Math.round(1959+mp*((new Date().getFullYear())-1959)));
+    }
+  }
+  /* sectores: las piezas se recolocan al entrar */
+  if(sectGrid&&sectTiles.length){
+    var sr=sectGrid.getBoundingClientRect();
+    if(sr.top<vh&&sr.bottom>0){
+      var sp=Math.min(1,Math.max(0,(vh-sr.top)/(vh*.95)));
+      for(var k=0;k<sectTiles.length;k++){
+        var dir=(k%3)-1;
+        sectTiles[k].style.transform='translateY('+(dir*(1-sp)*52).toFixed(1)+'px)';
+      }
+    }
+  }
+  /* la cinta de certificaciones deriva con el scroll */
+  if(mqBand){
+    var qr=mqBand.getBoundingClientRect();
+    if(qr.bottom>0&&qr.top<vh){
+      mqBand.style.transform='translateX('+(((qr.top+qr.height/2)/vh-.5)*70).toFixed(1)+'px)';
     }
   }
   /* parallax en bandas de imagen */
@@ -2143,7 +2226,9 @@ function paint(){
     if(r.bottom<-80||r.top>vh+80)continue;
     var prog=(r.top+r.height/2-vh/2)/vh; /* -0.5..0.5 aprox */
     var img=pheads[i].firstElementChild;
-    if(img&&img.tagName==='IMG')img.style.setProperty('--py',(prog*56).toFixed(1)+'px');
+    if(img&&img.tagName==='IMG')img.style.setProperty('--py',(prog*95).toFixed(1)+'px');
+    var w=pheads[i].querySelector('.wrap');
+    if(w)w.style.transform='translateY('+(prog*-30).toFixed(1)+'px)';
   }
   /* scrub horizontal del timeline mientras se atraviesa Historia */
   if(tline&&tsec&&!tline._userTouched){
