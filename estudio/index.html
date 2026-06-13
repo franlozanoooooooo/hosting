@@ -797,6 +797,43 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
 }
 .totop:hover{color:var(--acc)}
 
+/* ---------- comparador antes / después ---------- */
+.ba{position:relative;margin-top:2.4rem;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;aspect-ratio:16/9;background:#fff;user-select:none;touch-action:pan-y;box-shadow:0 24px 60px -34px rgba(42,33,24,.3)}
+.ba-pane{position:absolute;inset:0;overflow:hidden}
+.ba-after{clip-path:inset(0 0 0 var(--pos,55%))}
+.ba-divider{position:absolute;top:0;bottom:0;left:var(--pos,55%);width:2px;margin-left:-1px;background:var(--acc);z-index:4;box-shadow:0 0 14px rgba(15,184,142,.6)}
+.ba-knob{position:absolute;top:50%;left:var(--pos,55%);transform:translate(-50%,-50%);z-index:5;
+  width:46px;height:46px;border-radius:50%;background:var(--acc);color:#06140D;display:grid;place-items:center;
+  box-shadow:0 6px 20px -6px rgba(15,184,142,.7);font:700 1rem/1 var(--fm)}
+.ba-range{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize;z-index:6}
+.ba-range:focus-visible+.ba-knob{outline:3px solid var(--ink);outline-offset:3px}
+.ba-tag{position:absolute;top:14px;z-index:3;font:600 .58rem/1 var(--fm);letter-spacing:.16em;text-transform:uppercase;
+  padding:.4rem .7rem;border-radius:999px;backdrop-filter:blur(6px)}
+.ba-tag--before{left:14px;background:rgba(42,33,24,.7);color:#fff}
+.ba-tag--after{right:14px;background:rgba(15,184,142,.92);color:#06140D}
+/* maqueta ANTES (web anticuada) */
+.old{position:absolute;inset:0;background:#fff;font-family:Times New Roman,Georgia,serif;color:#111;overflow:hidden}
+.old-bar{background:#000080;color:#fff;font:400 clamp(.5rem,1vw,.7rem)/1.6 monospace;padding:.3em .6em}
+.old-banner{background:#ffe000;color:#c00;text-align:center;font-weight:700;font-size:clamp(.8rem,2.1vw,1.4rem);padding:.5em;border-bottom:3px double #c00;letter-spacing:.02em}
+.old-body{padding:clamp(.6rem,1.6vw,1.1rem)}
+.old-nav{color:#00e;text-decoration:underline;font-size:clamp(.55rem,1.2vw,.8rem);margin-bottom:.7em}
+.old-body p{font-size:clamp(.55rem,1.25vw,.85rem);line-height:1.4;margin-bottom:.6em;max-width:46ch}
+.old-img{width:46%;aspect-ratio:4/3;border:2px ridge #999;background:repeating-linear-gradient(45deg,#ddd 0 8px,#eee 8px 16px);display:grid;place-items:center;color:#888;font-size:clamp(.5rem,1.1vw,.75rem);margin:.4em 0}
+.old-blink{color:#c00;font-weight:700;font-size:clamp(.6rem,1.4vw,.95rem);animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:.25}}
+/* maqueta DESPUÉS (web moderna) */
+.new{position:absolute;inset:0;background:var(--bg2);color:var(--ink);overflow:hidden;display:flex;flex-direction:column}
+.new-nav{display:flex;align-items:center;justify-content:space-between;padding:clamp(.7rem,1.6vw,1.1rem) clamp(.9rem,2vw,1.4rem);border-bottom:1px solid var(--line)}
+.new-nav b{font:700 clamp(.7rem,1.5vw,1rem)/1 var(--fd);letter-spacing:-.01em}
+.new-nav span{font:600 .55rem/1 var(--fm);letter-spacing:.2em;color:var(--dim)}
+.new-hero{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:flex-end;text-align:right;padding:0 clamp(1rem,3vw,2.4rem);position:relative;overflow:hidden}
+.new-hero::after{content:"";position:absolute;left:-12%;bottom:-30%;width:55%;aspect-ratio:1;border-radius:50%;background:radial-gradient(closest-side,rgba(122,87,240,.25),transparent);pointer-events:none}
+.new-eyebrow{font:600 clamp(.5rem,1.1vw,.7rem)/1 var(--fm);letter-spacing:.2em;color:var(--acc);margin-bottom:.7em}
+.new-h1{font:700 clamp(1.1rem,3.4vw,2.4rem)/1.05 var(--fd);letter-spacing:-.02em;max-width:16ch;margin-left:auto}
+.new-h1 em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.new-btn{margin-top:clamp(.8rem,2vw,1.4rem);align-self:flex-end;background:var(--acc);color:#06140D;font:600 clamp(.55rem,1.2vw,.78rem)/1 var(--fm);letter-spacing:.08em;padding:.7em 1.1em;border-radius:999px}
+@media (prefers-reduced-motion:reduce){.old-blink{animation:none}}
+
 /* ---------- números / contadores ---------- */
 .nums{background:var(--bg);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
 .nums .wrap{padding:clamp(3rem,6vw,4.5rem) 0}
@@ -942,6 +979,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
   <a href="#servicios" data-label="Servicios"></a>
   <a href="#proceso" data-label="Proceso"></a>
   <a href="#comparativa" data-label="Diferencia"></a>
+  <a href="#antesdespues" data-label="Antes/Después"></a>
   <a href="#proyectos" data-label="Proyectos"></a>
   <a href="#planes" data-label="Planes"></a>
   <a href="#calculadora" data-label="Calculadora"></a>
@@ -1186,6 +1224,50 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
           <li>Precio cerrado y mantenimiento desde 39 €/mes.</li>
         </ul>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= ANTES / DESPUÉS ======================= -->
+<section class="sec sec--panel" id="antesdespues" aria-label="Antes y después">
+  <div class="wrap">
+    <div class="shead">
+      <p class="eyebrow rv"><span class="tick"></span><span data-scramble>Antes · Después</span></p>
+      <h2 class="title tl">
+        <span class="tl-l"><span>Arrastra y mira</span></span>
+        <span class="tl-l"><span>la <em>transformación</em>.</span></span>
+      </h2>
+      <p class="sub rv" style="--d:.12s">Así de grande es el salto cuando una web pasa de otra década a 2026. Mueve el tirador para comparar.</p>
+    </div>
+    <div class="ba rv" id="ba" style="--pos:55%">
+      <div class="ba-pane ba-before" aria-hidden="true">
+        <div class="old">
+          <div class="old-bar">http://www.miempresa.es/index.htm</div>
+          <div class="old-banner">★ BIENVENIDOS A NUESTRA WEB ★</div>
+          <div class="old-body">
+            <div class="old-nav">Inicio | Productos | Quiénes somos | Contacto</div>
+            <p>Somos una empresa líder en el sector desde 1998. Pulse aquí para ver nuestro catálogo en PDF y rellene el formulario para más información.</p>
+            <div class="old-img">[ imagen.gif ]</div>
+            <p class="old-blink">¡¡NUEVAS OFERTAS!! · Es usted el visitante nº 000142</p>
+          </div>
+        </div>
+      </div>
+      <div class="ba-pane ba-after">
+        <div class="new">
+          <div class="new-nav"><b>miempresa</b><span>· · ·</span></div>
+          <div class="new-hero">
+            <div class="new-eyebrow">TU EMPRESA · 2026</div>
+            <div class="new-h1">Hacemos que tu negocio <em>destaque</em>.</div>
+            <div class="new-btn">Empezar ahora →</div>
+          </div>
+        </div>
+      </div>
+      <span class="ba-tag ba-tag--before" aria-hidden="true">Antes</span>
+      <span class="ba-tag ba-tag--after" aria-hidden="true">Después</span>
+      <span class="ba-divider" aria-hidden="true"></span>
+      <span class="ba-knob" aria-hidden="true">⇄</span>
+      <input class="ba-range" id="baRange" type="range" min="0" max="100" step="0.1" value="55"
+             aria-label="Comparar antes y después: arrastra para revelar la versión nueva">
     </div>
   </div>
 </section>
@@ -2182,6 +2264,35 @@ function toggleTheme(){
 }
 var themeTg=$('#themeTg');
 if(themeTg)themeTg.addEventListener('click',toggleTheme);
+
+/* ---------- comparador antes / después ---------- */
+var ba=$('#ba'),baRange=$('#baRange');
+if(ba&&baRange){
+  var baSet=function(v){ba.style.setProperty('--pos',v+'%')};
+  baRange.addEventListener('input',function(){baSet(baRange.value)});
+  if(!reduced){
+    var kf=[[0,55],[220,74],[640,30],[1050,55]],demoStart=null;
+    var lerpAt=function(t){
+      for(var i=0;i<kf.length-1;i++){
+        if(t>=kf[i][0]&&t<=kf[i+1][0]){
+          var p=(t-kf[i][0])/(kf[i+1][0]-kf[i][0]);p=1-Math.pow(1-p,3);
+          return kf[i][1]+(kf[i+1][1]-kf[i][1])*p;
+        }
+      }
+      return 55;
+    };
+    var runDemo=function(ts){
+      if(demoStart===null)demoStart=ts;
+      var t=ts-demoStart,v=lerpAt(t);
+      baRange.value=v;baSet(v);
+      if(t<1050)requestAnimationFrame(runDemo);
+    };
+    var baDemo=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){baDemo.unobserve(e.target);requestAnimationFrame(runDemo)}});
+    },{threshold:.45});
+    baDemo.observe(ba);
+  }
+}
 /* sincroniza el meta theme-color con el tema inicial */
 if(themeMeta&&document.documentElement.getAttribute('data-theme')==='dark')themeMeta.setAttribute('content','#070711');
 if(dockTop){
