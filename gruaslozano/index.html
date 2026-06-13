@@ -86,7 +86,7 @@ fieldset{min-inline-size:0;border:none}
 
 /* bandas de imagen entre secciones (con parallax) */
 .phead{
-  position:relative;height:clamp(250px,38vh,400px);
+  position:relative;height:clamp(320px,52vh,560px);
   display:flex;align-items:flex-end;overflow:hidden;background:var(--dark);
 }
 .phead img{
@@ -317,7 +317,7 @@ body.ld .hero [data-h="5"]{transition-delay:.66s}
   transition:transform .45s var(--ease),box-shadow .45s;
 }
 .svc:hover{transform:translateY(-6px);box-shadow:var(--sh)}
-.svc-img{height:160px;overflow:hidden;position:relative}
+.svc-img{height:220px;overflow:hidden;position:relative}
 .svc-img img{width:100%;height:100%;object-fit:cover;filter:saturate(.9);transition:transform .8s var(--ease),filter .5s}
 .svc:hover .svc-img img{transform:scale(1.06);filter:saturate(1.05)}
 .svc-img::after{content:"";position:absolute;left:0;bottom:0;right:0;height:3px;background:var(--or);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
@@ -662,6 +662,36 @@ body.ld .hero [data-h="5"]{transition-delay:.66s}
 }
 .sect{will-change:transform}
 .mq{will-change:transform}
+
+/* ---------- galería «en obra» (cintas de fotos grandes) ---------- */
+.gallery{background:var(--dark);padding:clamp(4rem,8vw,7rem) 0 clamp(3rem,6vw,5rem);overflow:hidden}
+.gallery-head{margin-bottom:clamp(2rem,4vw,3rem)}
+.gallery-head .eyebrow{color:var(--or)}
+.gallery-head .title{color:#fff}
+.gallery-head .sub{color:#BDB5AC}
+.gallery-head .sub b{color:#fff}
+.gstrip{overflow:hidden;width:100%;padding:.55rem 0}
+.gtrack{display:flex;gap:1rem;width:max-content;will-change:transform}
+.gtrack--l{animation:gscrollL 64s linear infinite}
+.gtrack--r{animation:gscrollR 64s linear infinite}
+.gallery:hover .gtrack{animation-play-state:paused}
+@keyframes gscrollL{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes gscrollR{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.gph{flex:none;height:clamp(220px,32vh,400px);width:auto;border-radius:16px;overflow:hidden;background:#1a1a1a;box-shadow:0 18px 40px -22px rgba(0,0,0,.7)}
+.gph--tall{height:clamp(220px,32vh,400px)}
+.gph img{height:100%;width:auto;max-width:none;object-fit:cover;display:block;transition:transform .6s var(--ease);filter:saturate(.96)}
+.gph:hover img{transform:scale(1.06)}
+@media (prefers-reduced-motion:reduce){
+  .gtrack--l,.gtrack--r{animation:none}
+  .gstrip{overflow-x:auto;scrollbar-width:none}
+  .gstrip::-webkit-scrollbar{display:none}
+}
+@media (max-width:860px){
+  .gph{height:clamp(170px,42vw,240px)}
+  .gtrack--l{animation-duration:42s}
+  .gtrack--r{animation-duration:42s}
+}
+
 /* En táctil / pantallas pequeñas: sin pin ni scrub, todo estático y legible */
 @media (max-width:1024px),(hover:none) and (pointer:coarse){
   .magic{height:auto!important}
@@ -775,6 +805,7 @@ body.ld .hero [data-h="5"]{transition-delay:.66s}
       <a href="#flota" data-spy="flota">Flota</a>
       <a href="#ingenieria" data-spy="ingenieria">Ingeniería</a>
       <a href="#sectores" data-spy="sectores">Sectores</a>
+      <a href="#galeria" data-spy="galeria">Galería</a>
       <a href="#historia" data-spy="historia">Historia</a>
       <a href="#formacion" data-spy="formacion">Formación</a>
       <a href="#certificaciones" data-spy="certificaciones">Certificaciones</a>
@@ -798,6 +829,7 @@ body.ld .hero [data-h="5"]{transition-delay:.66s}
   <a class="mlink" style="--i:1" href="#flota"><small>02</small>Flota</a>
   <a class="mlink" style="--i:2" href="#ingenieria"><small>03</small>Ingeniería</a>
   <a class="mlink" style="--i:3" href="#sectores"><small>04</small>Sectores</a>
+  <a class="mlink" style="--i:4" href="#galeria"><small>05</small>Galería</a>
   <a class="mlink" style="--i:4" href="#historia"><small>05</small>Historia</a>
   <a class="mlink" style="--i:5" href="#formacion"><small>06</small>Formación</a>
   <a class="mlink" style="--i:6" href="#certificaciones"><small>07</small>Certificaciones</a>
@@ -1618,6 +1650,59 @@ body.ld .hero [data-h="5"]{transition-delay:.66s}
       <figure class="sect rv" style="--d:.18s"><img src="assets/sec-eolicas.jpg" alt="Sector eólico" loading="lazy"><h4>Eólica<small>PERSONAL CERTIFICADO GWO</small></h4></figure>
       <figure class="sect rv" style="--d:.24s"><img src="assets/sec-termosolares.jpg" alt="Sector termosolar y fotovoltaico" loading="lazy"><h4>Solar<small>FOTOVOLTAICA · TERMOSOLAR</small></h4></figure>
       <figure class="sect rv" style="--d:.3s"><img src="assets/sec-otros.jpg" alt="Otros sectores" loading="lazy"><h4>Naval y otros<small>AEROPUERTOS · GRANDES EVENTOS</small></h4></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= GALERÍA EN OBRA ======================= -->
+<section class="gallery" id="galeria" aria-label="Grúas Lozano en obra">
+  <div class="wrap gallery-head rv">
+    <p class="eyebrow"><span class="tick"></span>EN OBRA</p>
+    <h2 class="title">Nuestras máquinas,<br><em>en acción.</em></h2>
+    <p class="sub">Izados reales, montajes en altura y maniobras del día a día del Grupo Lozano por toda Andalucía y Extremadura.</p>
+  </div>
+
+  <div class="gstrip" aria-hidden="true">
+    <div class="gtrack gtrack--l">
+      <figure class="gph"><img src="assets/gal-11.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph"><img src="assets/gal-01.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph gph--tall"><img src="assets/gal-12.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph"><img src="assets/gal-02.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph"><img src="assets/gal-13.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph"><img src="assets/gal-03.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph"><img src="assets/gal-14.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph"><img src="assets/gal-04.jpg" alt="" loading="lazy"></figure>
+      <!-- duplicado para bucle continuo -->
+      <figure class="gph"><img src="assets/gal-11.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph"><img src="assets/gal-01.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph gph--tall"><img src="assets/gal-12.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph"><img src="assets/gal-02.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph"><img src="assets/gal-13.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph"><img src="assets/gal-03.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph"><img src="assets/gal-14.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph"><img src="assets/gal-04.jpg" alt="" loading="lazy"></figure>
+    </div>
+  </div>
+
+  <div class="gstrip" aria-hidden="true">
+    <div class="gtrack gtrack--r">
+      <figure class="gph"><img src="assets/gal-15.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph"><img src="assets/gal-05.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph"><img src="assets/gal-16.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph"><img src="assets/gal-06.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph"><img src="assets/gal-09.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph"><img src="assets/gal-07.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph"><img src="assets/gal-10.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph"><img src="assets/gal-08.jpg" alt="" loading="lazy"></figure>
+      <!-- duplicado para bucle continuo -->
+      <figure class="gph"><img src="assets/gal-15.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph"><img src="assets/gal-05.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph"><img src="assets/gal-16.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph"><img src="assets/gal-06.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph"><img src="assets/gal-09.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph"><img src="assets/gal-07.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph"><img src="assets/gal-10.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph"><img src="assets/gal-08.jpg" alt="" loading="lazy"></figure>
     </div>
   </div>
 </section>
