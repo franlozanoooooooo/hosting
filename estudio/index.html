@@ -8,6 +8,17 @@
 <meta property="og:title" content="Lozano &amp; Peralta — Estudio Web">
 <meta property="og:description" content="Creamos y mejoramos las webs de las empresas. Diseño a medida, magic scroll, rendimiento y visión de futuro.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://franlozanoooooooo.github.io/hosting/estudio/">
+<meta property="og:image" content="https://franlozanoooooooo.github.io/hosting/estudio/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lozano &amp; Peralta — Estudio Web">
+<meta name="twitter:description" content="Creamos y mejoramos las webs de las empresas. Diseño a medida, magic scroll y rendimiento.">
+<meta name="twitter:image" content="https://franlozanoooooooo.github.io/hosting/estudio/assets/og.png">
+<meta name="theme-color" content="#FBF7F1">
+<link rel="canonical" href="https://franlozanoooooooo.github.io/hosting/estudio/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2307080C'/%3E%3Cpath d='M18 16v26h14' stroke='%235BF0C8' stroke-width='6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M36 48V22h8a8 8 0 0 1 0 16h-8' stroke='%238A7BFF' stroke-width='6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,7 +26,7 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ProfessionalService","name":"Lozano & Peralta — Estudio Web","description":"Creación y mejora de páginas web para empresas.","email":"franlozano.500@gmail.com","founder":[{"@type":"Person","name":"Francisco Lozano"},{"@type":"Person","name":"Pedro Peralta"}],"foundingDate":"2026","areaServed":"ES","knowsAbout":["Diseño web","Rediseño web","SEO","Rendimiento web"]}
 </script>
-<script>document.documentElement.className='js'</script>
+<script>document.documentElement.className='js';try{if(localStorage.getItem('lp-theme')==='dark')document.documentElement.setAttribute('data-theme','dark')}catch(e){}</script>
 <style>
 /* ============================================================
    LOZANO & PERALTA — Estudio Web
@@ -43,6 +54,54 @@
   --ease:cubic-bezier(.22,1,.36,1);
   --hdr-h:78px;
 }
+/* ---------- modo oscuro (opcional, recordado) ---------- */
+html[data-theme="dark"]{
+  --bg:#070711;
+  --bg2:#0C0D1A;
+  --bg3:#131426;
+  --ink:#F4F5FB;
+  --dim:#9AA0BD;
+  --faint:#5C6086;
+  --acc:#5BF0C8;
+  --acc2:#8A7BFF;
+  --acc3:#FF7AC6;
+  --grad:linear-gradient(92deg,#5BF0C8 0%,#8A7BFF 52%,#FF7AC6 100%);
+  --line:rgba(244,245,251,.1);
+  --line-soft:rgba(244,245,251,.06);
+  --card:rgba(255,255,255,.025);
+}
+html[data-theme="dark"] .hdr.scrolled{background:rgba(7,7,17,.82)}
+html[data-theme="dark"] .nav{background:rgba(7,7,17,.97)}
+html[data-theme="dark"] #pal{background:rgba(7,7,17,.7)}
+html[data-theme="dark"] .pal-box{background:rgba(12,13,26,.97);box-shadow:0 30px 80px -20px rgba(0,0,0,.8)}
+html[data-theme="dark"] .dock a,html[data-theme="dark"] .dock button{background:rgba(12,13,26,.85)}
+html[data-theme="dark"] #hud2{background:rgba(12,13,26,.72)}
+html[data-theme="dark"] .case-badge{background:rgba(7,7,17,.78)}
+html[data-theme="dark"] .scan{box-shadow:0 24px 60px -30px rgba(0,0,0,.7)}
+html[data-theme="dark"] #net{opacity:.55}
+html[data-theme="dark"] .svc:hover{background:rgba(255,255,255,.04)}
+html[data-theme="dark"] .case-media::after{background:linear-gradient(120deg,rgba(7,7,17,.45),transparent 55%)}
+html[data-theme="dark"] #aura{
+  mix-blend-mode:screen;opacity:.72;
+  background:
+    radial-gradient(56vw 46vh at 86% 6%,hsla(calc(262 - var(--ah,0)*70),92%,66%,.12),transparent 62%),
+    radial-gradient(50vw 48vh at 6% 96%,hsla(calc(165 + var(--ah,0)*55),90%,60%,.10),transparent 62%),
+    radial-gradient(40vw 42vh at 50% 58%,hsla(calc(326 - var(--ah,0)*40),92%,68%,.06),transparent 60%);
+}
+/* enlace de salto (accesibilidad) */
+.skip{position:fixed;top:-100px;left:1rem;z-index:700;background:var(--acc);color:#06140D;
+  padding:.7rem 1.1rem;border-radius:10px;font:600 .72rem/1 var(--fm);letter-spacing:.08em;
+  text-decoration:none;transition:top .25s var(--ease)}
+.skip:focus{top:1rem;outline:2px solid var(--ink);outline-offset:2px}
+/* botón de tema */
+.theme-tg{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:9px;
+  border:1px solid var(--line);color:var(--dim);transition:color .3s,border-color .3s,transform .3s var(--ease)}
+.theme-tg:hover{color:var(--acc);border-color:rgba(15,184,142,.4);transform:translateY(-1px)}
+.theme-tg svg{width:18px;height:18px}
+.theme-tg .ic-sun{display:none}
+.theme-tg .ic-moon{display:block}
+html[data-theme="dark"] .theme-tg .ic-sun{display:block}
+html[data-theme="dark"] .theme-tg .ic-moon{display:none}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:calc(var(--hdr-h) + 14px)}
 body{
@@ -623,7 +682,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
   border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;background:var(--bg3);
 }
 @media (max-width:920px){.case{grid-template-columns:1fr}}
-.case-media{position:relative;min-height:340px;overflow:hidden;background:#EDE6DA}
+.case-media{position:relative;min-height:340px;overflow:hidden;background:var(--bg3)}
 .case-media img{
   position:absolute;left:0;top:-12%;width:100%;height:124%;object-fit:cover;
   filter:saturate(.92);will-change:transform;
@@ -632,7 +691,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
 }
 .case:hover .case-media img{scale:1.06}
 .case-media::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(255,255,255,.25),transparent 55%)}
-.case-media--brand{display:grid;place-items:center;background:linear-gradient(135deg,#0FB88E 0%,#7A57F0 55%,#FF7A59 100%)}
+.case-media--brand{display:grid;place-items:center;background:linear-gradient(135deg,var(--acc) 0%,var(--acc2) 55%,var(--acc3) 100%)}
 .case-media--brand::after{display:none}
 .case-brand{position:relative;z-index:1;text-align:center;color:#fff;padding:2rem}
 .case-brand .cb-ball{font-size:2.2rem;line-height:1}
@@ -858,6 +917,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
 </style>
 </head>
 <body>
+<a class="skip" href="#top">Saltar al contenido</a>
 
 <!-- intro -->
 <div id="intro" aria-hidden="true">
@@ -925,6 +985,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
       <a href="#auditoria">Auditoría</a>
       <a href="#equipo">Equipo</a>
     </nav>
+    <button class="theme-tg" id="themeTg" aria-label="Cambiar entre tema claro y oscuro" title="Cambiar tema">
+      <svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      <svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.4M12 19.6V22M2 12h2.4M19.6 12H22M4.6 4.6l1.7 1.7M17.7 17.7l1.7 1.7M19.4 4.6l-1.7 1.7M6.3 17.7l-1.7 1.7"/></svg>
+    </button>
     <button class="cmdk" id="cmdkBtn" aria-label="Abrir paleta de comandos">⌘K</button>
     <a class="btn btn--acc" href="#contacto"><span>Empezar proyecto</span><span class="ar">→</span></a>
     <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
@@ -1690,12 +1754,14 @@ if(net&&!reduced){
   });
   net.parentElement.addEventListener('pointerleave',function(){mouse.x=0;mouse.y=0});
   new IntersectionObserver(function(es){netOn=es[0].isIntersecting},{threshold:0}).observe(net);
-  var hues=['15,184,142','122,87,240','255,122,89'];
+  var huesLight=['15,184,142','122,87,240','255,122,89'],huesDark=['91,240,200','138,123,255','242,244,248'];
   var drawStars=function(){
     if(netOn){
       ctx.clearRect(0,0,W,H);
       var f=Math.min(W,H)*.5;
       var ox=W/2-mouse.x*26,oy=H/2-mouse.y*26;
+      var dark=document.documentElement.getAttribute('data-theme')==='dark';
+      var hues=dark?huesDark:huesLight,am=dark?.75:.5;
       /* la velocidad de las estrellas responde al scroll y al modo hipervelocidad */
       var speed=.0024+Math.min(.02,Math.abs(gVel)*.00045)+hyper*.05;
       for(var i=0;i<stars.length;i++){
@@ -1705,7 +1771,7 @@ if(net&&!reduced){
         var px=ox+s.x/pz*f,py=oy+s.y/pz*f;
         var nx=ox+s.x/s.z*f,ny=oy+s.y/s.z*f;
         if(nx<-40||nx>W+40||ny<-40||ny>H+40){stars[i]=mkStar(1);continue}
-        var a=(1-s.z)*.5;
+        var a=(1-s.z)*am;
         ctx.strokeStyle='rgba('+hues[i%3]+','+a.toFixed(3)+')';
         ctx.lineWidth=(1-s.z)*1.7+.3;
         ctx.beginPath();ctx.moveTo(px,py);ctx.lineTo(nx,ny);ctx.stroke();
@@ -1985,6 +2051,7 @@ var cmds=[
   {t:'Copiar email del estudio',k:'acción',fn:function(){
     if(navigator.clipboard)navigator.clipboard.writeText('franlozano.500@gmail.com');
   }},
+  {t:'Cambiar tema claro / oscuro',k:'acción',fn:function(){toggleTheme()}},
   {t:'Activar modo hipervelocidad',k:'extra',fn:function(){hyper=1;goTo('#top')}}
 ];
 function palRender(q){
@@ -2103,6 +2170,20 @@ if(location.search.indexOf('enviado=1')>-1){
 /* ---------- dock flotante ---------- */
 var dockTop=$('#dockTop'),dockCmd=$('#dockCmd');
 if(dockCmd)dockCmd.addEventListener('click',palOpen);
+
+/* ---------- toggle de tema claro/oscuro ---------- */
+var themeMeta=document.querySelector('meta[name="theme-color"]');
+function toggleTheme(){
+  var dark=document.documentElement.getAttribute('data-theme')==='dark';
+  if(dark){document.documentElement.removeAttribute('data-theme')}
+  else{document.documentElement.setAttribute('data-theme','dark')}
+  try{localStorage.setItem('lp-theme',dark?'light':'dark')}catch(e){}
+  if(themeMeta)themeMeta.setAttribute('content',dark?'#FBF7F1':'#070711');
+}
+var themeTg=$('#themeTg');
+if(themeTg)themeTg.addEventListener('click',toggleTheme);
+/* sincroniza el meta theme-color con el tema inicial */
+if(themeMeta&&document.documentElement.getAttribute('data-theme')==='dark')themeMeta.setAttribute('content','#070711');
 if(dockTop){
   var dockSync=function(){dockTop.classList.toggle('show',scrollY>innerHeight*.6)};
   addEventListener('scroll',dockSync,{passive:true});dockSync();
