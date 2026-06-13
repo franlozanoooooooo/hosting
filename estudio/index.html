@@ -632,6 +632,12 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
 }
 .case:hover .case-media img{scale:1.06}
 .case-media::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(255,255,255,.25),transparent 55%)}
+.case-media--brand{display:grid;place-items:center;background:linear-gradient(135deg,#0FB88E 0%,#7A57F0 55%,#FF7A59 100%)}
+.case-media--brand::after{display:none}
+.case-brand{position:relative;z-index:1;text-align:center;color:#fff;padding:2rem}
+.case-brand .cb-ball{font-size:2.2rem;line-height:1}
+.case-brand .cb-mono{margin-top:.7rem;font:700 clamp(2rem,5vw,3rem)/1.05 var(--fd);letter-spacing:.01em}
+.case-brand .cb-name{margin-top:.7rem;font:600 .68rem/1.4 var(--fm);letter-spacing:.2em;text-transform:uppercase;opacity:.92}
 .case-badge{
   position:absolute;top:1.3rem;left:1.3rem;z-index:1;
   font:600 .6rem/1 var(--fm);letter-spacing:.18em;text-transform:uppercase;
@@ -1132,8 +1138,31 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
       </h2>
     </div>
     <article class="case rv">
+      <div class="case-media case-media--brand">
+        <span class="case-badge">Primer cliente</span>
+        <div class="case-brand">
+          <div class="cb-ball">⚽</div>
+          <div class="cb-mono">C. A. Antoniano</div>
+          <div class="cb-name">Club de fútbol · Desde 2026</div>
+        </div>
+      </div>
+      <div class="case-body">
+        <span class="case-kicker">Primer cliente · Deporte</span>
+        <h3>Club Atlético Antoniano</h3>
+        <p>Nuestro primer cliente real. Estamos construyendo la presencia digital del club para acercar a su afición el día a día del equipo, con una web pensada para móvil y fácil de mantener.</p>
+        <ul class="case-feats">
+          <li>Web del club con identidad propia y optimizada para móvil.</li>
+          <li>Un espacio para la afición: el equipo, sus partidos y novedades.</li>
+          <li>Proyecto vivo que crece temporada a temporada junto al club.</li>
+        </ul>
+        <div class="case-cta">
+          <a class="btn btn--acc" href="https://club-atletico-antoniano.netlify.app/" target="_blank" rel="noopener"><span>Ver la web</span><span class="ar">→</span></a>
+        </div>
+      </div>
+    </article>
+    <article class="case rv" style="--d:.08s;margin-top:1.2rem">
       <div class="case-media">
-        <span class="case-badge">Caso destacado</span>
+        <span class="case-badge">Propuesta</span>
         <img src="../gruaslozano/assets/hero.jpg" alt="Vista de la web de Grúas y Plataformas Lozano" loading="lazy" data-para="0.12">
       </div>
       <div class="case-body">
@@ -1950,6 +1979,7 @@ var cmds=[
   {t:'Ir a Equipo',k:'sección',fn:function(){goTo('#equipo')}},
   {t:'Ir a Preguntas frecuentes',k:'sección',fn:function(){goTo('#faq')}},
   {t:'Ir a Contacto',k:'sección',fn:function(){goTo('#contacto')}},
+  {t:'Ver la web del Club Atlético Antoniano',k:'abrir',fn:function(){window.open('https://club-atletico-antoniano.netlify.app/','_blank')}},
   {t:'Ver proyecto: Grúas y Plataformas Lozano',k:'abrir',fn:function(){window.open('../gruaslozano/','_blank')}},
   {t:'Escribir un email al estudio',k:'acción',fn:function(){location.href='mailto:franlozano.500@gmail.com'}},
   {t:'Copiar email del estudio',k:'acción',fn:function(){
