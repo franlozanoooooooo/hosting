@@ -156,13 +156,13 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .tl-l:nth-child(3)>span{transition-delay:.18s}
 
 /* reveal genérico */
-.js .rv{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease) var(--d,0s),transform .9s var(--ease) var(--d,0s)}
-.js .rv.on{opacity:1;transform:none}
+.js .rv{opacity:0;transform:translateY(22px) scale(.99);will-change:opacity,transform;transition:opacity 1s var(--ease) var(--d,0s),transform 1.05s var(--ease) var(--d,0s),filter 1s var(--ease) var(--d,0s);filter:blur(4px)}
+.js .rv.on{opacity:1;transform:none;filter:none}
 
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important}
   html{scroll-behavior:auto}
-  .js .rv,.tl-l>span{opacity:1;transform:none}
+  .js .rv,.tl-l>span{opacity:1;transform:none;filter:none}
 }
 
 /* ---------- botones ---------- */
@@ -691,12 +691,14 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
 }
 .case:hover .case-media img{scale:1.06}
 .case-media::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(255,255,255,.25),transparent 55%)}
-.case-media--brand{display:grid;place-items:center;background:linear-gradient(135deg,var(--acc) 0%,var(--acc2) 55%,var(--acc3) 100%)}
-.case-media--brand::after{display:none}
-.case-brand{position:relative;z-index:1;text-align:center;color:#fff;padding:2rem}
-.case-brand .cb-ball{font-size:2.2rem;line-height:1}
-.case-brand .cb-mono{margin-top:.7rem;font:700 clamp(2rem,5vw,3rem)/1.05 var(--fd);letter-spacing:.01em}
-.case-brand .cb-name{margin-top:.7rem;font:600 .68rem/1.4 var(--fm);letter-spacing:.2em;text-transform:uppercase;opacity:.92}
+.case-media--club{display:grid;place-items:center;background:radial-gradient(130% 90% at 50% -10%,#16413A 0%,#0C231E 55%,#081915 100%)}
+.case-media--club::after{display:none}
+.case-media--club::before{content:"";position:absolute;inset:0;opacity:.5;pointer-events:none;
+  background:repeating-linear-gradient(90deg,rgba(255,255,255,.045) 0 2px,transparent 2px 58px)}
+.club-crest{position:relative;z-index:1;text-align:center;color:#fff;padding:1.6rem}
+.club-crest .crest{width:clamp(78px,15vw,112px);height:auto;margin:0 auto;filter:drop-shadow(0 8px 20px rgba(0,0,0,.45))}
+.club-crest .club-name{margin-top:1rem;font:700 clamp(1.1rem,2.6vw,1.65rem)/1.1 var(--fd);letter-spacing:-.01em}
+.club-crest .club-sub{margin-top:.55rem;font:600 .6rem/1.4 var(--fm);letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.72)}
 .case-badge{
   position:absolute;top:1.3rem;left:1.3rem;z-index:1;
   font:600 .6rem/1 var(--fm);letter-spacing:.18em;text-transform:uppercase;
@@ -946,6 +948,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
 .dock a:hover,.dock button:hover{color:var(--acc);border-color:rgba(15,184,142,.5);transform:translateY(-3px) scale(1.05)}
 .dock .dock-main{background:var(--acc);color:#06140D;border-color:var(--acc);box-shadow:0 8px 28px -8px rgba(15,184,142,.5)}
 .dock .dock-main:hover{color:#06140D;background:#fff}
+.dock .dock-wa{background:#25D366;color:#fff;border-color:#25D366;box-shadow:0 8px 28px -8px rgba(37,211,102,.6)}
+.dock .dock-wa:hover{color:#fff;background:#1da851;border-color:#1da851}
+.dock .dock-wa svg{width:23px;height:23px}
 .dock svg{width:21px;height:21px}
 .dock .dock-top{opacity:0;pointer-events:none;transform:translateY(8px)}
 .dock .dock-top.show{opacity:1;pointer-events:auto;transform:none}
@@ -1284,12 +1289,18 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
       </h2>
     </div>
     <article class="case rv">
-      <div class="case-media case-media--brand">
+      <div class="case-media case-media--club">
         <span class="case-badge">Primer cliente</span>
-        <div class="case-brand">
-          <div class="cb-ball">⚽</div>
-          <div class="cb-mono">C. A. Antoniano</div>
-          <div class="cb-name">Club de fútbol · Desde 2026</div>
+        <div class="club-crest">
+          <svg class="crest" viewBox="0 0 100 116" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M50 4 6 18v38c0 31 21 49 44 56 23-7 44-25 44-56V18L50 4z" fill="rgba(255,255,255,.06)" stroke="#fff" stroke-width="3" stroke-linejoin="round"/>
+            <path d="M9 46h82" stroke="#fff" stroke-width="2" opacity=".45"/>
+            <text x="50" y="40" text-anchor="middle" font-family="'Space Grotesk',system-ui,sans-serif" font-size="19" font-weight="700" fill="#fff">C.A.A.</text>
+            <circle cx="50" cy="76" r="14" fill="none" stroke="#fff" stroke-width="2.4"/>
+            <path d="M50 66l8.6 6.2-3.3 10h-10.6l-3.3-10z" fill="#fff"/>
+          </svg>
+          <div class="club-name">Club Atlético Antoniano</div>
+          <div class="club-sub">Club de fútbol · Desde 2026</div>
         </div>
       </div>
       <div class="case-body">
@@ -1715,7 +1726,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
     </div>
 
     <div class="contact-cta rv" style="--d:.3s">
-      <a class="btn btn--ghost" href="mailto:franlozano.500@gmail.com?subject=Quiero%20mejorar%20la%20web%20de%20mi%20empresa"><span>O escríbenos un email</span><span class="ar">→</span></a>
+      <a class="btn btn--acc" href="https://wa.me/34650311099?text=Hola%20Francisco%20y%20Pedro%2C%20me%20gustar%C3%ADa%20hablar%20sobre%20mi%20web" target="_blank" rel="noopener"><span>Escríbenos por WhatsApp</span><span class="ar">→</span></a>
+      <a class="btn btn--ghost" href="mailto:franlozano.500@gmail.com?subject=Quiero%20mejorar%20la%20web%20de%20mi%20empresa"><span>O un email</span><span class="ar">→</span></a>
     </div>
     <a class="contact-mail rv" style="--d:.35s" href="mailto:franlozano.500@gmail.com">franlozano.500@gmail.com</a>
   </div>
@@ -1741,6 +1753,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
   </a>
   <a class="dock-main" href="#contacto" aria-label="Ir a contacto" title="Hablemos">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v12H7l-3 3V4z"/></svg>
+  </a>
+  <a class="dock-wa" href="https://wa.me/34650311099?text=Hola%20Francisco%20y%20Pedro%2C%20me%20gustar%C3%ADa%20hablar%20sobre%20mi%20web" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp" title="WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.004c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01zM12.04 20.15a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.24-8.23a8.2 8.2 0 0 1 8.23 8.24c0 4.54-3.7 8.23-8.24 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/></svg>
   </a>
 </div>
 
@@ -2129,6 +2144,7 @@ var cmds=[
   {t:'Ir a Contacto',k:'sección',fn:function(){goTo('#contacto')}},
   {t:'Ver la web del Club Atlético Antoniano',k:'abrir',fn:function(){window.open('https://club-atletico-antoniano.netlify.app/','_blank')}},
   {t:'Ver proyecto: Grúas y Plataformas Lozano',k:'abrir',fn:function(){window.open('../gruaslozano/','_blank')}},
+  {t:'Escribir por WhatsApp',k:'acción',fn:function(){window.open('https://wa.me/34650311099','_blank')}},
   {t:'Escribir un email al estudio',k:'acción',fn:function(){location.href='mailto:franlozano.500@gmail.com'}},
   {t:'Copiar email del estudio',k:'acción',fn:function(){
     if(navigator.clipboard)navigator.clipboard.writeText('franlozano.500@gmail.com');
