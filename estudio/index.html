@@ -713,6 +713,123 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
   font:600 .64rem/1 var(--fm);letter-spacing:.2em;text-transform:uppercase;color:var(--dim);transition:color .3s;
 }
 .totop:hover{color:var(--acc)}
+
+/* ---------- números / contadores ---------- */
+.nums{background:var(--bg);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
+.nums .wrap{padding:clamp(3rem,6vw,4.5rem) 0}
+.nums-head{text-align:center;margin-bottom:clamp(2rem,4vw,3rem)}
+.nums-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
+@media (max-width:860px){.nums-grid{grid-template-columns:repeat(2,1fr)}}
+.num{
+  position:relative;border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:2rem 1.6rem;background:var(--card);text-align:center;overflow:hidden;
+  transition:border-color .4s,transform .4s var(--ease);
+}
+.num:hover{border-color:rgba(107,255,184,.3);transform:translateY(-4px)}
+.num-big{display:flex;align-items:baseline;justify-content:center;gap:.05em}
+.num-big b{
+  font:700 clamp(2.6rem,6vw,3.8rem)/1 var(--fd);letter-spacing:-.03em;
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.num-big span{font:700 1.6rem/1 var(--fd);color:var(--acc)}
+.num-lbl{margin-top:.7rem;font:500 .68rem/1.5 var(--fm);letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+
+/* ---------- calculadora de presupuesto ---------- */
+.calc-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:1.2rem;align-items:start}
+@media (max-width:980px){.calc-grid{grid-template-columns:1fr}}
+.calc-panel{border:1px solid var(--line);border-radius:var(--r-lg);background:var(--card);padding:2rem 2rem 2.2rem}
+.calc-block{padding:1.4rem 0;border-bottom:1px solid var(--line-soft)}
+.calc-block:first-child{padding-top:0}
+.calc-block:last-child{border-bottom:none;padding-bottom:0}
+.calc-q{font:600 .68rem/1 var(--fm);letter-spacing:.18em;text-transform:uppercase;color:var(--acc);margin-bottom:1rem}
+.calc-opts{display:flex;flex-wrap:wrap;gap:.6rem}
+.calc-opt{
+  cursor:pointer;border:1px solid var(--line);border-radius:12px;padding:.7rem 1rem;
+  font:500 .9rem/1.2 var(--fd);color:var(--dim);transition:all .3s var(--ease);user-select:none;
+}
+.calc-opt:hover{border-color:var(--faint);color:var(--ink)}
+.calc-opt.on{border-color:var(--acc);background:rgba(107,255,184,.08);color:var(--ink)}
+.calc-opt small{display:block;font:500 .62rem/1.4 var(--fm);color:var(--faint);margin-top:.2rem}
+.calc-opt.on small{color:var(--acc)}
+.calc-range{display:flex;align-items:center;gap:1.1rem}
+.calc-range input[type=range]{flex:1;accent-color:var(--acc);height:4px}
+.calc-range output{font:700 1.3rem/1 var(--fd);color:var(--ink);min-width:2.4ch;text-align:center}
+.calc-side{
+  position:sticky;top:calc(var(--hdr-h) + 1.5rem);
+  border:1px solid rgba(107,255,184,.3);border-radius:var(--r-lg);
+  background:rgba(107,255,184,.03);padding:2rem;overflow:hidden;
+}
+@media (max-width:980px){.calc-side{position:static}}
+.calc-side::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(360px 200px at 80% 0%,rgba(107,255,184,.08),transparent 70%)}
+.calc-side h3{font:600 .68rem/1 var(--fm);letter-spacing:.2em;text-transform:uppercase;color:var(--acc)}
+.calc-total{margin-top:1.2rem;display:flex;align-items:baseline;gap:.4rem}
+.calc-total b{font:700 clamp(2.4rem,5vw,3.2rem)/1 var(--fd);letter-spacing:-.03em;color:var(--ink);font-variant-numeric:tabular-nums}
+.calc-total span{font:500 .72rem/1 var(--fm);color:var(--faint)}
+.calc-month{margin-top:.6rem;font:600 .95rem/1.4 var(--fd);color:var(--acc)}
+.calc-list{list-style:none;margin-top:1.5rem;display:grid;gap:.55rem}
+.calc-list li{display:flex;justify-content:space-between;gap:1rem;font:500 .82rem/1.4 var(--fm);color:var(--dim)}
+.calc-list li b{color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
+.calc-side .btn{margin-top:1.7rem;width:100%;justify-content:center}
+.calc-disc{margin-top:1rem;font:500 .58rem/1.5 var(--fm);letter-spacing:.06em;color:var(--faint);text-align:center}
+
+/* ---------- stack tecnológico ---------- */
+.stack{background:var(--bg2);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
+.stack-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2.5rem,5vw,4.5rem);align-items:center}
+@media (max-width:920px){.stack-grid{grid-template-columns:1fr}}
+.tech-wrap{display:flex;flex-wrap:wrap;gap:.7rem}
+.tech{
+  display:inline-flex;align-items:center;gap:.55rem;
+  border:1px solid var(--line);border-radius:999px;padding:.7rem 1.1rem;
+  font:500 .8rem/1 var(--fm);letter-spacing:.04em;color:var(--dim);
+  transition:all .3s var(--ease);cursor:default;
+}
+.tech:hover{border-color:rgba(94,168,255,.4);color:var(--ink);transform:translateY(-3px)}
+.tech .d{width:7px;height:7px;border-radius:50%;background:var(--acc);flex:none}
+.tech:nth-child(even) .d{background:var(--acc2)}
+
+/* ---------- formulario de contacto ---------- */
+.cform{max-width:560px;margin:2.4rem auto 0;text-align:left;display:grid;gap:.9rem}
+.cform .row{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+@media (max-width:560px){.cform .row{grid-template-columns:1fr}}
+.cform label{display:block}
+.cform .lb{font:600 .6rem/1 var(--fm);letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-bottom:.45rem;display:block}
+.cform input,.cform textarea{
+  width:100%;background:var(--bg3);border:1px solid var(--line);border-radius:12px;
+  padding:.95rem 1.05rem;color:var(--ink);font:400 .95rem/1.5 var(--fd);
+  transition:border-color .3s,background .3s;
+}
+.cform textarea{min-height:120px;resize:vertical}
+.cform input:focus,.cform textarea:focus{outline:none;border-color:var(--acc);background:rgba(107,255,184,.04)}
+.cform input::placeholder,.cform textarea::placeholder{color:var(--faint)}
+.cform .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.cform .btn{justify-content:center;margin-top:.4rem}
+.cform .cnote{font:500 .58rem/1.6 var(--fm);letter-spacing:.06em;color:var(--faint);text-align:center}
+.cform-ok{
+  max-width:560px;margin:2.4rem auto 0;display:none;
+  border:1px solid rgba(107,255,184,.4);border-radius:var(--r-lg);background:rgba(107,255,184,.05);
+  padding:2.2rem;text-align:center;
+}
+.cform-ok.show{display:block;animation:palin .4s var(--ease)}
+.cform-ok b{display:block;font:700 1.3rem/1.3 var(--fd);color:var(--ink);margin-bottom:.6rem}
+.cform-ok p{color:var(--dim);font-size:.95rem}
+
+/* ---------- dock flotante ---------- */
+.dock{
+  position:fixed;right:1.3rem;bottom:1.3rem;z-index:160;display:flex;flex-direction:column;gap:.7rem;
+}
+.dock a,.dock button{
+  width:48px;height:48px;border-radius:50%;display:grid;place-items:center;
+  background:rgba(12,14,21,.85);backdrop-filter:blur(10px);border:1px solid var(--line);
+  color:var(--dim);text-decoration:none;transition:all .3s var(--ease);
+}
+.dock a:hover,.dock button:hover{color:var(--acc);border-color:rgba(107,255,184,.5);transform:translateY(-3px) scale(1.05)}
+.dock .dock-main{background:var(--acc);color:#06140D;border-color:var(--acc);box-shadow:0 8px 28px -8px rgba(107,255,184,.5)}
+.dock .dock-main:hover{color:#06140D;background:#fff}
+.dock svg{width:21px;height:21px}
+.dock .dock-top{opacity:0;pointer-events:none;transform:translateY(8px)}
+.dock .dock-top.show{opacity:1;pointer-events:auto;transform:none}
+@media (pointer:coarse){.dock .dock-cmd{display:none}}
+@media (max-width:1100px),(pointer:coarse){.dock{right:1rem;bottom:1rem}.dock a,.dock button{width:44px;height:44px}}
 </style>
 </head>
 <body>
@@ -742,6 +859,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
   <a href="#comparativa" data-label="Diferencia"></a>
   <a href="#proyectos" data-label="Proyectos"></a>
   <a href="#planes" data-label="Planes"></a>
+  <a href="#calculadora" data-label="Calculadora"></a>
   <a href="#auditoria" data-label="Auditoría"></a>
   <a href="#vision" data-label="Visión"></a>
   <a href="#equipo" data-label="Equipo"></a>
@@ -1024,6 +1142,33 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
   </div>
 </section>
 
+<!-- ======================= NÚMEROS ======================= -->
+<section class="nums" id="numeros" aria-label="Compromiso en números">
+  <div class="wrap">
+    <div class="nums-head">
+      <p class="eyebrow rv" style="justify-content:center"><span class="tick"></span><span data-scramble>Compromiso en números</span></p>
+    </div>
+    <div class="nums-grid">
+      <div class="num rv">
+        <div class="num-big"><b class="count" data-to="90">0</b><span>+</span></div>
+        <p class="num-lbl">Puntuación PageSpeed garantizada</p>
+      </div>
+      <div class="num rv" style="--d:.08s">
+        <div class="num-big"><b class="count" data-to="14">0</b></div>
+        <p class="num-lbl">Días de entrega media</p>
+      </div>
+      <div class="num rv" style="--d:.16s">
+        <div class="num-big"><b class="count" data-to="100">0</b><span>%</span></div>
+        <p class="num-lbl">Diseño a medida · cero plantillas</p>
+      </div>
+      <div class="num rv" style="--d:.24s">
+        <div class="num-big"><b class="count" data-to="24">0</b><span>h</span></div>
+        <p class="num-lbl">Tiempo máximo de respuesta</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ======================= PLANES ======================= -->
 <section class="sec" id="planes" aria-label="Planes y precios">
   <span class="sec-idx" aria-hidden="true">04</span>
@@ -1085,9 +1230,70 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
   </div>
 </section>
 
-<!-- ======================= AUDITORÍA GRATUITA ======================= -->
-<section class="sec sec--panel" id="auditoria" aria-label="Auditoría gratuita">
+<!-- ======================= CALCULADORA ======================= -->
+<section class="sec sec--panel" id="calculadora" aria-label="Calculadora de presupuesto">
   <span class="sec-idx" aria-hidden="true">05</span>
+  <div class="wrap">
+    <div class="shead">
+      <p class="eyebrow rv"><span class="tick"></span><span data-scramble>Presupuesto instantáneo</span></p>
+      <h2 class="title tl">
+        <span class="tl-l"><span>Calcula tu web</span></span>
+        <span class="tl-l"><span>en <em>30 segundos</em>.</span></span>
+      </h2>
+      <p class="sub rv" style="--d:.15s">Mueve las opciones y mira cómo cambia la estimación en tiempo real. Sin registros, sin esperar a un comercial.</p>
+    </div>
+    <div class="calc-grid">
+      <div class="calc-panel rv">
+        <div class="calc-block">
+          <p class="calc-q">1 · ¿Qué necesitas?</p>
+          <div class="calc-opts" id="calcType">
+            <span class="calc-opt on" data-base="490" data-inc="5">Web nueva<small>desde 490 €</small></span>
+            <span class="calc-opt" data-base="590" data-inc="5">Rediseño completo<small>desde 590 €</small></span>
+            <span class="calc-opt" data-base="350" data-inc="1">Landing de una página<small>desde 350 €</small></span>
+          </div>
+        </div>
+        <div class="calc-block">
+          <p class="calc-q">2 · ¿Cuántas secciones?</p>
+          <div class="calc-range">
+            <input type="range" id="calcSec" min="1" max="12" value="5" aria-label="Número de secciones">
+            <output id="calcSecOut">5</output>
+          </div>
+        </div>
+        <div class="calc-block">
+          <p class="calc-q">3 · Extras</p>
+          <div class="calc-opts" id="calcExtras">
+            <span class="calc-opt" data-add="150">Identidad / logo</span>
+            <span class="calc-opt" data-add="120">Redacción de textos</span>
+            <span class="calc-opt" data-add="450">Tienda online</span>
+            <span class="calc-opt" data-add="250">Reservas / citas</span>
+            <span class="calc-opt" data-add="200">Multidioma</span>
+            <span class="calc-opt" data-add="180">SEO avanzado</span>
+          </div>
+        </div>
+        <div class="calc-block">
+          <p class="calc-q">4 · Mantenimiento mensual</p>
+          <div class="calc-opts" id="calcMaint">
+            <span class="calc-opt on" data-month="0">Sin mantenimiento</span>
+            <span class="calc-opt" data-month="39">Órbita · 39 €/mes</span>
+            <span class="calc-opt" data-month="89">Órbita Pro · 89 €/mes</span>
+          </div>
+        </div>
+      </div>
+      <div class="calc-side rv" style="--d:.1s">
+        <h3>Tu estimación</h3>
+        <div class="calc-total"><b id="calcTotal">490</b><span>€ aprox.</span></div>
+        <div class="calc-month" id="calcMonth" style="display:none"></div>
+        <ul class="calc-list" id="calcBreak"></ul>
+        <a class="btn btn--acc" id="calcCta" href="mailto:franlozano.500@gmail.com"><span>Pedir este presupuesto</span><span class="ar">→</span></a>
+        <p class="calc-disc">Estimación orientativa. El precio final se cierra por escrito tras una llamada de 30 min.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= AUDITORÍA GRATUITA ======================= -->
+<section class="sec" id="auditoria" aria-label="Auditoría gratuita">
+  <span class="sec-idx" aria-hidden="true">06</span>
   <div class="wrap">
     <div class="audit-grid">
       <div>
@@ -1130,7 +1336,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
 
 <!-- ======================= VISIÓN FUTURA ======================= -->
 <section class="sec sec--panel vis" id="vision" aria-label="Visión de futuro">
-  <span class="sec-idx" aria-hidden="true">06</span>
+  <span class="sec-idx" aria-hidden="true">07</span>
   <div class="wrap">
     <div class="vis-grid">
       <div class="vis-copy">
@@ -1175,7 +1381,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
 
 <!-- ======================= EQUIPO ======================= -->
 <section class="sec" id="equipo" aria-label="Equipo fundador">
-  <span class="sec-idx" aria-hidden="true">07</span>
+  <span class="sec-idx" aria-hidden="true">08</span>
   <div class="wrap vskew">
     <div class="shead">
       <p class="eyebrow rv"><span class="tick"></span><span data-scramble>Equipo fundador</span></p>
@@ -1205,9 +1411,44 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
   </div>
 </section>
 
+<!-- ======================= STACK TECNOLÓGICO ======================= -->
+<section class="stack" id="stack" aria-label="Con qué lo construimos">
+  <div class="wrap" style="padding:clamp(4.5rem,8vw,7rem) 0">
+    <div class="stack-grid">
+      <div>
+        <p class="eyebrow rv"><span class="tick"></span><span data-scramble>Con qué lo construimos</span></p>
+        <h2 class="title tl" style="font-size:clamp(1.8rem,3.6vw,2.8rem)">
+          <span class="tl-l"><span>La tecnología de</span></span>
+          <span class="tl-l"><span>los <em>premios</em>, a</span></span>
+          <span class="tl-l"><span>precio de estudio.</span></span>
+        </h2>
+        <p class="sub rv" style="--d:.12s">
+          Nada de constructores recargados. Escribimos cada web a mano con las mismas
+          herramientas que usan los estudios premiados en Awwwards — por eso vuelan,
+          posicionan y se sienten distintas.
+        </p>
+      </div>
+      <div class="tech-wrap rv" style="--d:.18s">
+        <span class="tech"><i class="d"></i>HTML5 semántico</span>
+        <span class="tech"><i class="d"></i>CSS moderno</span>
+        <span class="tech"><i class="d"></i>JavaScript</span>
+        <span class="tech"><i class="d"></i>Canvas / WebGL</span>
+        <span class="tech"><i class="d"></i>Magic scroll</span>
+        <span class="tech"><i class="d"></i>Core Web Vitals</span>
+        <span class="tech"><i class="d"></i>SEO técnico</span>
+        <span class="tech"><i class="d"></i>Accesibilidad</span>
+        <span class="tech"><i class="d"></i>Diseño responsive</span>
+        <span class="tech"><i class="d"></i>Git &amp; GitHub</span>
+        <span class="tech"><i class="d"></i>Despliegue continuo</span>
+        <span class="tech"><i class="d"></i>IA aplicada</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ======================= FAQ ======================= -->
-<section class="sec sec--panel" id="faq" aria-label="Preguntas frecuentes">
-  <span class="sec-idx" aria-hidden="true">08</span>
+<section class="sec" id="faq" aria-label="Preguntas frecuentes">
+  <span class="sec-idx" aria-hidden="true">09</span>
   <div class="wrap">
     <div class="shead" style="text-align:center">
       <p class="eyebrow rv" style="justify-content:center"><span class="tick"></span><span data-scramble>Preguntas frecuentes</span></p>
@@ -1255,11 +1496,32 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
     </h2>
     <p class="sub rv" style="--d:.15s">
       Cuéntanos qué necesita tu empresa — una web nueva o una buena puesta a punto —
-      y te respondemos con ideas concretas, sin compromiso.
+      y te respondemos en menos de 24 horas, sin compromiso.
     </p>
-    <div class="contact-cta rv" style="--d:.25s">
-      <a class="btn btn--acc" href="mailto:franlozano.500@gmail.com?subject=Quiero%20mejorar%20la%20web%20de%20mi%20empresa"><span>Escribir un email</span><span class="ar">→</span></a>
-      <a class="btn btn--ghost" href="#proyectos"><span>Ver el trabajo primero</span></a>
+
+    <form class="cform rv" id="cform" style="--d:.22s" action="https://formsubmit.co/franlozano.500@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="Nuevo contacto desde la web del estudio">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_next" value="https://franlozanoooooooo.github.io/hosting/estudio/?enviado=1#contacto">
+      <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="row">
+        <label><span class="lb">Tu nombre</span><input type="text" name="nombre" required placeholder="Francisco Lozano"></label>
+        <label><span class="lb">Tu email</span><input type="email" name="email" required placeholder="tucorreo@empresa.com"></label>
+      </div>
+      <label><span class="lb">Tu empresa o web actual</span><input type="text" name="empresa" placeholder="miempresa.com (opcional)"></label>
+      <label><span class="lb">¿Qué necesitas?</span><textarea name="mensaje" required placeholder="Quiero una web nueva para mi negocio de…"></textarea></label>
+      <button class="btn btn--acc" type="submit"><span>Enviar mensaje</span><span class="ar">→</span></button>
+      <p class="cnote">Respuesta en menos de 24 h · Tus datos solo se usan para responderte</p>
+    </form>
+
+    <div class="cform-ok" id="cformOk">
+      <b>¡Mensaje enviado! 🚀</b>
+      <p>Gracias por escribirnos. Francisco o Pedro te responderán en menos de 24 horas.</p>
+    </div>
+
+    <div class="contact-cta rv" style="--d:.3s">
+      <a class="btn btn--ghost" href="mailto:franlozano.500@gmail.com?subject=Quiero%20mejorar%20la%20web%20de%20mi%20empresa"><span>O escríbenos un email</span><span class="ar">→</span></a>
     </div>
     <a class="contact-mail rv" style="--d:.35s" href="mailto:franlozano.500@gmail.com">franlozano.500@gmail.com</a>
   </div>
@@ -1274,6 +1536,19 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
     <a class="totop" href="#top">Volver arriba ↑</a>
   </div>
 </footer>
+
+<!-- dock flotante de acceso rápido -->
+<div class="dock" aria-label="Acciones rápidas">
+  <button class="dock-cmd" id="dockCmd" aria-label="Abrir paleta de comandos (⌘K)" title="Buscar (⌘K)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+  </button>
+  <a class="dock-top" id="dockTop" href="#top" aria-label="Volver arriba" title="Volver arriba">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </a>
+  <a class="dock-main" href="#contacto" aria-label="Ir a contacto" title="Hablemos">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v12H7l-3 3V4z"/></svg>
+  </a>
+</div>
 
 <script>
 (function(){
@@ -1649,7 +1924,9 @@ var cmds=[
   {t:'Ir a La diferencia',k:'sección',fn:function(){goTo('#comparativa')}},
   {t:'Ir a Proyectos',k:'sección',fn:function(){goTo('#proyectos')}},
   {t:'Ir a Planes y precios',k:'sección',fn:function(){goTo('#planes')}},
+  {t:'Calcular mi presupuesto',k:'sección',fn:function(){goTo('#calculadora')}},
   {t:'Pedir auditoría gratuita',k:'sección',fn:function(){goTo('#auditoria')}},
+  {t:'Ver el stack tecnológico',k:'sección',fn:function(){goTo('#stack')}},
   {t:'Ir a Visión futura',k:'sección',fn:function(){goTo('#vision')}},
   {t:'Ir a Equipo',k:'sección',fn:function(){goTo('#equipo')}},
   {t:'Ir a Preguntas frecuentes',k:'sección',fn:function(){goTo('#faq')}},
@@ -1708,6 +1985,79 @@ addEventListener('keydown',function(e){
   kPos=(e.key===konami[kPos])?kPos+1:(e.key===konami[0]?1:0);
   if(kPos===konami.length){kPos=0;hyper=1;goTo('#top')}
 });
+
+/* ---------- contadores ---------- */
+var counters=$$('.count');
+if(counters.length){
+  var cio=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting)return;
+      cio.unobserve(e.target);
+      var el=e.target,to=+el.dataset.to||0;
+      if(reduced){el.textContent=to;return}
+      var t0=performance.now(),dur=1400;
+      (function f(t){
+        var p=clamp(((t||performance.now())-t0)/dur,0,1),e2=1-Math.pow(1-p,3);
+        el.textContent=Math.round(to*e2);
+        if(p<1)requestAnimationFrame(f);
+      })(t0);
+    });
+  },{threshold:.6});
+  counters.forEach(function(c){cio.observe(c)});
+}
+
+/* ---------- calculadora de presupuesto ---------- */
+var calc=$('#calculadora');
+if(calc){
+  var cType=$$('#calcType .calc-opt'),
+      cExtras=$$('#calcExtras .calc-opt'),
+      cMaint=$$('#calcMaint .calc-opt'),
+      cSec=$('#calcSec'),cSecOut=$('#calcSecOut'),
+      cTotal=$('#calcTotal'),cMonth=$('#calcMonth'),
+      cBreak=$('#calcBreak'),cCta=$('#calcCta');
+  var pick=function(list,el){list.forEach(function(o){o.classList.toggle('on',o===el)})};
+  var eur=function(n){return n.toLocaleString('es-ES')};
+  function calcUpdate(){
+    var t=cType.filter(function(o){return o.classList.contains('on')})[0]||cType[0];
+    var base=+t.dataset.base,inc=+t.dataset.inc,secs=+cSec.value;
+    cSecOut.textContent=secs;
+    var extra=Math.max(0,secs-inc)*55;
+    var items=[{l:t.textContent.split('desde')[0].trim(),v:base}];
+    if(extra>0)items.push({l:(secs-inc)+' secciones extra',v:extra});
+    var sum=base+extra;
+    cExtras.forEach(function(o){
+      if(o.classList.contains('on')){var a=+o.dataset.add;sum+=a;items.push({l:o.textContent,v:a})}
+    });
+    var m=cMaint.filter(function(o){return o.classList.contains('on')})[0],month=m?+m.dataset.month:0;
+    cTotal.textContent=eur(sum);
+    if(month>0){cMonth.style.display='';cMonth.textContent='+ '+month+' €/mes de mantenimiento'}
+    else cMonth.style.display='none';
+    cBreak.innerHTML=items.map(function(i){return '<li>'+i.l+'<b>'+eur(i.v)+' €</b></li>'}).join('');
+    var body='Hola Francisco y Pedro,%0A%0AHe usado la calculadora y me sale:%0A';
+    items.forEach(function(i){body+='- '+i.l+': '+eur(i.v)+' EUR%0A'});
+    body+='%0ATotal estimado: '+eur(sum)+' EUR'+(month>0?' + '+month+' EUR/mes':'')+'%0A%0AMe gustaria cerrar el presupuesto.';
+    cCta.href='mailto:franlozano.500@gmail.com?subject=Presupuesto%20web%20('+eur(sum)+'%20EUR)&body='+body;
+  }
+  cType.forEach(function(o){o.addEventListener('click',function(){pick(cType,o);calcUpdate()})});
+  cMaint.forEach(function(o){o.addEventListener('click',function(){pick(cMaint,o);calcUpdate()})});
+  cExtras.forEach(function(o){o.addEventListener('click',function(){o.classList.toggle('on');calcUpdate()})});
+  cSec.addEventListener('input',calcUpdate);
+  calcUpdate();
+}
+
+/* ---------- formulario: pantalla de éxito tras enviar ---------- */
+if(location.search.indexOf('enviado=1')>-1){
+  var okBox=$('#cformOk'),cf=$('#cform');
+  if(okBox){okBox.classList.add('show');if(cf)cf.style.display='none'}
+}
+
+/* ---------- dock flotante ---------- */
+var dockTop=$('#dockTop'),dockCmd=$('#dockCmd');
+if(dockCmd)dockCmd.addEventListener('click',palOpen);
+if(dockTop){
+  var dockSync=function(){dockTop.classList.toggle('show',scrollY>innerHeight*.6)};
+  addEventListener('scroll',dockSync,{passive:true});dockSync();
+}
 })();
 </script>
 </body>
