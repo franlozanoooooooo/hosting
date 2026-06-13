@@ -174,10 +174,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
 #cur.hot ~ #curDot{opacity:.5}
 @keyframes curspin{to{transform:rotate(360deg)}}
 @media (prefers-reduced-motion:reduce){#cur::before{animation:none}}
-@media (hover:hover) and (pointer:fine){
-  html.cur-live,html.cur-live a,html.cur-live button{cursor:none}
-  html.cur-live #cur,html.cur-live #curDot{display:block}
-}
+/* cursor personalizado desactivado — se usa el cursor normal del sistema */
+#cur,#curDot{display:none!important}
 
 /* ---------- hud lateral de secciones ---------- */
 #hud{position:fixed;right:1.4rem;top:50%;transform:translateY(-50%);z-index:150;display:flex;flex-direction:column;gap:1.05rem}
@@ -742,17 +740,18 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
 @media (max-width:860px){.nums-grid{grid-template-columns:repeat(2,1fr)}}
 .num{
   position:relative;border:1px solid var(--line);border-radius:var(--r-lg);
-  padding:2rem 1.6rem;background:var(--card);text-align:center;overflow:hidden;
-  transition:border-color .4s,transform .4s var(--ease);
+  padding:2.5rem 1.6rem 2rem;background:var(--card);text-align:center;overflow:hidden;
+  transition:border-color .4s,transform .4s var(--ease),box-shadow .4s;
 }
-.num:hover{border-color:rgba(91,240,200,.3);transform:translateY(-4px)}
-.num-big{display:flex;align-items:baseline;justify-content:center;gap:.05em}
+.num::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:48px;height:3px;border-radius:0 0 99px 99px;background:var(--grad)}
+.num:hover{border-color:rgba(91,240,200,.38);transform:translateY(-5px);box-shadow:0 18px 42px -22px rgba(91,240,200,.45)}
+.num-big{display:flex;align-items:baseline;justify-content:center;gap:.03em;font-variant-numeric:tabular-nums}
 .num-big b{
-  font:700 clamp(2.6rem,6vw,3.8rem)/1 var(--fd);letter-spacing:-.03em;
-  background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;
+  font:700 clamp(3rem,7.6vw,4.6rem)/1 var(--fd);letter-spacing:-.03em;color:var(--ink);
+  text-shadow:0 0 28px rgba(91,240,200,.4);
 }
-.num-big span{font:700 1.6rem/1 var(--fd);color:var(--acc)}
-.num-lbl{margin-top:.7rem;font:500 .68rem/1.5 var(--fm);letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.num-big span{font:700 clamp(1.6rem,3vw,2.1rem)/1 var(--fd);color:var(--acc);text-shadow:0 0 18px rgba(91,240,200,.55)}
+.num-lbl{margin-top:.9rem;font:500 .7rem/1.5 var(--fm);letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
 
 /* ---------- calculadora de presupuesto ---------- */
 .calc-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:1.2rem;align-items:start}
