@@ -460,42 +460,35 @@ body.ld .hero [data-h="5"]{transition-delay:.66s}
 .nitem small{margin-left:auto;font:650 .6rem/1 var(--fm);letter-spacing:.14em;color:var(--or-d);flex:none}
 @media (max-width:680px){.nitem b{font-size:.86rem}.nitem small{display:none}}
 
-/* ---------- delegaciones / mapa ---------- */
-.del-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.12fr .88fr;gap:clamp(1.8rem,4vw,3rem);align-items:stretch}
-.map-panel{position:relative;background:var(--bg2);border:1px solid var(--line);border-radius:var(--r-lg);padding:1rem;box-shadow:var(--sh);display:flex;flex-direction:column}
-.gmap{flex:1;min-height:420px;border-radius:18px;overflow:hidden;background:var(--bg3)}
-.gmap iframe{width:100%;height:100%;min-height:520px;border:0;display:block}
-.map-legend{display:flex;flex-wrap:wrap;gap:1.4rem;padding:.95rem .6rem .25rem;font:500 .85rem/1.4 var(--fd);color:var(--ink)}
-.map-legend span{display:flex;align-items:center;gap:.55rem}
-.map-legend .lg{width:14px;height:14px;border-radius:50%;background:var(--or);border:3px solid #fff;box-shadow:0 0 0 1.5px var(--or),0 3px 6px rgba(45,41,38,.3);flex:none}
-.map-legend .lg--hq{background:var(--or-d);width:16px;height:16px;box-shadow:0 0 0 2px var(--or-d),0 3px 6px rgba(45,41,38,.3)}
-.dlist{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--bg2);overflow:hidden;box-shadow:var(--sh)}
-.dl-scroll{overflow-y:auto;max-height:360px;scrollbar-width:thin}
-.ditem{
-  display:flex;align-items:center;gap:1rem;width:100%;text-align:left;
-  padding:.9rem 1.3rem;border-bottom:1px solid var(--line);
-  transition:background .3s,padding-left .3s var(--ease);
-}
-.ditem:hover{background:var(--bg);padding-left:1.55rem}
-.ditem.act{background:var(--or-soft);box-shadow:inset 3px 0 0 var(--or)}
-.ditem .idx{font:550 .6rem/1 var(--fm);letter-spacing:.08em;color:var(--or-d);width:24px;flex:none}
-.ditem b{font-weight:750;font-stretch:105%;text-transform:uppercase;font-size:.9rem;letter-spacing:.02em;color:var(--ink)}
-.ditem small{margin-left:auto;font:550 .58rem/1 var(--fm);letter-spacing:.12em;text-transform:uppercase;color:var(--dim);flex:none}
-.ditem .hq{font:650 .54rem/1 var(--fm);letter-spacing:.1em;background:var(--or);color:#fff;padding:.3rem .55rem;border-radius:999px;flex:none}
-.dcard{background:var(--bg2);margin-top:auto;position:relative;border-top:1px solid var(--line)}
-.dcard-img{height:150px;overflow:hidden;position:relative}
-.dcard-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
-.dcard:hover .dcard-img img{transform:scale(1.04)}
-.dcard-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(33,29,25,.45))}
-.dcard-body{padding:1.25rem 1.4rem 1.4rem}
-.dcard h4{font-weight:800;font-stretch:106%;text-transform:uppercase;font-size:1.15rem;display:flex;align-items:baseline;gap:.8rem;flex-wrap:wrap;color:var(--ink)}
-.dcard h4 small{font:550 .58rem/1 var(--fm);letter-spacing:.18em;color:var(--or-d)}
-.dcard p{color:var(--dim);font-size:.87rem;margin-top:.5rem;min-height:3.2em}
-.dcard-ft{display:flex;flex-wrap:wrap;gap:1.4rem;margin-top:.9rem;padding-top:.9rem;border-top:1px solid var(--line)}
-.dcard-ft a{display:flex;flex-direction:column;text-decoration:none}
-.dcard-ft small{font:550 .56rem/1 var(--fm);letter-spacing:.18em;color:var(--dim);margin-bottom:.3rem;text-transform:uppercase}
-.dcard-ft b{font:650 .9rem/1 var(--fm);color:var(--ink);transition:color .3s}
-.dcard-ft a:hover b{color:var(--or-d)}
+/* ---------- delegaciones: rejilla (todo visible, sin clics) ---------- */
+.del-cards{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.1rem,2vw,1.5rem)}
+.dcard2{display:flex;flex-direction:column;background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--sh-sm);transition:transform .45s var(--ease),box-shadow .45s,border-color .45s}
+.dcard2:hover{transform:translateY(-6px);box-shadow:var(--sh)}
+.dcard2--hq{border-color:rgba(255,107,0,.55)}
+.dcard2-img{position:relative;height:180px;overflow:hidden}
+.dcard2-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.dcard2:hover .dcard2-img img{transform:scale(1.06)}
+.dcard2-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(33,29,25,.5))}
+.dbadge{position:absolute;left:.9rem;top:.9rem;z-index:1;font:650 .58rem/1 var(--fm);letter-spacing:.12em;text-transform:uppercase;background:rgba(255,255,255,.94);color:var(--ink);padding:.42rem .7rem;border-radius:999px;box-shadow:var(--sh-sm)}
+.dbadge--hq{background:var(--or);color:#fff}
+.dcard2-b{display:flex;flex-direction:column;flex:1;padding:1.25rem 1.4rem 1.4rem}
+.dcard2-b h3{font-weight:800;font-stretch:107%;text-transform:uppercase;font-size:1.22rem;letter-spacing:.01em;color:var(--ink)}
+.dcard2 .addr{color:var(--dim);font-size:.88rem;line-height:1.55;margin-top:.55rem}
+.dcard2-ft{margin-top:auto;padding-top:1.1rem;display:flex;flex-direction:column;gap:.7rem}
+.dphone{display:inline-flex;align-items:center;gap:.7rem;text-decoration:none;width:fit-content}
+.dphone svg{width:34px;height:34px;flex:none;padding:8px;border-radius:50%;background:var(--or-soft);fill:none;stroke:var(--or-d);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:background .3s,transform .3s}
+.dphone:hover svg{background:var(--or);stroke:#fff;transform:scale(1.06)}
+.dphone small{display:block;font:550 .56rem/1 var(--fm);letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin-bottom:.3rem}
+.dphone b{font:650 1.1rem/1 var(--fm);letter-spacing:.02em;color:var(--ink);transition:color .3s}
+.dphone:hover b{color:var(--or-d)}
+.dmail{font:550 .8rem/1.4 var(--fm);color:var(--dim);text-decoration:none;text-underline-offset:3px;word-break:break-word}
+.dmail:hover{color:var(--or-d);text-decoration:underline}
+.dcard2--cta{background:var(--dark);border-color:var(--dark);justify-content:center}
+.dcard2-ctab{padding:1.8rem 1.6rem;display:flex;flex-direction:column;gap:.7rem;align-items:flex-start}
+.dcta-k{font:650 .62rem/1 var(--fm);letter-spacing:.2em;color:var(--or)}
+.dcard2--cta h3{font-weight:820;font-stretch:108%;text-transform:uppercase;font-size:1.3rem;line-height:1.05;color:#fff}
+.dcard2--cta p{color:#BDB5AC;font-size:.88rem;line-height:1.55}
+.dcard2--cta .btn{margin-top:.6rem}
 
 /* ---------- presupuesto ---------- */
 .q-grid{position:relative;z-index:1;display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2.4rem,5vw,4.2rem);align-items:start}
@@ -747,11 +740,11 @@ body.ld .hero [data-h="5"]{transition-delay:.66s}
   .hero-side,.hero-scroll{display:none}
   .svc-grid{grid-template-columns:repeat(2,1fr)}
   .fl-grid{grid-template-columns:repeat(2,1fr)}
-  .ing-grid,.del-grid,.q-grid,.hist-top{grid-template-columns:1fr}
+  .ing-grid,.q-grid,.hist-top{grid-template-columns:1fr}
+  .del-cards{grid-template-columns:repeat(2,1fr)}
   .sect-grid{grid-template-columns:repeat(3,1fr)}
   .certs{grid-template-columns:repeat(3,1fr)}
   .foot-grid{grid-template-columns:1fr 1fr}
-  .gmap iframe{min-height:440px}
 }
 @media (max-width:860px){
   :root{--hdr-h:70px}
@@ -763,13 +756,11 @@ body.ld .hero [data-h="5"]{transition-delay:.66s}
   .frow{grid-template-columns:1fr}
   .certs{grid-template-columns:1fr 1fr}
   .sect-grid{grid-template-columns:repeat(2,1fr)}
+  .del-cards{grid-template-columns:1fr}
   .fl-count{margin-left:0;text-align:left;width:100%}
-  .dl-scroll{max-height:300px}
   .fnav{flex-direction:column-reverse}
   .fnav .btn--back{width:100%}
   .hist-shot .badge{width:88px;right:1.2rem;bottom:3.2rem}
-  .gmap{min-height:340px}
-  .gmap iframe{min-height:340px}
 }
 @media (max-width:560px){
   .hdr-tel{display:none}
@@ -1921,64 +1912,117 @@ body.ld .hero [data-h="5"]{transition-delay:.66s}
       <p class="sub">Red de oficinas propia con presencia en <b>Andalucía y Extremadura</b> y capacidad de operar en proyectos en cualquier punto. Cada delegación, con su teléfono directo.</p>
     </header>
 
-    <div class="del-grid">
-      <div class="map-panel rv">
-        <div class="gmap">
-          <iframe id="gmap" src="https://www.google.com/maps?q=Gr%C3%BAas%20Lozano%2C%20Pol%C3%ADgono%20Industrial%20La%20Red%2C%20Alcal%C3%A1%20de%20Guada%C3%ADra&z=8&hl=es&output=embed" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" title="Mapa de Google con las delegaciones del Grupo Lozano"></iframe>
-        </div>
-        <div class="map-legend">
-          <span><i class="lg lg--hq"></i>Sede central · Alcalá de Guadaíra</span>
-          <span><i class="lg"></i>Toque una delegación de la lista para situarla en el mapa</span>
-        </div>
-      </div>
-      <div class="dlist rv" style="--d:.15s">
-        <div class="dl-scroll" id="dlist">
-          <button class="ditem act" data-d="sev" data-ll="37.358,-5.846" data-tag="SEDE CENTRAL" data-tel="955634500" data-telshow="955 634 500" data-img="assets/del-sevilla.jpg" data-cover="Servicios Generales del Grupo y Grúas Lozano Sevilla: P.I. La Red, calle 9 nº 1, Ctra. Sevilla–Málaga km 5,2 · Alcalá de Guadaíra. Plataformas Lozano en P.I. La Red nº 13 e instalaciones en Mercasevilla.">
-            <span class="idx">01</span><b>Sevilla</b><span class="hq">HQ</span><small>SEDE CENTRAL</small>
-          </button>
-          <button class="ditem" data-d="jer" data-ll="36.668,-6.121" data-tag="CÁDIZ · DESDE 1965" data-tel="956144127" data-telshow="956 144 127" data-img="assets/del-jerez.jpg" data-cover="Grúas Lozano Jerez: P.I. El Portal, Avda. Alcalde Cantos Ropero nº 93 · 11408 Jerez de la Frontera. La delegación decana del grupo.">
-            <span class="idx">02</span><b>Jerez de la Fra.</b><small>DESDE 1965</small>
-          </button>
-          <button class="ditem" data-d="alg" data-ll="36.211,-5.385" data-tag="CAMPO DE GIBRALTAR · DESDE 1999" data-tel="666496943" data-telshow="666 496 943" data-img="assets/del-algeciras.jpg" data-cover="Plataformas Lozano Algeciras: Sector TA-03, calle 3, parcela I-78, La Pólvora (Taraguilla) · 11360 San Roque.">
-            <span class="idx">03</span><b>Algeciras</b><small>DESDE 1999</small>
-          </button>
-          <button class="ditem" data-d="hue" data-ll="37.268,-6.941" data-tag="DESDE 1992" data-tel="959260126" data-telshow="959 260 126" data-img="assets/del-huelva.jpg" data-cover="Delegación de Huelva: Polígono Industrial Pesquero Norte, c/ Alonso Ojeda s/n.">
-            <span class="idx">04</span><b>Huelva</b><small>DESDE 1992</small>
-          </button>
-          <button class="ditem" data-d="cor" data-ll="37.838,-4.738" data-tag="DESDE 2020" data-tel="697313084" data-telshow="697 313 084" data-img="assets/del-cordoba.jpg" data-cover="Plataformas Lozano Córdoba: Carretera Madrid–Cádiz km 392 · 14610 Córdoba.">
-            <span class="idx">05</span><b>Córdoba</b><small>DESDE 2020</small>
-          </button>
-          <button class="ditem" data-d="mal" data-ll="36.728,-4.558" data-tag="DESDE 2004" data-tel="952179478" data-telshow="952 179 478" data-img="assets/del-malaga.jpg" data-cover="Plataformas Lozano Málaga: Pol. Ind. Trevelez, c/ Gaspar Cassado y Calibran, parc. I-3 · 29590 Campanillas.">
-            <span class="idx">06</span><b>Málaga</b><small>DESDE 2004</small>
-          </button>
-          <button class="ditem" data-d="gra" data-ll="37.189,-3.718" data-tag="DESDE 2006" data-tel="958440777" data-telshow="958 440 777" data-img="assets/del-granada.jpg" data-cover="Plataformas Lozano Granada: c/ Bernard Vicent · 18230 Santa Fe (Granada).">
-            <span class="idx">07</span><b>Granada</b><small>DESDE 2006</small>
-          </button>
-          <button class="ditem" data-d="jae" data-ll="37.779,-3.784" data-tag="DELEGACIÓN" data-tel="671645879" data-telshow="671 645 879" data-img="assets/del-jaen.jpg" data-cover="Plataformas Lozano Jaén: servicio de plataformas elevadoras para toda la provincia.">
-            <span class="idx">08</span><b>Jaén</b><small>DELEGACIÓN</small>
-          </button>
-          <button class="ditem" data-d="alm" data-ll="36.916,-2.443" data-tag="DELEGACIÓN" data-tel="637267690" data-telshow="637 267 690" data-img="assets/del-almeria.jpg" data-cover="Plataformas Lozano Almería: Carretera de Pechina · 04250 Pechina (Almería).">
-            <span class="idx">09</span><b>Almería</b><small>DELEGACIÓN</small>
-          </button>
-          <button class="ditem" data-d="amj" data-ll="38.683,-6.404" data-tag="BADAJOZ · DESDE 2002" data-tel="924664630" data-telshow="924 664 630" data-img="assets/del-almendralejo.jpg" data-cover="Plataformas Lozano Almendralejo: Av. Pdte. Juan Carlos Rodríguez Ibarra, 3 · 06200 Almendralejo (Badajoz).">
-            <span class="idx">10</span><b>Almendralejo</b><small>DESDE 2002</small>
-          </button>
-          <button class="ditem" data-d="nav" data-ll="39.892,-5.540" data-tag="CÁCERES · DESDE 2025" data-tel="667472182" data-telshow="667 472 182" data-img="assets/del-navalmoral.jpg" data-cover="Navalmoral de la Mata: la delegación más reciente de la red, al servicio del norte de Extremadura.">
-            <span class="idx">11</span><b>Navalmoral</b><small>DESDE 2025</small>
-          </button>
-        </div>
-        <div class="dcard">
-          <div class="dcard-img"><img id="dimg" src="assets/del-sevilla.jpg" alt="Instalaciones de la delegación seleccionada"></div>
-          <div class="dcard-body">
-            <h4><span id="dcity">Sevilla</span><small id="dtag">SEDE CENTRAL</small></h4>
-            <p id="dcover">Servicios Generales del Grupo y Grúas Lozano Sevilla: P.I. La Red, calle 9 nº 1, Ctra. Sevilla–Málaga km 5,2 · Alcalá de Guadaíra. Plataformas Lozano en P.I. La Red nº 13 e instalaciones en Mercasevilla.</p>
-            <div class="dcard-ft">
-              <a id="dtel" href="tel:+34955634500"><small>TELÉFONO DIRECTO</small><b id="dtelshow">955 634 500</b></a>
-              <a href="mailto:gruaslozano@gruaslozano.com"><small>EMAIL</small><b>gruaslozano@gruaslozano.com</b></a>
-            </div>
+    <div class="del-cards">
+      <article class="dcard2 dcard2--hq rv">
+        <div class="dcard2-img"><img src="assets/del-sevilla.jpg" alt="Sede central de Grúas Lozano en Alcalá de Guadaíra" loading="lazy"><span class="dbadge dbadge--hq">Sede central</span></div>
+        <div class="dcard2-b">
+          <h3>Sevilla</h3>
+          <p class="addr">P.I. La Red, calle 9 nº 1 · Ctra. Sevilla–Málaga km 5,2 · 41500 Alcalá de Guadaíra. Plataformas Lozano en P.I. La Red nº 13 e instalaciones en Mercasevilla.</p>
+          <div class="dcard2-ft">
+            <a class="dphone" href="tel:+34955634500"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><span><small>Teléfono directo</small><b>955 634 500</b></span></a>
+            <a class="dmail" href="mailto:gruaslozano@gruaslozano.com">gruaslozano@gruaslozano.com</a>
           </div>
         </div>
-      </div>
+      </article>
+
+      <article class="dcard2 rv" style="--d:.04s">
+        <div class="dcard2-img"><img src="assets/del-jerez.jpg" alt="Delegación de Jerez de la Frontera" loading="lazy"><span class="dbadge">Desde 1965</span></div>
+        <div class="dcard2-b">
+          <h3>Jerez de la Frontera</h3>
+          <p class="addr">P.I. El Portal · Avda. Alcalde Cantos Ropero nº 93 · 11408 Jerez de la Frontera (Cádiz).</p>
+          <div class="dcard2-ft"><a class="dphone" href="tel:+34956144127"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><span><small>Teléfono directo</small><b>956 144 127</b></span></a></div>
+        </div>
+      </article>
+
+      <article class="dcard2 rv" style="--d:.08s">
+        <div class="dcard2-img"><img src="assets/del-algeciras.jpg" alt="Delegación de Algeciras" loading="lazy"><span class="dbadge">Desde 1999</span></div>
+        <div class="dcard2-b">
+          <h3>Algeciras</h3>
+          <p class="addr">Sector TA-03, calle 3, parcela I-78 · La Pólvora (Taraguilla) · 11360 San Roque (Cádiz).</p>
+          <div class="dcard2-ft"><a class="dphone" href="tel:+34666496943"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><span><small>Teléfono directo</small><b>666 496 943</b></span></a></div>
+        </div>
+      </article>
+
+      <article class="dcard2 rv" style="--d:.12s">
+        <div class="dcard2-img"><img src="assets/del-huelva.jpg" alt="Delegación de Huelva" loading="lazy"><span class="dbadge">Desde 1992</span></div>
+        <div class="dcard2-b">
+          <h3>Huelva</h3>
+          <p class="addr">Polígono Industrial Pesquero Norte · c/ Alonso Ojeda s/n · Huelva.</p>
+          <div class="dcard2-ft"><a class="dphone" href="tel:+34959260126"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><span><small>Teléfono directo</small><b>959 260 126</b></span></a></div>
+        </div>
+      </article>
+
+      <article class="dcard2 rv" style="--d:.16s">
+        <div class="dcard2-img"><img src="assets/del-cordoba.jpg" alt="Delegación de Córdoba" loading="lazy"><span class="dbadge">Desde 2020</span></div>
+        <div class="dcard2-b">
+          <h3>Córdoba</h3>
+          <p class="addr">Plataformas Lozano Córdoba · Carretera Madrid–Cádiz km 392 · 14610 Córdoba.</p>
+          <div class="dcard2-ft"><a class="dphone" href="tel:+34697313084"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><span><small>Teléfono directo</small><b>697 313 084</b></span></a></div>
+        </div>
+      </article>
+
+      <article class="dcard2 rv" style="--d:.2s">
+        <div class="dcard2-img"><img src="assets/del-malaga.jpg" alt="Delegación de Málaga" loading="lazy"><span class="dbadge">Desde 2004</span></div>
+        <div class="dcard2-b">
+          <h3>Málaga</h3>
+          <p class="addr">Pol. Ind. de Trevélez · c/ Gaspar Cassadó y Calibran, parc. I-3 · 29590 Campanillas (Málaga).</p>
+          <div class="dcard2-ft"><a class="dphone" href="tel:+34952179478"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><span><small>Teléfono directo</small><b>952 179 478</b></span></a></div>
+        </div>
+      </article>
+
+      <article class="dcard2 rv" style="--d:.24s">
+        <div class="dcard2-img"><img src="assets/del-granada.jpg" alt="Delegación de Granada" loading="lazy"><span class="dbadge">Desde 2006</span></div>
+        <div class="dcard2-b">
+          <h3>Granada</h3>
+          <p class="addr">Plataformas Lozano Granada · c/ Bernard Vicent · 18230 Santa Fe (Granada).</p>
+          <div class="dcard2-ft"><a class="dphone" href="tel:+34958440777"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><span><small>Teléfono directo</small><b>958 440 777</b></span></a></div>
+        </div>
+      </article>
+
+      <article class="dcard2 rv" style="--d:.28s">
+        <div class="dcard2-img"><img src="assets/del-jaen.jpg" alt="Delegación de Jaén" loading="lazy"><span class="dbadge">Delegación</span></div>
+        <div class="dcard2-b">
+          <h3>Jaén</h3>
+          <p class="addr">Plataformas Lozano Jaén · servicio de plataformas elevadoras para toda la provincia.</p>
+          <div class="dcard2-ft"><a class="dphone" href="tel:+34671645879"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><span><small>Teléfono directo</small><b>671 645 879</b></span></a></div>
+        </div>
+      </article>
+
+      <article class="dcard2 rv" style="--d:.32s">
+        <div class="dcard2-img"><img src="assets/del-almeria.jpg" alt="Delegación de Almería" loading="lazy"><span class="dbadge">Delegación</span></div>
+        <div class="dcard2-b">
+          <h3>Almería</h3>
+          <p class="addr">Plataformas Lozano Almería · Carretera de Pechina · 04250 Pechina (Almería).</p>
+          <div class="dcard2-ft"><a class="dphone" href="tel:+34637267690"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><span><small>Teléfono directo</small><b>637 267 690</b></span></a></div>
+        </div>
+      </article>
+
+      <article class="dcard2 rv" style="--d:.36s">
+        <div class="dcard2-img"><img src="assets/del-almendralejo.jpg" alt="Delegación de Almendralejo" loading="lazy"><span class="dbadge">Desde 2002</span></div>
+        <div class="dcard2-b">
+          <h3>Almendralejo</h3>
+          <p class="addr">Plataformas Lozano Almendralejo · Av. Pdte. Juan Carlos Rodríguez Ibarra, 3 · 06200 Almendralejo (Badajoz).</p>
+          <div class="dcard2-ft"><a class="dphone" href="tel:+34924664630"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><span><small>Teléfono directo</small><b>924 664 630</b></span></a></div>
+        </div>
+      </article>
+
+      <article class="dcard2 rv" style="--d:.4s">
+        <div class="dcard2-img"><img src="assets/del-navalmoral.jpg" alt="Delegación de Navalmoral de la Mata" loading="lazy"><span class="dbadge">Desde 2025</span></div>
+        <div class="dcard2-b">
+          <h3>Navalmoral de la Mata</h3>
+          <p class="addr">La delegación más reciente de la red, al servicio del norte de Extremadura (Cáceres).</p>
+          <div class="dcard2-ft"><a class="dphone" href="tel:+34667472182"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><span><small>Teléfono directo</small><b>667 472 182</b></span></a></div>
+        </div>
+      </article>
+
+      <article class="dcard2 dcard2--cta rv" style="--d:.44s">
+        <div class="dcard2-ctab">
+          <p class="dcta-k">¿NO VES TU ZONA?</p>
+          <h3>Operamos en todo el territorio nacional</h3>
+          <p>Para proyectos especiales nos desplazamos a cualquier punto de España. Llámanos y lo organizamos.</p>
+          <a class="btn btn--or" href="tel:+34955634500"><span>955 634 500</span></a>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -2638,48 +2682,6 @@ form.addEventListener('submit',function(e){
     $('#fsuccess').scrollIntoView({behavior:reduced?'auto':'smooth',block:'center'});
   },900);
 });
-
-/* ---------- delegaciones: Google Maps + lista ---------- */
-var ditems=$$('.ditem');
-var dcity=$('#dcity'),dtag=$('#dtag'),dcover=$('#dcover'),dimg=$('#dimg'),dtel=$('#dtel'),dtelshow=$('#dtelshow');
-var userLocked=false,cycleI=0,cycleT=null;
-var gmap=document.getElementById('gmap');
-function gmapTo(it){
-  if(!gmap)return;
-  var ll=(it.getAttribute('data-ll')||'').trim();
-  if(!ll)return;
-  gmap.src='https://www.google.com/maps?q='+encodeURIComponent(ll)+'&z=15&hl=es&output=embed';
-}
-function selectD(id,fromUser,fly){
-  ditems.forEach(function(it){
-    var on=it.getAttribute('data-d')===id;
-    it.classList.toggle('act',on);
-    if(on){
-      dcity.textContent=it.querySelector('b').textContent;
-      dtag.textContent=it.getAttribute('data-tag');
-      dcover.textContent=it.getAttribute('data-cover');
-      dimg.src=it.getAttribute('data-img');
-      dtel.href='tel:+34'+it.getAttribute('data-tel');
-      dtelshow.textContent=it.getAttribute('data-telshow');
-      if(fromUser)gmapTo(it);
-    }
-  });
-  if(fromUser){
-    userLocked=true;
-    if(cycleT){clearInterval(cycleT);cycleT=null}
-  }
-}
-ditems.forEach(function(it){
-  it.addEventListener('click',function(){selectD(it.getAttribute('data-d'),true)});
-});
-if(!reduced){
-  var order=ditems.map(function(i){return i.getAttribute('data-d')});
-  cycleT=setInterval(function(){
-    if(userLocked)return;
-    cycleI=(cycleI+1)%order.length;
-    selectD(order[cycleI],false);
-  },3600);
-}
 
 /* ---------- año del footer ---------- */
 $('#yr').textContent=String(new Date().getFullYear());
