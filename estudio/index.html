@@ -721,6 +721,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
 .case-next:hover{border-color:rgba(15,184,142,.35);background:var(--card)}
 .case-next b{color:var(--ink);font-weight:600;letter-spacing:-.01em;font-size:1.12rem}
 .case-next .mono{font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--faint)}
+.soon{position:relative;border:1px dashed var(--line);border-radius:var(--r-lg);background:var(--card);padding:clamp(2.6rem,6vw,4.2rem) 2rem;text-align:center;overflow:hidden}
+.soon::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(440px 200px at 50% 0,rgba(15,184,142,.07),transparent 70%)}
+.soon-ico{position:relative;display:inline-grid;place-items:center;width:64px;height:64px;border-radius:18px;border:1px solid var(--line);background:var(--bg2);margin-bottom:1.4rem;color:var(--acc)}
+.soon h3{position:relative;font-size:clamp(1.3rem,2.8vw,1.9rem);font-weight:700;letter-spacing:-.02em;max-width:22ch;margin-inline:auto}
+.soon p{position:relative;margin-top:1rem;color:var(--dim);max-width:54ch;margin-inline:auto;font-size:1rem}
 
 /* ---------- visión futura ---------- */
 .vis{background:var(--bg)}
@@ -987,7 +992,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
   <a href="#antesdespues" data-label="Antes/Después"></a>
   <a href="#proyectos" data-label="Proyectos"></a>
   <a href="#planes" data-label="Planes"></a>
-  <a href="#calculadora" data-label="Calculadora"></a>
+  <a href="#calculadora" data-label="Configurador"></a>
   <a href="#auditoria" data-label="Auditoría"></a>
   <a href="#vision" data-label="Visión"></a>
   <a href="#equipo" data-label="Equipo"></a>
@@ -1226,7 +1231,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
           <li>Diseño 100% a medida con la tecnología de los premios Awwwards.</li>
           <li>Entrega en 1–3 semanas, con plazo por escrito.</li>
           <li>Trato directo con quienes la diseñan y programan.</li>
-          <li>Precio cerrado y mantenimiento desde 39 €/mes.</li>
+          <li>Precio cerrado a medida y sin sorpresas.</li>
         </ul>
       </div>
     </div>
@@ -1284,59 +1289,17 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
     <div class="shead">
       <p class="eyebrow rv"><span class="tick"></span><span data-scramble>Proyectos</span></p>
       <h2 class="title tl">
-        <span class="tl-l"><span>Trabajo real,</span></span>
-        <span class="tl-l"><span>resultados <em>reales</em>.</span></span>
+        <span class="tl-l"><span>Buen trabajo,</span></span>
+        <span class="tl-l"><span>en <em>camino</em>.</span></span>
       </h2>
     </div>
-    <article class="case rv">
-      <div class="case-media case-media--club">
-        <span class="case-badge">Primer cliente</span>
-        <div class="club-crest">
-          <svg class="crest" viewBox="0 0 100 116" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M50 4 6 18v38c0 31 21 49 44 56 23-7 44-25 44-56V18L50 4z" fill="rgba(255,255,255,.06)" stroke="#fff" stroke-width="3" stroke-linejoin="round"/>
-            <path d="M9 46h82" stroke="#fff" stroke-width="2" opacity=".45"/>
-            <text x="50" y="40" text-anchor="middle" font-family="'Space Grotesk',system-ui,sans-serif" font-size="19" font-weight="700" fill="#fff">C.A.A.</text>
-            <circle cx="50" cy="76" r="14" fill="none" stroke="#fff" stroke-width="2.4"/>
-            <path d="M50 66l8.6 6.2-3.3 10h-10.6l-3.3-10z" fill="#fff"/>
-          </svg>
-          <div class="club-name">Club Atlético Antoniano</div>
-          <div class="club-sub">Club de fútbol · Desde 2026</div>
-        </div>
-      </div>
-      <div class="case-body">
-        <span class="case-kicker">Primer cliente · Deporte</span>
-        <h3>Club Atlético Antoniano</h3>
-        <p>Nuestro primer cliente real. Estamos construyendo la presencia digital del club para acercar a su afición el día a día del equipo, con una web pensada para móvil y fácil de mantener.</p>
-        <ul class="case-feats">
-          <li>Web del club con identidad propia y optimizada para móvil.</li>
-          <li>Un espacio para la afición: el equipo, sus partidos y novedades.</li>
-          <li>Proyecto vivo que crece temporada a temporada junto al club.</li>
-        </ul>
-        <div class="case-cta">
-          <a class="btn btn--acc" href="https://club-atletico-antoniano.netlify.app/" target="_blank" rel="noopener"><span>Ver la web</span><span class="ar">→</span></a>
-        </div>
-      </div>
-    </article>
-    <article class="case rv" style="--d:.08s;margin-top:1.2rem">
-      <div class="case-media">
-        <span class="case-badge">Propuesta</span>
-        <img src="../gruaslozano/assets/hero.jpg" alt="Vista de la web de Grúas y Plataformas Lozano" loading="lazy" data-para="0.12">
-      </div>
-      <div class="case-body">
-        <span class="case-kicker">Propuesta web · Industria</span>
-        <h3>Grúas y Plataformas Lozano</h3>
-        <p>Una empresa con más de 60 años de historia merecía una web que estuviera a su altura. Diseñamos una one-page con scroll continuo que cuenta su historia desde 1959 hasta hoy.</p>
-        <ul class="case-feats">
-          <li>Magic scroll con sección pinned: el año viaja de 1959 a hoy mientras haces scroll.</li>
-          <li>Parallax profundo en cabeceras y banda de flota con scrub horizontal.</li>
-          <li>Catálogo completo de grúas y plataformas con mapa de 11 delegaciones.</li>
-          <li>Intro de entrada con logo y líneas, tema claro con la identidad de la marca.</li>
-        </ul>
-        <div class="case-cta">
-          <a class="btn btn--ghost" href="../gruaslozano/" target="_blank" rel="noopener"><span>Visitar el proyecto</span><span class="ar">→</span></a>
-        </div>
-      </div>
-    </article>
+    <div class="soon rv">
+      <span class="soon-ico" aria-hidden="true">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+      </span>
+      <h3>Estamos cerrando los permisos para enseñarlos.</h3>
+      <p>Ya hay proyectos en marcha con nuestros primeros clientes. En cuanto nos den el visto bueno, los verás aquí — y mostraremos solo nuestro mejor trabajo, nunca relleno.</p>
+    </div>
     <a class="case-next rv" href="#contacto" style="--d:.1s;text-decoration:none">
       <div>
         <span class="mono">Siguiente proyecto</span><br>
@@ -1375,11 +1338,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
 </section>
 
 <!-- ======================= PLANES ======================= -->
-<section class="sec" id="planes" aria-label="Planes y precios">
+<section class="sec" id="planes" aria-label="Planes">
   <span class="sec-idx" aria-hidden="true">04</span>
   <div class="wrap">
     <div class="shead">
-      <p class="eyebrow rv"><span class="tick"></span><span data-scramble>Planes · Precios de lanzamiento</span></p>
+      <p class="eyebrow rv"><span class="tick"></span><span data-scramble>Planes · Cómo trabajamos</span></p>
       <h2 class="title tl">
         <span class="tl-l"><span>Claro, cerrado</span></span>
         <span class="tl-l"><span>y <em>sin sorpresas</em>.</span></span>
@@ -1389,7 +1352,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
     <div class="plans-grid">
       <article class="plan rv">
         <p class="plan-name">Despegue</p>
-        <div class="plan-price"><b>desde 490 €</b><span>pago único</span></div>
+        <div class="plan-price"><b>A medida</b><span>presupuesto cerrado</span></div>
         <p class="plan-desc">Tu web nueva, desde cero y a medida.</p>
         <ul>
           <li>Diseño exclusivo, sin plantillas</li>
@@ -1404,7 +1367,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
       <article class="plan plan--hot rv" style="--d:.1s">
         <span class="plan-badge">Recomendado</span>
         <p class="plan-name">Reimpulso</p>
-        <div class="plan-price"><b>desde 590 €</b><span>pago único</span></div>
+        <div class="plan-price"><b>A medida</b><span>presupuesto cerrado</span></div>
         <p class="plan-desc">Tu web actual, reinventada por completo.</p>
         <ul>
           <li>Auditoría completa de lo que tienes</li>
@@ -1418,7 +1381,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
       </article>
       <article class="plan rv" style="--d:.2s">
         <p class="plan-name">Órbita</p>
-        <div class="plan-price"><b>39 €</b><span>/ mes<br>sin permanencia</span></div>
+        <div class="plan-price"><b>A medida</b><span>cuota mensual<br>sin permanencia</span></div>
         <p class="plan-desc">Tu web, viva y cuidada cada mes.</p>
         <ul>
           <li>Cambios y actualizaciones mensuales</li>
@@ -1431,30 +1394,30 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
         <a class="btn btn--ghost" href="mailto:franlozano.500@gmail.com?subject=Plan%20Órbita%20—%20mantenimiento%20mensual"><span>Entrar en órbita</span><span class="ar">→</span></a>
       </article>
     </div>
-    <p class="plans-note rv">Precios de lanzamiento 2026 · IVA no incluido · Cada proyecto se presupuesta en firme antes de empezar</p>
+    <p class="plans-note rv">Cada proyecto se presupuesta a medida tras una llamada de 30 min · Sin compromiso</p>
   </div>
 </section>
 
 <!-- ======================= CALCULADORA ======================= -->
-<section class="sec sec--panel" id="calculadora" aria-label="Calculadora de presupuesto">
+<section class="sec sec--panel" id="calculadora" aria-label="Configurador de proyecto">
   <span class="sec-idx" aria-hidden="true">05</span>
   <div class="wrap">
     <div class="shead">
-      <p class="eyebrow rv"><span class="tick"></span><span data-scramble>Presupuesto instantáneo</span></p>
+      <p class="eyebrow rv"><span class="tick"></span><span data-scramble>Configura tu proyecto</span></p>
       <h2 class="title tl">
-        <span class="tl-l"><span>Calcula tu web</span></span>
+        <span class="tl-l"><span>Cuéntanos tu web</span></span>
         <span class="tl-l"><span>en <em>30 segundos</em>.</span></span>
       </h2>
-      <p class="sub rv" style="--d:.15s">Mueve las opciones y mira cómo cambia la estimación en tiempo real. Sin registros, sin esperar a un comercial.</p>
+      <p class="sub rv" style="--d:.15s">Marca lo que necesitas y te preparamos un presupuesto a medida. Sin registros, sin esperar a un comercial.</p>
     </div>
     <div class="calc-grid">
       <div class="calc-panel rv">
         <div class="calc-block">
           <p class="calc-q">1 · ¿Qué necesitas?</p>
           <div class="calc-opts" id="calcType">
-            <span class="calc-opt on" data-base="490" data-inc="5">Web nueva<small>desde 490 €</small></span>
-            <span class="calc-opt" data-base="590" data-inc="5">Rediseño completo<small>desde 590 €</small></span>
-            <span class="calc-opt" data-base="350" data-inc="1">Landing de una página<small>desde 350 €</small></span>
+            <span class="calc-opt on">Web nueva</span>
+            <span class="calc-opt">Rediseño completo</span>
+            <span class="calc-opt">Landing de una página</span>
           </div>
         </div>
         <div class="calc-block">
@@ -1467,30 +1430,28 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
         <div class="calc-block">
           <p class="calc-q">3 · Extras</p>
           <div class="calc-opts" id="calcExtras">
-            <span class="calc-opt" data-add="150">Identidad / logo</span>
-            <span class="calc-opt" data-add="120">Redacción de textos</span>
-            <span class="calc-opt" data-add="450">Tienda online</span>
-            <span class="calc-opt" data-add="250">Reservas / citas</span>
-            <span class="calc-opt" data-add="200">Multidioma</span>
-            <span class="calc-opt" data-add="180">SEO avanzado</span>
+            <span class="calc-opt">Identidad / logo</span>
+            <span class="calc-opt">Redacción de textos</span>
+            <span class="calc-opt">Tienda online</span>
+            <span class="calc-opt">Reservas / citas</span>
+            <span class="calc-opt">Multidioma</span>
+            <span class="calc-opt">SEO avanzado</span>
           </div>
         </div>
         <div class="calc-block">
           <p class="calc-q">4 · Mantenimiento mensual</p>
           <div class="calc-opts" id="calcMaint">
-            <span class="calc-opt on" data-month="0">Sin mantenimiento</span>
-            <span class="calc-opt" data-month="39">Órbita · 39 €/mes</span>
-            <span class="calc-opt" data-month="89">Órbita Pro · 89 €/mes</span>
+            <span class="calc-opt on">Sin mantenimiento</span>
+            <span class="calc-opt">Órbita</span>
+            <span class="calc-opt">Órbita Pro</span>
           </div>
         </div>
       </div>
       <div class="calc-side rv" style="--d:.1s">
-        <h3>Tu estimación</h3>
-        <div class="calc-total"><b id="calcTotal">490</b><span>€ aprox.</span></div>
-        <div class="calc-month" id="calcMonth" style="display:none"></div>
+        <h3>Tu proyecto</h3>
         <ul class="calc-list" id="calcBreak"></ul>
-        <a class="btn btn--acc" id="calcCta" href="mailto:franlozano.500@gmail.com"><span>Pedir este presupuesto</span><span class="ar">→</span></a>
-        <p class="calc-disc">Estimación orientativa. El precio final se cierra por escrito tras una llamada de 30 min.</p>
+        <a class="btn btn--acc" id="calcCta" href="mailto:franlozano.500@gmail.com"><span>Pedir presupuesto a medida</span><span class="ar">→</span></a>
+        <p class="calc-disc">Te respondemos con un presupuesto cerrado tras una llamada de 30 min. Sin compromiso.</p>
       </div>
     </div>
   </div>
@@ -1665,7 +1626,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
     <div class="faq-wrap">
       <details class="faq-item rv" open>
         <summary>¿Cuánto cuesta una web?<span class="fx">+</span></summary>
-        <div class="faq-a">Depende del proyecto, pero trabajamos con <b>precios de lanzamiento desde 490 €</b> (web nueva a medida) y <b>590 €</b> (rediseño completo). De referencia: una agencia española media cobra entre 1.000 y 5.000 € por lo mismo. Antes de empezar te damos un presupuesto cerrado por escrito: lo que firmamos es lo que pagas.</div>
+        <div class="faq-a">Cada web es distinta, así que el precio es <b>a medida</b>: depende de lo que necesites (secciones, tienda, idiomas…). Lo bueno: tras una llamada de 30 minutos te damos un <b>presupuesto cerrado por escrito</b>, sin sorpresas — lo que firmamos es lo que pagas. Usa el configurador de aquí arriba y te lo preparamos.</div>
       </details>
       <details class="faq-item rv" style="--d:.05s">
         <summary>¿Cuánto tarda en estar lista?<span class="fx">+</span></summary>
@@ -2135,15 +2096,13 @@ var cmds=[
   {t:'Ir a La diferencia',k:'sección',fn:function(){goTo('#comparativa')}},
   {t:'Ir a Proyectos',k:'sección',fn:function(){goTo('#proyectos')}},
   {t:'Ir a Planes y precios',k:'sección',fn:function(){goTo('#planes')}},
-  {t:'Calcular mi presupuesto',k:'sección',fn:function(){goTo('#calculadora')}},
+  {t:'Configurar mi proyecto',k:'sección',fn:function(){goTo('#calculadora')}},
   {t:'Pedir auditoría gratuita',k:'sección',fn:function(){goTo('#auditoria')}},
   {t:'Ver el stack tecnológico',k:'sección',fn:function(){goTo('#stack')}},
   {t:'Ir a Visión futura',k:'sección',fn:function(){goTo('#vision')}},
   {t:'Ir a Equipo',k:'sección',fn:function(){goTo('#equipo')}},
   {t:'Ir a Preguntas frecuentes',k:'sección',fn:function(){goTo('#faq')}},
   {t:'Ir a Contacto',k:'sección',fn:function(){goTo('#contacto')}},
-  {t:'Ver la web del Club Atlético Antoniano',k:'abrir',fn:function(){window.open('https://club-atletico-antoniano.netlify.app/','_blank')}},
-  {t:'Ver proyecto: Grúas y Plataformas Lozano',k:'abrir',fn:function(){window.open('../gruaslozano/','_blank')}},
   {t:'Escribir por WhatsApp',k:'acción',fn:function(){window.open('https://wa.me/34650311099','_blank')}},
   {t:'Escribir un email al estudio',k:'acción',fn:function(){location.href='mailto:franlozano.500@gmail.com'}},
   {t:'Copiar email del estudio',k:'acción',fn:function(){
@@ -2227,30 +2186,19 @@ if(calc){
       cExtras=$$('#calcExtras .calc-opt'),
       cMaint=$$('#calcMaint .calc-opt'),
       cSec=$('#calcSec'),cSecOut=$('#calcSecOut'),
-      cTotal=$('#calcTotal'),cMonth=$('#calcMonth'),
       cBreak=$('#calcBreak'),cCta=$('#calcCta');
   var pick=function(list,el){list.forEach(function(o){o.classList.toggle('on',o===el)})};
-  var eur=function(n){return n.toLocaleString('es-ES')};
   function calcUpdate(){
-    var t=cType.filter(function(o){return o.classList.contains('on')})[0]||cType[0];
-    var base=+t.dataset.base,inc=+t.dataset.inc,secs=+cSec.value;
-    cSecOut.textContent=secs;
-    var extra=Math.max(0,secs-inc)*55;
-    var items=[{l:t.textContent.split('desde')[0].trim(),v:base}];
-    if(extra>0)items.push({l:(secs-inc)+' secciones extra',v:extra});
-    var sum=base+extra;
-    cExtras.forEach(function(o){
-      if(o.classList.contains('on')){var a=+o.dataset.add;sum+=a;items.push({l:o.textContent,v:a})}
-    });
-    var m=cMaint.filter(function(o){return o.classList.contains('on')})[0],month=m?+m.dataset.month:0;
-    cTotal.textContent=eur(sum);
-    if(month>0){cMonth.style.display='';cMonth.textContent='+ '+month+' €/mes de mantenimiento'}
-    else cMonth.style.display='none';
-    cBreak.innerHTML=items.map(function(i){return '<li>'+i.l+'<b>'+eur(i.v)+' €</b></li>'}).join('');
-    var body='Hola Francisco y Pedro,%0A%0AHe usado la calculadora y me sale:%0A';
-    items.forEach(function(i){body+='- '+i.l+': '+eur(i.v)+' EUR%0A'});
-    body+='%0ATotal estimado: '+eur(sum)+' EUR'+(month>0?' + '+month+' EUR/mes':'')+'%0A%0AMe gustaria cerrar el presupuesto.';
-    cCta.href='mailto:franlozano.500@gmail.com?subject=Presupuesto%20web%20('+eur(sum)+'%20EUR)&body='+body;
+    var t=(cType.filter(function(o){return o.classList.contains('on')})[0]||cType[0]).textContent.trim();
+    var secs=+cSec.value;cSecOut.textContent=secs;
+    var extras=cExtras.filter(function(o){return o.classList.contains('on')}).map(function(o){return o.textContent.trim()});
+    var m=(cMaint.filter(function(o){return o.classList.contains('on')})[0]||cMaint[0]).textContent.trim();
+    var rows=[['Proyecto',t],['Secciones',String(secs)],['Extras',extras.length?extras.join(', '):'Ninguno'],['Mantenimiento',m]];
+    cBreak.innerHTML=rows.map(function(r){return '<li>'+r[0]+'<b>'+r[1]+'</b></li>'}).join('');
+    var body='Hola Francisco y Pedro,%0A%0AQuiero presupuesto para este proyecto:%0A';
+    rows.forEach(function(r){body+='- '+r[0]+': '+r[1].replace(/&/g,'y')+'%0A'});
+    body+='%0A¿Me lo preparais? Gracias.';
+    cCta.href='mailto:franlozano.500@gmail.com?subject=Presupuesto%20a%20medida%20—%20'+encodeURIComponent(t)+'&body='+body;
   }
   cType.forEach(function(o){o.addEventListener('click',function(){pick(cType,o);calcUpdate()})});
   cMaint.forEach(function(o){o.addEventListener('click',function(){pick(cMaint,o);calcUpdate()})});
