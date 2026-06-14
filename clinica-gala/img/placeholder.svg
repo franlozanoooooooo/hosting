@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#dfeeed"/>
+      <stop offset="1" stop-color="#bfddda"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="1200" fill="url(#g)"/>
+  <g fill="none" stroke="#15707d" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" opacity="0.7">
+    <path d="M470 470c-90 0-150 65-150 175 0 80 25 135 40 200 20 85 35 220 80 330 16 40 64 40 80-8 20-60 24-130 80-130s60 70 80 130c16 48 64 48 80 8 45-110 60-245 80-330 15-65 40-120 40-200 0-110-60-175-150-175-60 0-90 40-120 60-30-20-60-60-120-60z"/>
+  </g>
+  <text x="600" y="800" font-family="Manrope, Segoe UI, sans-serif" font-size="58" font-weight="700" fill="#15707d" text-anchor="middle" opacity="0.85">Añade tu foto</text>
+  <text x="600" y="868" font-family="Manrope, Segoe UI, sans-serif" font-size="40" font-weight="500" fill="#3f6f72" text-anchor="middle" opacity="0.8">carpeta /img</text>
+</svg>
