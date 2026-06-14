@@ -14,9 +14,22 @@ muestra una imagen de stock de reserva automáticamente (no se ve rota).
 Opcionales (resto del equipo). Si no las pones, se usa stock:
 `equipo-2.jpg`, `equipo-4.jpg`, `equipo-5.jpg`, `equipo-6.jpg`
 
-Antes/después: por defecto el "antes" se simula con un filtro amarillento sobre
-imágenes de stock. Para usar tus casos reales, edita las rutas en `index.html`
-(sección *Antes y después*).
+## Antes / Después (casos reales)
+
+El comparador usa **2 fotos por caso** (la misma persona, antes y después).
+Deben ser fotos de **tus pacientes con su consentimiento** — no uses stock como
+si fueran resultados propios (es engañoso y no está permitido en publicidad sanitaria).
+
+| Caso | Archivo "antes" | Archivo "después" |
+|---|---|---|
+| 1 · Blanqueamiento | `caso1-antes.jpg` | `caso1-despues.jpg` |
+| 2 · Carillas | `caso2-antes.jpg` | `caso2-despues.jpg` |
+| 3 · Ortodoncia (apiñados → alineados) | `caso3-antes.jpg` | `caso3-despues.jpg` |
+| 4 · Diseño de sonrisa | `caso4-antes.jpg` | `caso4-despues.jpg` |
+
+- Encuadra ambas fotos **igual** (mismo ángulo y zoom) para que el deslizador case.
+- Cuando pongas las fotos reales, en `index.html` añade la clase `real` a cada
+  `<div class="ba">` → `<div class="ba real">` para quitar el tinte amarillo del placeholder.
 
 ## Recomendaciones
 - Formato `.jpg` (o cambia la extensión en el HTML si usas `.png`/`.webp`).

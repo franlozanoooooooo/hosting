@@ -359,11 +359,12 @@ p.lead { font-size: 1.15rem; color: var(--muted); max-width: 620px; }
   position: absolute; inset: 0; width: 100%; height: 100%;
   object-fit: cover; pointer-events: none;
 }
-/* capa "antes": dientes amarillentos mediante filtro */
+/* capa "antes": placeholder amarillento (se desactiva con la clase .real) */
 .ba .before {
   clip-path: inset(0 50% 0 0);
   filter: sepia(.55) saturate(1.6) brightness(.93) contrast(1.02) hue-rotate(-12deg);
 }
+.ba.real .before { filter: none; }
 .ba .ba-label {
   position: absolute; bottom: 14px; z-index: 3;
   padding: 6px 14px; border-radius: var(--pill);
