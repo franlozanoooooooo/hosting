@@ -398,3 +398,80 @@ p.lead { font-size: 1.15rem; color: var(--muted); max-width: 620px; }
 @media (max-width: 900px) {
   .ba-grid { grid-template-columns: 1fr; }
 }
+
+/* ============================================================
+   Detalles UI profesionales
+   ============================================================ */
+
+/* Barra de progreso de scroll */
+.scroll-progress {
+  position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+  background: linear-gradient(90deg, var(--lime), var(--brand-bright));
+  z-index: 200; transition: width .1s linear;
+}
+
+/* Botón volver arriba */
+.to-top {
+  position: fixed; right: 22px; bottom: 22px; z-index: 90;
+  width: 50px; height: 50px; border-radius: 50%; border: 0; cursor: pointer;
+  background: var(--lime); color: #fff; font-size: 1.3rem; line-height: 1;
+  box-shadow: var(--shadow); opacity: 0; transform: translateY(20px) scale(.8);
+  transition: opacity .3s ease, transform .3s ease, background .2s ease;
+  pointer-events: none;
+}
+.to-top.show { opacity: 1; transform: none; pointer-events: auto; }
+.to-top:hover { background: var(--lime-dark); transform: translateY(-3px); }
+
+/* Blobs decorativos del hero */
+.hero { position: relative; }
+.hero::before, .hero::after {
+  content: ""; position: absolute; border-radius: 50%; filter: blur(70px);
+  opacity: .5; z-index: 0; pointer-events: none;
+}
+.hero::before { width: 340px; height: 340px; background: #8fd6cf; top: -80px; right: -60px; }
+.hero::after { width: 280px; height: 280px; background: #bfe6a8; bottom: -90px; left: -70px; opacity: .35; }
+.hero-grid { position: relative; z-index: 1; }
+
+/* Zoom suave en imágenes */
+.split img, .media-full img, .team-card .photo img, .hero-img img {
+  transition: transform .6s cubic-bezier(.2,.7,.2,1);
+}
+.split:hover img, .media-full:hover img, .team-card:hover .photo img {
+  transform: scale(1.05);
+}
+.split img, .media-full { overflow: hidden; }
+.team-card .photo { overflow: hidden; }
+
+/* Brillo al pasar por los botones */
+.btn { position: relative; overflow: hidden; }
+.btn::after {
+  content: ""; position: absolute; top: 0; left: -120%; width: 60%; height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,.45), transparent);
+  transform: skewX(-20deg); transition: left .6s ease;
+}
+.btn:hover::after { left: 140%; }
+
+/* Subrayado animado en navegación */
+.nav-links a:not(.btn) { position: relative; }
+.nav-links a:not(.btn)::after {
+  content: ""; position: absolute; left: 16px; right: 16px; bottom: 4px; height: 2px;
+  background: var(--lime); transform: scaleX(0); transform-origin: left;
+  transition: transform .3s ease;
+}
+.nav-links a:not(.btn):hover::after { transform: scaleX(1); }
+.nav-links a.active::after { display: none; }
+
+/* Realce de tarjetas */
+.card { position: relative; }
+.card:hover { border-color: var(--brand-bright); }
+
+/* Foco accesible */
+a:focus-visible, button:focus-visible, input:focus-visible,
+textarea:focus-visible, select:focus-visible, .ba-range:focus-visible {
+  outline: 3px solid var(--brand-bright); outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .split img, .media-full img, .team-card .photo img, .hero-img img { transition: none; }
+  .btn::after { display: none; }
+}

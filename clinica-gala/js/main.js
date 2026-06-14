@@ -25,14 +25,32 @@ if (form) {
   });
 }
 
-// ---------- Cabecera con sombra al hacer scroll ----------
+// ---------- Barra de progreso de scroll ----------
+const progress = document.createElement('div');
+progress.className = 'scroll-progress';
+document.body.appendChild(progress);
+
+// ---------- Botón volver arriba ----------
+const toTop = document.createElement('button');
+toTop.className = 'to-top';
+toTop.setAttribute('aria-label', 'Volver arriba');
+toTop.innerHTML = '↑';
+document.body.appendChild(toTop);
+toTop.addEventListener('click', () =>
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+);
+
+// ---------- Cabecera + progreso + volver arriba (un solo listener) ----------
 const header = document.querySelector('.site-header');
-const onScrollHeader = () => {
-  if (!header) return;
-  header.classList.toggle('scrolled', window.scrollY > 8);
+const onScroll = () => {
+  const y = window.scrollY;
+  if (header) header.classList.toggle('scrolled', y > 8);
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  progress.style.width = (h > 0 ? (y / h) * 100 : 0) + '%';
+  toTop.classList.toggle('show', y > 500);
 };
-onScrollHeader();
-window.addEventListener('scroll', onScrollHeader, { passive: true });
+onScroll();
+window.addEventListener('scroll', onScroll, { passive: true });
 
 // ---------- Parallax suave del hero ----------
 const heroImg = document.querySelector('.hero-img img');
