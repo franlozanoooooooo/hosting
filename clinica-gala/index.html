@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Clínica GALA · Estética Dental en Sevilla — Especialistas en sonrisas</title>
-  <meta name="description" content="Clínica GALA Estética Dental en Sevilla. Diseño de sonrisa, carillas, implantes, ortodoncia invisible y odontología digital. Especialistas en sonrisas." />
+  <meta name="description" content="Estética dental en Sevilla: diseño de sonrisa, carillas dentales, implantes y ortodoncia invisible. Clínica GALA, dentista estético en Sevilla. Salud, función y belleza con tecnología digital." />
+  <meta name="keywords" content="estética dental Sevilla, carillas dentales Sevilla, diseño de sonrisa Sevilla, dentista estético Sevilla" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
@@ -18,9 +19,16 @@
       <button class="nav-toggle" aria-label="Menú">☰</button>
       <ul class="nav-links">
         <li><a href="index.html" class="active">Inicio</a></li>
-        <li><a href="tratamientos.html">Tratamientos</a></li>
+        <li class="has-dropdown">
+          <a href="servicios.html">Servicios ▾</a>
+          <ul class="dropdown">
+            <li><a href="estetica-dental.html">Estética dental</a></li>
+            <li><a href="funcion.html">Función</a></li>
+            <li><a href="salud-oral.html">Salud oral</a></li>
+          </ul>
+        </li>
         <li><a href="equipo.html">Equipo</a></li>
-        <li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
+        <li><a href="sobre-nosotros.html">La Clínica</a></li>
         <li><a href="contacto.html">Contacto</a></li>
         <li class="nav-cta"><a href="contacto.html" class="btn btn-primary">Pedir cita</a></li>
       </ul>
@@ -32,11 +40,11 @@
     <div class="container hero-grid">
       <div class="reveal">
         <span class="eyebrow">Estética Dental · Sevilla</span>
-        <h1>Especialistas en sonrisas</h1>
-        <p class="lead">En Clínica GALA diseñamos tu sonrisa con tratamientos personalizados, tecnología digital y un equipo que cuida cada detalle para que luzcas con confianza.</p>
+        <h1>Diseñamos sonrisas, no solo tratamos dientes</h1>
+        <p class="lead">Combinamos salud, función y estética con odontología mínimamente invasiva y tecnología digital. Tu sonrisa, diseñada a medida en el corazón de Sevilla.</p>
         <div class="hero-cta">
           <a href="contacto.html" class="btn btn-primary">Pedir cita</a>
-          <a href="tratamientos.html" class="btn btn-ghost">Ver tratamientos</a>
+          <a href="servicios.html" class="btn btn-ghost">Ver tratamientos</a>
         </div>
         <div class="hero-badge">
           <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
@@ -64,42 +72,79 @@
     </div>
   </section>
 
-  <!-- Servicios destacados -->
+  <!-- Servicios: 3 categorías -->
   <section class="section section-soft">
     <div class="container">
-      <span class="eyebrow reveal">Nuestros tratamientos</span>
-      <h2 class="reveal">Cuidamos tu sonrisa de principio a fin</h2>
-      <p class="lead reveal" style="margin-bottom:40px">Desde la estética dental hasta la rehabilitación completa, ofrecemos soluciones para cada sonrisa.</p>
+      <span class="eyebrow reveal">Nuestros servicios</span>
+      <h2 class="reveal">Tres áreas para cuidar tu sonrisa</h2>
+      <p class="lead reveal" style="margin-bottom:40px">Salud, función y estética trabajando juntas. Elige el área que necesitas o explora todos los tratamientos.</p>
       <div class="grid grid-3">
-        <div class="card reveal">
-          <h3>Diseño de sonrisa</h3>
-          <p>Planificamos digitalmente tu nueva sonrisa para resultados naturales y armónicos.</p>
-          <button class="more" data-img="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=900&q=80" data-title="Diseño de sonrisa" data-desc="Mediante planificación digital previsualizamos tu nueva sonrisa antes de empezar, para un resultado natural y armónico.">Saber más</button>
+        <a class="cat-card reveal" href="estetica-dental.html">
+          <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=800&q=80" alt="Estética dental" loading="lazy" onerror="this.onerror=null;this.src='img/placeholder.svg'" />
+          <div class="cat-body">
+            <h3>Estética dental</h3>
+            <p>Diseño de sonrisa, carillas, blanqueamiento y ortodoncia.</p>
+            <span class="cat-link">Ver tratamientos</span>
+          </div>
+        </a>
+        <a class="cat-card reveal" href="funcion.html">
+          <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=800&q=80" alt="Función" loading="lazy" onerror="this.onerror=null;this.src='img/placeholder.svg'" />
+          <div class="cat-body">
+            <h3>Función</h3>
+            <p>Implantes, prótesis, bruxismo y apnea del sueño.</p>
+            <span class="cat-link">Ver tratamientos</span>
+          </div>
+        </a>
+        <a class="cat-card reveal" href="salud-oral.html">
+          <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=80" alt="Salud oral" loading="lazy" onerror="this.onerror=null;this.src='img/placeholder.svg'" />
+          <div class="cat-body">
+            <h3>Salud oral</h3>
+            <p>Endodoncia, periodoncia, ATM y odontología conservadora.</p>
+            <span class="cat-link">Ver tratamientos</span>
+          </div>
+        </a>
+      </div>
+      <div style="margin-top:32px" class="reveal"><a href="servicios.html" class="btn btn-ghost">Ver todos los tratamientos</a></div>
+    </div>
+  </section>
+
+  <!-- Filosofía clínica -->
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow reveal">Nuestra filosofía</span>
+      <h2 class="reveal">Escuchamos antes de diseñar</h2>
+      <p class="lead reveal" style="margin-bottom:44px">Cada sonrisa es única. Por eso seguimos un proceso pensado para entenderte y lograr el mejor resultado.</p>
+      <div class="steps">
+        <div class="step-item reveal"><div class="n">1</div><h4>Escuchamos</h4><p>Conocemos tu caso y lo que esperas de tu sonrisa.</p></div>
+        <div class="step-item reveal"><div class="n">2</div><h4>Entendemos</h4><p>Estudiamos tus expectativas y necesidades reales.</p></div>
+        <div class="step-item reveal"><div class="n">3</div><h4>Diseñamos</h4><p>Creamos un plan de tratamiento totalmente personalizado.</p></div>
+        <div class="step-item reveal"><div class="n">4</div><h4>Restauramos</h4><p>Devolvemos salud y función como base de todo.</p></div>
+        <div class="step-item reveal"><div class="n">5</div><h4>Embellecemos</h4><p>Alcanzamos el resultado estético que buscas.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tecnología -->
+  <section class="section section-ink">
+    <div class="container">
+      <span class="eyebrow reveal">Tecnología digital</span>
+      <h2 class="reveal" style="color:#fff">Arte y tecnología en cada sonrisa</h2>
+      <p class="lead reveal" style="color:#b9ccc7; margin-bottom:44px">Combinamos la artesanía de la odontología con la precisión de la tecnología digital más avanzada.</p>
+      <div class="grid grid-3">
+        <div class="card tech-card reveal">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><path d="M9 9h.01M15 9h.01"/></svg></div>
+          <h3>Digital Smile Design</h3>
+          <p>Diseñamos y previsualizamos tu sonrisa digitalmente antes de empezar.</p>
         </div>
-        <div class="card reveal">
-          <h3>Carillas estéticas</h3>
-          <p>Corrige forma, color y posición de tus dientes con carillas de mínimo desgaste.</p>
-          <button class="more" data-img="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=900&q=80" data-title="Carillas estéticas" data-desc="Finas láminas que mejoran forma, color y armonía de tus dientes con el mínimo desgaste posible.">Saber más</button>
+        <div class="card tech-card reveal">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></div>
+          <h3>Tecnología CAD/CAM</h3>
+          <p>Diseño y fabricación asistidos por ordenador para un ajuste perfecto.</p>
         </div>
-        <div class="card reveal">
-          <h3>Implantes dentales</h3>
-          <p>Recupera tus dientes con implantes seguros y duraderos guiados por ordenador.</p>
-          <button class="more" data-img="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=900&q=80" data-title="Implantes dentales" data-desc="Reposición de dientes con implantes seguros y duraderos, planificados de forma guiada por ordenador.">Saber más</button>
-        </div>
-        <div class="card reveal">
-          <h3>Ortodoncia invisible</h3>
-          <p>Alinea tus dientes de forma discreta y cómoda con alineadores transparentes.</p>
-          <button class="more" data-img="https://images.unsplash.com/photo-1591084728795-1149f32d9866?auto=format&fit=crop&w=900&q=80" data-title="Ortodoncia invisible" data-desc="Alineadores transparentes, cómodos y casi imperceptibles para corregir la posición de tus dientes.">Saber más</button>
-        </div>
-        <div class="card reveal">
-          <h3>Odontología conservadora</h3>
-          <p>Prevención, empastes y cuidado diario para mantener tu boca sana.</p>
-          <button class="more" data-img="https://images.unsplash.com/photo-1612277795421-9bc7706a4a34?auto=format&fit=crop&w=900&q=80" data-title="Odontología conservadora" data-desc="Prevención, empastes y mantenimiento periódico para conservar tu salud bucal a largo plazo.">Saber más</button>
-        </div>
-        <div class="card reveal">
-          <h3>Periodoncia y encías</h3>
-          <p>Tratamiento de encías y enfermedad periodontal para una base sana.</p>
-          <button class="more" data-img="https://images.unsplash.com/photo-1581585095857-69a5f0bca2a9?auto=format&fit=crop&w=900&q=80" data-title="Periodoncia y encías" data-desc="Diagnóstico y tratamiento de las encías y la enfermedad periodontal para una base sana y estable.">Saber más</button>
+        <div class="card tech-card reveal">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 4.4L18 9l-4.2 1.6L12 15l-1.8-4.4L6 9z"/></svg></div>
+          <h3>Técnicas adhesivas</h3>
+          <p>Odontología mínimamente invasiva que respeta tu diente natural.</p>
         </div>
       </div>
     </div>
@@ -186,6 +231,24 @@
     </div>
   </section>
 
+  <!-- Financiación -->
+  <section class="section">
+    <div class="container">
+      <div class="finance reveal">
+        <div>
+          <span class="eyebrow">Financiación</span>
+          <h2>Tu sonrisa, a tu ritmo</h2>
+          <p class="lead">Ofrecemos planes de financiación personalizada para que puedas empezar tu tratamiento hoy y pagarlo de forma cómoda, adaptada a ti.</p>
+          <a href="contacto.html" class="btn btn-primary">Solicitar información</a>
+        </div>
+        <div>
+          <div class="fin-amount">Hasta 60 meses</div>
+          <p style="color:#b9ccc7">Planes flexibles y sin complicaciones. Te asesoramos sobre la mejor opción para tu caso.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Banner lime -->
   <section class="section">
     <div class="container">
@@ -206,8 +269,8 @@
         </div>
       </div>
       <div class="footer-cols">
-        <div><h4>MENÚ</h4><ul><li><a href="index.html">Inicio</a></li><li><a href="tratamientos.html">Tratamientos</a></li><li><a href="equipo.html">Equipo</a></li><li><a href="sobre-nosotros.html">Sobre nosotros</a></li><li><a href="contacto.html">Contacto</a></li></ul></div>
-        <div><h4>TRATAMIENTOS</h4><ul><li><a href="tratamientos.html">Diseño de sonrisa</a></li><li><a href="tratamientos.html">Implantes</a></li><li><a href="tratamientos.html">Ortodoncia invisible</a></li><li><a href="tratamientos.html">Carillas</a></li></ul></div>
+        <div><h4>MENÚ</h4><ul><li><a href="index.html">Inicio</a></li><li><a href="servicios.html">Servicios</a></li><li><a href="equipo.html">Equipo</a></li><li><a href="sobre-nosotros.html">La Clínica</a></li><li><a href="contacto.html">Contacto</a></li></ul></div>
+        <div><h4>SERVICIOS</h4><ul><li><a href="estetica-dental.html">Estética dental</a></li><li><a href="funcion.html">Función</a></li><li><a href="salud-oral.html">Salud oral</a></li></ul></div>
         <div><h4>LEGAL</h4><ul><li><a href="#">Política de privacidad</a></li><li><a href="#">Aviso legal</a></li><li><a href="#">Cookies</a></li></ul></div>
         <div><h4>SÍGUENOS</h4><ul><li><a href="#">Instagram</a></li><li><a href="#">Facebook</a></li><li><a href="#">LinkedIn</a></li></ul></div>
       </div>

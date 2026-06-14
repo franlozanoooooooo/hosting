@@ -6,23 +6,35 @@ moderno inspirado en la plantilla OralCare (verde lima, cards redondeadas, hero 
 Sitio estático multipágina, sin dependencias de build.
 
 ## Páginas
-- `index.html` — Inicio (hero, servicios, stats, testimonio, CTA)
-- `tratamientos.html` — Catálogo de tratamientos y proceso
-- `equipo.html` — Equipo de la clínica
-- `sobre-nosotros.html` — Filosofía y valores
+- `index.html` — Inicio (hero, 3 categorías, filosofía, tecnología, antes/después, financiación, CTA)
+- `servicios.html` — Hub de servicios con **buscador y filtros** por categoría
+- `estetica-dental.html` — Categoría Estética dental
+- `funcion.html` — Categoría Función
+- `salud-oral.html` — Categoría Salud oral
+- `equipo.html` — Equipo de la clínica (datos reales)
+- `sobre-nosotros.html` — "La Clínica": filosofía y valores
 - `contacto.html` — Formulario, datos de contacto y mapa
 
 ## Estructura
 ```
 clinica-gala/
 ├── index.html
-├── tratamientos.html
+├── servicios.html
+├── estetica-dental.html
+├── funcion.html
+├── salud-oral.html
 ├── equipo.html
 ├── sobre-nosotros.html
 ├── contacto.html
 ├── css/styles.css
-└── js/main.js
+├── js/main.js
+└── img/ (placeholder.svg + tus fotos)
 ```
+
+## Servicios (estructura real de negocio)
+- **Estética dental:** diseño de sonrisa, carillas, blanqueamiento, remodelado de encías, ortodoncia invisible y convencional.
+- **Función:** implantes, prótesis, bruxismo, apnea del sueño.
+- **Salud oral:** endodoncia, odontología conservadora, disfunción de ATM, enfermedad periodontal.
 
 ## Cómo verlo
 Abre `index.html` en el navegador, o sirve la carpeta:

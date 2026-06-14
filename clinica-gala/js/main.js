@@ -125,6 +125,37 @@ document.querySelectorAll('.ba').forEach(ba => {
   }
 });
 
+// ---------- Buscador / filtro de servicios ----------
+const svcSearch = document.querySelector('#svc-search');
+const svcCards = Array.from(document.querySelectorAll('.svc-card'));
+const svcTags = Array.from(document.querySelectorAll('.svc-tag'));
+const svcEmpty = document.querySelector('#svc-empty');
+if (svcCards.length) {
+  let activeCat = 'all';
+  const diacritics = new RegExp('[\\u0300-\\u036f]', 'g');
+  const norm = (s) => (s || '').toLowerCase().normalize('NFD').replace(diacritics, '');
+  const applyFilter = () => {
+    const q = norm(svcSearch ? svcSearch.value : '');
+    let visible = 0;
+    svcCards.forEach(card => {
+      const matchCat = activeCat === 'all' || card.dataset.cat === activeCat;
+      const haystack = norm(card.dataset.name + ' ' + card.textContent);
+      const matchText = !q || haystack.includes(q);
+      const show = matchCat && matchText;
+      card.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+    if (svcEmpty) svcEmpty.style.display = visible ? 'none' : 'block';
+  };
+  if (svcSearch) svcSearch.addEventListener('input', applyFilter);
+  svcTags.forEach(tag => tag.addEventListener('click', () => {
+    svcTags.forEach(t => t.classList.remove('active'));
+    tag.classList.add('active');
+    activeCat = tag.dataset.cat;
+    applyFilter();
+  }));
+}
+
 // ---------- Reveal al hacer scroll + disparo del contador ----------
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const revealEls = document.querySelectorAll('.reveal');
