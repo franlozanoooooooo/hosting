@@ -31,11 +31,24 @@ cd clinica-gala && python3 -m http.server 8080
 ```
 Luego visita http://localhost:8080
 
+## Efectos (estilo OralCare)
+- **Aparición al hacer scroll** (reveal) con escalonado en las tarjetas.
+- **Parallax** suave en la imagen del hero.
+- **Sombra dinámica** en la cabecera al desplazar.
+- **Contador animado** en las cifras de Inicio.
+- Respeta `prefers-reduced-motion` (se desactivan si el usuario lo pide).
+
+## Imágenes
+Coloca tus fotos en `img/` con los nombres indicados en `img/README.md`
+(`dra-gala.jpg`, `recepcion.jpg`, `fachada.jpg`, ...). Mientras no estén, se
+muestra una imagen de stock de reserva, así que la web nunca se ve rota.
+
 ## Notas / pendientes de personalizar
-- Las **fotos** son de stock (Unsplash). Sustituir por imágenes reales de la clínica.
-- Los **nombres y cargos del equipo** son orientativos. Indicar los reales.
+- Añadir las **fotos reales** en `img/` (ver `img/README.md`).
+- **Nombres y cargos del equipo**: solo la Dra. Gala R-M es real; el resto es orientativo.
 - Enlaces de **redes sociales** y **páginas legales** están como `#`.
-- El **formulario** es una demo en cliente (sin backend). Conectar a email/CRM.
+- El **formulario** es una demo en cliente (sin backend). Conectar a email/CRM
+  (p. ej. Netlify Forms).
 
 ## Datos reales usados
 - Estética Dental · "Especialistas en sonrisas"

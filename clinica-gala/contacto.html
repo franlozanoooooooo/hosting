@@ -29,16 +29,15 @@
 
   <section class="section section-soft">
     <div class="container">
-      <span class="eyebrow">Contacto</span>
-      <h1 style="font-size:clamp(2.4rem,5vw,3.6rem); max-width:760px">Pide tu cita</h1>
-      <p class="lead">Rellena el formulario o llámanos. Te ayudamos a encontrar el mejor momento para tu visita.</p>
+      <span class="eyebrow reveal">Contacto</span>
+      <h1 class="reveal" style="font-size:clamp(2.4rem,5vw,3.6rem); max-width:760px">Pide tu cita</h1>
+      <p class="lead reveal">Rellena el formulario o llámanos. Te ayudamos a encontrar el mejor momento para tu visita.</p>
     </div>
   </section>
 
   <section class="section">
     <div class="container split">
-      <!-- Formulario -->
-      <div>
+      <div class="reveal">
         <form class="form" id="contact-form">
           <div>
             <label for="nombre">Nombre y apellidos</label>
@@ -69,37 +68,35 @@
             <textarea id="mensaje" name="mensaje" rows="4"></textarea>
           </div>
           <button type="submit" class="btn btn-primary">Enviar solicitud</button>
-          <p id="form-ok" style="display:none; color:#3a8a3a; font-weight:600">✓ ¡Gracias! Hemos recibido tu solicitud, te contactaremos pronto.</p>
+          <p id="form-ok" style="display:none; color:#3a8a3a; font-weight:600">Hemos recibido tu solicitud, te contactaremos pronto.</p>
         </form>
       </div>
 
-      <!-- Info -->
-      <div class="grid" style="align-content:start">
+      <div class="grid reveal" style="align-content:start">
         <div class="info-card">
-          <span class="ic">📍</span>
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c4-4 7-7.5 7-11a7 7 0 1 0-14 0c0 3.5 3 7 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
           <div><strong>Dirección</strong><span>Avenida José Laguillo 26, 41003 Sevilla</span></div>
         </div>
         <div class="info-card">
-          <span class="ic">📞</span>
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h3.5l1.5 4.5L8 10.5a11 11 0 0 0 5 5l2-2 4.5 1.5V19a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span>
           <div><strong>Teléfono</strong><span>+34 955 18 65 02</span></div>
         </div>
         <div class="info-card">
-          <span class="ic">✉️</span>
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
           <div><strong>Email</strong><span>info@clinicagaladental.es</span></div>
         </div>
         <div class="info-card">
-          <span class="ic">🅿️</span>
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M10 16V8h3a2.5 2.5 0 0 1 0 5h-3"/></svg></span>
           <div><strong>Parking</strong><span>1 hora gratis en Parking José Laguillo Aussa al iniciar tratamiento.</span></div>
         </div>
         <div class="info-card">
-          <span class="ic">🕒</span>
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
           <div><strong>Horario</strong><span>Lunes a viernes · Consúltanos disponibilidad.</span></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Mapa -->
   <section class="section" style="padding-top:0">
     <div class="container">
       <iframe
