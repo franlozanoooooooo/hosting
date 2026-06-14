@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto y cita · Clínica GALA Estética Dental Sevilla</title>
+  <meta name="description" content="Pide tu cita en Clínica GALA Estética Dental. Avenida José Laguillo 26, Sevilla. Tel. +34 955 18 65 02 · info@clinicagaladental.es" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="container nav">
+      <a href="index.html" class="brand"><span class="logo">G</span> Clínica GALA</a>
+      <button class="nav-toggle" aria-label="Menú">☰</button>
+      <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="tratamientos.html">Tratamientos</a></li>
+        <li><a href="equipo.html">Equipo</a></li>
+        <li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
+        <li><a href="contacto.html" class="active">Contacto</a></li>
+        <li class="nav-cta"><a href="contacto.html" class="btn btn-primary">Pedir cita</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="section section-soft">
+    <div class="container">
+      <span class="eyebrow">Contacto</span>
+      <h1 style="font-size:clamp(2.4rem,5vw,3.6rem); max-width:760px">Pide tu cita</h1>
+      <p class="lead">Rellena el formulario o llámanos. Te ayudamos a encontrar el mejor momento para tu visita.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split">
+      <!-- Formulario -->
+      <div>
+        <form class="form" id="contact-form">
+          <div>
+            <label for="nombre">Nombre y apellidos</label>
+            <input type="text" id="nombre" name="nombre" required />
+          </div>
+          <div>
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div>
+            <label for="telefono">Teléfono</label>
+            <input type="tel" id="telefono" name="telefono" />
+          </div>
+          <div>
+            <label for="tratamiento">Tratamiento de interés</label>
+            <select id="tratamiento" name="tratamiento">
+              <option>Diseño de sonrisa</option>
+              <option>Carillas estéticas</option>
+              <option>Implantes dentales</option>
+              <option>Ortodoncia invisible</option>
+              <option>Blanqueamiento</option>
+              <option>Primera valoración</option>
+              <option>Otro</option>
+            </select>
+          </div>
+          <div>
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="4"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Enviar solicitud</button>
+          <p id="form-ok" style="display:none; color:#3a8a3a; font-weight:600">✓ ¡Gracias! Hemos recibido tu solicitud, te contactaremos pronto.</p>
+        </form>
+      </div>
+
+      <!-- Info -->
+      <div class="grid" style="align-content:start">
+        <div class="info-card">
+          <span class="ic">📍</span>
+          <div><strong>Dirección</strong><span>Avenida José Laguillo 26, 41003 Sevilla</span></div>
+        </div>
+        <div class="info-card">
+          <span class="ic">📞</span>
+          <div><strong>Teléfono</strong><span>+34 955 18 65 02</span></div>
+        </div>
+        <div class="info-card">
+          <span class="ic">✉️</span>
+          <div><strong>Email</strong><span>info@clinicagaladental.es</span></div>
+        </div>
+        <div class="info-card">
+          <span class="ic">🅿️</span>
+          <div><strong>Parking</strong><span>1 hora gratis en Parking José Laguillo Aussa al iniciar tratamiento.</span></div>
+        </div>
+        <div class="info-card">
+          <span class="ic">🕒</span>
+          <div><strong>Horario</strong><span>Lunes a viernes · Consúltanos disponibilidad.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mapa -->
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <iframe
+        title="Mapa Clínica GALA"
+        src="https://www.google.com/maps?q=Avenida+Jos%C3%A9+Laguillo+26,+41003+Sevilla&output=embed"
+        style="width:100%; height:420px; border:0; border-radius:28px"
+        loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div><h3>Hablemos</h3><p class="sub">Avenida José Laguillo 26, 41003 Sevilla</p></div>
+        <div>
+          <p class="sub">Llámanos: <strong style="color:#fff">+34 955 18 65 02</strong></p>
+          <p class="sub">Escríbenos: <strong style="color:#fff">info@clinicagaladental.es</strong></p>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div><h4>MENÚ</h4><ul><li><a href="index.html">Inicio</a></li><li><a href="tratamientos.html">Tratamientos</a></li><li><a href="equipo.html">Equipo</a></li><li><a href="sobre-nosotros.html">Sobre nosotros</a></li><li><a href="contacto.html">Contacto</a></li></ul></div>
+        <div><h4>TRATAMIENTOS</h4><ul><li><a href="tratamientos.html">Diseño de sonrisa</a></li><li><a href="tratamientos.html">Implantes</a></li><li><a href="tratamientos.html">Ortodoncia invisible</a></li><li><a href="tratamientos.html">Carillas</a></li></ul></div>
+        <div><h4>LEGAL</h4><ul><li><a href="#">Política de privacidad</a></li><li><a href="#">Aviso legal</a></li><li><a href="#">Cookies</a></li></ul></div>
+        <div><h4>SÍGUENOS</h4><ul><li><a href="#">Instagram</a></li><li><a href="#">Facebook</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      </div>
+      <div class="footer-wordmark">Clínica GALA</div>
+      <p class="footer-legal">© 2026 Clínica GALA Estética Dental. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
