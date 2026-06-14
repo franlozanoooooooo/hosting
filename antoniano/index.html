@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>Inicio | Club Atlético Antoniano</title>
+  <meta name="description" content="Web oficial del Club Atlético Antoniano de Lebrija. Noticias, entradas, cantera y toda la actualidad del conjunto rojiblanco. Desde 1963." />
+  <link rel="canonical" href="https://www.caantoniano.com/" />
+  <meta name="theme-color" content="#5C1620" />
+  <link rel="icon" type="image/svg+xml" href="assets/escudo-antoniano.svg" />
+
+  <!-- Open Graph -->
+  <meta property="og:site_name" content="Club Atlético Antoniano" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Inicio | Club Atlético Antoniano" />
+  <meta property="og:description" content="Web oficial del Club Atlético Antoniano de Lebrija. Convertir en rutina lo extraordinario." />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:image" content="assets/aficion.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@caantoniano" />
+
+  <!-- Datos estructurados -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SportsClub",
+    "name": "Club Atlético Antoniano",
+    "alternateName": ["C.A. Antoniano", "Antoniano", "Los Rojiblancos"],
+    "sport": "Soccer",
+    "foundingDate": "1963",
+    "url": "https://www.caantoniano.com",
+    "location": {
+      "@type": "StadiumOrArena",
+      "name": "Estadio Municipal de Lebrija",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Lebrija",
+        "addressRegion": "Sevilla",
+        "addressCountry": "ES"
+      }
+    },
+    "sameAs": [
+      "https://www.instagram.com/caantoniano/",
+      "https://x.com/caantoniano",
+      "https://www.facebook.com/CAAntoniano/"
+    ]
+  }
+  </script>
+
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Libre+Franklin:wght@300;400;500;600;700;800&family=Oswald:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,600&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind (Play CDN) + configuración del club -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'ant-red':     '#E1261C',
+            'ant-red-dark':'#B71C13',
+            'ant-granate': '#5C1620',
+            'ant-maroon':  '#6E1423',
+            'ant-dark':    '#2A0A0E',
+            'ant-cream':   '#F3E7CF',
+          },
+          fontFamily: {
+            heading:   ['Oswald', 'sans-serif'],
+            body:      ['"Libre Franklin"', 'sans-serif'],
+            mono:      ['"IBM Plex Mono"', 'monospace'],
+            editorial: ['"Playfair Display"', 'serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Fondo "afición" rojiblanco (estilo gradas) cuando no hay foto real */
+    .sunburst {
+      background:
+        repeating-conic-gradient(from 0deg at 50% 38%,
+          #E1261C 0deg 11deg, #f7f3ee 11deg 22deg);
+    }
+    .sunburst-dark {
+      background:
+        repeating-conic-gradient(from 0deg at 50% 50%,
+          #6E1423 0deg 11deg, #2A0A0E 11deg 22deg);
+    }
+    /* Imagen oculta si falla la carga -> deja ver el fondo sunburst */
+    img[data-fallback].is-missing { display: none; }
+
+    .hero-animate, .stadium-content { transition: all .9s cubic-bezier(.16,1,.3,1); }
+    .reveal { opacity: 0; transform: translateY(28px); transition: all .8s cubic-bezier(.16,1,.3,1); }
+    .reveal.in { opacity: 1; transform: none; }
+
+    /* Intro */
+    #intro-overlay { transition: opacity .7s ease, visibility .7s ease; }
+    #shield-logo { transition: all 1s cubic-bezier(.16,1,.3,1); }
+    .line-grow { transition: width 1s cubic-bezier(.16,1,.3,1); }
+
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+
+<body class="bg-white text-ant-granate font-body antialiased selection:bg-ant-red selection:text-white overflow-x-hidden">
+
+  <!-- ===================== HEADER ===================== -->
+  <header id="main-header" class="fixed top-0 left-0 w-full z-[100] py-4 px-6 md:px-12 transition-all duration-500 text-white bg-transparent">
+    <div class="flex justify-between items-center w-full max-w-7xl mx-auto">
+
+      <!-- Logo -->
+      <a href="#top" class="flex items-center gap-3 group relative z-[110]">
+        <img src="assets/escudo-antoniano.svg" alt="Club Atlético Antoniano" class="h-11 w-auto object-contain drop-shadow-md" />
+        <div class="flex flex-col leading-none transition-colors duration-300 group-hover:opacity-80">
+          <span class="font-heading font-bold text-lg tracking-wider logo-text">C.A. ANTONIANO</span>
+          <span class="font-mono text-[10px] tracking-widest uppercase font-bold text-ant-red logo-sub">Lebrija · Desde 1963</span>
+        </div>
+      </a>
+
+      <!-- Nav desktop -->
+      <nav class="hidden xl:flex gap-6 font-heading text-sm font-bold uppercase tracking-widest items-center relative z-[110]">
+        <a href="#actualidad" class="hover:text-ant-red transition-colors">Noticias</a>
+        <a href="#club" class="hover:text-ant-red transition-colors">Club</a>
+        <a href="#cantera" class="hover:text-ant-red transition-colors">Cantera</a>
+        <a href="#patrocinadores" class="hover:text-ant-red transition-colors">Patrocinadores</a>
+        <a href="#tienda" class="hover:text-ant-red transition-colors">Tienda</a>
+        <a href="https://es.wikipedia.org/wiki/Segunda_Federaci%C3%B3n_2025-26#Clasificaci%C3%B3n_4" target="_blank" rel="noopener noreferrer" class="hover:text-ant-red transition-colors">Clasificación ↗</a>
+        <a href="https://antoniano.compralaentrada.com/" target="_blank" rel="noopener noreferrer"
+           class="rounded-sm border border-ant-red bg-ant-red px-4 py-2 text-white transition-colors hover:border-white hover:bg-white hover:text-ant-granate">Entradas ↗</a>
+      </nav>
+
+      <!-- Botón menú móvil -->
+      <button id="open-menu-btn" type="button" aria-label="Abrir menú" aria-controls="mobile-overlay" aria-expanded="false"
+              class="xl:hidden flex flex-col gap-1.5 z-[110] cursor-pointer p-2">
+        <span class="w-8 h-[3px] bg-ant-red"></span>
+        <span class="w-8 h-[3px] bg-white burger-middle"></span>
+        <span class="w-8 h-[3px] bg-ant-red"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===================== MENÚ MÓVIL ===================== -->
+  <div id="mobile-overlay" class="fixed inset-0 bg-ant-granate z-[9999] flex-col items-center justify-start overflow-y-auto text-white hidden">
+    <div class="w-full flex items-center justify-between p-6 border-b border-white/10">
+      <a href="#top" class="flex items-center gap-3 mobile-link">
+        <img src="assets/escudo-antoniano.svg" alt="C.A. Antoniano" class="h-10 w-auto object-contain" />
+        <span class="font-heading font-bold uppercase tracking-widest text-white">C.A. Antoniano</span>
+      </a>
+      <button id="close-menu-btn" type="button" aria-label="Cerrar menú" class="text-white text-4xl font-light hover:text-ant-red transition-colors">✕</button>
+    </div>
+    <nav class="flex w-full max-w-sm flex-col gap-5 px-6 py-10 text-center mx-auto">
+      <a href="#actualidad" class="mobile-link text-2xl font-heading font-bold uppercase transition-colors hover:text-ant-red text-white">Noticias</a>
+      <a href="#club" class="mobile-link text-2xl font-heading font-bold uppercase transition-colors hover:text-ant-red text-white">Club</a>
+      <a href="#cantera" class="mobile-link text-2xl font-heading font-bold uppercase transition-colors hover:text-ant-red text-white">Cantera</a>
+      <a href="#patrocinadores" class="mobile-link text-2xl font-heading font-bold uppercase transition-colors hover:text-ant-red text-white">Patrocinadores</a>
+      <a href="#tienda" class="mobile-link text-2xl font-heading font-bold uppercase transition-colors hover:text-ant-red text-white">Tienda</a>
+
+      <div class="grid grid-cols-1 gap-3 mt-2">
+        <a href="https://antoniano.compralaentrada.com/" target="_blank" rel="noopener noreferrer"
+           class="rounded-sm bg-ant-red px-6 py-4 text-2xl font-heading font-bold uppercase text-white transition-colors hover:bg-white hover:text-ant-granate">Entradas ↗</a>
+        <a href="https://es.wikipedia.org/wiki/Segunda_Federaci%C3%B3n_2025-26#Clasificaci%C3%B3n_4" target="_blank" rel="noopener noreferrer"
+           class="rounded-sm border border-white/20 bg-white/5 px-6 py-4 text-xl font-heading font-bold uppercase text-white transition-colors hover:border-ant-red hover:text-ant-red">Clasificación ↗</a>
+      </div>
+
+      <div class="flex justify-center gap-8 mt-8 border-t border-white/10 pt-8 text-ant-cream">
+        <a href="https://www.instagram.com/caantoniano/" target="_blank" rel="noopener noreferrer" class="hover:text-ant-red transition-colors font-mono text-xs uppercase tracking-widest">Instagram</a>
+        <a href="https://x.com/caantoniano" target="_blank" rel="noopener noreferrer" class="hover:text-ant-red transition-colors font-mono text-xs uppercase tracking-widest">X</a>
+        <a href="https://www.facebook.com/CAAntoniano/" target="_blank" rel="noopener noreferrer" class="hover:text-ant-red transition-colors font-mono text-xs uppercase tracking-widest">Facebook</a>
+      </div>
+    </nav>
+  </div>
+
+  <main id="top" class="min-h-screen">
+
+    <!-- ===================== INTRO ===================== -->
+    <div id="intro-overlay" class="fixed inset-0 z-[999] bg-white flex items-center justify-center w-full h-full">
+      <div class="relative w-full max-w-5xl flex items-center justify-between px-4 md:px-12">
+        <div id="line-left" class="line-grow h-[2px] bg-ant-red w-0"></div>
+        <div class="mx-6 shrink-0 flex items-center justify-center">
+          <img id="shield-logo" src="assets/escudo-antoniano.svg" alt="Escudo Club Atlético Antoniano" class="w-24 md:w-32 opacity-0 scale-90 object-contain drop-shadow-lg" />
+        </div>
+        <div id="line-right" class="line-grow h-[2px] bg-ant-red w-0"></div>
+      </div>
+    </div>
+
+    <!-- ===================== HERO ===================== -->
+    <div class="fixed inset-0 w-full h-screen z-0 bg-ant-dark sunburst">
+      <div class="absolute inset-0 bg-black/45 z-10"></div>
+      <!-- Sustituye assets/aficion.jpg por una foto real de la grada -->
+      <img data-fallback src="assets/aficion.jpg" alt="Afición del Club Atlético Antoniano"
+           class="w-full h-full object-cover opacity-80 relative z-[5]" />
+      <div class="absolute bottom-0 left-0 w-full p-6 md:p-8 z-20 flex flex-col justify-end pb-24 md:pb-20">
+        <span class="hero-animate opacity-0 translate-y-8 inline-block w-max font-mono text-xs md:text-sm tracking-[0.3em] uppercase text-ant-cream border border-ant-cream/40 px-4 py-1 mb-6">Club Atlético Antoniano · Lebrija</span>
+        <h1 class="hero-animate opacity-0 font-heading font-bold text-white text-[12vw] md:text-[10vw] leading-[0.82] tracking-tighter uppercase translate-y-20">CONVERTIR</h1>
+        <h1 class="hero-animate opacity-0 font-heading font-bold text-white text-[12vw] md:text-[10vw] leading-[0.82] tracking-tighter uppercase ml-[4vw] md:ml-[10vw] translate-y-20">EN <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-ant-cream">RUTINA</span></h1>
+        <h1 class="hero-animate opacity-0 font-heading font-bold text-[12vw] md:text-[10vw] leading-[0.82] tracking-tighter uppercase translate-y-20"><span class="text-transparent bg-clip-text bg-gradient-to-r from-ant-red to-ant-maroon">LO EXTRAORDINARIO</span></h1>
+      </div>
+    </div>
+    <!-- Espaciador para el hero fijo -->
+    <div class="h-screen w-full relative z-10 pointer-events-none"></div>
+
+    <!-- Contenido que sube sobre el hero -->
+    <div class="relative z-20 bg-white shadow-[0_-50px_100px_rgba(0,0,0,0.5)]">
+
+      <!-- ===================== NOTICIA DESTACADA ===================== -->
+      <section class="bg-ant-granate text-white">
+        <a href="#actualidad" class="group block">
+          <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2">
+            <div class="relative h-72 lg:h-auto min-h-[20rem] overflow-hidden sunburst-dark">
+              <img data-fallback src="assets/destacada.jpg" alt="Noticia destacada"
+                   class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" />
+              <div class="absolute inset-0 bg-gradient-to-t from-ant-granate via-transparent to-transparent"></div>
+            </div>
+            <div class="p-10 md:p-16 flex flex-col justify-center">
+              <span class="font-mono text-xs uppercase tracking-[0.3em] text-ant-red mb-4">Destacado · Primer Equipo</span>
+              <h2 class="font-editorial text-4xl md:text-6xl font-bold leading-[0.95] mb-6">60 años haciendo historia</h2>
+              <p class="text-gray-300 font-body max-w-md mb-8 leading-relaxed">El conjunto rojiblanco sigue escribiendo su leyenda en Segunda Federación tras el histórico ascenso de la temporada 2022-23.</p>
+              <span class="inline-flex items-center gap-3 font-heading font-bold uppercase text-sm tracking-widest group-hover:gap-5 transition-all">Leer más <span class="text-ant-red">→</span></span>
+            </div>
+          </div>
+        </a>
+      </section>
+
+      <!-- ===================== EXPERIENCIA ESTADIO ===================== -->
+      <section id="estadio" class="relative h-screen flex items-center overflow-hidden bg-black">
+        <div class="absolute inset-0 z-0 sunburst-dark">
+          <img data-fallback src="assets/estadio.jpg" alt="Estadio Municipal de Lebrija"
+               class="w-full h-full object-cover opacity-50" />
+          <div class="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent"></div>
+        </div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 w-full grid grid-cols-1 lg:grid-cols-2">
+          <div class="stadium-content opacity-0 translate-y-10">
+            <span class="inline-block border border-ant-red text-ant-red px-4 py-1 text-xs font-mono tracking-[0.2em] uppercase mb-6">Estadio Municipal de Lebrija</span>
+            <h2 class="text-5xl md:text-7xl font-heading font-bold text-white uppercase leading-[0.9] mb-8">Vive el<br /><span class="text-transparent bg-clip-text bg-gradient-to-r from-ant-red to-ant-maroon">Rojiblanco</span><br />En Directo</h2>
+            <p class="font-editorial text-lg text-gray-300 mb-10 leading-relaxed max-w-md border-l-2 border-ant-red pl-6">No te pierdas ni un minuto desde la grada. Saca tu entrada y empuja al equipo hasta el último suspiro.</p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a href="https://antoniano.compralaentrada.com/" target="_blank" rel="noopener noreferrer"
+                 class="bg-white text-ant-granate font-heading font-bold uppercase px-8 py-4 hover:bg-ant-red hover:text-white transition-colors text-center">Comprar Entradas ↗</a>
+              <a href="https://antoniano.compralaentrada.com/" target="_blank" rel="noopener noreferrer"
+                 class="border border-white/40 text-white font-heading font-bold uppercase px-8 py-4 hover:border-ant-red hover:text-ant-red transition-colors text-center">Abónate</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== ACTUALIDAD / NOTICIAS ===================== -->
+      <section id="actualidad" class="bg-white text-ant-granate py-24 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4">
+          <div class="mb-16 text-center">
+            <h2 class="font-heading text-6xl md:text-9xl font-bold uppercase tracking-tighter opacity-10 select-none">ACTUALIDAD</h2>
+          </div>
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+
+            <!-- Columna noticias -->
+            <div class="lg:col-span-8 space-y-12">
+
+              <article class="news-item group border-b border-gray-100 pb-10 reveal">
+                <a href="#" class="block">
+                  <div class="flex flex-col md:flex-row gap-8 items-start">
+                    <div class="md:w-1/4 pt-2">
+                      <span class="block font-mono text-xs text-ant-red uppercase tracking-widest mb-2">Primer Equipo</span>
+                      <span class="block font-editorial text-sm text-gray-400">8 jun 2026</span>
+                    </div>
+                    <div class="md:w-3/4">
+                      <h3 class="text-3xl md:text-4xl font-editorial font-bold leading-tight group-hover:text-ant-red transition-colors">Otra jornada para soñar en Segunda Federación</h3>
+                      <div class="mt-4 opacity-0 group-hover:opacity-100 transition-opacity"><span class="text-xs font-heading font-bold uppercase border-b border-ant-granate pb-1">Leer Noticia →</span></div>
+                    </div>
+                  </div>
+                </a>
+              </article>
+
+              <article class="news-item group border-b border-gray-100 pb-10 reveal">
+                <a href="#" class="block">
+                  <div class="flex flex-col md:flex-row gap-8 items-start">
+                    <div class="md:w-1/4 pt-2">
+                      <span class="block font-mono text-xs text-ant-red uppercase tracking-widest mb-2">Club</span>
+                      <span class="block font-editorial text-sm text-gray-400">28 nov 2025</span>
+                    </div>
+                    <div class="md:w-3/4">
+                      <h3 class="text-3xl md:text-4xl font-editorial font-bold leading-tight group-hover:text-ant-red transition-colors">El Antoniano, protagonista en la Copa del Rey</h3>
+                      <div class="mt-4 opacity-0 group-hover:opacity-100 transition-opacity"><span class="text-xs font-heading font-bold uppercase border-b border-ant-granate pb-1">Leer Noticia →</span></div>
+                    </div>
+                  </div>
+                </a>
+              </article>
+
+              <article class="news-item group border-b border-gray-100 pb-10 reveal">
+                <a href="#" class="block">
+                  <div class="flex flex-col md:flex-row gap-8 items-start">
+                    <div class="md:w-1/4 pt-2">
+                      <span class="block font-mono text-xs text-ant-red uppercase tracking-widest mb-2">Cantera</span>
+                      <span class="block font-editorial text-sm text-gray-400">15 may 2026</span>
+                    </div>
+                    <div class="md:w-3/4">
+                      <h3 class="text-3xl md:text-4xl font-editorial font-bold leading-tight group-hover:text-ant-red transition-colors">Pruebas de acceso a la cantera rojiblanca 2026-2027</h3>
+                      <div class="mt-4 opacity-0 group-hover:opacity-100 transition-opacity"><span class="text-xs font-heading font-bold uppercase border-b border-ant-granate pb-1">Leer Noticia →</span></div>
+                    </div>
+                  </div>
+                </a>
+              </article>
+
+              <article class="news-item group border-b border-gray-100 pb-10 reveal">
+                <a href="#" class="block">
+                  <div class="flex flex-col md:flex-row gap-8 items-start">
+                    <div class="md:w-1/4 pt-2">
+                      <span class="block font-mono text-xs text-ant-red uppercase tracking-widest mb-2">Club</span>
+                      <span class="block font-editorial text-sm text-gray-400">23 abr 2026</span>
+                    </div>
+                    <div class="md:w-3/4">
+                      <h3 class="text-3xl md:text-4xl font-editorial font-bold leading-tight group-hover:text-ant-red transition-colors">Tres años del ascenso histórico a Segunda Federación</h3>
+                      <div class="mt-4 opacity-0 group-hover:opacity-100 transition-opacity"><span class="text-xs font-heading font-bold uppercase border-b border-ant-granate pb-1">Leer Noticia →</span></div>
+                    </div>
+                  </div>
+                </a>
+              </article>
+
+              <div class="text-center pt-6">
+                <a href="#" class="inline-flex border border-ant-granate px-8 py-3 font-heading font-bold uppercase text-ant-granate transition-colors hover:bg-ant-granate hover:text-white">Ver Todas Las Noticias</a>
+              </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="lg:col-span-4 relative">
+              <div class="space-y-8 sticky top-32">
+                <div class="bg-gray-50 p-8 border-l-4 border-ant-red group hover:bg-white hover:shadow-lg transition-all reveal">
+                  <h4 class="font-heading text-2xl font-bold uppercase mb-2 text-ant-granate">Horarios Cantera</h4>
+                  <p class="text-sm text-gray-600 mb-4 font-body">Consulta los horarios de los partidos de este fin de semana del fútbol base rojiblanco.</p>
+                  <a href="#cantera" class="text-ant-red font-bold text-xs uppercase tracking-widest hover:underline inline-block">Ver Agenda →</a>
+                </div>
+
+                <div class="bg-ant-granate p-8 text-white group hover:bg-ant-granate/90 transition-all reveal">
+                  <h4 class="font-heading text-2xl font-bold uppercase mb-2">Plan Semanal</h4>
+                  <p class="text-sm text-gray-300 mb-4 font-body">Toda la planificación de la semana del Club Atlético Antoniano.</p>
+                  <a href="#actualidad" class="text-ant-cream font-bold text-xs uppercase tracking-widest hover:underline flex items-center gap-2">Ver Plan Semanal →</a>
+                </div>
+
+                <a href="https://antoniano.compralaentrada.com/" target="_blank" rel="noopener noreferrer"
+                   class="block border-2 border-ant-granate border-dashed p-6 text-center group hover:border-solid hover:bg-ant-granate hover:text-white transition-all cursor-pointer no-underline reveal">
+                  <span class="block text-4xl mb-2 group-hover:scale-110 transition-transform">🎟️</span>
+                  <h4 class="font-heading text-xl font-bold uppercase mb-1 text-ant-granate group-hover:text-white">Día de Partido</h4>
+                  <p class="text-xs font-mono text-gray-500 mb-4 group-hover:text-gray-300">Entradas, accesos y normativa</p>
+                  <span class="inline-block bg-ant-granate text-white text-xs font-bold px-4 py-2 uppercase group-hover:bg-white group-hover:text-ant-granate transition-colors rounded-sm">Comprar Entradas ↗</span>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== CLUB ===================== -->
+      <section id="club" class="bg-ant-granate text-white py-24">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div class="reveal">
+            <span class="inline-block border border-ant-red text-ant-red px-4 py-1 text-xs font-mono tracking-[0.2em] uppercase mb-6">El Club</span>
+            <h2 class="font-heading text-5xl md:text-7xl font-bold uppercase leading-[0.9] mb-8">Pasión<br />rojiblanca<br /><span class="text-ant-cream">desde 1963</span></h2>
+            <div class="space-y-5 text-gray-300 font-body leading-relaxed max-w-xl">
+              <p>El <strong class="text-white">Club Atlético Antoniano</strong> nació en <strong class="text-white">1963</strong> de la mano de un grupo de jóvenes de la Juventud Antoniana, con el decisivo apoyo de los Padres Franciscanos. Su nombre rinde homenaje a <strong class="text-white">San Antonio de Padua</strong>, símbolo de los valores de humildad y entrega que han marcado al club desde entonces.</p>
+              <p>Inscrito en la Federación Andaluza el <strong class="text-white">27 de julio de 1963</strong>, comenzó su andadura en categoría Provincial disputando sus partidos en el histórico Campo Municipal de la Victoria. Hoy juega como local en el <strong class="text-white">Estadio Municipal de Lebrija</strong> (Sevilla).</p>
+              <p>El <strong class="text-white">23 de abril de 2023</strong>, el Antoniano logró un hito histórico al ascender a <strong class="text-white">Segunda Federación</strong> tras proclamarse campeón de su grupo en Tercera Federación, alcanzando por primera vez una categoría nacional.</p>
+            </div>
+            <a href="https://es.wikipedia.org/wiki/Segunda_Federaci%C3%B3n_2025-26#Clasificaci%C3%B3n_4" target="_blank" rel="noopener noreferrer"
+               class="mt-10 inline-flex items-center gap-3 bg-ant-red text-white font-heading font-bold uppercase px-8 py-4 hover:bg-white hover:text-ant-granate transition-colors">Ver Clasificación de la Liga ↗</a>
+          </div>
+
+          <div class="grid grid-cols-2 gap-6 reveal">
+            <div class="bg-white/5 border border-white/10 p-8 text-center">
+              <div class="font-heading text-5xl md:text-6xl font-bold text-ant-red">1963</div>
+              <div class="font-mono text-[11px] uppercase tracking-widest text-gray-400 mt-2">Año de fundación</div>
+            </div>
+            <div class="bg-white/5 border border-white/10 p-8 text-center">
+              <div class="font-heading text-5xl md:text-6xl font-bold text-ant-red">2ª RFEF</div>
+              <div class="font-mono text-[11px] uppercase tracking-widest text-gray-400 mt-2">Categoría actual · Grupo IV</div>
+            </div>
+            <div class="bg-white/5 border border-white/10 p-8 text-center">
+              <div class="font-heading text-5xl md:text-6xl font-bold text-ant-red">2023</div>
+              <div class="font-mono text-[11px] uppercase tracking-widest text-gray-400 mt-2">Ascenso histórico</div>
+            </div>
+            <div class="bg-white/5 border border-white/10 p-8 text-center">
+              <div class="font-heading text-5xl md:text-6xl font-bold text-ant-red">Lebrija</div>
+              <div class="font-mono text-[11px] uppercase tracking-widest text-gray-400 mt-2">Sevilla · Andalucía</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== CANTERA ===================== -->
+      <section id="cantera" class="bg-ant-cream text-ant-granate py-24">
+        <div class="max-w-7xl mx-auto px-6">
+          <div class="text-center mb-16 reveal">
+            <span class="inline-block border border-ant-red text-ant-red px-4 py-1 text-xs font-mono tracking-[0.2em] uppercase mb-6">Fútbol Base</span>
+            <h2 class="font-heading text-5xl md:text-8xl font-bold uppercase tracking-tighter">La Cantera</h2>
+            <p class="font-editorial text-lg md:text-xl text-ant-granate/70 max-w-2xl mx-auto mt-6">El futuro rojiblanco se forja desde abajo. Formación, valores y pasión por los colores en cada categoría del Club Atlético Antoniano.</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white p-10 border-t-4 border-ant-red shadow-sm hover:shadow-xl transition-shadow reveal">
+              <div class="text-4xl mb-4">⚽</div>
+              <h3 class="font-heading text-2xl font-bold uppercase mb-3">Formación</h3>
+              <p class="text-sm text-gray-600 font-body leading-relaxed">Equipos en todas las categorías del fútbol base, con un proyecto deportivo que apuesta por el talento de la cantera de Lebrija.</p>
+            </div>
+            <div class="bg-white p-10 border-t-4 border-ant-red shadow-sm hover:shadow-xl transition-shadow reveal">
+              <div class="text-4xl mb-4">🏆</div>
+              <h3 class="font-heading text-2xl font-bold uppercase mb-3">Valores</h3>
+              <p class="text-sm text-gray-600 font-body leading-relaxed">Humildad, esfuerzo y entrega. Los valores antonianos que se transmiten generación tras generación desde 1963.</p>
+            </div>
+            <div class="bg-white p-10 border-t-4 border-ant-red shadow-sm hover:shadow-xl transition-shadow reveal">
+              <div class="text-4xl mb-4">📋</div>
+              <h3 class="font-heading text-2xl font-bold uppercase mb-3">Pruebas de Acceso</h3>
+              <p class="text-sm text-gray-600 font-body leading-relaxed">¿Quieres formar parte de la cantera? Infórmate sobre las pruebas de acceso para la próxima temporada.</p>
+            </div>
+          </div>
+
+          <div class="text-center mt-14 reveal">
+            <a href="#actualidad" class="inline-flex border border-ant-granate px-8 py-3 font-heading font-bold uppercase text-ant-granate transition-colors hover:bg-ant-granate hover:text-white">Más sobre la Cantera</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== TIENDA ===================== -->
+      <section id="tienda" class="bg-white text-ant-granate py-24 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="reveal">
+            <span class="inline-block border border-ant-red text-ant-red px-4 py-1 text-xs font-mono tracking-[0.2em] uppercase mb-6">Tienda Oficial</span>
+            <h2 class="font-heading text-5xl md:text-7xl font-bold uppercase leading-[0.9] mb-6">Viste los<br />colores</h2>
+            <p class="font-editorial text-lg text-ant-granate/70 max-w-md mb-8 leading-relaxed">Camisetas, bufandas y todo el merchandising oficial del Club Atlético Antoniano. Lleva el rojiblanco allá donde vayas.</p>
+            <span class="inline-block bg-ant-granate text-white font-heading font-bold uppercase px-8 py-4">Próximamente</span>
+          </div>
+          <div class="relative h-72 sunburst flex items-center justify-center reveal">
+            <img src="assets/escudo-antoniano.svg" alt="C.A. Antoniano" class="h-44 w-auto drop-shadow-xl relative z-10" />
+            <div class="absolute inset-0 bg-white/30"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== PATROCINADORES ===================== -->
+      <section id="patrocinadores" class="bg-ant-dark text-white py-20">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+          <p class="text-[10px] md:text-xs font-mono text-ant-red uppercase tracking-[0.3em] mb-10 opacity-90">Nuestros Patrocinadores</p>
+          <!-- Sustituye assets/patrocinadores.png por la imagen real de los patrocinadores -->
+          <img data-fallback src="assets/patrocinadores.png" alt="Patrocinadores C.A. Antoniano" class="w-full max-w-4xl mx-auto h-auto object-contain opacity-90" />
+          <div data-fallback-for="assets/patrocinadores.png" class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-4">
+            <div class="border border-white/10 h-24 flex items-center justify-center font-heading uppercase text-white/40 text-sm">Tu marca</div>
+            <div class="border border-white/10 h-24 flex items-center justify-center font-heading uppercase text-white/40 text-sm">Tu marca</div>
+            <div class="border border-white/10 h-24 flex items-center justify-center font-heading uppercase text-white/40 text-sm">Tu marca</div>
+            <div class="border border-white/10 h-24 flex items-center justify-center font-heading uppercase text-white/40 text-sm">Tu marca</div>
+          </div>
+          <a href="#" class="inline-flex mt-12 border border-ant-red px-8 py-3 font-heading font-bold uppercase text-ant-red transition-colors hover:bg-ant-red hover:text-white">Hazte Patrocinador</a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ===================== COOKIE BANNER ===================== -->
+  <div id="cookie-banner" class="fixed bottom-0 left-0 w-full bg-white border-t-4 border-ant-red shadow-[0_-10px_40px_rgba(0,0,0,0.1)] z-[100] transform translate-y-full transition-transform duration-500 hidden">
+    <div class="max-w-7xl mx-auto px-6 py-8 md:py-6 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex-1 text-center md:text-left">
+        <h4 class="font-heading font-bold text-ant-granate uppercase text-sm mb-2">Privacidad y Cookies</h4>
+        <p class="text-xs text-gray-500 leading-relaxed font-body max-w-2xl">Usamos cookies propias y de terceros para mejorar tu experiencia y analizar el tráfico. Puedes aceptar todas o rechazarlas.</p>
+      </div>
+      <div class="flex gap-4">
+        <button id="cookie-reject" class="text-xs font-bold text-gray-400 hover:text-ant-granate uppercase tracking-widest px-4 py-2 border border-gray-200 rounded-sm hover:border-ant-granate transition-colors">Rechazar</button>
+        <button id="cookie-accept" class="bg-ant-granate text-white font-heading font-bold text-xs uppercase px-8 py-3 rounded-sm shadow-md hover:bg-ant-red transition-colors">Aceptar Todo</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="relative z-50 bg-ant-granate text-white pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-4 gap-12">
+      <div class="flex flex-col items-center md:items-start text-center md:text-left">
+        <img src="assets/escudo-antoniano.svg" alt="Escudo C.A. Antoniano" class="h-20 w-auto object-contain mb-4 drop-shadow-md" />
+        <h3 class="font-heading font-bold text-lg uppercase leading-tight tracking-wide text-white">Club Atlético<br /><span class="text-ant-red">Antoniano</span></h3>
+        <div class="flex gap-4 mt-5">
+          <a href="https://www.instagram.com/caantoniano/" target="_blank" rel="noopener noreferrer" class="font-mono text-[11px] uppercase tracking-widest text-ant-cream hover:text-ant-red transition-colors">IG</a>
+          <a href="https://x.com/caantoniano" target="_blank" rel="noopener noreferrer" class="font-mono text-[11px] uppercase tracking-widest text-ant-cream hover:text-ant-red transition-colors">X</a>
+          <a href="https://www.facebook.com/CAAntoniano/" target="_blank" rel="noopener noreferrer" class="font-mono text-[11px] uppercase tracking-widest text-ant-cream hover:text-ant-red transition-colors">FB</a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-ant-red uppercase tracking-widest text-[10px] mb-4">Contacto</h4>
+        <ul class="space-y-2 text-xs text-gray-300 font-body">
+          <li>Estadio Municipal de Lebrija</li>
+          <li>Lebrija (Sevilla)</li>
+          <li>Andalucía · España</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-ant-red uppercase tracking-widest text-[10px] mb-4">Enlaces</h4>
+        <ul class="space-y-2 text-xs text-gray-300 font-body">
+          <li><a href="https://antoniano.compralaentrada.com/" target="_blank" rel="noopener noreferrer" class="hover:text-white">Entradas y Abonos ↗</a></li>
+          <li><a href="https://es.wikipedia.org/wiki/Segunda_Federaci%C3%B3n_2025-26#Clasificaci%C3%B3n_4" target="_blank" rel="noopener noreferrer" class="hover:text-white">Clasificación ↗</a></li>
+          <li><a href="#cantera" class="hover:text-white">Cantera</a></li>
+          <li><a href="#tienda" class="hover:text-white">Tienda</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-ant-red uppercase tracking-widest text-[10px] mb-4">Redes Sociales</h4>
+        <ul class="space-y-2 text-xs text-gray-300 font-body">
+          <li><a href="https://www.instagram.com/caantoniano/" target="_blank" rel="noopener noreferrer" class="hover:text-white">Instagram</a></li>
+          <li><a href="https://x.com/caantoniano" target="_blank" rel="noopener noreferrer" class="hover:text-white">X (Twitter)</a></li>
+          <li><a href="https://www.facebook.com/CAAntoniano/" target="_blank" rel="noopener noreferrer" class="hover:text-white">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 md:px-12 mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-[10px] text-gray-500 font-mono uppercase tracking-widest gap-4 md:gap-0">
+      <span>© 2026 Club Atlético Antoniano</span>
+      <span class="opacity-70">...desde 1963</span>
+    </div>
+  </footer>
+
+  <!-- ===================== JS ===================== -->
+  <script>
+    // --- Fallback de imágenes que no existen todavía ---
+    document.querySelectorAll('img[data-fallback]').forEach(function (img) {
+      var ph = document.querySelector('[data-fallback-for="' + img.getAttribute('src') + '"]');
+      if (ph) ph.style.display = 'none'; // oculto hasta confirmar fallo
+      function fail() {
+        img.classList.add('is-missing');
+        if (ph) ph.style.display = '';
+      }
+      img.addEventListener('error', fail);
+      // por si el error ya se disparó antes de registrar el listener
+      if (img.complete && img.naturalWidth === 0) fail();
+    });
+
+    // --- Intro ---
+    window.addEventListener('load', function () {
+      var overlay = document.getElementById('intro-overlay');
+      var shield = document.getElementById('shield-logo');
+      var lineL = document.getElementById('line-left');
+      var lineR = document.getElementById('line-right');
+      requestAnimationFrame(function () {
+        shield.style.opacity = '1';
+        shield.style.transform = 'scale(1)';
+        lineL.style.width = '45%';
+        lineR.style.width = '45%';
+      });
+      setTimeout(function () {
+        overlay.style.opacity = '0';
+        overlay.style.visibility = 'hidden';
+        setTimeout(function () { overlay.remove(); }, 700);
+        startHero();
+      }, 1500);
+    });
+
+    function startHero() {
+      document.querySelectorAll('.hero-animate').forEach(function (el, i) {
+        setTimeout(function () {
+          el.style.opacity = '1';
+          el.style.transform = 'none';
+        }, i * 130);
+      });
+    }
+
+    // --- Header: cambia a fondo sólido al hacer scroll ---
+    var header = document.getElementById('main-header');
+    function onScroll() {
+      if (window.scrollY > window.innerHeight * 0.6) {
+        header.classList.add('bg-ant-granate', 'shadow-lg', 'py-3');
+        header.classList.remove('py-4');
+      } else {
+        header.classList.remove('bg-ant-granate', 'shadow-lg', 'py-3');
+        header.classList.add('py-4');
+      }
+    }
+    window.addEventListener('scroll', onScroll);
+    onScroll();
+
+    // --- Menú móvil ---
+    var openBtn = document.getElementById('open-menu-btn');
+    var closeBtn = document.getElementById('close-menu-btn');
+    var mobile = document.getElementById('mobile-overlay');
+    function openMenu() { mobile.classList.remove('hidden'); mobile.classList.add('flex'); document.body.style.overflow = 'hidden'; openBtn.setAttribute('aria-expanded', 'true'); }
+    function closeMenu() { mobile.classList.add('hidden'); mobile.classList.remove('flex'); document.body.style.overflow = ''; openBtn.setAttribute('aria-expanded', 'false'); }
+    openBtn.addEventListener('click', openMenu);
+    closeBtn.addEventListener('click', closeMenu);
+    document.querySelectorAll('.mobile-link').forEach(function (l) { l.addEventListener('click', closeMenu); });
+
+    // --- Reveal on scroll ---
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+
+    // --- Stadium content reveal ---
+    var stadiumIo = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'none'; } });
+    }, { threshold: 0.3 });
+    document.querySelectorAll('.stadium-content').forEach(function (el) { stadiumIo.observe(el); });
+
+    // --- Cookie banner ---
+    (function () {
+      var banner = document.getElementById('cookie-banner');
+      var accept = document.getElementById('cookie-accept');
+      var reject = document.getElementById('cookie-reject');
+      var consent = localStorage.getItem('ant_cookie_consent');
+      if (!consent) {
+        banner.classList.remove('hidden');
+        setTimeout(function () { banner.classList.remove('translate-y-full'); }, 1800);
+      }
+      function hide() { banner.classList.add('translate-y-full'); setTimeout(function () { banner.classList.add('hidden'); }, 500); }
+      accept && accept.addEventListener('click', function () { localStorage.setItem('ant_cookie_consent', 'accepted'); hide(); });
+      reject && reject.addEventListener('click', function () { localStorage.setItem('ant_cookie_consent', 'rejected'); hide(); });
+    })();
+  </script>
+</body>
+</html>
