@@ -192,7 +192,8 @@ p.lead { font-size: 1.15rem; color: var(--muted); max-width: 620px; }
 .team-card .photo img { width: 100%; height: 100%; object-fit: cover; }
 .team-card .body { padding: 22px; }
 .team-card h3 { margin-bottom: 4px; }
-.team-card .role { color: var(--muted); font-size: .9rem; margin-bottom: 14px; }
+.team-card .role { color: var(--lime); font-weight: 700; font-size: .9rem; margin-bottom: 12px; }
+.team-card .bio { color: var(--muted); font-size: .92rem; margin-bottom: 18px; }
 .team-card .btn { width: 100%; justify-content: center; }
 
 /* testimonial */

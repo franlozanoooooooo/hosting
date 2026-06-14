@@ -6,13 +6,18 @@ muestra una imagen de stock de reserva automáticamente (no se ve rota).
 | Archivo | Dónde aparece | Foto que enviaste |
 |---|---|---|
 | `logo.png` | Cabecera (navbar) de todas las páginas | Logo "Clínica GALA Estética Dental" |
-| `dra-gala.jpg` | Hero de Inicio + primera tarjeta de Equipo | Dra. Gala R-M (bata azul) |
-| `dr-2.jpg` | Tarjeta "Especialista en implantes" (Equipo) | Doctor con bata y estetoscopio |
+| `dra-gala.jpg` | Hero de Inicio + Equipo | Dra. Mª Ángeles Gala (bata azul) |
 | `recepcion.jpg` | "Por qué elegirnos" (Inicio), Tratamientos y Sobre nosotros | Recepción con el logo |
 | `fachada.jpg` | Imagen ancha en Sobre nosotros | Fachada / entrada de la clínica |
 
-Opcionales (resto del equipo). Si no las pones, se usa stock:
-`equipo-2.jpg`, `equipo-4.jpg`, `equipo-5.jpg`, `equipo-6.jpg`
+### Fotos del equipo (página Equipo)
+| Archivo | Persona |
+|---|---|
+| `dra-gala.jpg` | Dra. Mª Ángeles Gala Rojas-Marcos |
+| `lorena.jpg` | Lorena Ustárroz Cacho (uniforme malva) |
+| `gala-marquez.jpg` | Gala Márquez López |
+| `marcela.jpg` | Dra. Marcela Moura Vieira |
+| `manuel.jpg` | Dr. Manuel González O'Sullivan |
 
 ## Antes / Después (casos reales)
 
