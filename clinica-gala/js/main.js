@@ -65,6 +65,48 @@ function countUp(el) {
   requestAnimationFrame(frame);
 }
 
+// ---------- Lightbox "Saber más" ----------
+const lb = document.querySelector('#lightbox');
+if (lb) {
+  const lbImg = lb.querySelector('img');
+  const lbTitle = lb.querySelector('h3');
+  const lbDesc = lb.querySelector('p');
+  const openLb = (btn) => {
+    lbImg.src = btn.dataset.img;
+    lbImg.alt = btn.dataset.title || '';
+    lbTitle.textContent = btn.dataset.title || '';
+    lbDesc.textContent = btn.dataset.desc || '';
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  };
+  const closeLb = () => {
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+  };
+  document.querySelectorAll('.more[data-img]').forEach(btn =>
+    btn.addEventListener('click', () => openLb(btn))
+  );
+  lb.addEventListener('click', (e) => {
+    if (e.target === lb || e.target.closest('.lightbox-close')) closeLb();
+  });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLb(); });
+}
+
+// ---------- Comparador Antes / Después ----------
+document.querySelectorAll('.ba').forEach(ba => {
+  const range = ba.querySelector('.ba-range');
+  const before = ba.querySelector('.before');
+  const divider = ba.querySelector('.ba-divider');
+  const update = (v) => {
+    before.style.clipPath = `inset(0 ${100 - v}% 0 0)`;
+    divider.style.left = v + '%';
+  };
+  if (range) {
+    update(range.value);
+    range.addEventListener('input', () => update(range.value));
+  }
+});
+
 // ---------- Reveal al hacer scroll + disparo del contador ----------
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const revealEls = document.querySelectorAll('.reveal');
