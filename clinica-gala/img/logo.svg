@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 72" width="300" height="72" role="img" aria-label="Clínica GALA Estética Dental">
+  <defs>
+    <linearGradient id="galaMark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1a7e8c"/>
+      <stop offset="1" stop-color="#0f5b66"/>
+    </linearGradient>
+  </defs>
+  <!-- Mark -->
+  <g transform="translate(4,8)">
+    <rect x="0" y="0" width="56" height="56" rx="18" fill="url(#galaMark)"/>
+    <!-- Stylised G -->
+    <path d="M40.5 20.7 A 14 14 0 1 0 40.5 35.3" fill="none" stroke="#ffffff" stroke-width="6.2" stroke-linecap="round"/>
+    <path d="M40.5 28 H 30.2" fill="none" stroke="#ffffff" stroke-width="6.2" stroke-linecap="round"/>
+    <!-- spark -->
+    <circle cx="44.4" cy="14.6" r="2.4" fill="#7fd6ce"/>
+  </g>
+  <!-- Wordmark -->
+  <g transform="translate(74,0)" font-family="'Manrope','Segoe UI',system-ui,sans-serif">
+    <text x="0" y="32" font-size="25" font-weight="800" letter-spacing="-0.5" fill="#0c2a2f">Clínica <tspan fill="#15707d">GALA</tspan></text>
+    <text x="1" y="50" font-size="11" font-weight="700" letter-spacing="3.4" fill="#5f7370">ESTÉTICA DENTAL</text>
+  </g>
+</svg>
