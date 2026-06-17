@@ -2,6 +2,19 @@
 (function () {
   "use strict";
 
+  // ---------- Intro de marca (se muestra una vez por sesión) ----------
+  const intro = document.getElementById("intro");
+  if (intro) {
+    if (document.documentElement.classList.contains("intro-skip")) {
+      intro.remove();
+    } else {
+      intro.addEventListener("animationend", (e) => {
+        if (e.animationName === "introOut") intro.remove();
+      });
+      setTimeout(() => intro && intro.parentNode && intro.remove(), 4200);
+    }
+  }
+
   // ---------- Menú móvil ----------
   const toggle = document.querySelector(".nav-toggle");
   const links = document.querySelector(".nav-links");
@@ -110,16 +123,19 @@
   // ---------- Lightbox "Saber más" ----------
   const lb = document.querySelector("#lightbox");
   if (lb) {
-    const lbImg = lb.querySelector("img");
     const lbTitle = lb.querySelector("h3");
     const lbDesc = lb.querySelector("p");
+    const lbHead = lb.querySelector(".lightbox-head");
+    const lbIc = lb.querySelector(".lh-ic");
     const openLb = (btn) => {
-      if (lbImg) {
-        lbImg.src = btn.dataset.img || "";
-        lbImg.alt = btn.dataset.title || "";
-      }
       if (lbTitle) lbTitle.textContent = btn.dataset.title || "";
       if (lbDesc) lbDesc.textContent = btn.dataset.desc || "";
+      if (lbHead) lbHead.className = "lightbox-head" + (btn.dataset.cat ? " thumb-" + btn.dataset.cat : "");
+      if (lbIc) {
+        const card = btn.closest(".svc-card");
+        const ic = card && card.querySelector(".thumb-ic");
+        lbIc.innerHTML = ic ? ic.innerHTML : "";
+      }
       lb.classList.add("open");
       document.body.style.overflow = "hidden";
     };
@@ -127,7 +143,7 @@
       lb.classList.remove("open");
       document.body.style.overflow = "";
     };
-    document.querySelectorAll(".more[data-img]").forEach((btn) =>
+    document.querySelectorAll(".more[data-title]").forEach((btn) =>
       btn.addEventListener("click", () => openLb(btn))
     );
     lb.addEventListener("click", (e) => {

@@ -2,70 +2,47 @@
 
 Sitio web estático (multipágina, sin build) para **Clínica GALA Estética Dental**
 (Avenida José Laguillo 26, Sevilla). Rediseño premium con identidad propia,
-tipografía editorial (Fraunces + Manrope) y la paleta petróleo/teal del uniforme
-de la clínica.
+tipografía editorial (Fraunces + Manrope) y la paleta petróleo/teal de la marca.
 
-> Demo desplegada en GitHub Pages dentro de este repo: `/clinica-gala/`.
+100 % autónomo: **todas las fotos e iconos están incluidos** en `img/`. Listo para
+arrastrar a **Netlify** (o servir como carpeta estática).
+
+## Intro de marca
+Al entrar, aparece primero el **logo animado** (el isotipo se "dibuja" y el
+nombre se desvanece en pantalla) y después se muestra la web. Se enseña **una vez
+por sesión** (no se repite al navegar entre páginas) y respeta `prefers-reduced-motion`.
 
 ## Páginas
-- `index.html` — Inicio: hero con foto real de la Dra. Gala, barra de confianza,
-  3 categorías, filosofía, tecnología, antes/después (ilustrativo), galería,
+- `index.html` — Inicio: intro de marca, hero con foto real de la Dra. Gala,
+  barra de confianza, 3 categorías, filosofía, tecnología, galería real,
   testimonios, financiación, FAQ y CTA.
-- `servicios.html` — Hub con **buscador y filtros** por área (14 tratamientos).
+- `servicios.html` — Hub con **buscador y filtros** (14 tratamientos).
 - `estetica-dental.html` · `funcion.html` · `salud-oral.html` — Páginas de área.
-- `equipo.html` — Equipo de la clínica.
-- `sobre-nosotros.html` — "La Clínica": filosofía, valores, horario y ubicación.
-- `contacto.html` — Formulario, datos de contacto, horario y mapa.
+- `equipo.html` · `sobre-nosotros.html` · `contacto.html`.
 
-## Novedades del rediseño
-- **Identidad propia**: logo SVG, favicon, imagen Open Graph y placeholder de marca
-  generados a medida (`img/logo.svg`, `img/favicon.svg`, `img/og.jpg`).
-- **Foto real de la Dra. Gala** integrada y optimizada (hero, equipo y galería).
-- **Tipografía editorial** Fraunces para titulares + Manrope para texto.
-- **Componentes nuevos**: barra superior, barra de confianza, testimonios, FAQ
-  acordeón, horario, botón flotante de WhatsApp y CTA fija en móvil.
-- **SEO**: meta + Open Graph/Twitter, datos estructurados JSON-LD (`Dentist`),
-  `sitemap.xml`, `robots.txt`, `site.webmanifest` y favicons.
-- **Accesibilidad**: enlace "saltar al contenido", foco visible, `aria-*`,
-  respeto a `prefers-reduced-motion` y fallback `<noscript>`.
+## Desplegar en Netlify
+1. **Arrastrar y soltar:** entra en Netlify → *Add new site* → *Deploy manually*
+   y suelta el `.zip` (o la carpeta). El `index.html` está en la raíz.
+2. **Por Git:** conecta el repositorio y pon el *publish directory* en esta carpeta.
+   Incluye `netlify.toml` con `publish = "."`.
 
-## Imágenes — qué es local y qué se carga por URL
-Ver detalle en [`img/README.md`](img/README.md).
+## Imágenes
+Todas locales en `img/` (logo SVG, favicons, OG, foto real de la Dra. Gala,
+recepción, gabinete, fachada, rótulo) e **iconos de marca** en las tarjetas de
+tratamiento. Excepción: en `equipo.html`, las fotos de 3 miembros del equipo se
+cargan desde el sitio actual de la clínica y, si no estuvieran disponibles,
+muestran su inicial automáticamente. Para incluirlas en el paquete, guárdalas en
+`img/` (`lorena.jpg`, `marcela.jpg`, `manuel.jpg`) y cambia las URLs.
 
-- **Locales** (en `img/`): logo, favicons, OG, placeholder y las fotos de la
-  **Dra. Gala** (`dra-gala.jpg`, `dra-gala-sq.jpg`, `dra-gala-wide.jpg`).
-- **Por URL** (se muestran en el navegador del visitante): fotos del equipo y de
-  las instalaciones desde `clinicagaladental.es`, e imágenes de tratamientos desde
-  Unsplash. Todas tienen **fallback** automático al placeholder de marca, así que
-  la web nunca se ve rota.
-
-> Para servir **todo en local** (recomendado para producción), descarga esas
-> imágenes a `img/` con los nombres indicados en `img/README.md` y sustituye las
-> URLs. No se pudieron descargar automáticamente porque el entorno de desarrollo
-> bloquea la salida a esos dominios.
-
-## Antes / Después
-El comparador de Inicio usa **imágenes ilustrativas** (marcadas como tales). Para
-mostrar **casos reales** necesitas fotos de tus pacientes **con su consentimiento**;
-no uses stock como si fueran resultados propios (no está permitido en publicidad
-sanitaria). Coloca cada par como `img/caso1-antes.jpg` / `img/caso1-despues.jpg`,
-sustituye las URLs y quita la clase `demo` del `<div class="ba demo">`.
-
-## Cómo verlo
-```bash
-cd clinica-gala && python3 -m http.server 8080
-# luego abre http://localhost:8080
-```
+## Dependencias externas (no son fotos)
+- Google Fonts (tipografías) y un iframe de Google Maps en Contacto.
 
 ## Pendiente de personalizar
-- Localizar las fotos del equipo e instalaciones (ver arriba).
-- **Testimonios**: son ejemplos representativos; sustitúyelos por reseñas reales.
-- **Horario**: confirmado como Lun–Vie 9:00–20:00 (ajústalo si procede).
-- Enlaces de **redes sociales** y **páginas legales** están como `#`.
-- El **formulario** es una demo en cliente; conéctalo a email/CRM (p. ej. Netlify Forms).
+- **Testimonios**: son ejemplos; sustitúyelos por reseñas reales.
+- **Horario**: Lun–Vie 9:00–20:00 (ajústalo si procede).
+- Redes sociales y páginas legales están como `#`.
+- El **formulario** es demo en cliente; conéctalo a Netlify Forms o a tu email/CRM.
 
 ## Datos reales usados
-- Estética Dental · "Especialistas en sonrisas"
-- Dirección: Avenida José Laguillo 26, 41003 Sevilla
-- Teléfono: +34 955 18 65 02 · Email: info@clinicagaladental.es
+- Avenida José Laguillo 26, 41003 Sevilla · +34 955 18 65 02 · info@clinicagaladental.es
 - 1 hora de parking gratis en Parking José Laguillo (Aussa).

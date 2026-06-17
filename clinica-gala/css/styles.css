@@ -381,7 +381,7 @@ p.lead { font-family: var(--font); font-size: 1.18rem; color: var(--muted); max-
 .form-ok { display: none; background: #e6f6ee; border: 1px solid #b6e4c9; color: #1d7a4d; padding: 16px 18px; border-radius: var(--radius-sm); font-weight: 600; }
 
 /* ---------- Galería ---------- */
-.gallery { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 180px; gap: 16px; }
+.gallery { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 182px; grid-auto-flow: dense; gap: 16px; }
 .gallery a { border-radius: var(--radius-sm); overflow: hidden; position: relative; }
 .gallery img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
 .gallery a:hover img { transform: scale(1.07); }
@@ -544,3 +544,49 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   .btn::after, .cat-card img, .split-media img, .team-card .photo img, .hero-img img { transition: none; }
   * { animation-duration: .001ms !important; }
 }
+
+/* ============================================================
+   v2 — Intro de marca, miniaturas locales, fotos reales
+   ============================================================ */
+:root { --coral: #d9a99c; --coral-soft: #f3e2dc; --logo-teal: #2eaea4; }
+
+/* ---- Intro / splash de marca ---- */
+#intro {
+  position: fixed; inset: 0; z-index: 300; display: grid; place-items: center;
+  background: radial-gradient(120% 120% at 50% 38%, #ffffff 0%, #eaf4f2 70%, #dcece9 100%);
+  animation: introOut .8s cubic-bezier(.4,0,.2,1) 2.05s forwards;
+}
+html.intro-skip #intro { display: none !important; }
+@keyframes introOut { to { opacity: 0; visibility: hidden; } }
+#intro .intro-inner { text-align: center; transform: translateY(-2%); }
+#intro .intro-mark { width: clamp(120px, 22vw, 168px); height: auto; display: block; margin: 0 auto 22px; overflow: visible; }
+#intro .intro-mark path { stroke-dasharray: 620; stroke-dashoffset: 620; animation: introDraw 1.5s cubic-bezier(.5,0,.2,1) .2s forwards; }
+#intro .intro-mark path.i { animation-delay: .55s; }
+@keyframes introDraw { to { stroke-dashoffset: 0; } }
+#intro .intro-pulse { animation: introPulse 2s ease-in-out .2s; }
+@keyframes introPulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.04)} }
+#intro .wm1, #intro .wm2 { display: block; font-family: var(--font); color: #26302f; opacity: 0; animation: introUp .7s ease 1.25s forwards; }
+#intro .wm1 { font-size: clamp(1.5rem, 4vw, 2.1rem); font-weight: 600; letter-spacing: .14em; }
+#intro .wm2 { font-size: .8rem; font-weight: 600; letter-spacing: .42em; color: #7d8a88; margin-top: 8px; animation-delay: 1.45s; }
+@keyframes introUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  #intro { animation: introOut .35s ease .5s forwards; }
+  #intro .intro-mark path { animation: none; stroke-dashoffset: 0; }
+  #intro .intro-pulse { animation: none; }
+  #intro .wm1, #intro .wm2 { animation: none; opacity: 1; }
+}
+
+/* ---- Miniaturas de tratamiento (sin imagen externa) ---- */
+.svc-card .thumb { aspect-ratio: 16/11; overflow: hidden; position: relative; display: grid; place-items: center; }
+.svc-card .thumb::before { content: ""; position: absolute; inset: 0; background: radial-gradient(120% 120% at 78% 18%, rgba(255,255,255,.28), transparent 60%); }
+.thumb-estetica { background: linear-gradient(135deg, #3bb6ad, #15707d); }
+.thumb-funcion  { background: linear-gradient(135deg, #1a7e8c, #0c2a2f); }
+.thumb-salud    { background: linear-gradient(135deg, #5fc7bd, #2a9a96); }
+.thumb-ic { position: relative; z-index: 1; width: 60px; height: 60px; color: #fff; opacity: .96; }
+.thumb-ic svg { width: 100%; height: 100%; }
+.svc-card:hover .thumb-ic { transform: scale(1.08); transition: transform .5s cubic-bezier(.2,.7,.2,1); }
+
+/* ---- Lightbox con cabecera de color ---- */
+.lightbox-head { height: 150px; display: grid; place-items: center; background: linear-gradient(135deg, #3bb6ad, #15707d); }
+.lightbox-head .lh-ic { width: 56px; height: 56px; color: #fff; }
+.lightbox-head .lh-ic svg { width: 100%; height: 100%; }

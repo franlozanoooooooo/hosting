@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://franlozanoooooooo.github.io/hosting/clinica-gala/sitemap.xml
+Sitemap: https://clinicagaladental.es/sitemap.xml
