@@ -35,6 +35,12 @@ por sesión** (no se repite al navegar entre páginas) y respeta `prefers-reduce
    y **meta geográficas** (geo.region, geo.position, ICBM) centradas en Sevilla.
 4. **Blog**: índice + plantilla de artículo + 3 artículos de ejemplo con fecha,
    autor del equipo y datos estructurados `Article`.
+5. **Antes / Después**: comparador interactivo (deslizante) en Inicio y en
+   Estética dental, con ilustraciones demo vectoriales; sube tus casos reales
+   siguiendo `img/casos/README.md`.
+6. **Favicon**: ahora coincide con el isotipo de la intro de marca (coral + teal).
+   Nota: los iconos PNG de respaldo (`img/*.png`) mantienen el diseño anterior;
+   para regenerarlos usa una herramienta de favicons a partir de `img/favicon.svg`.
 
 > **Geocoordenadas:** se usa `37.38967, -5.97683` (aprox. Avda. José Laguillo 26).
 > Ajústalas con la ubicación exacta de tu ficha de Google Business si lo prefieres.
