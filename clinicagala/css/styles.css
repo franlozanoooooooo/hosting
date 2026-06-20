@@ -389,19 +389,33 @@ p.lead { font-family: var(--font); font-size: 1.18rem; color: var(--muted); max-
 .gallery .wide { grid-column: span 2; }
 @media (max-width: 760px) { .gallery { grid-template-columns: repeat(2, 1fr); } .gallery .wide { grid-column: span 2; } }
 
-/* ---------- Comparador Antes / Después ---------- */
+/* ---------- Comparador Antes / Después (deslizante premium) ---------- */
 .ba-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 26px; }
-.ba { position: relative; border-radius: var(--radius); overflow: hidden; aspect-ratio: 16/10; user-select: none; box-shadow: var(--shadow-sm); background: #d6e3e1; }
-.ba img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
-.ba .before { clip-path: inset(0 50% 0 0); }
-.ba.demo .before { filter: brightness(.97) saturate(.82) sepia(.16); }
-.ba .ba-label { position: absolute; bottom: 14px; z-index: 3; padding: 6px 14px; border-radius: var(--pill); font-size: .78rem; font-weight: 700; color: #fff; background: rgba(12,42,47,.62); }
-.ba .ba-label.left { left: 14px; } .ba .ba-label.right { right: 14px; background: var(--teal); }
-.ba .ba-divider { position: absolute; top: 0; bottom: 0; left: 50%; width: 3px; z-index: 4; background: #fff; transform: translateX(-50%); pointer-events: none; }
-.ba .ba-divider::after { content: ""; position: absolute; top: 50%; left: 50%; width: 46px; height: 46px; transform: translate(-50%, -50%); border-radius: 50%; background: #fff; box-shadow: var(--shadow-sm); }
-.ba .ba-divider::before { content: "‹ ›"; position: absolute; top: 50%; left: 50%; z-index: 5; transform: translate(-50%, -50%); color: var(--teal); font-weight: 900; letter-spacing: 2px; }
-.ba .ba-range { position: absolute; inset: 0; z-index: 6; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: ew-resize; }
-.ba-caption { margin-top: 14px; font-weight: 700; color: var(--ink); }
+.ba {
+  position: relative; border: 1px solid var(--border); border-radius: var(--radius);
+  overflow: hidden; aspect-ratio: 16/10; background: #fff; user-select: none;
+  touch-action: pan-y; box-shadow: var(--shadow-sm);
+}
+.ba-pane { position: absolute; inset: 0; overflow: hidden; }
+.ba-pane img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+.ba-after { clip-path: inset(0 0 0 var(--pos, 50%)); }
+.ba-divider { position: absolute; top: 0; bottom: 0; left: var(--pos, 50%); width: 2px; margin-left: -1px; background: var(--bright); z-index: 4; box-shadow: 0 0 14px rgba(47,163,160,.6); pointer-events: none; }
+.ba-knob {
+  position: absolute; top: 50%; left: var(--pos, 50%); transform: translate(-50%, -50%); z-index: 5;
+  width: 48px; height: 48px; border-radius: 50%; background: var(--teal); color: #fff;
+  display: grid; place-items: center; box-shadow: 0 8px 22px -6px rgba(21,112,125,.75);
+  font-weight: 800; font-size: 1.05rem; pointer-events: none;
+}
+.ba-range { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: ew-resize; z-index: 6; }
+.ba-range:focus-visible ~ .ba-knob { outline: 3px solid var(--ink); outline-offset: 3px; }
+.ba-tag {
+  position: absolute; top: 14px; z-index: 3; font-weight: 700; font-size: .68rem;
+  letter-spacing: .14em; text-transform: uppercase; padding: 6px 12px; border-radius: var(--pill);
+  backdrop-filter: blur(6px);
+}
+.ba-tag--before { left: 14px; background: rgba(12,42,47,.7); color: #fff; }
+.ba-tag--after { right: 14px; background: var(--teal); color: #fff; }
+.ba-caption { margin-top: 16px; font-weight: 700; color: var(--ink); }
 .ba-caption span { display: block; font-weight: 500; color: var(--muted); font-size: .92rem; }
 .note { font-size: .86rem; color: var(--muted-2); }
 
@@ -639,8 +653,12 @@ html.intro-skip #intro { display: none !important; }
   padding: 6px 13px; border-radius: var(--pill);
 }
 .video-facade iframe, .video-facade video {
-  position: absolute; inset: 0; width: 100%; height: 100%; border: 0; z-index: 3; background: #000;
+  position: absolute; inset: 0; width: 100%; height: 100%; border: 0; z-index: 3; background: #000; object-fit: cover;
 }
+/* Vídeo vertical (reel) */
+.video-wrap--portrait { max-width: 340px; }
+.video-facade--portrait { aspect-ratio: 576 / 1248; }
+@media (max-width: 400px) { .video-wrap--portrait { max-width: 100%; } }
 .video-facade.playing::after,
 .video-facade.playing .play,
 .video-facade.playing .vlabel,

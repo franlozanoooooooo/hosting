@@ -154,18 +154,36 @@
     });
   }
 
-  // ---------- Comparador Antes / Después ----------
+  // ---------- Comparador Antes / Después (deslizante + auto-demo) ----------
   document.querySelectorAll(".ba").forEach((ba) => {
     const range = ba.querySelector(".ba-range");
-    const before = ba.querySelector(".before");
-    const divider = ba.querySelector(".ba-divider");
-    const update = (v) => {
-      if (before) before.style.clipPath = `inset(0 ${100 - v}% 0 0)`;
-      if (divider) divider.style.left = v + "%";
-    };
-    if (range) {
-      update(range.value);
-      range.addEventListener("input", () => update(range.value));
+    if (!range) return;
+    const set = (v) => ba.style.setProperty("--pos", v + "%");
+    set(range.value);
+    range.addEventListener("input", () => set(range.value));
+    if (!reduceMotion && "IntersectionObserver" in window) {
+      const kf = [[0, 50], [220, 72], [640, 28], [1050, 50]];
+      const lerpAt = (t) => {
+        for (let i = 0; i < kf.length - 1; i++) {
+          if (t >= kf[i][0] && t <= kf[i + 1][0]) {
+            let p = (t - kf[i][0]) / (kf[i + 1][0] - kf[i][0]);
+            p = 1 - Math.pow(1 - p, 3);
+            return kf[i][1] + (kf[i + 1][1] - kf[i][1]) * p;
+          }
+        }
+        return 50;
+      };
+      let start = null;
+      const run = (ts) => {
+        if (start === null) start = ts;
+        const t = ts - start, v = lerpAt(t);
+        range.value = v; set(v);
+        if (t < 1050) requestAnimationFrame(run);
+      };
+      const io = new IntersectionObserver((es) => {
+        es.forEach((e) => { if (e.isIntersecting) { io.unobserve(e.target); requestAnimationFrame(run); } });
+      }, { threshold: 0.45 });
+      io.observe(ba);
     }
   });
 

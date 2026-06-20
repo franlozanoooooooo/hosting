@@ -392,23 +392,21 @@
       <span class="eyebrow center reveal">Conócenos en vídeo</span>
       <h2 class="center reveal">Así cuidamos tu sonrisa en Clínica GALA</h2>
       <p class="lead center reveal" style="margin:0 auto 40px">Un vistazo a nuestra clínica de estética dental en el centro de Sevilla: el equipo, las instalaciones y la tecnología digital con la que diseñamos cada tratamiento.</p>
-      <div class="video-wrap reveal">
+      <div class="video-wrap video-wrap--portrait reveal">
         <!--
-          CÓMO AÑADIR EL VÍDEO (elige una opción):
-          · YouTube/Vimeo → pon  data-embed="https://www.youtube-nocookie.com/embed/TU_ID_DE_VIDEO"  y borra data-video
-          · Vídeo propio   → deja data-video="video/clinica-gala.mp4" y sube tu archivo MP4 a la carpeta /video/
-          El iframe/vídeo NO se carga hasta que el usuario pulsa "play" (mejor rendimiento).
+          VÍDEO: ahora reproduce video/clinica-gala.mp4 (vertical). El vídeo NO se
+          carga hasta pulsar "play" (mejor rendimiento). Para usar YouTube/Vimeo:
+          pon data-embed="https://www.youtube-nocookie.com/embed/TU_ID" y borra data-video.
         -->
-        <div class="video-facade" role="button" tabindex="0"
-             aria-label="Reproducir el vídeo de presentación de Clínica GALA en Sevilla"
+        <div class="video-facade video-facade--portrait" role="button" tabindex="0"
+             aria-label="Reproducir el vídeo de Clínica GALA en Sevilla"
              data-video="video/clinica-gala.mp4"
-             data-poster="img/gabinete.jpg">
-          <img class="poster" src="img/gabinete.jpg" width="1600" height="900"
-               alt="Gabinete de Clínica GALA Estética Dental en Sevilla, listo para reproducir el vídeo de presentación"
+             data-poster="img/video-poster.svg">
+          <img class="poster" src="img/video-poster.svg" width="576" height="1248"
+               alt="Vídeo de Clínica GALA Estética Dental en Sevilla"
                loading="lazy" decoding="async"
                onerror="this.onerror=null;this.src='img/placeholder.svg'" />
           <span class="vbadge">Vídeo · Clínica GALA</span>
-          <span class="vlabel">Conoce nuestra clínica de estética dental en el centro de Sevilla</span>
           <button class="play" type="button" aria-label="Reproducir vídeo" tabindex="-1">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
           </button>
@@ -425,24 +423,26 @@
       <p class="lead center reveal" style="margin:0 auto 44px">Desliza para ver el cambio. Casos reales de pacientes tratados en Clínica GALA, en el centro de Sevilla.</p>
       <div class="ba-grid">
         <div class="reveal">
-          <div class="ba">
-            <img class="after" src="img/casos/caso3-despues.jpg" alt="Después de ortodoncia invisible en Clínica GALA Sevilla" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='img/casos/caso-demo-despues.svg'" />
-            <img class="before" src="img/casos/caso3-antes.jpg" alt="Antes de ortodoncia invisible" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='img/casos/caso-demo-antes.svg'" />
-            <span class="ba-label left">Antes</span>
-            <span class="ba-label right">Después</span>
-            <div class="ba-divider"></div>
-            <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Comparador antes y después: ortodoncia invisible" />
+          <div class="ba" style="--pos:50%">
+            <div class="ba-pane ba-before"><img src="img/casos/caso3-antes.jpg" alt="Antes de ortodoncia invisible" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='img/casos/caso-demo-antes.svg'" /></div>
+            <div class="ba-pane ba-after"><img src="img/casos/caso3-despues.jpg" alt="Después de ortodoncia invisible en Clínica GALA Sevilla" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='img/casos/caso-demo-despues.svg'" /></div>
+            <span class="ba-tag ba-tag--before">Antes</span>
+            <span class="ba-tag ba-tag--after">Después</span>
+            <span class="ba-divider"></span>
+            <span class="ba-knob">⇄</span>
+            <input class="ba-range" type="range" min="0" max="100" step="0.1" value="50" aria-label="Comparador antes y después: ortodoncia invisible" />
           </div>
           <p class="ba-caption">Ortodoncia invisible<span>Resultado real de paciente · Clínica GALA Sevilla</span></p>
         </div>
         <div class="reveal">
-          <div class="ba">
-            <img class="after" src="img/casos/caso4-despues.jpg" alt="Después de un diseño de sonrisa en Clínica GALA Sevilla" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='img/casos/caso-demo-despues.svg'" />
-            <img class="before" src="img/casos/caso4-antes.jpg" alt="Antes de un diseño de sonrisa" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='img/casos/caso-demo-antes.svg'" />
-            <span class="ba-label left">Antes</span>
-            <span class="ba-label right">Después</span>
-            <div class="ba-divider"></div>
-            <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Comparador antes y después: diseño de sonrisa" />
+          <div class="ba" style="--pos:50%">
+            <div class="ba-pane ba-before"><img src="img/casos/caso4-antes.jpg" alt="Antes de un diseño de sonrisa" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='img/casos/caso-demo-antes.svg'" /></div>
+            <div class="ba-pane ba-after"><img src="img/casos/caso4-despues.jpg" alt="Después de un diseño de sonrisa en Clínica GALA Sevilla" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='img/casos/caso-demo-despues.svg'" /></div>
+            <span class="ba-tag ba-tag--before">Antes</span>
+            <span class="ba-tag ba-tag--after">Después</span>
+            <span class="ba-divider"></span>
+            <span class="ba-knob">⇄</span>
+            <input class="ba-range" type="range" min="0" max="100" step="0.1" value="50" aria-label="Comparador antes y después: diseño de sonrisa" />
           </div>
           <p class="ba-caption">Diseño de sonrisa<span>Resultado real de paciente · Clínica GALA Sevilla</span></p>
         </div>
