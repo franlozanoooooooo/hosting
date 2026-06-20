@@ -24,10 +24,9 @@ por sesión** (no se repite al navegar entre páginas) y respeta `prefers-reduce
 ## Novedades de esta versión (mejora 2026)
 1. **Vídeo** (en Inicio): sección responsive con **carga diferida** (no descarga el
    vídeo hasta pulsar play), póster e infraestructura lista para MP4 propio o
-   YouTube/Vimeo. Cómo configurarlo → `video/README.md`.
-2. **Equipo** ampliado: las 5 personas con foto local en `img/equipo/`, diseño en
-   grid responsive y **fallback de inicial** si falta la foto. Sube las fotos
-   siguiendo `img/equipo/README.md`.
+   YouTube/Vimeo. Incluye un **vídeo vertical** real (`video/clinica-gala.mp4`). Más info → `video/README.md`.
+2. **Equipo** ampliado: las 5 personas con **foto real** (recortada a cuadrado y
+   optimizada) en `img/equipo/`, grid responsive y fallback de inicial.
 3. **SEO + GEO**: `title`/`description` únicos por página, jerarquía H1–H3, `alt`
    en imágenes, **Schema.org** (Organization, WebSite, LocalBusiness/Dentist con
    geocoordenadas, Person del equipo, BreadcrumbList, FAQPage, BlogPosting),
@@ -35,9 +34,9 @@ por sesión** (no se repite al navegar entre páginas) y respeta `prefers-reduce
    y **meta geográficas** (geo.region, geo.position, ICBM) centradas en Sevilla.
 4. **Blog**: índice + plantilla de artículo + 3 artículos de ejemplo con fecha,
    autor del equipo y datos estructurados `Article`.
-5. **Antes / Después**: comparador interactivo (deslizante) en Inicio y en
-   Estética dental, con ilustraciones demo vectoriales; sube tus casos reales
-   siguiendo `img/casos/README.md`.
+5. **Antes / Después**: comparador deslizante premium (knob ⇄, divisor con glow
+   y auto-demo al hacer scroll) en Inicio y Estética dental, con **4 casos reales**
+   de pacientes recortados de las fotos de la clínica (`img/casos/`).
 6. **Favicon**: ahora coincide con el isotipo de la intro de marca (coral + teal).
    Nota: los iconos PNG de respaldo (`img/*.png`) mantienen el diseño anterior;
    para regenerarlos usa una herramienta de favicons a partir de `img/favicon.svg`.
