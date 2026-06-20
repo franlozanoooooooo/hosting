@@ -51,12 +51,9 @@ por sesión** (no se repite al navegar entre páginas) y respeta `prefers-reduce
    Incluye `netlify.toml` con `publish = "."`.
 
 ## Imágenes
-Todas locales en `img/` (logo SVG, favicons, OG, foto real de la Dra. Gala,
-recepción, gabinete, fachada, rótulo) e **iconos de marca** en las tarjetas de
-tratamiento. Excepción: en `equipo.html`, las fotos de 3 miembros del equipo se
-cargan desde el sitio actual de la clínica y, si no estuvieran disponibles,
-muestran su inicial automáticamente. Para incluirlas en el paquete, guárdalas en
-`img/` (`lorena.jpg`, `marcela.jpg`, `manuel.jpg`) y cambia las URLs.
+**Todo local en `img/`**: logo SVG, favicons, OG, fotos de instalaciones y del
+**equipo completo** (`img/equipo/`), y los **casos antes/después** (`img/casos/`).
+El vídeo está en `video/`. No hay dependencias de imágenes externas.
 
 ## Dependencias externas (no son fotos)
 - Google Fonts (tipografías) y un iframe de Google Maps en Contacto.
