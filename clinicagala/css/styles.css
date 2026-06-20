@@ -43,7 +43,7 @@
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; overflow-x: clip; }
 body {
   font-family: var(--font);
   color: var(--text);
@@ -143,7 +143,7 @@ p.lead { font-family: var(--font); font-size: 1.18rem; color: var(--muted); max-
 
 /* ---------- Cabecera ---------- */
 .site-header {
-  position: sticky; top: 0; z-index: 60; padding: 14px 0;
+  position: sticky; top: 0; z-index: 100; padding: 14px 0;
   background: rgba(255,255,255,.82); backdrop-filter: blur(12px);
   border-bottom: 1px solid transparent;
   transition: box-shadow .3s ease, background .3s ease, padding .3s ease, border-color .3s ease;
@@ -519,14 +519,19 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   .split.reverse .split-media { order: 0; }
   .hero-media { max-width: 460px; margin: 0 auto; }
   .steps { grid-template-columns: 1fr 1fr; }
+  .site-header { backdrop-filter: none; background: #fff; }
   .nav-links {
     position: fixed; inset: 0; flex-direction: column; justify-content: center;
-    background: rgba(255,255,255,.98); backdrop-filter: blur(8px);
-    gap: 14px; font-size: 1.2rem; transform: translateX(100%); transition: transform .3s ease; z-index: 70;
+    background: #ffffff;
+    gap: 18px; font-size: 1.25rem; z-index: 100;
+    opacity: 0; visibility: hidden; transform: translateY(-10px);
+    transition: opacity .28s ease, transform .28s ease, visibility .28s;
   }
-  .nav-links.open { transform: translateX(0); }
+  .nav-links.open { opacity: 1; visibility: visible; transform: none; }
   .nav-links > li > a:not(.btn)::after { display: none; }
-  .nav-toggle { display: block; z-index: 80; }
+  .nav-toggle { display: block; z-index: 110; }
+  .topbar .container { font-size: .8rem; gap: 10px; }
+  .topbar a { white-space: nowrap; }
   .dropdown { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; border: 0; background: transparent; padding: 4px 0 0; min-width: 0; }
   .dropdown a { justify-content: center; }
   .dropdown .di { display: none; }
