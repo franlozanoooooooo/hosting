@@ -1,0 +1,16 @@
+{
+  "name": "Clínica GALA Estética Dental",
+  "short_name": "Clínica GALA",
+  "description": "Estética dental en Sevilla: diseño de sonrisa, carillas, implantes y ortodoncia invisible.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#15707d",
+  "lang": "es",
+  "icons": [
+    { "src": "img/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "img/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" },
+    { "src": "img/favicon.svg", "type": "image/svg+xml", "sizes": "any" }
+  ]
+}
