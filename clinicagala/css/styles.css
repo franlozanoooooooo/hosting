@@ -776,3 +776,7 @@ html.intro-skip #intro { display: none !important; }
 .share a { width: 42px; height: 42px; border-radius: 12px; background: var(--bg-mint); color: var(--teal); display: grid; place-items: center; transition: background .2s, color .2s, transform .2s; }
 .share a:hover { background: var(--teal); color: #fff; transform: translateY(-2px); }
 .share a svg { width: 19px; height: 19px; }
+
+/* Foto real en tarjeta de tratamiento (Pexels). Cubre el icono cuando carga;
+   si la imagen falla, onerror la elimina y vuelve a verse el icono de marca. */
+.svc-card .thumb .thumb-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2}
