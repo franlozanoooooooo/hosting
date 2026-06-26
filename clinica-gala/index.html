@@ -118,6 +118,7 @@
         </li>
         <li><a href="equipo.html">Equipo</a></li>
         <li><a href="sobre-nosotros.html">La Clínica</a></li>
+        <li><a href="galeria.html">Galería</a></li>
         <li><a href="contacto.html">Contacto</a></li>
         <li class="nav-cta"><a href="contacto.html" class="btn btn-primary">Pedir cita</a></li>
       </ul>
@@ -309,27 +310,16 @@
     <div class="container">
       <span class="eyebrow reveal">Conoce la clínica</span>
       <h2 class="reveal">Un espacio pensado para tu comodidad</h2>
-      <p class="lead reveal" style="margin-bottom:40px">Instalaciones modernas y un equipo cercano en el centro de Sevilla.</p>
+      <p class="lead reveal" style="margin-bottom:40px">Instalaciones modernas y un equipo cercano en el centro de Sevilla. Toca una imagen para verla en grande.</p>
       <div class="gallery reveal">
-        <a class="wide tall" href="img/recepcion.jpg" target="_blank" rel="noopener">
-          <img src="img/recepcion.jpg" alt="Recepción de Clínica GALA" loading="lazy" onerror="this.onerror=null;this.src='img/placeholder.svg'" />
-        </a>
-        <a href="img/gabinete.jpg" target="_blank" rel="noopener">
-          <img src="img/gabinete.jpg" alt="Gabinete de tratamiento" loading="lazy" onerror="this.onerror=null;this.src='img/placeholder.svg'" />
-        </a>
-        <a class="tall" href="img/fachada.jpg" target="_blank" rel="noopener">
-          <img src="img/fachada.jpg" alt="Fachada de Clínica GALA en Sevilla" loading="lazy" onerror="this.onerror=null;this.src='img/placeholder.svg'" />
-        </a>
-        <a href="img/rotulo.jpg" target="_blank" rel="noopener">
-          <img src="img/rotulo.jpg" alt="Rótulo de Clínica GALA" loading="lazy" onerror="this.onerror=null;this.src='img/placeholder.svg'" />
-        </a>
-        <a class="wide" href="img/dra-gala-wide.jpg" target="_blank" rel="noopener">
-          <img src="img/dra-gala-wide.jpg" alt="Dra. Gala, directora de la clínica" loading="lazy" />
-        </a>
-        <a href="img/dra-gala-sq.jpg" target="_blank" rel="noopener">
-          <img src="img/dra-gala-sq.jpg" alt="Dra. Gala" loading="lazy" />
-        </a>
+        <a class="gitem wide tall" href="img/gal-04.jpg" data-cap="Gabinete 1"><img src="img/gal-04.jpg" alt="Gabinete 1 de Clínica GALA" loading="lazy" /><span class="cap">Gabinete 1</span></a>
+        <a class="gitem" href="img/gal-03.jpg" data-cap="Recepción"><img src="img/gal-03.jpg" alt="Recepción de Clínica GALA" loading="lazy" /><span class="cap">Recepción</span></a>
+        <a class="gitem tall" href="img/gal-14.jpg" data-cap="Recepción con jardín vertical"><img src="img/gal-14.jpg" alt="Recepción con jardín vertical" loading="lazy" /><span class="cap">Jardín vertical</span></a>
+        <a class="gitem" href="img/gal-09.jpg" data-cap="Escáner digital intraoral"><img src="img/gal-09.jpg" alt="Escáner digital intraoral" loading="lazy" /><span class="cap">Escáner digital</span></a>
+        <a class="gitem wide" href="img/gal-13.jpg" data-cap="Gabinete de tratamiento"><img src="img/gal-13.jpg" alt="Gabinete de tratamiento" loading="lazy" /><span class="cap">Gabinete</span></a>
+        <a class="gitem" href="img/gal-01.jpg" data-cap="Carillas de composite · antes y después"><img src="img/gal-01.jpg" alt="Carillas de composite, antes y después" loading="lazy" /><span class="cap">Carillas · antes/después</span></a>
       </div>
+      <div style="margin-top:32px" class="reveal"><a href="galeria.html" class="btn btn-primary">Ver toda la galería</a></div>
     </div>
   </section>
 
@@ -439,6 +429,7 @@
             <li><a href="servicios.html">Servicios</a></li>
             <li><a href="equipo.html">Equipo</a></li>
             <li><a href="sobre-nosotros.html">La Clínica</a></li>
+            <li><a href="galeria.html">Galería</a></li>
             <li><a href="contacto.html">Contacto</a></li>
           </ul>
         </div>
@@ -468,6 +459,15 @@
       </div>
     </div>
   </footer>
+
+  <!-- Visor de galería -->
+  <div class="glb" id="gallery-lightbox" role="dialog" aria-modal="true" aria-label="Galería de imágenes">
+    <button class="glb-close" aria-label="Cerrar">✕</button>
+    <button class="glb-nav glb-prev" aria-label="Anterior">‹</button>
+    <img src="" alt="" />
+    <button class="glb-nav glb-next" aria-label="Siguiente">›</button>
+    <div class="glb-cap"></div>
+  </div>
 
   <!-- Flotantes -->
   <a class="fab-wa" href="https://wa.me/34955186502?text=Hola,%20me%20gustaría%20pedir%20una%20cita%20en%20Clínica%20GALA" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">

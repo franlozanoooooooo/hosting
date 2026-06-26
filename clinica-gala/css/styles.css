@@ -590,3 +590,35 @@ html.intro-skip #intro { display: none !important; }
 .lightbox-head { height: 150px; display: grid; place-items: center; background: linear-gradient(135deg, #3bb6ad, #15707d); }
 .lightbox-head .lh-ic { width: 56px; height: 56px; color: #fff; }
 .lightbox-head .lh-ic svg { width: 100%; height: 100%; }
+
+/* ============================================================
+   v3 — Galería (muchas imágenes) + visor lightbox
+   ============================================================ */
+.masonry { column-count: 4; column-gap: 16px; }
+.masonry .gitem { display: block; break-inside: avoid; margin: 0 0 16px; border-radius: var(--radius-sm); overflow: hidden; position: relative; cursor: zoom-in; box-shadow: var(--shadow-xs); }
+.masonry .gitem img { width: 100%; display: block; transition: transform .5s cubic-bezier(.2,.7,.2,1); }
+.masonry .gitem:hover img { transform: scale(1.06); }
+.masonry .gitem .cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 16px 14px 12px; color: #fff; font-size: .85rem; font-weight: 600; background: linear-gradient(transparent, rgba(12,42,47,.8)); opacity: 0; transform: translateY(6px); transition: opacity .25s, transform .25s; }
+.masonry .gitem:hover .cap { opacity: 1; transform: none; }
+@media (max-width: 1024px) { .masonry { column-count: 3; } }
+@media (max-width: 760px)  { .masonry { column-count: 2; column-gap: 12px; } .masonry .gitem { margin-bottom: 12px; } }
+
+/* CTA Instagram */
+.ig-cta { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; background: linear-gradient(120deg, #2eaea4, #15707d); color: #fff; border-radius: var(--radius); padding: 24px 30px; }
+.ig-cta .ig-left { display: flex; align-items: center; gap: 16px; }
+.ig-cta .ig-ic { width: 52px; height: 52px; border-radius: 15px; background: rgba(255,255,255,.18); display: grid; place-items: center; flex: none; }
+.ig-cta .ig-ic svg { width: 28px; height: 28px; color: #fff; }
+.ig-cta strong { display: block; font-family: var(--display); font-size: 1.25rem; }
+.ig-cta span { color: #d8f0ed; font-size: .92rem; }
+.ig-cta .btn { background: #fff; color: var(--teal); }
+
+/* Visor de galería (lightbox de imagen) */
+.glb { position: fixed; inset: 0; z-index: 160; display: none; align-items: center; justify-content: center; background: rgba(7,22,25,.93); backdrop-filter: blur(3px); }
+.glb.open { display: flex; animation: lb-in .2s ease; }
+.glb img { max-width: 92vw; max-height: 84vh; border-radius: 10px; box-shadow: var(--shadow); }
+.glb .glb-cap { position: absolute; bottom: 22px; left: 0; right: 0; text-align: center; color: #e7f0ee; font-size: .92rem; font-weight: 600; padding: 0 20px; }
+.glb .glb-close { position: absolute; top: 18px; right: 20px; width: 46px; height: 46px; border-radius: 50%; border: 0; background: rgba(255,255,255,.14); color: #fff; font-size: 1.3rem; cursor: pointer; }
+.glb .glb-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 52px; height: 52px; border-radius: 50%; border: 0; background: rgba(255,255,255,.14); color: #fff; font-size: 1.8rem; line-height: 1; cursor: pointer; transition: background .2s; }
+.glb .glb-nav:hover, .glb .glb-close:hover { background: rgba(255,255,255,.28); }
+.glb .glb-prev { left: 16px; } .glb .glb-next { right: 16px; }
+@media (max-width: 600px) { .glb .glb-nav { width: 44px; height: 44px; } .glb .glb-prev { left: 8px; } .glb .glb-next { right: 8px; } }

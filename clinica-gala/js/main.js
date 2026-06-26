@@ -245,4 +245,45 @@
     );
     revealEls.forEach((el) => io.observe(el));
   }
+
+  // ---------- Visor de galería (lightbox de imágenes) ----------
+  const gitems = Array.from(document.querySelectorAll(".gitem"));
+  const glb = document.getElementById("gallery-lightbox");
+  if (glb && gitems.length) {
+    const gimg = glb.querySelector("img");
+    const gcap = glb.querySelector(".glb-cap");
+    let idx = 0;
+    const open = (i) => {
+      idx = (i + gitems.length) % gitems.length;
+      const a = gitems[idx];
+      gimg.src = a.getAttribute("href") || a.dataset.full || "";
+      gimg.alt = a.dataset.cap || "";
+      if (gcap) gcap.textContent = a.dataset.cap || "";
+      glb.classList.add("open");
+      document.body.style.overflow = "hidden";
+    };
+    const close = () => {
+      glb.classList.remove("open");
+      document.body.style.overflow = "";
+    };
+    gitems.forEach((a, i) =>
+      a.addEventListener("click", (e) => {
+        e.preventDefault();
+        open(i);
+      })
+    );
+    glb.addEventListener("click", (e) => {
+      if (e.target === glb || e.target.closest(".glb-close")) close();
+    });
+    const prev = glb.querySelector(".glb-prev");
+    const next = glb.querySelector(".glb-next");
+    if (prev) prev.addEventListener("click", () => open(idx - 1));
+    if (next) next.addEventListener("click", () => open(idx + 1));
+    document.addEventListener("keydown", (e) => {
+      if (!glb.classList.contains("open")) return;
+      if (e.key === "Escape") close();
+      else if (e.key === "ArrowLeft") open(idx - 1);
+      else if (e.key === "ArrowRight") open(idx + 1);
+    });
+  }
 })();
