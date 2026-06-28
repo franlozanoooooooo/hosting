@@ -807,3 +807,15 @@ html.intro-skip #intro { display: none !important; }
 .tech-3d.no-3d .tooth-fallback { position: absolute; inset: 0; z-index: 1; display: grid; place-items: center; }
 .tech-3d.no-3d .tooth-fallback img { width: 42%; filter: brightness(0) invert(1); opacity: .8; }
 @media (prefers-reduced-motion: reduce) { .tooth-hint { opacity: .7; } }
+
+/* ---------- Galería 3D (globo de fotos) ---------- */
+.gallery3d-section { overflow: hidden; }
+.gallery3d { position: relative; width: 100%; height: 72vh; min-height: 440px; max-height: 760px; margin-top: 26px; }
+.gallery3d canvas { width: 100%; height: 100%; display: block; cursor: grab; touch-action: pan-y; }
+.gallery3d canvas:active { cursor: grabbing; }
+.gallery3d .tooth-hint { bottom: 8px; }
+.gallery3d.no-3d canvas, .gallery3d.no-3d .tooth-hint { display: none; }
+.g3d-fallback { display: none; }
+.gallery3d.no-3d .g3d-fallback { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; max-width: 720px; margin: 0 auto; padding: 0 24px; }
+.gallery3d.no-3d .g3d-fallback img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: var(--radius-sm); }
+@media (max-width: 600px) { .gallery3d { height: 60vh; min-height: 380px; } }
