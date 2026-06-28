@@ -165,29 +165,32 @@ if (canvas && wrap) {
       const sz = wbox.getSize(new THREE.Vector3());
       const ray = new THREE.Raycaster();
       const dir = new THREE.Vector3(0, 0, -1);
-      const brScale = sz.x * 0.075;
+      const brScale = sz.x * 0.052;
       const front = wbox.max.z + sz.z;
-      // dos arcadas: una franja superior y otra inferior
-      const arches = [c.y + sz.y * 0.20, c.y - sz.y * 0.22];
-      for (const ay of arches) {
+      // Brackets en la arcada superior (la hilera visible de la sonrisa);
+      // nivel calibrado a la corona, no a la raíz (que queda tras la encía).
+      const arches = [
+        { ay: wbox.min.y + 0.65 * sz.y, nz: 0.25 },
+      ];
+      for (const { ay, nz } of arches) {
         const pts = [];
-        const N = 11;
+        const N = 13;
         for (let i = 0; i < N; i++) {
-          const x = THREE.MathUtils.lerp(c.x - sz.x * 0.42, c.x + sz.x * 0.42, i / (N - 1));
+          const x = THREE.MathUtils.lerp(c.x - sz.x * 0.34, c.x + sz.x * 0.34, i / (N - 1)); // solo dientes frontales
           ray.set(new THREE.Vector3(x, ay, front), dir);
           const hit = ray.intersectObject(teethMesh, true)[0];
           if (!hit) continue;
           const n = hit.face ? hit.face.normal.clone().transformDirection(teethMesh.matrixWorld) : new THREE.Vector3(0, 0, 1);
-          if (n.z < 0.15) continue; // solo caras frontales
+          if (n.z < nz) continue; // solo caras frontales
           const br = makeBracket(brScale);
-          br.position.copy(hit.point).addScaledVector(n, brScale * 0.18);
+          br.position.copy(hit.point).addScaledVector(n, brScale * 0.45); // por delante de la encía
           br.quaternion.setFromUnitVectors(new THREE.Vector3(0, 0, 1), n);
           bracesGroup.add(br);
-          pts.push(hit.point.clone().addScaledVector(n, brScale * 0.55));
+          pts.push(hit.point.clone().addScaledVector(n, brScale * 0.7));
         }
         if (pts.length > 1) {
           const curve = new THREE.CatmullRomCurve3(pts, false, "catmullrom", 0.3);
-          bracesGroup.add(new THREE.Mesh(new THREE.TubeGeometry(curve, 120, brScale * 0.14, 8, false), wireMat));
+          bracesGroup.add(new THREE.Mesh(new THREE.TubeGeometry(curve, 120, brScale * 0.13, 8, false), wireMat));
         }
       }
     }
