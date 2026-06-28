@@ -43,6 +43,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
+  <script type="importmap">{ "imports": { "three": "./js/vendor/three.module.js" } }</script>
   <noscript><style>.reveal{opacity:1!important;transform:none!important}#intro{display:none!important}</style></noscript>
 
   <script type="application/ld+json">
@@ -365,7 +366,15 @@
     <div class="container">
       <span class="eyebrow reveal">Tecnología digital</span>
       <h2 class="reveal">Arte y tecnología en cada sonrisa</h2>
-      <p class="lead reveal" style="margin-bottom:48px">Combinamos la artesanía de la odontología con la precisión de la tecnología digital más avanzada.</p>
+      <p class="lead reveal" style="margin-bottom:40px">Combinamos la artesanía de la odontología con la precisión de la tecnología digital más avanzada.</p>
+      <div class="tech-3d reveal" role="img" aria-label="Animación 3D de un diente, símbolo de nuestra odontología digital">
+        <canvas id="tooth-canvas"></canvas>
+        <span class="tooth-hint" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v4h-4"/></svg>
+          Arrastra para girar
+        </span>
+        <div class="tooth-fallback" aria-hidden="true"><img src="img/logomark.svg" alt="" width="90" height="114" /></div>
+      </div>
       <div class="grid grid-3">
         <div class="tech-card reveal">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><path d="M9 9h.01M15 9h.01"/></svg></div>
@@ -387,30 +396,77 @@
   </section>
 
   <!-- Vídeo de presentación (carga diferida) -->
-  <section class="section" id="video" aria-label="Vídeo de presentación">
+  <section class="section" id="video" aria-label="Vídeos de Clínica GALA">
     <div class="container">
-      <span class="eyebrow center reveal">Testimonio en vídeo</span>
-      <h2 class="center reveal">Una paciente nos cuenta su experiencia</h2>
-      <p class="lead center reveal" style="margin:0 auto 40px">Escucha en primera persona cómo vivió su tratamiento en Clínica GALA: el trato cercano, el proceso y el resultado. Las sonrisas de nuestros pacientes son nuestra mejor carta de presentación.</p>
-      <div class="video-wrap video-wrap--portrait reveal">
-        <!--
-          VÍDEO: ahora reproduce video/clinica-gala.mp4 (vertical). El vídeo NO se
-          carga hasta pulsar "play" (mejor rendimiento). Para usar YouTube/Vimeo:
-          pon data-embed="https://www.youtube-nocookie.com/embed/TU_ID" y borra data-video.
-        -->
-        <div class="video-facade video-facade--portrait" role="button" tabindex="0"
-             aria-label="Reproducir el testimonio en vídeo de una paciente de Clínica GALA en Sevilla"
-             data-video="video/clinica-gala.mp4"
-             data-poster="img/video-poster.svg">
-          <img class="poster" src="img/video-poster.svg" width="576" height="1248"
-               alt="Testimonio en vídeo de una paciente de Clínica GALA Estética Dental en Sevilla"
-               loading="lazy" decoding="async"
-               onerror="this.onerror=null;this.src='img/placeholder.svg'" />
-          <span class="vbadge">Testimonio · Clínica GALA</span>
-          <button class="play" type="button" aria-label="Reproducir vídeo" tabindex="-1">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-          </button>
-        </div>
+      <span class="eyebrow center reveal">Vídeos</span>
+      <h2 class="center reveal">Conoce Clínica GALA en vídeo</h2>
+      <p class="lead center reveal" style="margin:0 auto 44px">Testimonios de pacientes y el día a día de nuestra clínica de estética dental en Sevilla. Pulsa para reproducir.</p>
+      <!--
+        GALERÍA DE VÍDEOS: cada tarjeta carga su MP4 solo al pulsar "play" (rendimiento).
+        Para añadir/cambiar: copia tu MP4 a /video/ (clinica-gala-N.mp4) y regenera, o edita data-video y la leyenda.
+        Para YouTube/Vimeo: usa data-embed="https://www.youtube-nocookie.com/embed/ID" y quita data-video.
+      -->
+      <div class="video-grid reveal">
+        <figure class="video-tile">
+          <div class="video-facade video-facade--reel" role="button" tabindex="0"
+               aria-label="Reproducir testimonio en vídeo de una paciente de Clínica GALA"
+               data-video="video/clinica-gala.mp4" data-poster="img/video-poster.svg">
+            <img class="poster" src="img/video-poster.svg" alt="Testimonio en vídeo de una paciente de Clínica GALA en Sevilla" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='img/placeholder.svg'" />
+            <span class="vbadge">Testimonio</span>
+            <button class="play" type="button" aria-label="Reproducir vídeo" tabindex="-1"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+          </div>
+          <figcaption>Una paciente nos cuenta su experiencia</figcaption>
+        </figure>
+        <figure class="video-tile">
+          <div class="video-facade video-facade--reel" role="button" tabindex="0"
+               aria-label="Reproducir vídeo de Clínica GALA"
+               data-video="video/clinica-gala-2.mp4" data-poster="img/video-poster.svg">
+            <img class="poster" src="img/video-poster.svg" alt="Vídeo de Clínica GALA Estética Dental en Sevilla" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='img/placeholder.svg'" />
+            <span class="vbadge">Clínica GALA</span>
+            <button class="play" type="button" aria-label="Reproducir vídeo" tabindex="-1"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+          </div>
+          <figcaption>Clínica GALA · Sevilla</figcaption>
+        </figure>
+        <figure class="video-tile">
+          <div class="video-facade video-facade--reel" role="button" tabindex="0"
+               aria-label="Reproducir vídeo de Clínica GALA"
+               data-video="video/clinica-gala-3.mp4" data-poster="img/video-poster.svg">
+            <img class="poster" src="img/video-poster.svg" alt="Vídeo de Clínica GALA Estética Dental en Sevilla" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='img/placeholder.svg'" />
+            <span class="vbadge">Clínica GALA</span>
+            <button class="play" type="button" aria-label="Reproducir vídeo" tabindex="-1"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+          </div>
+          <figcaption>Clínica GALA · Sevilla</figcaption>
+        </figure>
+        <figure class="video-tile">
+          <div class="video-facade video-facade--reel" role="button" tabindex="0"
+               aria-label="Reproducir vídeo de Clínica GALA"
+               data-video="video/clinica-gala-4.mp4" data-poster="img/video-poster.svg">
+            <img class="poster" src="img/video-poster.svg" alt="Vídeo de Clínica GALA Estética Dental en Sevilla" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='img/placeholder.svg'" />
+            <span class="vbadge">Clínica GALA</span>
+            <button class="play" type="button" aria-label="Reproducir vídeo" tabindex="-1"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+          </div>
+          <figcaption>Clínica GALA · Sevilla</figcaption>
+        </figure>
+        <figure class="video-tile">
+          <div class="video-facade video-facade--reel" role="button" tabindex="0"
+               aria-label="Reproducir vídeo de Clínica GALA"
+               data-video="video/clinica-gala-5.mp4" data-poster="img/video-poster.svg">
+            <img class="poster" src="img/video-poster.svg" alt="Vídeo de Clínica GALA Estética Dental en Sevilla" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='img/placeholder.svg'" />
+            <span class="vbadge">Clínica GALA</span>
+            <button class="play" type="button" aria-label="Reproducir vídeo" tabindex="-1"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+          </div>
+          <figcaption>Clínica GALA · Sevilla</figcaption>
+        </figure>
+        <figure class="video-tile">
+          <div class="video-facade video-facade--reel" role="button" tabindex="0"
+               aria-label="Reproducir vídeo de Clínica GALA"
+               data-video="video/clinica-gala-6.mp4" data-poster="img/video-poster.svg">
+            <img class="poster" src="img/video-poster.svg" alt="Vídeo de Clínica GALA Estética Dental en Sevilla" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='img/placeholder.svg'" />
+            <span class="vbadge">Clínica GALA</span>
+            <button class="play" type="button" aria-label="Reproducir vídeo" tabindex="-1"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+          </div>
+          <figcaption>Clínica GALA · Sevilla</figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -652,5 +708,6 @@
   }
   </script>
   <script src="js/main.js"></script>
+  <script type="module" src="js/tooth3d.js"></script>
 </body>
 </html>

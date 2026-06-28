@@ -664,6 +664,15 @@ html.intro-skip #intro { display: none !important; }
 .video-wrap--portrait { max-width: 340px; }
 .video-facade--portrait { aspect-ratio: 576 / 1248; }
 @media (max-width: 400px) { .video-wrap--portrait { max-width: 100%; } }
+/* Galería de vídeos (reels) */
+.video-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; }
+.video-tile { width: 228px; display: flex; flex-direction: column; gap: 13px; margin: 0; }
+.video-tile figcaption { text-align: center; font-weight: 700; color: var(--ink); font-size: .92rem; line-height: 1.3; }
+.video-facade--reel { aspect-ratio: 9 / 16; border-radius: var(--radius-sm); }
+.video-facade--reel .play { width: 58px; height: 58px; }
+.video-facade--reel .play svg { width: 23px; height: 23px; margin-left: 4px; }
+.video-facade--reel .vbadge { top: 12px; left: 12px; font-size: .64rem; padding: 5px 10px; }
+@media (max-width: 520px) { .video-tile { width: 45vw; } .video-grid { gap: 14px; } .video-tile figcaption { font-size: .82rem; } }
 .video-facade.playing::after,
 .video-facade.playing .play,
 .video-facade.playing .vlabel,
@@ -776,3 +785,25 @@ html.intro-skip #intro { display: none !important; }
 .share a { width: 42px; height: 42px; border-radius: 12px; background: var(--bg-mint); color: var(--teal); display: grid; place-items: center; transition: background .2s, color .2s, transform .2s; }
 .share a:hover { background: var(--teal); color: #fff; transform: translateY(-2px); }
 .share a svg { width: 19px; height: 19px; }
+
+/* ---------- Diente 3D (Three.js) ---------- */
+.tech-3d { position: relative; width: 100%; max-width: 440px; margin: 0 auto 54px; aspect-ratio: 1 / 1; }
+.tech-3d::before {
+  content: ""; position: absolute; inset: 4%; z-index: 0; border-radius: 50%;
+  background: radial-gradient(circle at 50% 44%, rgba(47,163,160,.34), rgba(47,163,160,0) 60%);
+  filter: blur(6px); pointer-events: none;
+}
+.tech-3d canvas { position: relative; z-index: 1; width: 100%; height: 100%; display: block; cursor: grab; touch-action: pan-y; }
+.tech-3d canvas:active { cursor: grabbing; }
+.tooth-hint {
+  position: absolute; left: 50%; bottom: 2px; transform: translateX(-50%); z-index: 2;
+  display: inline-flex; align-items: center; gap: 7px;
+  font-family: var(--font); font-size: .78rem; font-weight: 600; letter-spacing: .02em;
+  color: #aec6c1; opacity: .85; pointer-events: none; white-space: nowrap;
+}
+.tooth-hint svg { width: 15px; height: 15px; }
+.tooth-fallback { display: none; }
+.tech-3d.no-3d canvas, .tech-3d.no-3d .tooth-hint { display: none; }
+.tech-3d.no-3d .tooth-fallback { position: absolute; inset: 0; z-index: 1; display: grid; place-items: center; }
+.tech-3d.no-3d .tooth-fallback img { width: 42%; filter: brightness(0) invert(1); opacity: .8; }
+@media (prefers-reduced-motion: reduce) { .tooth-hint { opacity: .7; } }
