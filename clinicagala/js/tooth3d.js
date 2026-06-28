@@ -48,7 +48,7 @@ if (canvas && wrap) {
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(38, 1, 0.01, 100);
-    camera.position.set(0, 0.45, 5.4);
+    camera.position.set(0, 0.24, 5.3);
 
     // Entorno PMREM (gradiente) para reflejos suaves y realistas
     const pmrem = new THREE.PMREMGenerator(renderer);
@@ -92,10 +92,17 @@ if (canvas && wrap) {
       geo.computeVertexNormals(); return geo;
     }
     const bracketBox = roundedBox(5, 0.28);
+    // Bracket cuadrado: placa base + 4 aletas en las esquinas, dejando un
+    // canal horizontal en el centro por donde pasa el alambre (como uno real).
     function makeBracket(s) {
       const g = new THREE.Group();
-      const base = new THREE.Mesh(bracketBox, bracketMat); base.scale.set(s, s, s * 0.32); g.add(base);
-      for (const sx of [-1, 1]) { const w = new THREE.Mesh(bracketBox, bracketMat); w.scale.set(s * 0.28, s * 0.9, s * 0.5); w.position.set(sx * s * 0.34, 0, s * 0.16); g.add(w); }
+      const base = new THREE.Mesh(bracketBox, bracketMat); base.scale.set(s, s, s * 0.34); g.add(base);
+      for (const sx of [-1, 1]) for (const sy of [-1, 1]) {
+        const w = new THREE.Mesh(bracketBox, bracketMat);
+        w.scale.set(s * 0.34, s * 0.32, s * 0.55);
+        w.position.set(sx * s * 0.3, sy * s * 0.32, s * 0.2);
+        g.add(w);
+      }
       return g;
     }
 
@@ -126,7 +133,7 @@ if (canvas && wrap) {
       model.position.sub(ctr);
       model.scale.setScalar(s);
       model.position.multiplyScalar(s);
-      model.rotation.x = 0.18; // inclinar para mirar las arcadas desde arriba
+      model.rotation.x = 0.07; // vista casi frontal de las arcadas
       pivot.add(model);
 
       model.traverse((o) => {
@@ -157,41 +164,74 @@ if (canvas && wrap) {
       alignerGroup.add(shell);
     }
 
-    // Brackets + arco: trazamos rayos desde delante hacia los dientes
+    // Brackets: un cuadrado centrado en CADA diente (detectando la parte más
+    // saliente de cada corona) y el alambre pasando por la ranura de todos.
     function buildBraces() {
       teethMesh.updateWorldMatrix(true, false);
       const wbox = new THREE.Box3().setFromObject(teethMesh);
-      const c = wbox.getCenter(new THREE.Vector3());
       const sz = wbox.getSize(new THREE.Vector3());
-      const ray = new THREE.Raycaster();
-      const dir = new THREE.Vector3(0, 0, -1);
-      const brScale = sz.x * 0.052;
-      const front = wbox.max.z + sz.z;
-      // Brackets en la arcada superior (la hilera visible de la sonrisa);
-      // nivel calibrado a la corona, no a la raíz (que queda tras la encía).
-      const arches = [
-        { ay: wbox.min.y + 0.65 * sz.y, nz: 0.25 },
-      ];
-      for (const { ay, nz } of arches) {
-        const pts = [];
-        const N = 13;
-        for (let i = 0; i < N; i++) {
-          const x = THREE.MathUtils.lerp(c.x - sz.x * 0.34, c.x + sz.x * 0.34, i / (N - 1)); // solo dientes frontales
-          ray.set(new THREE.Vector3(x, ay, front), dir);
-          const hit = ray.intersectObject(teethMesh, true)[0];
-          if (!hit) continue;
-          const n = hit.face ? hit.face.normal.clone().transformDirection(teethMesh.matrixWorld) : new THREE.Vector3(0, 0, 1);
-          if (n.z < nz) continue; // solo caras frontales
-          const br = makeBracket(brScale);
-          br.position.copy(hit.point).addScaledVector(n, brScale * 0.45); // por delante de la encía
-          br.quaternion.setFromUnitVectors(new THREE.Vector3(0, 0, 1), n);
-          bracesGroup.add(br);
-          pts.push(hit.point.clone().addScaledVector(n, brScale * 0.7));
-        }
-        if (pts.length > 1) {
-          const curve = new THREE.CatmullRomCurve3(pts, false, "catmullrom", 0.3);
-          bracesGroup.add(new THREE.Mesh(new THREE.TubeGeometry(curve, 120, brScale * 0.13, 8, false), wireMat));
-        }
+      const cx = (wbox.min.x + wbox.max.x) / 2;
+      const brScale = sz.x * 0.060;
+      const yLo = wbox.min.y + 0.58 * sz.y, yHi = wbox.min.y + 0.80 * sz.y;
+      const xLim = 0.40 * sz.x; // solo dientes frontales (evita caninos muy retraídos)
+      const mw = teethMesh.matrixWorld;
+      const pos = teethMesh.geometry.attributes.position;
+      const nor = teethMesh.geometry.attributes.normal;
+      const v = new THREE.Vector3(), n = new THREE.Vector3();
+
+      // 1) Perfil labial de la arcada superior a partir de los vértices:
+      //    para cada columna x guardamos el vértice frontal más saliente.
+      const NB = 60;
+      const bins = new Array(NB).fill(null);
+      for (let i = 0; i < pos.count; i++) {
+        v.fromBufferAttribute(pos, i).applyMatrix4(mw);
+        if (v.y < yLo || v.y > yHi || Math.abs(v.x - cx) > xLim) continue;
+        n.fromBufferAttribute(nor, i).transformDirection(mw);
+        if (n.z < 0.45) continue; // cara labial (frontal)
+        const t = (v.x - wbox.min.x) / sz.x;
+        const bi = Math.min(NB - 1, Math.max(0, Math.floor(t * NB)));
+        if (!bins[bi] || v.z > bins[bi].z) bins[bi] = { p: v.clone(), n: n.clone().normalize(), z: v.z };
+      }
+      const prof = bins.filter(Boolean).sort((a, b) => a.p.x - b.p.x);
+      if (prof.length < 4) return;
+
+      // 2) Centros de diente = máximos locales del saliente (z) a lo largo del arco
+      const sm = prof.map((o, i) => {
+        let a = 0, k = 0;
+        for (let j = i - 1; j <= i + 1; j++) if (j >= 0 && j < prof.length) { a += prof[j].z; k++; }
+        return a / k;
+      });
+      const W = 3;
+      let peaks = [];
+      for (let i = 0; i < prof.length; i++) {
+        let isMax = true;
+        for (let j = i - W; j <= i + W; j++) if (j >= 0 && j < prof.length && sm[j] > sm[i] + 1e-5) { isMax = false; break; }
+        if (!isMax) continue;
+        if (peaks.length && i - peaks[peaks.length - 1] < W) {
+          if (sm[i] > sm[peaks[peaks.length - 1]]) peaks[peaks.length - 1] = i;
+        } else peaks.push(i);
+      }
+      // Fallback: reparto uniforme si la detección no da una hilera razonable
+      if (peaks.length < 5 || peaks.length > 9) {
+        const M = Math.min(7, prof.length);
+        peaks = [];
+        for (let k = 0; k < M; k++) peaks.push(Math.round((prof.length - 1) * k / (M - 1)));
+      }
+
+      // 3) Un bracket cuadrado por diente; alambre por la ranura de todos
+      const zfwd = new THREE.Vector3(0, 0, 1);
+      const pts = [];
+      for (const pi of peaks) {
+        const o = prof[pi];
+        const br = makeBracket(brScale);
+        br.position.copy(o.p).addScaledVector(o.n, brScale * 0.30);
+        br.quaternion.setFromUnitVectors(zfwd, o.n);
+        bracesGroup.add(br);
+        pts.push(o.p.clone().addScaledVector(o.n, brScale * 0.46));
+      }
+      if (pts.length > 1) {
+        const curve = new THREE.CatmullRomCurve3(pts, false, "catmullrom", 0.2);
+        bracesGroup.add(new THREE.Mesh(new THREE.TubeGeometry(curve, 180, brScale * 0.1, 8, false), wireMat));
       }
     }
 
@@ -247,7 +287,7 @@ if (canvas && wrap) {
       raf = requestAnimationFrame(frame);
       if (ts - last < 33) return; // ~30 fps: menos carga de GPU/CPU
       last = ts;
-      if (!userActive && !reduce) pivot.rotation.y = 0.55 * Math.sin(ts * 0.00042);
+      if (!userActive && !reduce) pivot.rotation.y = 0.33 * Math.sin(ts * 0.0004);
       pivot.position.y = Math.sin(ts * 0.001) * 0.025;
       controls.update();
       renderer.render(scene, camera);
