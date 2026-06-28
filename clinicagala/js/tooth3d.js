@@ -70,6 +70,20 @@ if (canvas && wrap) {
       clearcoat: 0.4, clearcoatRoughness: 0.5,
       sheen: 0.45, sheenColor: new THREE.Color(0xffd9dd), envMapIntensity: 0.7,
     });
+    // Brackets metálicos + arco de ortodoncia
+    const bracketMat = new THREE.MeshPhysicalMaterial({
+      color: 0xd9dee1, metalness: 0.95, roughness: 0.3, clearcoat: 0.6, envMapIntensity: 1.3,
+    });
+    const wireMat = new THREE.MeshStandardMaterial({
+      color: 0xe6ebee, metalness: 1.0, roughness: 0.28, envMapIntensity: 1.4,
+    });
+    // Férula transparente (ortodoncia invisible)
+    const clearMat = new THREE.MeshPhysicalMaterial({
+      color: 0xeaf7ff, metalness: 0.0, roughness: 0.04,
+      transmission: 0.9, thickness: 0.3, ior: 1.4,
+      clearcoat: 1.0, clearcoatRoughness: 0.03,
+      transparent: true, opacity: 0.6, depthWrite: false, envMapIntensity: 1.7,
+    });
 
     // ---- Geometría base: caja redondeada (mejor que una esfera) ----
     function roundedBox(seg, r) {
@@ -89,6 +103,18 @@ if (canvas && wrap) {
       return geo;
     }
     const baseBox = roundedBox(13, 0.24);
+    const bracketBox = roundedBox(5, 0.28);
+    // Un bracket: placa base + dos aletas (estilo ortodoncia clásica)
+    function makeBracket() {
+      const g = new THREE.Group();
+      const base = new THREE.Mesh(bracketBox, bracketMat);
+      base.scale.set(0.17, 0.17, 0.05); g.add(base);
+      for (const sx of [-1, 1]) {
+        const wing = new THREE.Mesh(bracketBox, bracketMat);
+        wing.scale.set(0.045, 0.15, 0.08); wing.position.set(sx * 0.058, 0, 0.025); g.add(wing);
+      }
+      return g;
+    }
 
     // Corona anatómica según el tipo de diente.
     // y local: -0.5 = borde incisal/oclusal (abajo), +0.5 = cuello/encía (arriba)
@@ -163,23 +189,53 @@ if (canvas && wrap) {
         gum.scale.y = 0.8;
         arch.add(gum);
       }
+      // Dientes + férula transparente (oculta por defecto)
+      const aligner = new THREE.Group(); aligner.visible = false;
       for (const p of place) {
-        const tooth = new THREE.Mesh(makeToothGeo(p.type, p.w, p.h, p.d), enamel);
-        tooth.position.set(p.x, GUMY - 0.06 - p.h * 0.5, p.z);
-        tooth.rotation.y = p.ry;
-        tooth.rotation.x = 0.06;
+        const geo = makeToothGeo(p.type, p.w, p.h, p.d);
+        const ty = GUMY - 0.06 - p.h * 0.5;
+        const tooth = new THREE.Mesh(geo, enamel);
+        tooth.position.set(p.x, ty, p.z);
+        tooth.rotation.y = p.ry; tooth.rotation.x = 0.06;
         arch.add(tooth);
+        const shell = new THREE.Mesh(geo, clearMat);
+        shell.position.set(p.x, ty, p.z);
+        shell.rotation.y = p.ry; shell.rotation.x = 0.06;
+        shell.scale.set(1.11, 1.06, 1.11);
+        aligner.add(shell);
       }
-      return arch;
+      arch.add(aligner);
+      // Brackets + arco a una altura común (ocultos por defecto)
+      const braces = new THREE.Group(); braces.visible = false;
+      const braceY = GUMY - 0.5;
+      const wirePts = [];
+      for (const p of ordered) {
+        const fx = Math.sin(p.ry), fz = Math.cos(p.ry);
+        const cx = p.x + fx * (p.d * 0.5), cz = p.z + fz * (p.d * 0.5);
+        const br = makeBracket();
+        br.position.set(cx, braceY, cz);
+        br.rotation.y = p.ry; br.rotation.x = 0.06;
+        braces.add(br);
+        wirePts.push(new THREE.Vector3(cx + fx * 0.07, braceY, cz + fz * 0.07));
+      }
+      if (wirePts.length > 1) {
+        const wcurve = new THREE.CatmullRomCurve3(wirePts, false, "catmullrom", 0.3);
+        braces.add(new THREE.Mesh(new THREE.TubeGeometry(wcurve, 130, 0.022, 10, false), wireMat));
+      }
+      arch.add(braces);
+      return { arch, braces, aligner };
     }
 
     const denture = new THREE.Group();
-    const upper = buildArch(); upper.position.y = 0.42;
-    const lower = buildArch(); lower.rotation.x = Math.PI; lower.rotation.y = Math.PI; lower.position.y = -0.42;
-    denture.add(upper, lower);
+    const upper = buildArch(); upper.arch.position.y = 0.42;
+    const lower = buildArch(); lower.arch.rotation.x = Math.PI; lower.arch.rotation.y = Math.PI; lower.arch.position.y = -0.42;
+    denture.add(upper.arch, lower.arch);
     denture.rotation.x = 0.14;
     denture.rotation.y = -0.22;
     scene.add(denture);
+
+    const bracesGroups = [upper.braces, lower.braces];
+    const alignerGroups = [upper.aligner, lower.aligner];
 
     // Iluminación de estudio + acentos de marca
     scene.add(new THREE.AmbientLight(0xc6dcd8, 0.45));
@@ -247,6 +303,31 @@ if (canvas && wrap) {
     function start() { if (running) return; running = true; reduce ? (controls.update(), renderer.render(scene, camera)) : frame(); }
     function stop() { running = false; if (raf) cancelAnimationFrame(raf); raf = null; }
     controls.addEventListener("change", () => { if (!running || reduce) renderer.render(scene, camera); });
+
+    // ---- Conmutador: Natural / Con brackets / Invisible ----
+    const renderOnce = () => renderer.render(scene, camera);
+    function setMode(mode) {
+      const br = mode === "brackets", al = mode === "invisible";
+      bracesGroups.forEach((g) => (g.visible = br));
+      alignerGroups.forEach((g) => (g.visible = al));
+      renderOnce();
+    }
+    const ctrl = document.createElement("div");
+    ctrl.className = "tooth-modes";
+    ctrl.setAttribute("role", "group");
+    ctrl.setAttribute("aria-label", "Comparar sonrisa: natural, con brackets u ortodoncia invisible");
+    [["natural", "Natural"], ["brackets", "Con brackets"], ["invisible", "Invisible"]].forEach(([key, label], i) => {
+      const b = document.createElement("button");
+      b.type = "button"; b.textContent = label; b.dataset.mode = key;
+      if (i === 0) b.classList.add("is-active");
+      b.addEventListener("click", () => {
+        ctrl.querySelectorAll("button").forEach((x) => x.classList.remove("is-active"));
+        b.classList.add("is-active");
+        setMode(key);
+      });
+      ctrl.appendChild(b);
+    });
+    wrap.appendChild(ctrl);
 
     const playObserver = new IntersectionObserver(
       (entries) => { for (const e of entries) e.isIntersecting ? start() : stop(); }, { threshold: 0.01 }

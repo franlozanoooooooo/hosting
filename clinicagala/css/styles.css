@@ -807,6 +807,25 @@ html.intro-skip #intro { display: none !important; }
 .tech-3d.no-3d .tooth-fallback { position: absolute; inset: 0; z-index: 1; display: grid; place-items: center; }
 .tech-3d.no-3d .tooth-fallback img { width: 42%; filter: brightness(0) invert(1); opacity: .8; }
 @media (prefers-reduced-motion: reduce) { .tooth-hint { opacity: .7; } }
+/* Conmutador Natural / Brackets / Invisible sobre la animación 3D */
+.tooth-modes {
+  position: absolute; left: 50%; top: 6px; transform: translateX(-50%); z-index: 3;
+  display: inline-flex; gap: 3px; padding: 4px; border-radius: 999px;
+  background: rgba(7, 30, 34, .55); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, .14);
+}
+.tooth-modes button {
+  appearance: none; -webkit-appearance: none; border: 0; cursor: pointer; border-radius: 999px;
+  padding: 6px 13px; font-family: var(--font); font-size: .72rem; font-weight: 700;
+  letter-spacing: .01em; color: #cfe2de; background: transparent; transition: background .2s, color .2s; white-space: nowrap;
+}
+.tooth-modes button:hover { color: #fff; }
+.tooth-modes button.is-active {
+  color: #fff; background: linear-gradient(120deg, var(--bright), var(--teal));
+  box-shadow: 0 4px 14px rgba(47, 163, 160, .4);
+}
+.tech-3d.no-3d .tooth-modes { display: none; }
+@media (max-width: 480px) { .tooth-modes button { padding: 6px 9px; font-size: .66rem; } }
 
 /* ---------- Galería 3D (globo de fotos) ---------- */
 .gallery3d-section { overflow: hidden; }
