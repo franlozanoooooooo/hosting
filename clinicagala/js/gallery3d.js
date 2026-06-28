@@ -35,7 +35,7 @@ if (canvas && wrap && dataEl) {
     try {
       renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: "high-performance" });
     } catch (err) { wrap.classList.add("no-3d"); return; }
-    renderer.setPixelRatio(Math.min(2, window.devicePixelRatio || 1));
+    renderer.setPixelRatio(Math.min(1.5, window.devicePixelRatio || 1));
     renderer.setClearColor(0x000000, 0);
     renderer.outputColorSpace = THREE.SRGBColorSpace;
 
@@ -117,9 +117,11 @@ if (canvas && wrap && dataEl) {
     if (window.ResizeObserver) new ResizeObserver(resize).observe(canvas);
     else window.addEventListener("resize", resize);
 
-    let raf = null, running = false;
-    function frame() {
+    let raf = null, running = false, last = 0;
+    function frame(ts) {
       raf = requestAnimationFrame(frame);
+      if (ts - last < 33) return; // ~30 fps
+      last = ts;
       const moving = controls.update(); // true si hay damping/autorotate en curso
       if (moving || needsRender || controls.autoRotate) {
         needsRender = false;

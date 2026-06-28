@@ -826,6 +826,16 @@ html.intro-skip #intro { display: none !important; }
 }
 .tech-3d.no-3d .tooth-modes { display: none; }
 @media (max-width: 480px) { .tooth-modes button { padding: 6px 9px; font-size: .66rem; } }
+/* Indicador de carga del modelo 3D */
+.tooth-loading { position: absolute; inset: 0; z-index: 2; display: grid; place-items: center; pointer-events: none; }
+.tooth-loading .spin {
+  width: 34px; height: 34px; border-radius: 50%;
+  border: 3px solid rgba(47, 163, 160, .25); border-top-color: var(--bright);
+  animation: toothspin .8s linear infinite;
+}
+@keyframes toothspin { to { transform: rotate(360deg); } }
+.tech-3d.no-3d .tooth-loading { display: none; }
+@media (prefers-reduced-motion: reduce) { .tooth-loading .spin { animation: none; } }
 
 /* ---------- Galería 3D (globo de fotos) ---------- */
 .gallery3d-section { overflow: hidden; }

@@ -33,9 +33,16 @@ if (canvas && wrap) {
     try {
       renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: "high-performance" });
     } catch (err) { wrap.classList.add("no-3d"); return; }
-    renderer.setPixelRatio(Math.min(2, window.devicePixelRatio || 1));
+    renderer.setPixelRatio(Math.min(1.5, window.devicePixelRatio || 1));
     renderer.setClearColor(0x000000, 0);
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
+
+    // Indicador de carga (el modelo pesa unos MB)
+    const loadingEl = document.createElement("div");
+    loadingEl.className = "tooth-loading";
+    loadingEl.innerHTML = '<span class="spin" aria-hidden="true"></span>';
+    wrap.appendChild(loadingEl);
+    const clearLoading = () => loadingEl.remove();
     renderer.toneMappingExposure = 1.12;
     renderer.outputColorSpace = THREE.SRGBColorSpace;
 
@@ -102,9 +109,9 @@ if (canvas && wrap) {
     const loader = new GLTFLoader();
     loader.load(
       "models/tooth/Tooth-2.gltf",
-      (gltf) => { onModel(gltf); },
+      (gltf) => { clearLoading(); onModel(gltf); },
       undefined,
-      () => wrap.classList.add("no-3d")
+      () => { clearLoading(); wrap.classList.add("no-3d"); }
     );
 
     let teethMesh = null;
@@ -232,16 +239,17 @@ if (canvas && wrap) {
     if (window.ResizeObserver) new ResizeObserver(resize).observe(canvas);
     else window.addEventListener("resize", resize);
 
-    let raf = null, running = false, t = 0;
-    function frame() {
+    let raf = null, running = false, last = 0;
+    function frame(ts) {
       raf = requestAnimationFrame(frame);
-      t += 0.016;
-      if (!userActive && !reduce) pivot.rotation.y = 0.55 * Math.sin(t * 0.42);
-      pivot.position.y = Math.sin(t * 1.0) * 0.025;
+      if (ts - last < 33) return; // ~30 fps: menos carga de GPU/CPU
+      last = ts;
+      if (!userActive && !reduce) pivot.rotation.y = 0.55 * Math.sin(ts * 0.00042);
+      pivot.position.y = Math.sin(ts * 0.001) * 0.025;
       controls.update();
       renderer.render(scene, camera);
     }
-    function start() { if (running) return; running = true; reduce ? (controls.update(), renderer.render(scene, camera)) : frame(); }
+    function start() { if (running) return; running = true; reduce ? (controls.update(), renderer.render(scene, camera)) : (raf = requestAnimationFrame(frame)); }
     function stop() { running = false; if (raf) cancelAnimationFrame(raf); raf = null; }
     controls.addEventListener("change", () => { if (!running || reduce) renderer.render(scene, camera); });
 
