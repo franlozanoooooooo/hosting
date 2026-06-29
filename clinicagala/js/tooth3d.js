@@ -72,8 +72,12 @@ if (canvas && wrap) {
     const fill = new THREE.DirectionalLight(0xeaf6f4, 0.45); fill.position.set(0, 3.5, 2); scene.add(fill);
 
     // Materiales para los modos brackets / ortodoncia invisible
-    const bracketMat = new THREE.MeshPhysicalMaterial({ color: 0xd9dee1, metalness: 0.95, roughness: 0.3, clearcoat: 0.6, envMapIntensity: 1.3 });
-    const wireMat = new THREE.MeshStandardMaterial({ color: 0xe6ebee, metalness: 1.0, roughness: 0.28, envMapIntensity: 1.4 });
+    const bracketMat = new THREE.MeshPhysicalMaterial({ color: 0xf0f3f5, metalness: 1.0, roughness: 0.22, clearcoat: 0.7, envMapIntensity: 1.6 });
+    const wireMat = new THREE.MeshStandardMaterial({ color: 0xeef1f3, metalness: 1.0, roughness: 0.24, envMapIntensity: 1.6 });
+    // Gomitas (ligaduras) de colores, como en unos brackets reales
+    const elasticMats = [0x1f6fff, 0xff1f7d, 0xffc21f, 0x16c258, 0x12c8c0, 0xff6a14].map(
+      (c) => new THREE.MeshStandardMaterial({ color: c, roughness: 0.4, metalness: 0.0, emissive: new THREE.Color(c), emissiveIntensity: 0.28 })
+    );
     const clearMat = new THREE.MeshPhysicalMaterial({
       color: 0xeaf7ff, metalness: 0.0, roughness: 0.04, transmission: 0.92, thickness: 0.2, ior: 1.4,
       clearcoat: 1.0, clearcoatRoughness: 0.03, transparent: true, opacity: 0.55, depthWrite: false, envMapIntensity: 1.7,
@@ -92,17 +96,21 @@ if (canvas && wrap) {
       geo.computeVertexNormals(); return geo;
     }
     const bracketBox = roundedBox(5, 0.28);
-    // Bracket cuadrado: placa base + 4 aletas en las esquinas, dejando un
-    // canal horizontal en el centro por donde pasa el alambre (como uno real).
-    function makeBracket(s) {
+    // Bracket realista: placa metálica + 4 aletas + GOMITA de color (ligadura)
+    // rodeando la cara frontal, con el alambre pasando por el centro.
+    function makeBracket(s, elasticMat) {
       const g = new THREE.Group();
       const base = new THREE.Mesh(bracketBox, bracketMat); base.scale.set(s, s, s * 0.34); g.add(base);
       for (const sx of [-1, 1]) for (const sy of [-1, 1]) {
         const w = new THREE.Mesh(bracketBox, bracketMat);
-        w.scale.set(s * 0.34, s * 0.32, s * 0.55);
-        w.position.set(sx * s * 0.3, sy * s * 0.32, s * 0.2);
+        w.scale.set(s * 0.3, s * 0.3, s * 0.5);
+        w.position.set(sx * s * 0.32, sy * s * 0.32, s * 0.18);
         g.add(w);
       }
+      // Gomita de color: anillo que abraza el bracket (como las ligaduras reales)
+      const elastic = new THREE.Mesh(new THREE.TorusGeometry(s * 0.46, s * 0.13, 10, 20), elasticMat || elasticMats[0]);
+      elastic.position.z = s * 0.18;
+      g.add(elastic);
       return g;
     }
 
@@ -176,11 +184,11 @@ if (canvas && wrap) {
       const mw = teethMesh.matrixWorld;
       const pos = teethMesh.geometry.attributes.position;
       const nor = teethMesh.geometry.attributes.normal;
-      const zfwd = new THREE.Vector3(0, 0, 1);
+      let colorIdx = 0; // recorre la paleta de gomitas
 
       // Coloca un cuadrado por diente en una arcada (banda vertical [yLo,yHi]):
       // detecta el bulto labial de cada corona y enhebra el alambre por todos.
-      function placeArch(yLo, yHi) {
+      function placeArch(yLo, yHi, nz) {
         const v = new THREE.Vector3(), n = new THREE.Vector3();
         const NB = 60;
         const bins = new Array(NB).fill(null);
@@ -188,30 +196,33 @@ if (canvas && wrap) {
           v.fromBufferAttribute(pos, i).applyMatrix4(mw);
           if (v.y < yLo || v.y > yHi || Math.abs(v.x - cx) > xLim) continue;
           n.fromBufferAttribute(nor, i).transformDirection(mw);
-          if (n.z < 0.42) continue; // cara labial (frontal)
+          if (n.z < nz) continue; // cara labial (frontal)
           const t = (v.x - wbox.min.x) / sz.x;
           const bi = Math.min(NB - 1, Math.max(0, Math.floor(t * NB)));
           if (!bins[bi] || v.z > bins[bi].z) bins[bi] = { p: v.clone(), n: n.clone().normalize(), z: v.z };
         }
         const prof = bins.filter(Boolean).sort((a, b) => a.p.x - b.p.x);
         if (prof.length < 4) return;
+        // Suavizado fuerte del perfil para detectar bien el centro de cada diente
         const sm = prof.map((o, i) => {
           let a = 0, k = 0;
-          for (let j = i - 1; j <= i + 1; j++) if (j >= 0 && j < prof.length) { a += prof[j].z; k++; }
+          for (let j = i - 3; j <= i + 3; j++) if (j >= 0 && j < prof.length) { a += prof[j].z; k++; }
           return a / k;
         });
-        const W = 3;
+        // Centro de cada diente = máximo local del saliente (bulto labial)
+        const W = 5;
         let peaks = [];
         for (let i = 0; i < prof.length; i++) {
           let isMax = true;
-          for (let j = i - W; j <= i + W; j++) if (j >= 0 && j < prof.length && sm[j] > sm[i] + 1e-5) { isMax = false; break; }
+          for (let j = i - W; j <= i + W; j++) if (j >= 0 && j < prof.length && sm[j] > sm[i] + 1e-6) { isMax = false; break; }
           if (!isMax) continue;
           if (peaks.length && i - peaks[peaks.length - 1] < W) {
             if (sm[i] > sm[peaks[peaks.length - 1]]) peaks[peaks.length - 1] = i;
           } else peaks.push(i);
         }
-        if (peaks.length < 5 || peaks.length > 9) {
-          const M = Math.min(7, prof.length);
+        // Respaldo: reparto uniforme si la detección no da una hilera razonable
+        if (peaks.length < 4 || peaks.length > 9) {
+          const M = Math.min(6, prof.length);
           peaks = [];
           for (let k = 0; k < M; k++) peaks.push(Math.round((prof.length - 1) * k / (M - 1)));
         }
@@ -228,7 +239,7 @@ if (canvas && wrap) {
           fwd.normalize();
           const right = new THREE.Vector3().crossVectors(worldUp, fwd).normalize();
           const basis = new THREE.Matrix4().makeBasis(right, worldUp, fwd);
-          const br = makeBracket(brScale);
+          const br = makeBracket(brScale, elasticMats[colorIdx++ % elasticMats.length]);
           br.quaternion.setFromRotationMatrix(basis);
           br.position.copy(base).addScaledVector(fwd, brScale * 0.10); // a ras del diente
           bracesGroup.add(br);
@@ -240,8 +251,8 @@ if (canvas && wrap) {
         }
       }
 
-      placeArch(wbox.min.y + 0.58 * sz.y, wbox.min.y + 0.80 * sz.y); // arcada superior
-      placeArch(wbox.min.y + 0.34 * sz.y, wbox.min.y + 0.52 * sz.y); // arcada inferior
+      placeArch(wbox.min.y + 0.58 * sz.y, wbox.min.y + 0.80 * sz.y, 0.42); // arcada superior
+      placeArch(wbox.min.y + 0.24 * sz.y, wbox.min.y + 0.52 * sz.y, 0.20); // arcada inferior (dientes pequeños/retraídos)
     }
 
     // ---- Conmutador: Natural / Con brackets / Invisible ----
