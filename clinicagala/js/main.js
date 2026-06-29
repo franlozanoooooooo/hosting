@@ -85,8 +85,8 @@
     window.addEventListener(
       "scroll",
       () => {
-        const offset = Math.min(window.scrollY * 0.08, 40);
-        heroImg.style.transform = `translateY(${offset}px) scale(1.04)`;
+        const offset = Math.min(window.scrollY * 0.08, 46);
+        heroImg.style.transform = `translateY(${offset}px) scale(1.12)`;
       },
       { passive: true }
     );

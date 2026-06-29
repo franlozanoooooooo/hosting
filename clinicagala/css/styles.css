@@ -787,16 +787,11 @@ html.intro-skip #intro { display: none !important; }
 .share a svg { width: 19px; height: 19px; }
 
 /* ---------- Diente 3D (Three.js) ---------- */
-/* Escenario oscuro y dramático para el diente kintsugi */
-.section-stage { background: radial-gradient(ellipse at 50% 32%, #19140d 0%, #0c0a08 52%, #060509 100%); }
-.section-stage .eyebrow { color: #d6a450; }
-.serif-display { font-family: var(--font-display, "Fraunces", Georgia, serif); font-weight: 500; letter-spacing: -0.01em; }
-.serif-display em { font-style: italic; color: #e7c581; }
-.tech-3d { position: relative; width: 100%; max-width: 520px; margin: 0 auto 54px; aspect-ratio: 5 / 6; }
+.tech-3d { position: relative; width: 100%; max-width: 460px; margin: 0 auto 54px; aspect-ratio: 1 / 1; }
 .tech-3d::before {
-  content: ""; position: absolute; inset: -6% -2% 10%; z-index: 0; border-radius: 50%;
-  background: radial-gradient(ellipse at 50% 38%, rgba(214,164,80,.30), rgba(120,80,30,.10) 45%, rgba(0,0,0,0) 70%);
-  filter: blur(10px); pointer-events: none;
+  content: ""; position: absolute; inset: 4%; z-index: 0; border-radius: 50%;
+  background: radial-gradient(circle at 50% 44%, rgba(47,163,160,.30), rgba(47,163,160,0) 60%);
+  filter: blur(8px); pointer-events: none;
 }
 .tech-3d canvas { position: relative; z-index: 1; width: 100%; height: 100%; display: block; cursor: grab; touch-action: pan-y; }
 .tech-3d canvas:active { cursor: grabbing; }
@@ -853,3 +848,111 @@ html.intro-skip #intro { display: none !important; }
 .gallery3d.no-3d .g3d-fallback { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; max-width: 720px; margin: 0 auto; padding: 0 24px; }
 .gallery3d.no-3d .g3d-fallback img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: var(--radius-sm); }
 @media (max-width: 600px) { .gallery3d { height: 60vh; min-height: 380px; } }
+
+/* ============================================================
+   TEMA OSCURO EDITORIAL (estilo "after" del referente docmo)
+   Convierte la paleta clara en un modo oscuro premium.
+   ============================================================ */
+:root {
+  --bg: #0a0d0e;
+  --bg-soft: #0e1415;
+  --bg-mint: #0f1819;
+  --mint: #15403f;
+  --text: #e9efed;
+  --muted: #9fb2ad;
+  --muted-2: #7c918d;
+  --border: rgba(255,255,255,.09);
+  --border-strong: rgba(255,255,255,.17);
+  --shadow-xs: 0 4px 14px rgba(0,0,0,.45);
+  --shadow-sm: 0 16px 36px rgba(0,0,0,.55);
+  --shadow: 0 30px 70px rgba(0,0,0,.6);
+}
+body { background: var(--bg); color: var(--text); }
+h1, h2, h3, h4 { color: #f5f3ec; }
+h1 em, h2 em { font-style: italic; color: var(--bright-2); }
+.section-soft { background: var(--bg-soft); }
+.section-mint { background: var(--bg-mint); }
+.section-ink { background: #05080a; }
+
+/* Superficies / tarjetas */
+.card, .tcard, .info-card, .post-card, .toc, .svc-card, .lightbox-content {
+  background: #12181a; border-color: var(--border);
+}
+.trust { background: #0b1011; border-color: var(--border); }
+.card .ic, .step-item .n, .check-list .tick, .stat .ic, .info-card .ic, .dropdown .di,
+.author-box .av, .article-meta .author .av, .tcard .who .av, .share a, .footer-brand .soc a {
+  background: rgba(47,163,160,.15); color: var(--bright-2);
+}
+.team-tags span, .svc-card .pill-cat, .post-card .pill-cat, .post-card .pc {
+  background: rgba(47,163,160,.14); color: var(--bright-2);
+}
+
+/* Botones */
+.btn-ghost { background: transparent; color: var(--text); border-color: var(--border-strong); }
+.btn-ghost:hover { border-color: var(--bright); color: var(--bright); }
+.btn-light { background: #f4f2ec; color: var(--ink); }
+.btn-light:hover { background: #fff; }
+
+/* Cabecera y navegación */
+.site-header { background: rgba(8,11,12,.72); }
+.site-header.scrolled { background: rgba(8,11,12,.9); box-shadow: 0 10px 30px rgba(0,0,0,.5); border-color: var(--border); }
+.brand-fallback, .nav-toggle { color: var(--text); }
+.nav-links > li > a:not(.btn) { color: var(--text); }
+.dropdown { background: #12181a; border-color: var(--border); }
+.dropdown a:hover { background: rgba(47,163,160,.12); color: var(--bright-2); }
+
+/* Héroes (gradientes claros -> oscuros) */
+.hero, .page-hero, .article-hero {
+  background: radial-gradient(120% 110% at 72% 18%, #123032 0%, #0a1516 52%, #070a0b 100%);
+}
+.hero::before { background: #1c6b6f; opacity: .35; }
+.hero::after { background: #14524f; opacity: .3; }
+.hero-img { background: #0f1718; }
+.float-card { background: rgba(16,22,24,.92); border: 1px solid var(--border); color: var(--text); }
+.team-card .photo .avatar { background: linear-gradient(160deg, #16403f, #0e2a2b); color: var(--bright-2); }
+
+/* Formularios */
+form input, form textarea, form select, .svc-search {
+  background: #0f1617; color: var(--text); border-color: var(--border);
+}
+.svc-search { border-color: var(--border-strong); }
+
+/* Antes/Después y multimedia */
+.ba { background: #0b1011; }
+.mobile-cta { background: rgba(8,11,12,.95); border-top-color: var(--border); }
+
+/* Intro de apertura en oscuro */
+#intro { background: radial-gradient(120% 120% at 50% 38%, #0e1819 0%, #0a1011 65%, #070a0b 100%) !important; }
+#intro .wm1 { color: #eef4f2 !important; }
+#intro .wm2 { color: #8aa7a2 !important; }
+
+/* Cabecera móvil */
+@media (max-width: 980px) {
+  .site-header { background: rgba(8,11,12,.96); }
+  .nav-links { background: #0b1112; }
+}
+
+/* ============================================================
+   MAGIC SCROLLING — entradas y parallax al hacer scroll
+   ============================================================ */
+/* Reveal base más expresivo */
+.reveal { opacity: 0; transform: translateY(46px) scale(.985); filter: blur(2px);
+  transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1), filter .9s ease; }
+.reveal.in { opacity: 1; transform: none; filter: none; }
+
+/* Marcos de imagen que entran con un sutil zoom (estilo editorial) */
+.ms-media { overflow: hidden; }
+.ms-media img { transition: transform 1.2s cubic-bezier(.2,.7,.2,1); will-change: transform; }
+.ms-media:not(.ms-in) img { transform: scale(1.18); }
+.ms-media.ms-in img { transform: scale(1); }
+
+@media (prefers-reduced-motion: reduce) {
+  .ms-media img { transition: none; }
+  .ms-media:not(.ms-in) img { transform: none; }
+}
+
+/* Fixes de contraste en modo oscuro */
+.float-card strong { color: #f5f3ec; }
+.float-card .fc-ic { background: rgba(47,163,160,.16); color: var(--bright-2); }
+.float-card .stars { color: var(--gold); }
+.hours .closed { color: #e08b83; }
