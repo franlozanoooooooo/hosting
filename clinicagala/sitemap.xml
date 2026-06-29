@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://clinicagaladental.es/</loc><lastmod>2026-06-19</lastmod><changefreq>monthly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://clinicagaladental.es/servicios.html</loc><lastmod>2026-06-19</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://clinicagaladental.es/estetica-dental.html</loc><lastmod>2026-06-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://clinicagaladental.es/funcion.html</loc><lastmod>2026-06-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://clinicagaladental.es/salud-oral.html</loc><lastmod>2026-06-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://clinicagaladental.es/equipo.html</loc><lastmod>2026-06-19</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://clinicagaladental.es/sobre-nosotros.html</loc><lastmod>2026-06-19</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://clinicagaladental.es/contacto.html</loc><lastmod>2026-06-19</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://clinicagaladental.es/blog/</loc><lastmod>2026-06-29</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <!-- Cada vez que publiques un artículo, añade aquí su URL copiando una línea como esta:
+  <url><loc>https://clinicagaladental.es/blog/NOMBRE-DEL-ARCHIVO.html</loc><lastmod>2026-MM-DD</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  -->
+</urlset>
