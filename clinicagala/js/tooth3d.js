@@ -171,68 +171,67 @@ if (canvas && wrap) {
       const wbox = new THREE.Box3().setFromObject(teethMesh);
       const sz = wbox.getSize(new THREE.Vector3());
       const cx = (wbox.min.x + wbox.max.x) / 2;
-      const brScale = sz.x * 0.060;
-      const yLo = wbox.min.y + 0.58 * sz.y, yHi = wbox.min.y + 0.80 * sz.y;
+      const brScale = sz.x * 0.058;
       const xLim = 0.40 * sz.x; // solo dientes frontales (evita caninos muy retraídos)
       const mw = teethMesh.matrixWorld;
       const pos = teethMesh.geometry.attributes.position;
       const nor = teethMesh.geometry.attributes.normal;
-      const v = new THREE.Vector3(), n = new THREE.Vector3();
-
-      // 1) Perfil labial de la arcada superior a partir de los vértices:
-      //    para cada columna x guardamos el vértice frontal más saliente.
-      const NB = 60;
-      const bins = new Array(NB).fill(null);
-      for (let i = 0; i < pos.count; i++) {
-        v.fromBufferAttribute(pos, i).applyMatrix4(mw);
-        if (v.y < yLo || v.y > yHi || Math.abs(v.x - cx) > xLim) continue;
-        n.fromBufferAttribute(nor, i).transformDirection(mw);
-        if (n.z < 0.45) continue; // cara labial (frontal)
-        const t = (v.x - wbox.min.x) / sz.x;
-        const bi = Math.min(NB - 1, Math.max(0, Math.floor(t * NB)));
-        if (!bins[bi] || v.z > bins[bi].z) bins[bi] = { p: v.clone(), n: n.clone().normalize(), z: v.z };
-      }
-      const prof = bins.filter(Boolean).sort((a, b) => a.p.x - b.p.x);
-      if (prof.length < 4) return;
-
-      // 2) Centros de diente = máximos locales del saliente (z) a lo largo del arco
-      const sm = prof.map((o, i) => {
-        let a = 0, k = 0;
-        for (let j = i - 1; j <= i + 1; j++) if (j >= 0 && j < prof.length) { a += prof[j].z; k++; }
-        return a / k;
-      });
-      const W = 3;
-      let peaks = [];
-      for (let i = 0; i < prof.length; i++) {
-        let isMax = true;
-        for (let j = i - W; j <= i + W; j++) if (j >= 0 && j < prof.length && sm[j] > sm[i] + 1e-5) { isMax = false; break; }
-        if (!isMax) continue;
-        if (peaks.length && i - peaks[peaks.length - 1] < W) {
-          if (sm[i] > sm[peaks[peaks.length - 1]]) peaks[peaks.length - 1] = i;
-        } else peaks.push(i);
-      }
-      // Fallback: reparto uniforme si la detección no da una hilera razonable
-      if (peaks.length < 5 || peaks.length > 9) {
-        const M = Math.min(7, prof.length);
-        peaks = [];
-        for (let k = 0; k < M; k++) peaks.push(Math.round((prof.length - 1) * k / (M - 1)));
-      }
-
-      // 3) Un bracket cuadrado por diente; alambre por la ranura de todos
       const zfwd = new THREE.Vector3(0, 0, 1);
-      const pts = [];
-      for (const pi of peaks) {
-        const o = prof[pi];
-        const br = makeBracket(brScale);
-        br.position.copy(o.p).addScaledVector(o.n, brScale * 0.30);
-        br.quaternion.setFromUnitVectors(zfwd, o.n);
-        bracesGroup.add(br);
-        pts.push(o.p.clone().addScaledVector(o.n, brScale * 0.46));
+
+      // Coloca un cuadrado por diente en una arcada (banda vertical [yLo,yHi]):
+      // detecta el bulto labial de cada corona y enhebra el alambre por todos.
+      function placeArch(yLo, yHi) {
+        const v = new THREE.Vector3(), n = new THREE.Vector3();
+        const NB = 60;
+        const bins = new Array(NB).fill(null);
+        for (let i = 0; i < pos.count; i++) {
+          v.fromBufferAttribute(pos, i).applyMatrix4(mw);
+          if (v.y < yLo || v.y > yHi || Math.abs(v.x - cx) > xLim) continue;
+          n.fromBufferAttribute(nor, i).transformDirection(mw);
+          if (n.z < 0.42) continue; // cara labial (frontal)
+          const t = (v.x - wbox.min.x) / sz.x;
+          const bi = Math.min(NB - 1, Math.max(0, Math.floor(t * NB)));
+          if (!bins[bi] || v.z > bins[bi].z) bins[bi] = { p: v.clone(), n: n.clone().normalize(), z: v.z };
+        }
+        const prof = bins.filter(Boolean).sort((a, b) => a.p.x - b.p.x);
+        if (prof.length < 4) return;
+        const sm = prof.map((o, i) => {
+          let a = 0, k = 0;
+          for (let j = i - 1; j <= i + 1; j++) if (j >= 0 && j < prof.length) { a += prof[j].z; k++; }
+          return a / k;
+        });
+        const W = 3;
+        let peaks = [];
+        for (let i = 0; i < prof.length; i++) {
+          let isMax = true;
+          for (let j = i - W; j <= i + W; j++) if (j >= 0 && j < prof.length && sm[j] > sm[i] + 1e-5) { isMax = false; break; }
+          if (!isMax) continue;
+          if (peaks.length && i - peaks[peaks.length - 1] < W) {
+            if (sm[i] > sm[peaks[peaks.length - 1]]) peaks[peaks.length - 1] = i;
+          } else peaks.push(i);
+        }
+        if (peaks.length < 5 || peaks.length > 9) {
+          const M = Math.min(7, prof.length);
+          peaks = [];
+          for (let k = 0; k < M; k++) peaks.push(Math.round((prof.length - 1) * k / (M - 1)));
+        }
+        const pts = [];
+        for (const pi of peaks) {
+          const o = prof[pi];
+          const br = makeBracket(brScale);
+          br.position.copy(o.p).addScaledVector(o.n, brScale * 0.30);
+          br.quaternion.setFromUnitVectors(zfwd, o.n);
+          bracesGroup.add(br);
+          pts.push(o.p.clone().addScaledVector(o.n, brScale * 0.46));
+        }
+        if (pts.length > 1) {
+          const curve = new THREE.CatmullRomCurve3(pts, false, "catmullrom", 0.2);
+          bracesGroup.add(new THREE.Mesh(new THREE.TubeGeometry(curve, 180, brScale * 0.1, 8, false), wireMat));
+        }
       }
-      if (pts.length > 1) {
-        const curve = new THREE.CatmullRomCurve3(pts, false, "catmullrom", 0.2);
-        bracesGroup.add(new THREE.Mesh(new THREE.TubeGeometry(curve, 180, brScale * 0.1, 8, false), wireMat));
-      }
+
+      placeArch(wbox.min.y + 0.58 * sz.y, wbox.min.y + 0.80 * sz.y); // arcada superior
+      placeArch(wbox.min.y + 0.34 * sz.y, wbox.min.y + 0.52 * sz.y); // arcada inferior
     }
 
     // ---- Conmutador: Natural / Con brackets / Invisible ----
@@ -282,13 +281,24 @@ if (canvas && wrap) {
     if (window.ResizeObserver) new ResizeObserver(resize).observe(canvas);
     else window.addEventListener("resize", resize);
 
+    // Rotación ligada al scroll (magic scrolling): el 3D gira según avanzas.
+    function scrollYaw() {
+      const r = canvas.getBoundingClientRect();
+      const vh = window.innerHeight || 1;
+      const center = r.top + r.height / 2;
+      const p = Math.max(0, Math.min(1, 1 - center / vh)); // 0 (abajo) .. 1 (arriba)
+      return (p - 0.5) * 1.7; // gira ~ -0.85 a 0.85 rad al recorrer la sección
+    }
     let raf = null, running = false, last = 0;
     function frame(ts) {
       raf = requestAnimationFrame(frame);
       if (ts - last < 33) return; // ~30 fps: menos carga de GPU/CPU
       last = ts;
-      if (!userActive && !reduce) pivot.rotation.y = 0.33 * Math.sin(ts * 0.0004);
-      pivot.position.y = Math.sin(ts * 0.001) * 0.025;
+      if (!userActive && !reduce) {
+        const target = scrollYaw();
+        pivot.rotation.y += (target - pivot.rotation.y) * 0.09; // suavizado
+      }
+      pivot.position.y = Math.sin(ts * 0.001) * 0.02;
       controls.update();
       renderer.render(scene, camera);
     }
