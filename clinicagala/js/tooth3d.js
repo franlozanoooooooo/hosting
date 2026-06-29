@@ -216,23 +216,23 @@ if (canvas && wrap) {
           for (let k = 0; k < M; k++) peaks.push(Math.round((prof.length - 1) * k / (M - 1)));
         }
         const worldUp = new THREE.Vector3(0, 1, 0);
+        const midY = (yLo + yHi) * 0.5; // MISMA altura para todos -> fila alineada
         const pts = [];
         for (const pi of peaks) {
           const o = prof[pi];
-          // Orientación estable: mira hacia fuera (normal aplanada) y queda RECTO
-          // (vertical), sin giro aleatorio -> brackets no torcidos.
-          const fwd = new THREE.Vector3(o.n.x, o.n.y * 0.35, o.n.z).normalize();
+          // Posición: centro del diente (x) y superficie (z), pero a una ALTURA FIJA.
+          const base = new THREE.Vector3(o.p.x, midY, o.p.z);
+          // Cara recta hacia fuera (horizontal), sin giro -> brackets derechos.
+          const fwd = new THREE.Vector3(o.n.x, 0, o.n.z);
+          if (fwd.lengthSq() < 1e-4) fwd.set(0, 0, 1);
+          fwd.normalize();
           const right = new THREE.Vector3().crossVectors(worldUp, fwd).normalize();
-          if (right.lengthSq() < 1e-4) right.set(1, 0, 0);
-          const up = new THREE.Vector3().crossVectors(fwd, right).normalize();
-          const basis = new THREE.Matrix4().makeBasis(right, up, fwd);
+          const basis = new THREE.Matrix4().makeBasis(right, worldUp, fwd);
           const br = makeBracket(brScale);
           br.quaternion.setFromRotationMatrix(basis);
-          // A ras del diente: la base se incrusta un poco (no flota).
-          br.position.copy(o.p).addScaledVector(fwd, brScale * 0.12);
+          br.position.copy(base).addScaledVector(fwd, brScale * 0.10); // a ras del diente
           bracesGroup.add(br);
-          // Punto del alambre: en la ranura (cara frontal de la base).
-          pts.push(o.p.clone().addScaledVector(fwd, brScale * 0.30));
+          pts.push(base.clone().addScaledVector(fwd, brScale * 0.28)); // alambre por la ranura
         }
         if (pts.length > 1) {
           const curve = new THREE.CatmullRomCurve3(pts, false, "catmullrom", 0.2);
