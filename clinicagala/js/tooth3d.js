@@ -215,18 +215,28 @@ if (canvas && wrap) {
           peaks = [];
           for (let k = 0; k < M; k++) peaks.push(Math.round((prof.length - 1) * k / (M - 1)));
         }
+        const worldUp = new THREE.Vector3(0, 1, 0);
         const pts = [];
         for (const pi of peaks) {
           const o = prof[pi];
+          // Orientación estable: mira hacia fuera (normal aplanada) y queda RECTO
+          // (vertical), sin giro aleatorio -> brackets no torcidos.
+          const fwd = new THREE.Vector3(o.n.x, o.n.y * 0.35, o.n.z).normalize();
+          const right = new THREE.Vector3().crossVectors(worldUp, fwd).normalize();
+          if (right.lengthSq() < 1e-4) right.set(1, 0, 0);
+          const up = new THREE.Vector3().crossVectors(fwd, right).normalize();
+          const basis = new THREE.Matrix4().makeBasis(right, up, fwd);
           const br = makeBracket(brScale);
-          br.position.copy(o.p).addScaledVector(o.n, brScale * 0.30);
-          br.quaternion.setFromUnitVectors(zfwd, o.n);
+          br.quaternion.setFromRotationMatrix(basis);
+          // A ras del diente: la base se incrusta un poco (no flota).
+          br.position.copy(o.p).addScaledVector(fwd, brScale * 0.12);
           bracesGroup.add(br);
-          pts.push(o.p.clone().addScaledVector(o.n, brScale * 0.46));
+          // Punto del alambre: en la ranura (cara frontal de la base).
+          pts.push(o.p.clone().addScaledVector(fwd, brScale * 0.30));
         }
         if (pts.length > 1) {
           const curve = new THREE.CatmullRomCurve3(pts, false, "catmullrom", 0.2);
-          bracesGroup.add(new THREE.Mesh(new THREE.TubeGeometry(curve, 180, brScale * 0.1, 8, false), wireMat));
+          bracesGroup.add(new THREE.Mesh(new THREE.TubeGeometry(curve, 200, brScale * 0.085, 8, false), wireMat));
         }
       }
 
