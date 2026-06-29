@@ -787,11 +787,16 @@ html.intro-skip #intro { display: none !important; }
 .share a svg { width: 19px; height: 19px; }
 
 /* ---------- Diente 3D (Three.js) ---------- */
-.tech-3d { position: relative; width: 100%; max-width: 440px; margin: 0 auto 54px; aspect-ratio: 1 / 1; }
+/* Escenario oscuro y dramático para el diente kintsugi */
+.section-stage { background: radial-gradient(ellipse at 50% 32%, #19140d 0%, #0c0a08 52%, #060509 100%); }
+.section-stage .eyebrow { color: #d6a450; }
+.serif-display { font-family: var(--font-display, "Fraunces", Georgia, serif); font-weight: 500; letter-spacing: -0.01em; }
+.serif-display em { font-style: italic; color: #e7c581; }
+.tech-3d { position: relative; width: 100%; max-width: 520px; margin: 0 auto 54px; aspect-ratio: 5 / 6; }
 .tech-3d::before {
-  content: ""; position: absolute; inset: 4%; z-index: 0; border-radius: 50%;
-  background: radial-gradient(circle at 50% 44%, rgba(47,163,160,.34), rgba(47,163,160,0) 60%);
-  filter: blur(6px); pointer-events: none;
+  content: ""; position: absolute; inset: -6% -2% 10%; z-index: 0; border-radius: 50%;
+  background: radial-gradient(ellipse at 50% 38%, rgba(214,164,80,.30), rgba(120,80,30,.10) 45%, rgba(0,0,0,0) 70%);
+  filter: blur(10px); pointer-events: none;
 }
 .tech-3d canvas { position: relative; z-index: 1; width: 100%; height: 100%; display: block; cursor: grab; touch-action: pan-y; }
 .tech-3d canvas:active { cursor: grabbing; }
