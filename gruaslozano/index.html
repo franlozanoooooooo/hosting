@@ -1,0 +1,2691 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grúas y Plataformas Lozano — Elevación, Ingeniería y Transporte · Desde 1959</title>
+<meta name="description" content="Servicio integral en el campo de la elevación desde 1959. Grúas móviles de 35 a 700 t, 600 plataformas elevadoras y camiones grúa autocargantes. Flota propia y 11 delegaciones en Andalucía y Extremadura.">
+<meta property="og:title" content="Grúas y Plataformas Lozano — Elevación, Ingeniería y Transporte">
+<meta property="og:description" content="Grúas móviles de 35 a 700 t · 600 plataformas elevadoras · 11 delegaciones · Desde 1959.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/jpeg" href="assets/favicon.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LocalBusiness","name":"Grúas y Plataformas Lozano","foundingDate":"1959","telephone":"+34955634500","email":"gruaslozano@gruaslozano.com","address":{"@type":"PostalAddress","streetAddress":"Polígono Industrial La Red, calle 9, nº 1. Carretera de Sevilla a Málaga Km 5,200","addressLocality":"Alcalá de Guadaíra","addressRegion":"Sevilla","postalCode":"41500","addressCountry":"ES"},"areaServed":["Andalucía","Extremadura"]}
+</script>
+<style>
+/* ============================================================
+   GRÚAS Y PLATAFORMAS LOZANO — tema claro «Papel y Señal»
+   Colores oficiales: naranja #FF6B00 · tinta #2D2926
+   Una página, scroll continuo, parallax y reveals
+   ============================================================ */
+:root{
+  --bg:#FAF6F0;
+  --bg2:#FFFFFF;
+  --bg3:#F2EBE2;
+  --ink:#2D2926;
+  --dim:#76706A;
+  --or:#FF6B00;
+  --or-d:#E05E00;
+  --or-soft:rgba(255,107,0,.10);
+  --line:rgba(45,41,38,.13);
+  --dark:#211D19;
+  --dark2:#2B2620;
+  --ok:#1F9D60;
+  --sh:0 20px 45px -24px rgba(45,41,38,.28);
+  --sh-sm:0 10px 24px -14px rgba(45,41,38,.22);
+  --r:18px;
+  --r-lg:26px;
+  --fd:'Archivo',system-ui,-apple-system,sans-serif;
+  --fm:'IBM Plex Mono',ui-monospace,'SF Mono',monospace;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --hdr-h:84px;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--hdr-h) + 10px)}
+body{
+  font:400 1rem/1.7 var(--fd);
+  background:var(--bg);
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+::selection{background:var(--or);color:#fff}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,select,textarea{font:inherit;color:inherit}
+fieldset{min-inline-size:0;border:none}
+.wrap{width:min(1240px,92vw);margin-inline:auto}
+.mono{font-family:var(--fm)}
+
+/* ---------- utilidades de marca ---------- */
+.eyebrow{
+  display:flex;align-items:center;gap:.8rem;
+  font:600 .72rem/1 var(--fm);letter-spacing:.2em;text-transform:uppercase;color:var(--or-d);
+  margin-bottom:1.3rem;
+}
+.eyebrow .tick{width:26px;height:6px;border-radius:99px;background:repeating-linear-gradient(-45deg,var(--or) 0 5px,transparent 5px 10px);flex:none}
+.title{
+  font-weight:830;font-stretch:110%;text-transform:uppercase;
+  font-size:clamp(2rem,4.4vw,3.4rem);line-height:1.04;letter-spacing:-.012em;color:var(--ink);
+}
+.title em{font-style:normal;color:var(--or)}
+.sub{max-width:58ch;color:var(--dim);margin-top:1.2rem;font-size:1.05rem}
+.sub b{color:var(--ink);font-weight:650}
+.sec{position:relative;padding:clamp(4.5rem,8vw,7.5rem) 0;overflow:hidden}
+.sec--paper{background:var(--bg2)}
+.sec-idx{
+  position:absolute;top:1.2rem;right:-.4rem;z-index:0;pointer-events:none;user-select:none;
+  font-weight:900;font-stretch:74%;line-height:.8;font-size:clamp(6rem,15vw,12rem);
+  color:transparent;-webkit-text-stroke:1.5px rgba(45,41,38,.08);
+}
+.shead{position:relative;z-index:1;margin-bottom:clamp(2.4rem,4.5vw,3.6rem)}
+
+/* bandas de imagen entre secciones (con parallax) */
+.phead{
+  position:relative;height:clamp(320px,52vh,560px);
+  display:flex;align-items:flex-end;overflow:hidden;background:var(--dark);
+}
+.phead img{
+  position:absolute;left:0;right:0;top:-26%;height:152%;width:100%;
+  object-fit:cover;opacity:.6;filter:saturate(.9);
+  will-change:transform;transform:translateY(var(--py,0px));
+}
+.phead::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(33,29,25,.45),rgba(33,29,25,.1) 50%,rgba(33,29,25,.78))}
+.phead .wrap{position:relative;z-index:1;padding-bottom:1.7rem;will-change:transform}
+.phead .crumb{font:600 .64rem/1 var(--fm);letter-spacing:.24em;text-transform:uppercase;color:var(--or)}
+.phead h1{margin-top:.6rem;font-weight:850;font-stretch:112%;text-transform:uppercase;color:#fff;font-size:clamp(1.9rem,4.6vw,3rem);line-height:1;letter-spacing:-.01em}
+
+/* reveals de línea en titulares */
+.tl-l{display:block;overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em}
+.tl-l>span{display:block;transform:translateY(112%);transition:transform 1s var(--ease)}
+.on .tl-l>span,.tl.on .tl-l>span{transform:none}
+.tl-l:nth-child(2)>span{transition-delay:.09s}
+
+/* reveal genérico */
+.rv{opacity:0;transform:translateY(30px);transition:opacity .9s var(--ease) var(--d,0s),transform .9s var(--ease) var(--d,0s)}
+.rv.on{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important}
+  html{scroll-behavior:auto}
+  .rv,.tl-l>span{opacity:1;transform:none}
+  .phead img{transform:none!important}
+}
+
+/* ---------- botones (píldora) ---------- */
+.btn{
+  position:relative;display:inline-flex;align-items:center;justify-content:center;gap:.7rem;
+  padding:1.05rem 1.7rem;overflow:hidden;text-decoration:none;white-space:nowrap;border-radius:999px;
+  font:650 .8rem/1 var(--fm);letter-spacing:.12em;text-transform:uppercase;
+  transition:color .35s var(--ease),border-color .35s var(--ease),transform .35s var(--ease),box-shadow .35s;
+}
+.btn>*{position:relative;z-index:1}
+.btn::before{content:"";position:absolute;inset:0;transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+.btn:hover::before{transform:scaleX(1)}
+.btn:hover{box-shadow:var(--sh-sm)}
+.btn:active{transform:translateY(1px)}
+.btn .ar{transition:transform .35s var(--ease)}
+.btn:hover .ar{transform:translateX(5px)}
+.btn--or{background:var(--or);color:#fff}
+.btn--or::before{background:var(--or-d)}
+.btn--ghost{border:1.5px solid var(--line);color:var(--ink);background:var(--bg2)}
+.btn--ghost::before{background:var(--ink)}
+.btn--ghost:hover{color:#fff;border-color:var(--ink)}
+.btn--mini{padding:.74rem 1.05rem;font-size:.66rem;letter-spacing:.1em}
+
+/* esquinas técnicas al hover (sutiles en claro) */
+.brk{position:relative}
+.brk .ck{position:absolute;width:14px;height:14px;border:2px solid var(--or);opacity:0;transition:all .4s var(--ease);pointer-events:none;z-index:2;border-radius:3px}
+.brk .ck--tl{top:10px;left:10px;border-right:none;border-bottom:none;transform:translate(6px,6px)}
+.brk .ck--br{bottom:10px;right:10px;border-left:none;border-top:none;transform:translate(-6px,-6px)}
+.brk:hover .ck{opacity:1;transform:none}
+
+/* ---------- barra de progreso scroll ---------- */
+#pbar{position:fixed;top:0;left:0;height:3px;width:100%;z-index:200;transform-origin:left;transform:scaleX(0);background:var(--or)}
+
+/* ---------- header ---------- */
+.hdr{
+  position:fixed;inset:0 0 auto 0;z-index:150;
+  display:flex;align-items:center;
+  height:var(--hdr-h);
+  transition:height .4s var(--ease),background .4s,border-color .4s,box-shadow .4s;
+  border-bottom:1px solid transparent;
+}
+.hdr.sc{height:66px;background:rgba(250,246,240,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom-color:var(--line);box-shadow:0 10px 30px -22px rgba(45,41,38,.35)}
+.hdr .wrap{display:flex;align-items:center;gap:2rem}
+.logo{display:flex;align-items:center;text-decoration:none;flex:none}
+.logo img{height:42px;width:auto;transition:height .4s var(--ease);mix-blend-mode:multiply}
+.hdr.sc .logo img{height:36px}
+.nav{display:flex;gap:1.15rem;margin-left:auto}
+.nav a{
+  position:relative;text-decoration:none;padding:.4rem 0;
+  font:550 .7rem/1 var(--fm);letter-spacing:.1em;text-transform:uppercase;color:var(--dim);
+  transition:color .3s;
+}
+.nav a::after{content:"";position:absolute;left:0;bottom:0;height:2px;border-radius:99px;width:100%;background:var(--or);transform:scaleX(0);transform-origin:right;transition:transform .4s var(--ease)}
+.nav a:hover,.nav a.act{color:var(--ink)}
+.nav a:hover::after,.nav a.act::after{transform:scaleX(1);transform-origin:left}
+.hdr-tel{display:flex;align-items:center;gap:.6rem;text-decoration:none}
+.hdr-tel .dot{width:7px;height:7px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 0 rgba(31,157,96,.4);animation:beat 2.2s infinite}
+@keyframes beat{0%{box-shadow:0 0 0 0 rgba(31,157,96,.35)}70%{box-shadow:0 0 0 9px rgba(31,157,96,0)}100%{box-shadow:0 0 0 0 rgba(31,157,96,0)}}
+.hdr-tel b{font:650 .92rem/1 var(--fm);letter-spacing:.02em;color:var(--ink)}
+.hdr-tel small{display:block;font:550 .56rem/1 var(--fm);letter-spacing:.2em;color:var(--dim);margin-bottom:.3rem}
+.hdr .btn{padding:.9rem 1.3rem}
+.burger{display:none;flex-direction:column;gap:5px;padding:.6rem;margin-left:auto}
+.burger i{display:block;width:26px;height:2px;border-radius:99px;background:var(--ink);transition:.4s var(--ease)}
+.burger.open i:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.open i:nth-child(2){opacity:0}
+.burger.open i:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* menú móvil */
+.mmenu{
+  position:fixed;inset:0;z-index:145;background:var(--bg);
+  display:flex;flex-direction:column;justify-content:center;padding:5.2rem 8vw 2rem;
+  clip-path:inset(0 0 100% 0);transition:clip-path .6s var(--ease);
+  overflow-y:auto;
+}
+.mmenu.open{clip-path:inset(0)}
+.mmenu a.mlink{
+  text-decoration:none;font-weight:820;font-stretch:110%;text-transform:uppercase;
+  font-size:clamp(1.15rem,4.2vh,1.85rem);line-height:1.5;color:var(--ink);
+  display:flex;align-items:baseline;gap:1rem;
+  opacity:0;transform:translateY(24px);transition:.5s var(--ease);
+}
+.mmenu.open a.mlink{opacity:1;transform:none;transition-delay:calc(.08s + var(--i)*.05s)}
+.mmenu a.mlink small{font:600 .7rem/1 var(--fm);color:var(--or);letter-spacing:.2em}
+.mmenu a.mlink:hover{color:var(--or)}
+.mmenu-foot{margin-top:auto;padding-top:1.6rem;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:1.2rem;justify-content:space-between;align-items:center}
+.mmenu-foot a{font:650 1.1rem/1 var(--fm);text-decoration:none;color:var(--or)}
+.mmenu-foot span{font-size:.6rem;letter-spacing:.22em;color:var(--dim)}
+
+/* ---------- HERO ---------- */
+.hero{
+  position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:center;
+  padding:calc(var(--hdr-h) + 2.6rem) 0 0;overflow:hidden;
+  background:
+    radial-gradient(900px 480px at 88% -8%,rgba(255,107,0,.10),transparent 60%),
+    var(--bg);
+}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(45,41,38,.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(45,41,38,.05) 1px,transparent 1px);
+  background-size:78px 78px;
+  mask-image:radial-gradient(120% 90% at 60% 35%,#000 25%,transparent 100%);
+  -webkit-mask-image:radial-gradient(120% 90% at 60% 35%,#000 25%,transparent 100%);
+}
+.hero-side{
+  position:absolute;left:1.6rem;bottom:9rem;z-index:2;
+  writing-mode:vertical-rl;transform:rotate(180deg);
+  font:550 .6rem/1 var(--fm);letter-spacing:.32em;color:var(--dim);opacity:.6;
+}
+.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.04fr .96fr;gap:3rem;align-items:center}
+.hero-copy{will-change:transform}
+.hero-live{
+  display:inline-flex;align-items:center;gap:.7rem;border-radius:999px;
+  font:550 .68rem/1 var(--fm);letter-spacing:.16em;text-transform:uppercase;color:var(--dim);
+  background:var(--bg2);border:1px solid var(--line);box-shadow:var(--sh-sm);
+  padding:.6rem 1.1rem;margin-bottom:2rem;
+}
+.hero-live .dot{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 0 rgba(31,157,96,.4);animation:beat 2.2s infinite}
+.hero-live b{color:var(--ink)}
+.hero h1{
+  font-weight:850;font-stretch:113%;text-transform:uppercase;
+  font-size:clamp(2.5rem,5.8vw,4.7rem);line-height:.99;letter-spacing:-.015em;color:var(--ink);
+}
+.hero h1 em{font-style:normal;color:var(--or);white-space:nowrap}
+.hero-lead{max-width:52ch;color:var(--dim);font-size:clamp(1rem,1.4vw,1.14rem);margin-top:1.6rem}
+.hero-lead b{color:var(--ink);font-weight:650}
+.hero-ctas{display:flex;flex-wrap:wrap;align-items:center;gap:1rem;margin-top:2.3rem}
+.hero-tel{display:flex;flex-direction:column;text-decoration:none;margin-left:.4rem}
+.hero-tel small{font:550 .58rem/1 var(--fm);letter-spacing:.22em;color:var(--dim);margin-bottom:.3rem}
+.hero-tel b{font:650 1.2rem/1 var(--fm);letter-spacing:.02em;color:var(--ink);transition:color .3s}
+.hero-tel:hover b{color:var(--or)}
+
+/* entrada escalonada del hero */
+.hero [data-h]{opacity:0;transform:translateY(30px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+body.ld .hero [data-h]{opacity:1;transform:none}
+body.ld .hero [data-h="1"]{transition-delay:.1s}
+body.ld .hero [data-h="2"]{transition-delay:.22s}
+body.ld .hero [data-h="3"]{transition-delay:.36s}
+body.ld .hero [data-h="4"]{transition-delay:.5s}
+body.ld .hero [data-h="5"]{transition-delay:.66s}
+
+/* foto del hero */
+.hero-shot{position:relative;border-radius:var(--r-lg);overflow:hidden;background:var(--bg2);box-shadow:var(--sh);will-change:transform}
+.hero-shot::before{content:"";position:absolute;top:0;left:0;right:0;height:7px;z-index:2;background:repeating-linear-gradient(-45deg,var(--or) 0 12px,transparent 12px 26px)}
+.hero-shot img{width:100%;height:clamp(340px,48vh,540px);object-fit:cover;object-position:center;will-change:transform;transform:scale(var(--pz,1))}
+.hero-shot figcaption{
+  position:absolute;left:0;right:0;bottom:0;z-index:2;
+  display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+  padding:2.4rem 1.3rem 1.05rem;
+  background:linear-gradient(transparent,rgba(33,29,25,.85));
+  font:550 .6rem/1.6 var(--fm);letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.75);
+}
+.hero-shot figcaption b{color:#fff}
+.hero-chip{
+  position:absolute;top:1.4rem;left:1.2rem;z-index:2;
+  display:flex;align-items:center;gap:.8rem;border-radius:999px;
+  background:rgba(255,255,255,.94);border:1px solid rgba(255,107,0,.5);box-shadow:var(--sh-sm);
+  padding:.65rem 1.05rem;font:550 .66rem/1.4 var(--fm);letter-spacing:.08em;color:var(--ink);
+}
+.hero-chip b{color:var(--or-d);font-weight:650}
+.hero-x{position:absolute;right:1.2rem;top:1.4rem;z-index:2;animation:xpulse 2.8s ease infinite}
+@keyframes xpulse{0%,100%{opacity:.95}50%{opacity:.3}}
+
+/* stats hero */
+.hero-stats{
+  position:relative;z-index:1;list-style:none;margin-top:clamp(2.4rem,5vh,3.6rem);
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;
+  padding-bottom:3.2rem;
+}
+.hero-stats li{
+  background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);
+  padding:1.4rem 1.4rem 1.5rem;position:relative;box-shadow:var(--sh-sm);
+}
+.hero-stats li::before{content:"";position:absolute;top:0;left:1.4rem;width:34px;height:4px;border-radius:0 0 6px 6px;background:var(--or)}
+.hero-stats b{display:block;font-weight:850;font-stretch:78%;font-size:clamp(2rem,3.2vw,2.9rem);line-height:1;color:var(--ink)}
+.hero-stats b i{font-style:normal;color:var(--or)}
+.hero-stats span{display:block;margin-top:.5rem;font:550 .62rem/1.5 var(--fm);letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
+.hero-scroll{
+  position:absolute;right:2rem;bottom:8.5rem;z-index:2;display:flex;flex-direction:column;align-items:center;gap:.7rem;
+  text-decoration:none;font:550 .58rem/1 var(--fm);letter-spacing:.28em;color:var(--dim);writing-mode:vertical-rl;
+}
+.hero-scroll i{width:2px;height:54px;border-radius:99px;background:var(--line);position:relative;overflow:hidden}
+.hero-scroll i::after{content:"";position:absolute;inset:0;border-radius:99px;background:var(--or);transform:translateY(-100%);animation:drip 2.2s var(--ease) infinite}
+@keyframes drip{to{transform:translateY(100%)}}
+
+/* ---------- marquee ---------- */
+.mq{overflow:hidden;background:var(--bg2);border-block:1px solid var(--line);padding:1.1rem 0;position:relative}
+.mq-track{display:flex;width:max-content;animation:mq 30s linear infinite}
+.mq:hover .mq-track{animation-play-state:paused}
+@keyframes mq{to{transform:translateX(-50%)}}
+.mq-set{display:flex;align-items:center;flex:none}
+.mq-set span{display:flex;align-items:center;gap:2.4rem;padding-right:2.4rem;font:550 .78rem/1 var(--fm);letter-spacing:.22em;text-transform:uppercase;color:var(--dim);white-space:nowrap}
+.mq-set span b{color:var(--ink);font-weight:650}
+.mq-set span::after{content:"✛";color:var(--or);font-size:.7rem}
+
+/* ---------- servicios ---------- */
+.svc-grid{position:relative;z-index:1;display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem}
+.svc{
+  position:relative;background:var(--bg2);display:flex;flex-direction:column;
+  border:1px solid var(--line);border-radius:var(--r);overflow:hidden;
+  transition:transform .45s var(--ease),box-shadow .45s;
+}
+.svc:hover{transform:translateY(-6px);box-shadow:var(--sh)}
+.svc-img{height:220px;overflow:hidden;position:relative}
+.svc-img img{width:100%;height:100%;object-fit:cover;filter:saturate(.9);transition:transform .8s var(--ease),filter .5s}
+.svc:hover .svc-img img{transform:scale(1.06);filter:saturate(1.05)}
+.svc-img::after{content:"";position:absolute;left:0;bottom:0;right:0;height:3px;background:var(--or);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+.svc:hover .svc-img::after{transform:scaleX(1)}
+.svc-body{padding:1.5rem 1.5rem 1.7rem;display:flex;flex-direction:column;flex:1}
+.svc-n{font:650 .68rem/1 var(--fm);letter-spacing:.18em;color:var(--or-d)}
+.svc h3{font-weight:790;font-stretch:106%;text-transform:uppercase;font-size:1.1rem;line-height:1.18;letter-spacing:.01em;margin-top:.8rem;color:var(--ink)}
+.svc p{color:var(--dim);font-size:.92rem;margin-top:.7rem}
+.svc-ft{margin-top:auto;padding-top:1.3rem;display:flex;align-items:center;justify-content:space-between;gap:.6rem}
+.svc-ft em{font:550 .64rem/1.5 var(--fm);letter-spacing:.08em;color:var(--or-d);font-style:normal}
+.svc-ft a{display:inline-flex;align-items:center;gap:.45rem;text-decoration:none;font:650 .68rem/1 var(--fm);letter-spacing:.14em;text-transform:uppercase;color:var(--ink);white-space:nowrap}
+.svc-ft a svg{transition:transform .35s var(--ease)}
+.svc-ft a:hover svg{transform:translateX(4px)}
+
+/* ---------- flota ---------- */
+.fl-bar{display:flex;flex-wrap:wrap;align-items:center;gap:1rem;margin-bottom:1.3rem;position:relative;z-index:1}
+.fl-tabs{display:flex;flex-wrap:wrap;gap:.5rem}
+.ftab{
+  padding:.8rem 1.3rem;border:1.5px solid var(--line);border-radius:999px;background:var(--bg2);
+  font:550 .7rem/1 var(--fm);letter-spacing:.12em;text-transform:uppercase;color:var(--dim);
+  transition:all .35s var(--ease);
+}
+.ftab:hover{border-color:var(--ink);color:var(--ink)}
+.ftab.act{background:var(--or);border-color:var(--or);color:#fff;font-weight:650;box-shadow:var(--sh-sm)}
+.fl-count{margin-left:auto;font:550 .7rem/1.6 var(--fm);letter-spacing:.16em;text-transform:uppercase;color:var(--dim);text-align:right}
+.fl-count b{color:var(--or-d)}
+.fl-chips{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem;min-height:38px;margin-bottom:2rem;position:relative;z-index:1}
+.fl-chips .lbl{font:550 .62rem/1 var(--fm);letter-spacing:.2em;color:var(--dim);margin-right:.4rem}
+.fchip{
+  padding:.55rem 1rem;border:1.5px dashed var(--line);border-radius:999px;background:var(--bg2);
+  font:550 .68rem/1 var(--fm);letter-spacing:.08em;color:var(--dim);transition:all .3s var(--ease);
+}
+.fchip:hover{color:var(--ink);border-color:var(--dim)}
+.fchip.act{background:var(--or-soft);border:1.5px solid var(--or);color:var(--or-d)}
+.fl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;position:relative;z-index:1}
+.fcard{
+  position:relative;background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);
+  padding:1.35rem 1.4rem 1.4rem;display:flex;flex-direction:column;gap:.95rem;
+  transition:transform .45s var(--ease),border-color .45s,box-shadow .45s,opacity .4s;
+}
+.fcard:hover{transform:translateY(-6px);border-color:rgba(255,107,0,.5);box-shadow:var(--sh)}
+.fcard.hide{display:none}
+.fcard.in{animation:cardin .55s var(--ease) both;animation-delay:var(--d,0s)}
+@keyframes cardin{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+.fcard-top{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.ftag{font:650 .6rem/1 var(--fm);letter-spacing:.16em;text-transform:uppercase;color:var(--or-d);background:var(--or-soft);padding:.42rem .7rem;border-radius:999px}
+.fava{display:flex;align-items:center;gap:.45rem;font:550 .6rem/1 var(--fm);letter-spacing:.12em;color:var(--ok)}
+.fava i{width:6px;height:6px;border-radius:50%;background:var(--ok)}
+.fcard-img{
+  height:148px;display:flex;align-items:center;justify-content:center;
+  background:var(--bg3);border-radius:14px;overflow:hidden;
+}
+.fcard-img img{max-height:124px;width:auto;max-width:90%;object-fit:contain;filter:drop-shadow(0 12px 14px rgba(45,41,38,.25));transition:transform .6s var(--ease)}
+.fcard:hover .fcard-img img{transform:translateY(-4px) scale(1.04)}
+.fcard h3{font-weight:800;font-stretch:106%;font-size:1.14rem;line-height:1.1;text-transform:uppercase;letter-spacing:.01em;color:var(--ink)}
+.fcard h3 small{display:block;font:550 .62rem/1.5 var(--fm);letter-spacing:.16em;color:var(--dim);margin-top:.45rem;text-transform:uppercase}
+.fspec{list-style:none;border-top:1px solid var(--line)}
+.fspec li{display:flex;justify-content:space-between;gap:1rem;padding:.55rem 0;border-bottom:1px solid var(--line)}
+.fspec span{font:550 .62rem/1.6 var(--fm);letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.fspec b{font:650 .8rem/1.4 var(--fm);letter-spacing:.02em;color:var(--ink);text-align:right}
+.fspec b i{font-style:normal;color:var(--or-d)}
+.fcard-cta{display:grid;grid-template-columns:auto 1fr;gap:.55rem;margin-top:.15rem}
+.fcard-cta .btn--pdf{border:1.5px dashed var(--line);color:var(--dim);padding:.74rem .9rem;font-size:.62rem;border-radius:999px;background:var(--bg2)}
+.fcard-cta .btn--pdf::before{background:var(--bg3)}
+.fcard-cta .btn--pdf:hover{color:var(--ink);border-color:var(--dim)}
+.fl-note{margin-top:2.2rem;display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between;border:1.5px dashed var(--line);border-radius:var(--r);padding:1.25rem 1.5rem;position:relative;z-index:1;background:var(--bg2)}
+.fl-note p{font:550 .76rem/1.7 var(--fm);letter-spacing:.04em;color:var(--dim);max-width:62ch}
+.fl-note p b{color:var(--ink)}
+
+/* ---------- ingeniería ---------- */
+.ing-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2.4rem,5vw,4.2rem);align-items:start}
+.steps{list-style:none;counter-reset:st;margin-top:2.2rem;border-top:1px solid var(--line)}
+.steps li{position:relative;display:grid;grid-template-columns:80px 1fr;gap:1.2rem;padding:1.4rem .6rem;border-bottom:1px solid var(--line);border-radius:12px;transition:background .35s}
+.steps li:hover{background:var(--bg2)}
+.steps li::before{
+  counter-increment:st;content:"0" counter(st);
+  font-weight:850;font-stretch:76%;font-size:2.4rem;line-height:1;color:transparent;
+  -webkit-text-stroke:1.4px var(--or);
+}
+.steps h4{font-weight:760;font-stretch:105%;text-transform:uppercase;font-size:.98rem;letter-spacing:.03em;color:var(--ink)}
+.steps p{color:var(--dim);font-size:.92rem;margin-top:.3rem}
+.soft-chips{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.7rem}
+.schip{display:inline-flex;align-items:center;gap:.55rem;padding:.66rem 1.05rem;border:1.5px solid var(--line);border-radius:999px;background:var(--bg2);font:550 .68rem/1 var(--fm);letter-spacing:.1em;text-transform:uppercase;color:var(--ink);transition:all .3s var(--ease)}
+.schip i{width:6px;height:6px;border-radius:50%;background:var(--or);flex:none}
+.schip:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.frame{position:relative;background:var(--bg2);border:1px solid var(--line);border-radius:var(--r-lg);padding:1.1rem;box-shadow:var(--sh)}
+.frame::before{content:"";position:absolute;top:0;left:1.5rem;right:1.5rem;height:5px;border-radius:0 0 8px 8px;background:repeating-linear-gradient(-45deg,var(--or) 0 10px,transparent 10px 22px)}
+.frame img{width:100%;object-fit:cover;border-radius:16px}
+.frame figcaption{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-top:.95rem;padding:0 .3rem .2rem;font:550 .62rem/1.7 var(--fm);letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.frame figcaption b{color:var(--or-d)}
+
+/* sectores */
+.sect-grid{position:relative;z-index:1;display:grid;grid-template-columns:repeat(6,1fr);gap:.9rem;margin-top:clamp(2.4rem,5vw,3.2rem)}
+.sect{position:relative;overflow:hidden;border-radius:var(--r);aspect-ratio:3/4;display:flex;align-items:flex-end;text-decoration:none;box-shadow:var(--sh-sm)}
+.sect img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.8);transition:transform .8s var(--ease),filter .5s}
+.sect:hover img{transform:scale(1.08);filter:saturate(1.05)}
+.sect::after{content:"";position:absolute;inset:0;background:linear-gradient(185deg,transparent 38%,rgba(33,29,25,.82))}
+.sect h4{position:relative;z-index:1;padding:1rem;color:#fff;font-weight:770;font-stretch:106%;text-transform:uppercase;font-size:.9rem;letter-spacing:.04em;line-height:1.25}
+.sect h4 small{display:block;font:550 .56rem/1.6 var(--fm);letter-spacing:.16em;color:var(--or);margin-top:.3rem}
+
+/* ---------- historia ---------- */
+.hist-top{position:relative;z-index:1;display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(2.4rem,5vw,4rem);align-items:center;margin-bottom:clamp(2.4rem,5vw,3.6rem)}
+.hist-shot{position:relative;border-radius:var(--r-lg);overflow:visible;background:var(--bg2);border:1px solid var(--line);padding:1rem;box-shadow:var(--sh)}
+.hist-shot img:first-child{width:100%;height:320px;object-fit:cover;border-radius:16px;filter:grayscale(.3) contrast(1.02)}
+.hist-shot .badge{position:absolute;right:1.6rem;bottom:3.4rem;width:110px;filter:drop-shadow(0 14px 22px rgba(45,41,38,.35));animation:badgefloat 5s ease-in-out infinite}
+@keyframes badgefloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.hist-shot figcaption{margin-top:.85rem;padding:0 .2rem;font:550 .6rem/1.7 var(--fm);letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
+.tline-wrap{position:relative;z-index:1}
+.tline-hint{display:flex;justify-content:space-between;font:550 .62rem/1 var(--fm);letter-spacing:.2em;color:var(--dim);text-transform:uppercase;margin-bottom:1.1rem}
+.tline-hint b{color:var(--or-d)}
+.tline{display:flex;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:1.1rem;scrollbar-width:thin;scrollbar-color:var(--or) var(--bg3)}
+.tline::-webkit-scrollbar{height:5px}
+.tline::-webkit-scrollbar-track{background:var(--bg3);border-radius:99px}
+.tline::-webkit-scrollbar-thumb{background:var(--or);border-radius:99px}
+.tnode{position:relative;flex:0 0 auto;width:232px;padding:2.1rem 1.6rem 1rem 0;scroll-snap-align:start}
+.tnode::after{content:"";position:absolute;top:7px;left:0;right:0;height:2px;border-radius:99px;background:var(--line)}
+.tnode::before{content:"";position:absolute;top:0;left:0;width:15px;height:15px;border-radius:50%;background:var(--bg);border:3px solid var(--or);z-index:1;transition:background .35s}
+.tnode:hover::before{background:var(--or)}
+.tnode b{display:block;font-weight:850;font-stretch:78%;font-size:2.1rem;line-height:1;color:var(--or)}
+.tnode h4{font-weight:750;font-stretch:105%;text-transform:uppercase;font-size:.88rem;letter-spacing:.03em;margin-top:.6rem;color:var(--ink)}
+.tnode p{color:var(--dim);font-size:.84rem;margin-top:.4rem;line-height:1.55}
+
+/* ---------- certificaciones ---------- */
+.certs{display:grid;grid-template-columns:repeat(6,1fr);gap:1rem;margin-top:clamp(2.2rem,4vw,3rem);position:relative;z-index:1}
+.cert{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);padding:1.4rem 1.3rem;display:flex;flex-direction:column;gap:.85rem;text-decoration:none;transition:transform .35s var(--ease),box-shadow .35s}
+.cert:hover{transform:translateY(-5px);box-shadow:var(--sh)}
+.cert-img{height:62px;background:#fff;border:1px solid var(--line);border-radius:12px;display:flex;align-items:center;justify-content:center;padding:.5rem;font:650 .85rem/1.2 var(--fm);color:var(--ink)}
+.cert-img img{max-height:100%;width:auto;object-fit:contain}
+.cert h5{font:650 .74rem/1.3 var(--fm);letter-spacing:.08em;text-transform:uppercase;color:var(--ink)}
+.cert p{font-size:.78rem;color:var(--dim);line-height:1.55}
+.cert .pdf{margin-top:auto;font:650 .6rem/1 var(--fm);letter-spacing:.14em;color:var(--or-d);text-transform:uppercase}
+
+/* ---------- noticias ---------- */
+.nws{position:relative;z-index:1;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--r);background:var(--bg2);overflow:hidden;box-shadow:var(--sh-sm)}
+.nws .nitem{display:flex;align-items:center;gap:1.1rem;padding:1.1rem 1.4rem;border-bottom:1px solid var(--line);text-decoration:none;transition:background .3s,padding-left .3s var(--ease)}
+.nws .nitem:last-child{border-bottom:none}
+.nws .nitem:hover{background:var(--bg);padding-left:1.9rem}
+.nitem .tagy{font:650 .62rem/1 var(--fm);letter-spacing:.08em;background:var(--or);color:#fff;padding:.4rem .65rem;border-radius:999px;flex:none}
+.nitem b{font-weight:720;font-stretch:103%;font-size:.96rem;line-height:1.35;color:var(--ink)}
+.nitem small{margin-left:auto;font:650 .6rem/1 var(--fm);letter-spacing:.14em;color:var(--or-d);flex:none}
+@media (max-width:680px){.nitem b{font-size:.86rem}.nitem small{display:none}}
+
+/* ---------- delegaciones: rejilla (todo visible, sin clics) ---------- */
+.del-cards{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.1rem,2vw,1.5rem)}
+.dcard2{display:flex;flex-direction:column;background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--sh-sm);transition:transform .45s var(--ease),box-shadow .45s,border-color .45s}
+.dcard2:hover{transform:translateY(-6px);box-shadow:var(--sh)}
+.dcard2--hq{border-color:rgba(255,107,0,.55)}
+.dcard2-img{position:relative;height:180px;overflow:hidden}
+.dcard2-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.dcard2:hover .dcard2-img img{transform:scale(1.06)}
+.dcard2-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(33,29,25,.5))}
+.dbadge{position:absolute;left:.9rem;top:.9rem;z-index:1;font:650 .58rem/1 var(--fm);letter-spacing:.12em;text-transform:uppercase;background:rgba(255,255,255,.94);color:var(--ink);padding:.42rem .7rem;border-radius:999px;box-shadow:var(--sh-sm)}
+.dbadge--hq{background:var(--or);color:#fff}
+.dcard2-b{display:flex;flex-direction:column;flex:1;padding:1.25rem 1.4rem 1.4rem}
+.dcard2-b h3{font-weight:800;font-stretch:107%;text-transform:uppercase;font-size:1.22rem;letter-spacing:.01em;color:var(--ink)}
+.dcard2 .addr{color:var(--dim);font-size:.88rem;line-height:1.55;margin-top:.55rem}
+.dcard2-ft{margin-top:auto;padding-top:1.1rem;display:flex;flex-direction:column;gap:.7rem}
+.dphone{display:inline-flex;align-items:center;gap:.7rem;text-decoration:none;width:fit-content}
+.dphone svg{width:34px;height:34px;flex:none;padding:8px;border-radius:50%;background:var(--or-soft);fill:none;stroke:var(--or-d);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:background .3s,transform .3s}
+.dphone:hover svg{background:var(--or);stroke:#fff;transform:scale(1.06)}
+.dphone small{display:block;font:550 .56rem/1 var(--fm);letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin-bottom:.3rem}
+.dphone b{font:650 1.1rem/1 var(--fm);letter-spacing:.02em;color:var(--ink);transition:color .3s}
+.dphone:hover b{color:var(--or-d)}
+.dmail{font:550 .8rem/1.4 var(--fm);color:var(--dim);text-decoration:none;text-underline-offset:3px;word-break:break-word}
+.dmail:hover{color:var(--or-d);text-decoration:underline}
+.dcard2--cta{background:var(--dark);border-color:var(--dark);justify-content:center}
+.dcard2-ctab{padding:1.8rem 1.6rem;display:flex;flex-direction:column;gap:.7rem;align-items:flex-start}
+.dcta-k{font:650 .62rem/1 var(--fm);letter-spacing:.2em;color:var(--or)}
+.dcard2--cta h3{font-weight:820;font-stretch:108%;text-transform:uppercase;font-size:1.3rem;line-height:1.05;color:#fff}
+.dcard2--cta p{color:#BDB5AC;font-size:.88rem;line-height:1.55}
+.dcard2--cta .btn{margin-top:.6rem}
+
+/* ---------- presupuesto ---------- */
+.q-grid{position:relative;z-index:1;display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2.4rem,5vw,4.2rem);align-items:start}
+.q-points{list-style:none;margin-top:2rem;display:flex;flex-direction:column;gap:1rem}
+.q-points li{display:flex;gap:1rem;align-items:flex-start;color:var(--dim);font-size:.95rem}
+.q-points li b{color:var(--ink);font-weight:650}
+.q-points .pk{flex:none;width:22px;height:22px;margin-top:.15rem;display:flex;align-items:center;justify-content:center;border-radius:50%;background:var(--or-soft);color:var(--or-d);font:650 .7rem/1 var(--fm)}
+.q-alt{margin-top:2.4rem;border:1.5px dashed var(--line);border-radius:var(--r);background:var(--bg2);padding:1.35rem 1.5rem}
+.q-alt small{display:block;font:550 .6rem/1 var(--fm);letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin-bottom:.5rem}
+.q-alt a{font:650 1.45rem/1.3 var(--fm);color:var(--ink);text-decoration:none;transition:color .3s;word-break:break-word}
+.q-alt a:hover{color:var(--or-d)}
+.q-alt p{font-size:.8rem;color:var(--dim);margin-top:.45rem}
+.qform{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r-lg);padding:clamp(1.5rem,3vw,2.3rem);position:relative;box-shadow:var(--sh)}
+.fprog{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin-bottom:2rem}
+.fpseg small{display:block;font:550 .58rem/1 var(--fm);letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin-bottom:.5rem;transition:color .3s}
+.fpseg i{display:block;height:5px;border-radius:99px;background:var(--bg3);position:relative;overflow:hidden}
+.fpseg i::after{content:"";position:absolute;inset:0;border-radius:99px;background:var(--or);transform:scaleX(0);transform-origin:left;transition:transform .6s var(--ease)}
+.fpseg.done i::after,.fpseg.act i::after{transform:scaleX(1)}
+.fpseg.act small{color:var(--or-d)}
+.fpseg.done small{color:var(--ink)}
+#fpanels{display:grid;grid-template-columns:100%}
+.fstep{grid-area:1/1;opacity:0;visibility:hidden;transform:translateX(46px);transition:all .55s var(--ease);pointer-events:none}
+.fstep.act{opacity:1;visibility:visible;transform:none;pointer-events:auto}
+.fstep.left{transform:translateX(-46px)}
+.fstep h3{font-weight:790;font-stretch:106%;text-transform:uppercase;font-size:1.12rem;margin-bottom:1.4rem;color:var(--ink)}
+.fstep h3 em{font-style:normal;color:var(--or)}
+.svc-pick{display:grid;grid-template-columns:repeat(2,1fr);gap:.7rem;margin-bottom:1.3rem}
+.spick{position:relative;display:block;cursor:pointer}
+.spick input{position:absolute;opacity:0;pointer-events:none}
+.spick .bx{
+  display:flex;align-items:center;gap:.8rem;padding:.95rem 1.05rem;border:1.5px solid var(--line);border-radius:14px;background:var(--bg);
+  transition:all .3s var(--ease);
+}
+.spick .bx svg{width:28px;height:28px;flex:none;stroke:var(--dim);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;transition:stroke .3s}
+.spick .bx b{font:650 .72rem/1.35 var(--fm);letter-spacing:.08em;text-transform:uppercase;color:var(--ink)}
+.spick:hover .bx{border-color:var(--dim)}
+.spick input:checked+.bx{border-color:var(--or);background:var(--or-soft)}
+.spick input:checked+.bx svg{stroke:var(--or-d)}
+.spick input:focus-visible+.bx{outline:2px solid var(--or);outline-offset:2px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+.frow--1{grid-template-columns:1fr}
+.fld{display:flex;flex-direction:column;gap:.4rem}
+.fld label{font:550 .62rem/1 var(--fm);letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
+.fld label i{color:var(--or-d);font-style:normal}
+.fld input,.fld select,.fld textarea{
+  background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:.9rem 1rem;color:var(--ink);
+  font-size:.95rem;transition:border-color .3s,box-shadow .3s;width:100%;
+}
+.fld textarea{resize:vertical;min-height:100px}
+.fld select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23E05E00' stroke-width='1.8' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center;padding-right:2.6rem}
+.fld input:focus,.fld select:focus,.fld textarea:focus{outline:none;border-color:var(--or);box-shadow:0 0 0 3px var(--or-soft)}
+.fld input.err,.fld select.err,.fld textarea.err{border-color:#D93636;box-shadow:0 0 0 3px rgba(217,54,54,.12)}
+.fld input::placeholder,.fld textarea::placeholder{color:#A39B92}
+.fcheck{display:flex;gap:.85rem;align-items:flex-start;cursor:pointer;margin-bottom:.9rem}
+.fcheck input{flex:none;appearance:none;-webkit-appearance:none;width:20px;height:20px;margin-top:.15rem;border:1.5px solid var(--line);border-radius:6px;background:var(--bg);cursor:pointer;position:relative;transition:all .25s}
+.fcheck input:checked{background:var(--or);border-color:var(--or)}
+.fcheck input:checked::after{content:"";position:absolute;inset:4px 5px 6px;border:solid #fff;border-width:0 0 2.5px 2.5px;transform:rotate(-48deg)}
+.fcheck input:focus-visible{outline:2px solid var(--or);outline-offset:2px}
+.fcheck span{font-size:.82rem;color:var(--dim);line-height:1.55}
+.fcheck span a{color:var(--ink);text-underline-offset:3px}
+.fcheck span b{color:var(--ink)}
+.fcheck.err span{color:#D93636}
+.prefill{display:none;align-items:center;gap:.8rem;background:var(--or-soft);border:1.5px solid var(--or);border-radius:14px;padding:.8rem 1rem;margin-bottom:1.3rem}
+.prefill.show{display:flex}
+.prefill svg{flex:none;width:20px;height:20px;stroke:var(--or-d);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.prefill p{font:550 .74rem/1.5 var(--fm);letter-spacing:.03em;color:var(--ink)}
+.prefill p b{color:var(--or-d)}
+.prefill button{margin-left:auto;font:650 .6rem/1 var(--fm);letter-spacing:.12em;color:var(--dim);text-transform:uppercase;padding:.4rem}
+.prefill button:hover{color:#D93636}
+.fsummary{border:1.5px dashed var(--line);border-radius:14px;background:var(--bg);padding:1.1rem 1.25rem;margin-bottom:1.3rem}
+.fsummary small{display:block;font:550 .58rem/1 var(--fm);letter-spacing:.2em;text-transform:uppercase;color:var(--or-d);margin-bottom:.6rem}
+.fsummary p{font:550 .76rem/1.9 var(--fm);color:var(--dim)}
+.fsummary p b{color:var(--ink)}
+.fnav{display:flex;gap:.8rem;justify-content:space-between;margin-top:1.6rem}
+.fnav .btn{flex:1}
+.fnav .btn--back{flex:0 0 auto;border:1.5px solid var(--line);color:var(--dim);background:var(--bg2)}
+.fnav .btn--back::before{background:var(--bg3)}
+.fnav .btn--back:hover{color:var(--ink)}
+.ferr{display:none;margin-top:1rem;font:550 .7rem/1.6 var(--fm);letter-spacing:.04em;color:#D93636}
+.ferr.show{display:block}
+@keyframes shake{0%,100%{transform:none}20%{transform:translateX(-7px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(3px)}}
+.qform.shake{animation:shake .45s ease}
+.fsuccess{display:none;text-align:center;padding:2.4rem 1rem 1.4rem}
+.fsuccess.show{display:block}
+.fsuccess .okring{width:92px;height:92px;margin:0 auto 1.5rem}
+.fsuccess .okring circle{fill:none;stroke:var(--or);stroke-width:2;stroke-dasharray:1;stroke-dashoffset:1}
+.fsuccess .okring path{fill:none;stroke:var(--or);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1}
+.fsuccess.show .okring circle{stroke-dashoffset:0;transition:stroke-dashoffset 1s var(--ease)}
+.fsuccess.show .okring path{stroke-dashoffset:0;transition:stroke-dashoffset .7s var(--ease) .8s}
+.fsuccess h3{font-weight:810;font-stretch:108%;text-transform:uppercase;font-size:1.45rem;color:var(--ink)}
+.fsuccess .ref{display:inline-block;margin-top:1rem;font:650 .82rem/1 var(--fm);letter-spacing:.12em;color:var(--or-d);border:1.5px dashed var(--or);border-radius:999px;padding:.65rem 1.1rem}
+.fsuccess p{color:var(--dim);margin-top:1.1rem;font-size:.94rem}
+.fsuccess p b{color:var(--ink)}
+
+/* ---------- banda CTA ---------- */
+.cta{position:relative;overflow:hidden;background:var(--or)}
+.cta-bg{position:absolute;inset:0}
+.cta-bg img{width:100%;height:100%;object-fit:cover;opacity:.16;filter:saturate(0) contrast(1.1)}
+.cta-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(224,94,0,.5),transparent)}
+.cta .wrap{position:relative;z-index:1;display:flex;flex-wrap:wrap;align-items:center;gap:2.2rem;padding-block:clamp(3.2rem,6.5vw,5rem)}
+.cta h2{font-weight:860;font-stretch:112%;text-transform:uppercase;font-size:clamp(1.9rem,4.3vw,3.2rem);line-height:1;flex:1 1 380px;color:#fff}
+.cta h2 em{font-style:normal;color:var(--dark)}
+.cta-tel{text-decoration:none}
+.cta-tel small{display:block;font:550 .62rem/1 var(--fm);letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.85);margin-bottom:.5rem}
+.cta-tel b{font-weight:850;font-stretch:82%;font-size:clamp(2.1rem,4.3vw,3.2rem);line-height:1;color:#fff;transition:color .3s;letter-spacing:.01em}
+.cta-tel:hover b{color:var(--dark)}
+.cta .btn--or{background:var(--dark);color:#fff}
+.cta .btn--or::before{background:#000}
+
+/* ---------- footer ---------- */
+.foot{background:var(--dark);color:#CFC8C0;padding:clamp(3.2rem,6vw,4.6rem) 0 0}
+.foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1.1fr;gap:2.4rem}
+.foot h5{font:650 .66rem/1 var(--fm);letter-spacing:.22em;text-transform:uppercase;color:var(--or);margin-bottom:1.2rem}
+.foot p,.foot li,.foot a{font-size:.88rem;color:#BDB5AC}
+.foot ul{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.foot a{text-decoration:none;transition:color .3s}
+.foot a:hover{color:var(--or)}
+.foot-brand img.flogo{height:48px;width:auto}
+.foot-brand p{margin-top:1.1rem;max-width:36ch}
+.foot-seals{display:flex;gap:.5rem;margin-top:1.4rem;flex-wrap:wrap}
+.foot-seals span{font:650 .56rem/1 var(--fm);letter-spacing:.06em;border:1px solid rgba(255,255,255,.18);border-radius:999px;color:#BDB5AC;padding:.45rem .7rem;transition:all .3s}
+.foot-seals span:hover{border-color:var(--or);color:var(--or)}
+.foot-del{display:grid;grid-template-columns:1fr 1fr;gap:.5rem 1.2rem;list-style:none}
+.foot-eu{margin-top:clamp(2.2rem,4.5vw,3rem);display:flex;align-items:center;gap:1.4rem;flex-wrap:wrap;background:#fff;border-radius:var(--r);padding:.95rem 1.3rem}
+.foot-eu img{height:28px;width:auto}
+.foot-bot{margin-top:1.5rem;border-top:1px solid rgba(255,255,255,.12);padding:1.4rem 0;display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center}
+.foot-bot p,.foot-bot a{font:550 .66rem/1.7 var(--fm);letter-spacing:.06em;color:#8D857C}
+.foot-bot nav{display:flex;gap:1.4rem;flex-wrap:wrap}
+
+/* ---------- barra móvil ---------- */
+.mbar{
+  position:fixed;left:0;right:0;bottom:0;z-index:130;display:none;
+  grid-template-columns:1fr 1.2fr;border-top:1px solid var(--line);
+  background:rgba(250,246,240,.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  padding-bottom:env(safe-area-inset-bottom);
+}
+.mbar a{display:flex;align-items:center;justify-content:center;gap:.6rem;padding:1.02rem;text-decoration:none;font:650 .7rem/1 var(--fm);letter-spacing:.12em;text-transform:uppercase}
+.mbar a.call{color:var(--ink);border-right:1px solid var(--line)}
+.mbar a.go{background:var(--or);color:#fff}
+
+/* ---------- magic scroll: declaración pinned ---------- */
+.magic{position:relative;height:250vh;background:var(--bg2)}
+.magic-sticky{position:sticky;top:0;height:100svh;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+.m-bg{
+  position:absolute;right:-3%;top:50%;transform:translateY(-50%);
+  font-weight:900;font-stretch:74%;line-height:1;
+  font-size:clamp(11rem,30vw,24rem);
+  color:transparent;-webkit-text-stroke:2.5px rgba(255,107,0,.16);
+  pointer-events:none;user-select:none;font-family:var(--fd);
+}
+.m-kicker{font:600 .72rem/1 var(--fm);letter-spacing:.24em;text-transform:uppercase;color:var(--or-d);margin-bottom:1.5rem}
+.m-lines{display:flex;flex-direction:column;gap:.45rem}
+.m-l{
+  font-weight:850;font-stretch:112%;text-transform:uppercase;color:var(--ink);
+  font-size:clamp(2rem,6.4vw,5.4rem);line-height:1.04;letter-spacing:-.015em;
+  will-change:transform,opacity,filter;
+}
+.m-l em{font-style:normal;color:var(--or)}
+.m-hint{margin-top:2.2rem;font:550 .62rem/1 var(--fm);letter-spacing:.26em;text-transform:uppercase;color:var(--dim)}
+@media (prefers-reduced-motion:reduce){
+  .magic{height:auto}
+  .magic-sticky{position:static;height:auto;padding:5rem 0}
+  .m-l{opacity:1!important;transform:none!important;filter:none!important}
+}
+.sect{will-change:transform}
+.mq{will-change:transform}
+
+/* ---------- galería «en obra» (cintas de fotos grandes) ---------- */
+.gallery{background:var(--dark);padding:clamp(4rem,8vw,7rem) 0 clamp(3rem,6vw,5rem);overflow:hidden}
+.gallery-head{margin-bottom:clamp(2rem,4vw,3rem)}
+.gallery-head .eyebrow{color:var(--or)}
+.gallery-head .title{color:#fff}
+.gallery-head .sub{color:#BDB5AC}
+.gallery-head .sub b{color:#fff}
+.gstrip{overflow:hidden;width:100%;padding:.55rem 0}
+.gtrack{display:flex;gap:1rem;width:max-content;will-change:transform}
+.gtrack--l{animation:gscrollL 64s linear infinite}
+.gtrack--r{animation:gscrollR 64s linear infinite}
+.gallery:hover .gtrack{animation-play-state:paused}
+@keyframes gscrollL{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes gscrollR{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.gph{flex:none;height:clamp(220px,32vh,400px);width:auto;border-radius:16px;overflow:hidden;background:#1a1a1a;box-shadow:0 18px 40px -22px rgba(0,0,0,.7)}
+.gph--tall{height:clamp(220px,32vh,400px)}
+.gph img{height:100%;width:auto;max-width:none;object-fit:cover;display:block;transition:transform .6s var(--ease);filter:saturate(.96)}
+.gph:hover img{transform:scale(1.06)}
+@media (prefers-reduced-motion:reduce){
+  .gtrack--l,.gtrack--r{animation:none}
+  .gstrip{overflow-x:auto;scrollbar-width:none}
+  .gstrip::-webkit-scrollbar{display:none}
+}
+@media (max-width:860px){
+  .gph{height:clamp(170px,42vw,240px)}
+  .gtrack--l{animation-duration:42s}
+  .gtrack--r{animation-duration:42s}
+}
+
+/* En táctil / pantallas pequeñas: sin pin ni scrub, todo estático y legible */
+@media (max-width:1024px),(hover:none) and (pointer:coarse){
+  .magic{height:auto!important}
+  .magic-sticky{position:static!important;height:auto!important;padding:clamp(3.5rem,9vw,6rem) 0;overflow:visible}
+  .magic .wrap{position:relative;z-index:1}
+  .m-l{opacity:1!important;transform:none!important;filter:none!important;font-size:clamp(1.55rem,7vw,2.7rem);line-height:1.12}
+  .m-lines{gap:.3rem}
+  .m-bg{font-size:clamp(6rem,34vw,11rem);right:auto;left:50%;transform:translate(-50%,-50%);opacity:.45;-webkit-text-stroke-width:1.5px}
+  .hero-copy,.hero-shot{transform:none!important}
+  .hero-shot img{--pz:1!important}
+  .phead img{transform:none!important}
+  .phead .wrap{transform:none!important}
+  .sect{transform:none!important}
+  .mq{transform:none!important}
+}
+
+/* ---------- intro de entrada (logo + líneas, fundido) ---------- */
+#intro{
+  position:fixed;inset:0;z-index:300;background:#fff;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.3rem;
+}
+#intro.done{opacity:0;visibility:hidden;transition:opacity .7s ease,visibility .7s ease}
+.intro-row{display:flex;align-items:center;gap:1.6rem;width:min(760px,88vw)}
+.intro-line{height:2px;flex:1;background:var(--or);transform:scaleX(0);animation:introline 1.1s var(--ease) .35s forwards}
+.intro-line:first-child{transform-origin:right}
+.intro-line:last-child{transform-origin:left}
+@keyframes introline{to{transform:scaleX(1)}}
+.intro-row img{
+  width:clamp(170px,24vw,240px);flex:none;
+  opacity:0;transform:scale(.9);animation:intrologo .8s var(--ease) .1s forwards;
+}
+@keyframes intrologo{to{opacity:1;transform:none}}
+.intro-tag{
+  font:550 .6rem/1.6 var(--fm);letter-spacing:.26em;text-transform:uppercase;color:var(--dim);
+  opacity:0;animation:introfade .7s ease .8s forwards;text-align:center;padding:0 6vw;
+}
+@keyframes introfade{to{opacity:1}}
+@media (prefers-reduced-motion:reduce){#intro{display:none}}
+
+/* ---------- responsive ---------- */
+@media (max-width:1600px){
+  .hdr .wrap{gap:1.4rem}
+  .hdr-tel{display:none}
+}
+@media (max-width:1380px){
+  .hdr-tel{display:flex;margin-left:auto}
+  .nav{display:none}
+  .burger{display:flex;margin-left:.5rem}
+}
+@media (max-width:1100px){
+  .hdr .btn{display:none}
+  .hero-grid{grid-template-columns:1fr;gap:2rem}
+  .hero-side,.hero-scroll{display:none}
+  .svc-grid{grid-template-columns:repeat(2,1fr)}
+  .fl-grid{grid-template-columns:repeat(2,1fr)}
+  .ing-grid,.q-grid,.hist-top{grid-template-columns:1fr}
+  .del-cards{grid-template-columns:repeat(2,1fr)}
+  .sect-grid{grid-template-columns:repeat(3,1fr)}
+  .certs{grid-template-columns:repeat(3,1fr)}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:860px){
+  :root{--hdr-h:70px}
+  .hero{padding-top:calc(var(--hdr-h) + 2rem)}
+  .hero-stats{grid-template-columns:repeat(2,1fr)}
+  .mbar{display:grid}
+  body{padding-bottom:54px}
+  .svc-grid,.fl-grid,.svc-pick{grid-template-columns:1fr}
+  .frow{grid-template-columns:1fr}
+  .certs{grid-template-columns:1fr 1fr}
+  .sect-grid{grid-template-columns:repeat(2,1fr)}
+  .del-cards{grid-template-columns:1fr}
+  .fl-count{margin-left:0;text-align:left;width:100%}
+  .fnav{flex-direction:column-reverse}
+  .fnav .btn--back{width:100%}
+  .hist-shot .badge{width:88px;right:1.2rem;bottom:3.2rem}
+}
+@media (max-width:560px){
+  .hdr-tel{display:none}
+  .hdr .wrap{gap:1rem}
+  .logo img{height:34px}
+  .foot-grid{grid-template-columns:1fr}
+  .hero h1{font-size:clamp(2.1rem,10.5vw,2.8rem)}
+  .tnode{width:200px}
+}
+</style>
+</head>
+<body>
+
+<div id="intro" aria-hidden="true">
+  <div class="intro-row">
+    <span class="intro-line"></span>
+    <img src="assets/logo-dark.jpg" alt="">
+    <span class="intro-line"></span>
+  </div>
+  <span class="intro-tag">ELEVACIÓN, INGENIERÍA Y TRANSPORTE — DESDE 1959</span>
+</div>
+
+<div id="pbar" aria-hidden="true"></div>
+
+<!-- ======================= HEADER ======================= -->
+<header class="hdr" id="hdr">
+  <div class="wrap">
+    <a class="logo" href="#inicio" aria-label="Grúas y Plataformas Lozano — inicio">
+      <img src="assets/logo-dark.jpg" alt="LOZANO — Elevación, Ingeniería y Transporte" width="300" height="66">
+    </a>
+    <nav class="nav" aria-label="Principal">
+      <a href="#servicios" data-spy="servicios">Servicios</a>
+      <a href="#flota" data-spy="flota">Flota</a>
+      <a href="#ingenieria" data-spy="ingenieria">Ingeniería</a>
+      <a href="#sectores" data-spy="sectores">Sectores</a>
+      <a href="#galeria" data-spy="galeria">Galería</a>
+      <a href="#historia" data-spy="historia">Historia</a>
+      <a href="#formacion" data-spy="formacion">Formación</a>
+      <a href="#certificaciones" data-spy="certificaciones">Certificaciones</a>
+      <a href="#noticias" data-spy="noticias">Noticias</a>
+      <a href="#delegaciones" data-spy="delegaciones">Delegaciones</a>
+    </nav>
+    <a class="hdr-tel" href="tel:+34955634500">
+      <span class="dot" aria-hidden="true"></span>
+      <span><small>CENTRALITA</small><b>955 634 500</b></span>
+    </a>
+    <a class="btn btn--or" href="#presupuesto"><span>Pedir presupuesto</span></a>
+    <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mmenu">
+      <i></i><i></i><i></i>
+    </button>
+  </div>
+</header>
+
+<!-- menú móvil -->
+<nav class="mmenu" id="mmenu" aria-label="Menú móvil">
+  <a class="mlink" style="--i:0" href="#servicios"><small>01</small>Servicios</a>
+  <a class="mlink" style="--i:1" href="#flota"><small>02</small>Flota</a>
+  <a class="mlink" style="--i:2" href="#ingenieria"><small>03</small>Ingeniería</a>
+  <a class="mlink" style="--i:3" href="#sectores"><small>04</small>Sectores</a>
+  <a class="mlink" style="--i:4" href="#galeria"><small>05</small>Galería</a>
+  <a class="mlink" style="--i:4" href="#historia"><small>05</small>Historia</a>
+  <a class="mlink" style="--i:5" href="#formacion"><small>06</small>Formación</a>
+  <a class="mlink" style="--i:6" href="#certificaciones"><small>07</small>Certificaciones</a>
+  <a class="mlink" style="--i:7" href="#noticias"><small>08</small>Noticias</a>
+  <a class="mlink" style="--i:8" href="#delegaciones"><small>09</small>Delegaciones</a>
+  <a class="mlink" style="--i:9" href="#presupuesto"><small>10</small>Presupuesto</a>
+  <div class="mmenu-foot">
+    <a href="tel:+34955634500">955 634 500</a>
+    <span class="mono" style="font-size:.62rem;letter-spacing:.24em;color:var(--dim)">ELEVACIÓN, INGENIERÍA Y TRANSPORTE · 1959</span>
+  </div>
+</nav>
+
+<main>
+
+<!-- ======================= HERO ======================= -->
+<section class="hero" id="inicio">
+  <p class="hero-side">GRÚAS Y PLATAFORMAS LOZANO — P.I. LA RED · ALCALÁ DE GUADAÍRA · SEVILLA</p>
+
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="hero-live" data-h="1">
+        <span class="dot" aria-hidden="true"></span>
+        CENTRALITA OPERATIVA — <b id="clock">--:--</b>&nbsp;SEVILLA
+      </p>
+      <h1 data-h="2">Cada tonelada,<br>en su <em>sitio.</em></h1>
+      <p class="hero-lead" data-h="3">
+        <b>Servicio integral en el campo de la elevación</b> desde 1959: grúas móviles
+        autopropulsadas de <b>35 a 700&nbsp;t</b>, un parque de <b>600 plataformas
+        elevadoras</b> y camiones grúa autocargantes. Flota propia y cobertura
+        completa en Andalucía y Extremadura.
+      </p>
+      <div class="hero-ctas" data-h="4">
+        <a class="btn btn--or" href="#presupuesto"><span>Pedir presupuesto</span><svg class="ar" width="14" height="12" viewBox="0 0 14 12" fill="none"><path d="M1 6h11M8 1l5 5-5 5" stroke="currentColor" stroke-width="1.8"/></svg></a>
+        <a class="btn btn--ghost" href="#flota"><span>Explorar la flota</span></a>
+        <a class="hero-tel" href="tel:+34955634500">
+          <small>CENTRALITA SEVILLA</small>
+          <b>955 634 500</b>
+        </a>
+      </div>
+    </div>
+
+    <figure class="hero-shot" data-h="5">
+      <img src="assets/hero.jpg" alt="Grúa móvil Liebherr de Grúas Lozano frente a la sede central" fetchpriority="high">
+      <span class="hero-chip">CAPACIDAD MÁX. DEL PARQUE — <b>700 t · DEMAG AC700</b></span>
+      <svg class="hero-x" width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true">
+        <circle cx="17" cy="17" r="10" stroke="#FF6B00" stroke-width="1.4"/>
+        <path d="M17 0v34M0 17h34" stroke="#FF6B00" stroke-width="1.4"/>
+      </svg>
+      <figcaption><span><b>SEDE CENTRAL</b> — ALCALÁ DE GUADAÍRA</span><span>FLOTA PROPIA · REF. 1959</span></figcaption>
+    </figure>
+  </div>
+
+  <div class="wrap">
+    <ul class="hero-stats">
+      <li class="rv"><b>+<i data-cnt data-to="65">0</i></b><span>Años de oficio<br>desde 1959</span></li>
+      <li class="rv" style="--d:.1s"><b><i data-cnt data-to="700">0</i>&nbsp;t</b><span>Capacidad máxima<br>de izado</span></li>
+      <li class="rv" style="--d:.2s"><b><i data-cnt data-to="600">0</i></b><span>Plataformas elevadoras<br>en parque propio</span></li>
+      <li class="rv" style="--d:.3s"><b><i data-cnt data-to="11">0</i></b><span>Delegaciones<br>Andalucía y Extremadura</span></li>
+    </ul>
+  </div>
+
+  <a class="hero-scroll" href="#servicios" aria-label="Bajar a servicios">DESCUBRA MÁS<i></i></a>
+</section>
+
+<!-- ======================= MARQUEE ======================= -->
+<div class="mq" aria-hidden="true">
+  <div class="mq-track">
+    <div class="mq-set">
+      <span><b>ISO 9001</b> CALIDAD</span>
+      <span><b>ISO 14001</b> MEDIO AMBIENTE</span>
+      <span><b>ISO 45001</b> SEGURIDAD</span>
+      <span><b>GWO</b> PARQUES EÓLICOS</span>
+      <span><b>ANAPAT · IPAF</b> FORMACIÓN PEMP</span>
+      <span><b>FLOTA PROPIA</b> 35 — 700 t</span>
+      <span><b>600</b> PLATAFORMAS</span>
+      <span><b>+65 AÑOS</b> DESDE 1959</span>
+      <span><b>PORTALES CAE</b> HOMOLOGADOS</span>
+    </div>
+    <div class="mq-set">
+      <span><b>ISO 9001</b> CALIDAD</span>
+      <span><b>ISO 14001</b> MEDIO AMBIENTE</span>
+      <span><b>ISO 45001</b> SEGURIDAD</span>
+      <span><b>GWO</b> PARQUES EÓLICOS</span>
+      <span><b>ANAPAT · IPAF</b> FORMACIÓN PEMP</span>
+      <span><b>FLOTA PROPIA</b> 35 — 700 t</span>
+      <span><b>600</b> PLATAFORMAS</span>
+      <span><b>+65 AÑOS</b> DESDE 1959</span>
+      <span><b>PORTALES CAE</b> HOMOLOGADOS</span>
+    </div>
+  </div>
+</div>
+
+<!-- ======================= MAGIC SCROLL ======================= -->
+<section class="magic" aria-label="Grupo Lozano en cifras">
+  <div class="magic-sticky">
+    <span class="m-bg" id="mbig" aria-hidden="true">1959</span>
+    <div class="wrap">
+      <p class="m-kicker">GRUPO LOZANO — TRES GENERACIONES DE OFICIO</p>
+      <h2 class="m-lines">
+        <span class="m-l">Elevamos</span>
+        <span class="m-l">hasta <em>700 toneladas</em></span>
+        <span class="m-l">a <em>150 metros</em> de altura,</span>
+        <span class="m-l">en cualquier punto de Andalucía <em>y Extremadura.</em></span>
+      </h2>
+      <p class="m-hint">SIGA BAJANDO ↓</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= SERVICIOS ======================= -->
+<header class="phead" data-prlx>
+  <img src="assets/ph-servicios.jpg" alt="Operario de Grúas Lozano">
+  <div class="wrap">
+    <p class="crumb">GRÚAS Y PLATAFORMAS LOZANO — SERVICIOS</p>
+    <h1>Servicios</h1>
+  </div>
+</header>
+<section class="sec sec--paper" id="servicios">
+  <span class="sec-idx" aria-hidden="true">02</span>
+  <div class="wrap">
+    <header class="shead rv">
+      <p class="eyebrow"><span class="tick"></span>02 · SERVICIOS</p>
+      <h2 class="title tl">
+        <span class="tl-l"><span>Servicio integral</span></span>
+        <span class="tl-l"><span>en la <em>elevación.</em></span></span>
+      </h2>
+      <p class="sub">Estudio minucioso de cada caso para ejecutar las maniobras con los requisitos técnicos establecidos en <b>seguridad y prevención de riesgos laborales</b>. Especialistas también en la elevación de personas.</p>
+    </header>
+
+    <div class="svc-grid">
+      <article class="svc rv">
+        <div class="svc-img"><img src="assets/svc-gruas.jpg" alt="Grúa móvil de gran tonelaje de Grúas Lozano en obra" loading="lazy"></div>
+        <div class="svc-body">
+          <span class="svc-n">SRV—01</span>
+          <h3>Grúas móviles autopropulsadas</h3>
+          <p>Todoterreno propias desde 35 hasta 700 t de capacidad y hasta 150 m de altura. Grúa de celosía sobre cadenas de 450 t y 154 m.</p>
+          <div class="svc-ft">
+            <em>35 — 700 t</em>
+            <a href="#flota">Ver flota <svg width="13" height="11" viewBox="0 0 14 12" fill="none"><path d="M1 6h11M8 1l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="svc rv" style="--d:.08s">
+        <div class="svc-img"><img src="assets/svc-plataformas.jpg" alt="Plataformas elevadoras de Plataformas Lozano trabajando en centro urbano" loading="lazy"></div>
+        <div class="svc-body">
+          <span class="svc-n">SRV—02</span>
+          <h3>Plataformas elevadoras</h3>
+          <p>600 unidades PEMP: tijera, articuladas, telescópicas y especiales, hasta 43,5 m. Con transporte propio hasta su obra.</p>
+          <div class="svc-ft">
+            <em>600 UD · HASTA 43,5 m</em>
+            <a href="#flota">Ver flota <svg width="13" height="11" viewBox="0 0 14 12" fill="none"><path d="M1 6h11M8 1l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="svc rv" style="--d:.16s">
+        <div class="svc-img"><img src="assets/svc-autocargantes.jpg" alt="Camión grúa autocargante de Grúas Lozano" loading="lazy"></div>
+        <div class="svc-body">
+          <span class="svc-n">SRV—03</span>
+          <h3>Camiones grúa y transporte</h3>
+          <p>Grúas hidráulicas articuladas propias, camiones de transporte, transportes especiales y camión cesta de gran altura.</p>
+          <div class="svc-ft">
+            <em>PALFINGER · FASSI · HIAB</em>
+            <a href="#flota">Ver flota <svg width="13" height="11" viewBox="0 0 14 12" fill="none"><path d="M1 6h11M8 1l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="svc rv" style="--d:.24s">
+        <div class="svc-img"><img src="assets/ingenieria.jpg" alt="Maniobra de elevación de complejidad estudiada por el departamento técnico" loading="lazy"></div>
+        <div class="svc-body">
+          <span class="svc-n">SRV—04</span>
+          <h3>Ingeniería de maniobras</h3>
+          <p>Estudios y proyectos de maniobras especiales desde nuestro Departamento Técnico, con software LICCON y CRANIMAX.</p>
+          <div class="svc-ft">
+            <em>DPTO. TÉCNICO PROPIO</em>
+            <a href="#ingenieria">Saber más <svg width="13" height="11" viewBox="0 0 14 12" fill="none"><path d="M1 6h11M8 1l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= FLOTA ======================= -->
+<header class="phead" data-prlx>
+  <img src="assets/ph-flota.jpg" alt="Grúas móviles del parque de Grúas Lozano">
+  <div class="wrap">
+    <p class="crumb">GRÚAS Y PLATAFORMAS LOZANO — FLOTA</p>
+    <h1>Flota</h1>
+  </div>
+</header>
+<section class="sec" id="flota">
+  <span class="sec-idx" aria-hidden="true">03</span>
+  <div class="wrap">
+    <header class="shead rv">
+      <p class="eyebrow"><span class="tick"></span>03 · PARQUE DE MAQUINARIA</p>
+      <h2 class="title tl">
+        <span class="tl-l"><span>Flota propia.</span></span>
+        <span class="tl-l"><span>Fichas técnicas <em>reales.</em></span></span>
+      </h2>
+      <p class="sub">Cada equipo con su <b>tabla de cargas oficial en PDF</b>. Filtre por categoría y capacidad, y añada la máquina directamente a su solicitud de presupuesto.</p>
+    </header>
+
+    <div class="fl-bar rv">
+      <div class="fl-tabs" id="fltabs" role="tablist" aria-label="Categorías de flota">
+        <button class="ftab act" data-type="all" role="tab" aria-selected="true">Todas</button>
+        <button class="ftab" data-type="grua" role="tab" aria-selected="false">Grúas móviles</button>
+        <button class="ftab" data-type="plataforma" role="tab" aria-selected="false">Plataformas</button>
+        <button class="ftab" data-type="autocargante" role="tab" aria-selected="false">Camiones grúa</button>
+      </div>
+      <p class="fl-count" id="flcount"><b>33</b> EQUIPOS<br>PARQUE PROPIO</p>
+    </div>
+
+    <div class="fl-chips rv" id="flchips" aria-live="polite"></div>
+
+    <div class="fl-grid" id="flgrid">
+      <!-- ============ GRÚAS MÓVILES (13 · catálogo oficial) ============ -->
+      <article class="fcard brk rv" data-type="grua" data-cap="700">
+        <span class="ck ck--tl"></span><span class="ck ck--br"></span>
+        <div class="fcard-top"><span class="ftag">Grúa móvil</span><span class="fava"><i></i>FLOTA PROPIA</span></div>
+        <div class="fcard-img"><img src="assets/g-generic.png" alt="Grúa móvil DEMAG AC700" loading="lazy"></div>
+        <h3>DEMAG AC700<small>BUQUE INSIGNIA DEL PARQUE</small></h3>
+        <ul class="fspec">
+          <li><span>Clase de carga</span><b>700 <i>t</i></b></li>
+          <li><span>Marca</span><b>Demag</b></li>
+        </ul>
+        <div class="fcard-cta">
+          <a class="btn btn--mini btn--pdf" href="https://gruaslozano.com/wp-content/uploads/2024/09/Demag-Ac-700-9-3.pdf" target="_blank" rel="noopener"><span>Ficha PDF ↗</span></a>
+          <button class="btn btn--mini btn--or" data-model="Grúa móvil DEMAG AC700 · 700 t" data-svc="grua"><span>Al presupuesto</span></button>
+        </div>
+      </article>
+
+      <article class="fcard brk rv" data-type="grua" data-cap="450" style="--d:.05s">
+        <span class="ck ck--tl"></span><span class="ck ck--br"></span>
+        <div class="fcard-top"><span class="ftag">Grúa móvil</span><span class="fava"><i></i>FLOTA PROPIA</span></div>
+        <div class="fcard-img"><img src="assets/g-ltm1450.png" alt="Grúa móvil Liebherr LTM 1450" loading="lazy"></div>
+        <h3>LIEBHERR LTM1450<small>GRAN TONELAJE</small></h3>
+        <ul class="fspec">
+          <li><span>Clase de carga</span><b>450 <i>t</i></b></li>
+          <li><span>Marca</span><b>Liebherr</b></li>
+        </ul>
+        <div class="fcard-cta">
+          <a class="btn btn--mini btn--pdf" href="https://gruaslozano.com/wp-content/uploads/2026/03/LIEBHERR-LTM-1450.pdf" target="_blank" rel="noopener"><span>Ficha PDF ↗</span></a>
+          <button class="btn btn--mini btn--or" data-model="Grúa móvil LIEBHERR LTM1450 · 450 t" data-svc="grua"><span>Al presupuesto</span></button>
+        </div>
+      </article>
+
+      <article class="fcard brk rv" data-type="grua" data-cap="230" style="--d:.1s">
+        <span class="ck ck--tl"></span><span class="ck ck--br"></span>
+        <div class="fcard-top"><span class="ftag">Grúa móvil</span><span class="fava"><i></i>FLOTA PROPIA</span></div>
+        <div class="fcard-img"><img src="assets/g-ltm1230.png" alt="Grúa móvil Liebherr LTM 1230-5.1" loading="lazy"></div>
+        <h3>LIEBHERR LTM1230<small>LTM 1230-5.1</small></h3>
+        <ul class="fspec">
+          <li><span>Clase de carga</span><b>230 <i>t</i></b></li>
+          <li><span>Marca</span><b>Liebherr</b></li>
+        </ul>
+        <div class="fcard-cta">
+          <a class="btn btn--mini btn--pdf" href="https://gruaslozano.com/wp-content/uploads/2024/09/liebherr-270-ltm-1230-5.1-td-270-00-defisr05-2018-3.pdf" target="_blank" rel="noopener"><span>Ficha PDF ↗</span></a>
+          <button class="btn btn--mini btn--or" data-model="Grúa móvil LIEBHERR LTM1230 · 230 t" data-svc="grua"><span>Al presupuesto</span></button>
+        </div>
+      </article>
+
+      <article class="fcard brk rv" data-type="grua" data-cap="200" style="--d:.15s">
+        <span class="ck ck--tl"></span><span class="ck ck--br"></span>
+        <div class="fcard-top"><span class="ftag">Grúa móvil</span><span class="fava"><i></i>FLOTA PROPIA</span></div>
+        <div class="fcard-img"><img src="assets/g-ac200.png" alt="Grúa móvil DEMAG AC200" loading="lazy"></div>
+        <h3>DEMAG AC200<small>GRAN TONELAJE</small></h3>
+        <ul class="fspec">
+          <li><span>Clase de carga</span><b>200 <i>t</i></b></li>
+          <li><span>Marca</span><b>Demag</b></li>
+        </ul>
+        <div class="fcard-cta">
+          <a class="btn btn--mini btn--pdf" href="https://gruaslozano.com/wp-content/uploads/2024/09/Gruas-Ibarrondo-24.-AC200-1-3.pdf" target="_blank" rel="noopener"><span>Ficha PDF ↗</span></a>
+          <button class="btn btn--mini btn--or" data-model="Grúa móvil DEMAG AC200 · 200 t" data-svc="grua"><span>Al presupuesto</span></button>
+        </div>
+      </article>
+
+      <article class="fcard brk rv" data-type="grua" data-cap="130" style="--d:.2s">
+        <span class="ck ck--tl"></span><span class="ck ck--br"></span>
+        <div class="fcard-top"><span class="ftag">Grúa móvil</span><span class="fava"><i></i>FLOTA PROPIA</span></div>
+        <div class="fcard-img"><img src="assets/g-ltm1090.png" alt="Grúa móvil Liebherr LTM 1130-5.1" loading="lazy"></div>
+        <h3>LIEBHERR LTM1130<small>LTM 1130-5.1</small></h3>
+        <ul class="fspec">
+          <li><span>Clase de carga</span><b>130 <i>t</i></b></li>
+          <li><span>Marca</span><b>Liebherr</b></li>
+        </ul>
+        <div class="fcard-cta">
+          <a class="btn btn--mini btn--pdf" href="https://gruaslozano.com/wp-content/uploads/2024/09/Tablas-Liebherr-LTM-1130-5.1-3.pdf" target="_blank" rel="noopener"><span>Ficha PDF ↗</span></a>
+          <button class="btn btn--mini btn--or" data-model="Grúa móvil LIEBHERR LTM1130 · 130 t" data-svc="grua"><span>Al presupuesto</span></button>
+        </div>
+      </article>
+
+      <article class="fcard brk rv" data-type="grua" data-cap="90" style="--d:.25s">
+        <span class="ck ck--tl"></span><span class="ck ck--br"></span>
+        <div class="fcard-top"><span class="ftag">Grúa móvil</span><span class="fava"><i></i>FLOTA PROPIA</span></div>
+        <div class="fcard-img"><img src="assets/g-ltm1090.png" alt="Grúa móvil Liebherr LTM 1090-4.1" loading="lazy"></div>
+        <h3>LIEBHERR LTM1090<small>LTM 1090-4.1</small></h3>
+        <ul class="fspec">
+          <li><span>Clase de carga</span><b>90 <i>t</i></b></li>
+          <li><span>Marca</span><b>Liebherr</b></li>
+        </ul>
+        <div class="fcard-cta">
+          <a class="btn btn--mini btn--pdf" href="https://gruaslozano.com/wp-content/uploads/2024/09/liebherr-LTM-1090-4-1-3.pdf" target="_blank" rel="noopener"><span>Ficha PDF ↗</span></a>
+          <button class="btn btn--mini btn--or" data-model="Grúa móvil LIEBHERR LTM1090 · 90 t" data-svc="grua"><span>Al presupuesto</span></button>
+        </div>
+      </article>
+
+      <article class="fcard brk rv" data-type="grua" data-cap="80" style="--d:.3s">
+        <span class="ck ck--tl"></span><span class="ck ck--br"></span>
+        <div class="fcard-top"><span class="ftag">Grúa móvil</span><span class="fava"><i></i>FLOTA PROPIA</span></div>
+        <div class="fcard-img"><img src="assets/g-ac80.png" alt="Grúa móvil DEMAG AC80" loading="lazy"></div>
+        <h3>DEMAG AC80<small>TONELAJE MEDIO</small></h3>
+        <ul class="fspec">
+          <li><span>Clase de carga</span><b>80 <i>t</i></b></li>
+          <li><span>Marca</span><b>Demag</b></li>
+        </ul>
+        <div class="fcard-cta">
+          <a class="btn btn--mini btn--pdf" href="https://gruaslozano.com/wp-content/uploads/2026/03/DEMAG_AC_80-1.pdf" target="_blank" rel="noopener"><span>Ficha PDF ↗</span></a>
+          <button class="btn btn--mini btn--or" data-model="Grúa móvil DEMAG AC80 · 80 t" data-svc="grua"><span>Al presupuesto</span></button>
+        </div>
+      </article>
+
+      <article class="fcard brk rv" data-type="grua" data-cap="80" style="--d:.35s">
+        <span class="ck ck--tl"></span><span class="ck ck--br"></span>
+        <div class="fcard-top"><span class="ftag">Grúa móvil</span><span class="fava"><i></i>FLOTA PROPIA</span></div>
+        <div class="fcard-img"><img src="assets/g-generic.png" alt="Grúa móvil Tadano 4080" loading="lazy"></div>
+        <h3>TADANO 4080<small>TONELAJE MEDIO</small></h3>
+        <ul class="fspec">
+          <li><span>Clase de carga</span><b>Ver tabla</b></li>
+          <li><span>Marca</span><b>Tadano</b></li>
+        </ul>
+        <div class="fcard-cta">
+          <a class="btn btn--mini btn--pdf" href="https://gruaslozano.com/wp-content/uploads/2026/03/TADANO_AC4080-1.pdf" target="_blank" rel="noopener"><span>Ficha PDF ↗</span></a>
+          <button class="btn btn--mini btn--or" data-model="Grúa móvil TADANO 4080" data-svc="grua"><span>Al presupuesto</span></button>
+        </div>
+      </article>
+
+      <article class="fcard brk rv" data-type="grua" data-cap="70" style="--d:.4s">
+        <span class="ck ck--tl"></span><span class="ck ck--br"></span>
+        <div class="fcard-top"><span class="ftag">Grúa móvil</span><span class="fava"><i></i>FLOTA PROPIA</span></div>
+        <div class="fcard-img"><img src="assets/g-ltm1070.png" alt="Grúa móvil Liebherr LTM 1070-4.2" loading="lazy"></div>
+        <h3>LIEBHERR LTM1070<small>LTM 1070-4.2</small></h3>
+        <ul class="fspec">
+          <li><span>Clase de carga</span><b>70 <i>t</i></b></li>
+          <li><span>Marca</span><b>Liebherr</b></li>
+        </ul>
+        <div class="fcard-cta">
+          <a class="btn btn--mini btn--pdf" href="https://gruaslozano.com/wp-content/uploads/2024/09/liebherr-LTM-1070-4-2-3.pdf" target="_blank" rel="noopener"><span>Ficha PDF ↗</span></a>
+          <button class="btn btn--mini btn--or" data-model="Grúa móvil LIEBHERR LTM1070 · 70 t" data-svc="grua"><span>Al presupuesto</span></button>
+        </div>
+      </article>
+
+      <article class="fcard brk rv" data-type="grua" data-cap="60" style="--d:.45s">
+        <span class="ck ck--tl"></span><span class="ck ck--br"></span>
+        <div class="fcard-top"><span class="ftag">Grúa móvil</span><span class="fava"><i></i>FLOTA PROPIA</span></div>
+        <div class="fcard-img"><img src="assets/g-ltm1050.png" alt="Grúa móvil Liebherr LTM 1060-3.1" loading="lazy"></div>
+        <h3>LIEBHERR LTM1060<small>LTM 1060-3.1</small></h3>
+        <ul class="fspec">
+          <li><span>Clase de carga</span><b>60 <i>t</i></b></li>
+          <li><span>Marca</span><b>Liebherr</b></li>
+        </ul>
+        <div class="fcard-cta">
+          <a class="btn btn--mini btn--pdf" href="https://gruaslozano.com/wp-content/uploads/2024/09/liebherr-LTM-1060-3-1-3.pdf" target="_blank" rel="noopener"><span>Ficha PDF ↗</span></a>
+          <button class="btn btn--mini btn--or" data-model="Grúa móvil LIEBHERR LTM1060 · 60 t" data-svc="grua"><span>Al presupuesto</span></button>
+        </div>
+      </article>
+
+      <article class="fcard brk rv" data-type="grua" data-cap="50" style="--d:.5s">
+        <span class="ck ck--tl"></span><span class="ck ck--br"></span>
+        <div class="fcard-top"><span class="ftag">Grúa móvil</span><span class="fava"><i></i>FLOTA PROPIA</span></div>
+        <div class="fcard-img"><img src="assets/g-ltm1050.png" alt="Grúa móvil Liebherr LTM 1050" loading="lazy"></div>
+        <h3>LIEBHERR LTM1050<small>COMPACTA POLIVALENTE</small></h3>
+        <ul class="fspec">
+          <li><span>Clase de carga</span><b>50 <i>t</i></b></li>
+          <li><span>Marca</span><b>Liebherr</b></li>
+        </ul>
+        <div class="fcard-cta">
+          <a class="btn btn--mini btn--pdf" href="https://gruaslozano.com/wp-content/uploads/2026/03/Gruas-Lozano-LTM-1050-Tablas.pdf" target="_blank" rel="noopener"><span>Ficha PDF ↗</span></a>
+          <button class="btn btn--mini btn--or" data-model="Grúa móvil LIEBHERR LTM1050 · 50 t" data-svc="grua"><span>Al presupuesto</span></button>
+        </div>
+      </article>
+
+      <article class="fcard brk rv" data-type="grua" data-cap="50" style="--d:.55s">
+        <span class="ck ck--tl"></span><span class="ck ck--br"></span>
+        <div class="fcard-top"><span class="ftag">Grúa móvil</span><span class="fava"><i></i>FLOTA PROPIA</span></div>
+        <div class="fcard-img"><img src="assets/g-ac50.png" alt="Grúa móvil DEMAG AC50" loading="lazy"></div>
+        <h3>DEMAG AC50<small>COMPACTA POLIVALENTE</small></h3>
+        <ul class="fspec">
+          <li><span>Clase de carga</span><b>50 <i>t</i></b></li>
+          <li><span>Marca</span><b>Demag</b></li>
+        </ul>
+        <div class="fcard-cta">
+          <a class="btn btn--mini btn--pdf" href="https://gruaslozano.com/wp-content/uploads/2026/03/DEMAG_AC-050-1_C4.pdf" target="_blank" rel="noopener"><span>Ficha PDF ↗</span></a>
+          <button class="btn btn--mini btn--or" data-model="Grúa móvil DEMAG AC50 · 50 t" data-svc="grua"><span>Al presupuesto</span></button>
+        </div>
+      </article>
+
+      <article class="fcard brk rv" data-type="grua" data-cap="35" style="--d:.6s">
+        <span class="ck ck--tl"></span><span class="ck ck--br"></span>
+        <div class="fcard-top"><span class="ftag">Grúa móvil</span><span class="fava"><i></i>FLOTA PROPIA</span></div>
+        <div class="fcard-img"><img src="assets/g-ac35.png" alt="Grúa móvil DEMAG AC35" loading="lazy"></div>
+        <h3>DEMAG AC35<small>COMPACTA URBANA</small></h3>
+        <ul class="fspec">
+          <li><span>Clase de carga</span><b>35 <i>t</i></b></li>
+          <li><span>Marca</span><b>Demag</b></li>
+        </ul>
+        <div class="fcard-cta">
+          <a class="btn btn--mini btn--pdf" href="https://gruaslozano.com/wp-content/uploads/2026/03/DEMAG_AC-035_B1.pdf" target="_blank" rel="noopener"><span>Ficha PDF ↗</span></a>
+          <button class="btn btn--mini btn--or" data-model="Grúa móvil DEMAG AC35 · 35 t" data-svc="grua"><span>Al presupuesto</span></button>
+        </div>
+      </article>
+
+      <!-- ============ PLATAFORMAS (selección del parque de 600 ud) ============ -->
+      <article class="fcard brk rv" data-type="plataforma" data-sub="tijera" data-cap="12">
+        <span class="ck ck--tl"></span><span class="ck ck--br"></span>
+        <div class="fcard-top"><span class="ftag">Tijera</span><span class="fava"><i></i>FLOTA PROPIA</span></div>
+        <div class="fcard-img"><img src="assets/p-tijera.png" alt="Plataforma de tijera Compact 12 DX" loading="lazy"></div>
+        <h3>COMPACT 12 DX<small>PLATAFORMA DE TIJERA</small></h3>
+        <ul class="fspec">
+          <li><span>Altura de trabajo</span><b>12 <i>m</i></b></li>
+          <li><span>Familia</span><b>Tijera 6 – 26 m</b></li>
+        </ul>
+        <div class="fcard-cta">
+          <a class="btn btn--mini btn--pdf" href="https://gruaslozano.com/wp-content/uploads/2026/01/Gruas-Lozano-Plataforma-Compact-12DX.pdf" target="_blank" rel="noopener"><span>Ficha PDF ↗</span></a>
+          <button class="btn btn--mini btn--or" data-model="Plataforma de tijera COMPACT 12 DX · 12 m" data-svc="plataforma"><span>Al presupuesto</span></button>
+        </div>
+      </article>
+
+      <article class="fcard brk rv" data-type="plataforma" data-sub="tijera" data-cap="16" style="--d:.05s">
+        <span class="ck ck--tl"></span><span class="ck ck--br"></span>
+        <div class="fcard-top"><span class="ftag">Tijera</span><span class="fava"><i></i>FLOTA PROPIA</span></div>
+        <div class="fcard-img"><img src="assets/p-tijera.png" alt="Plataforma de tijera Genie GS-4655" loading="lazy"></div>
+        <h3>GENIE GS-4655<small>PLATAFORMA DE TIJERA</small></h3>
+        <ul class="fspec">
+          <li><span>Altura de trabajo</span><b>16 <i>m</i></b></li>
+          <li><span>Familia</span><b>Tijera 6 – 26 m</b></li>
+        </ul>
+        <div class="fcard-cta">
+          <a class="btn btn--mini btn--pdf" href="https://gruaslozano.com/wp-content/uploads/2026/01/Gruas-Lozano-Plataforma-Genie-GS4655.pdf" target="_blank" rel="noopener"><span>Ficha PDF ↗</span></a>
+          <button class="btn btn--mini btn--or" data-model="Plataforma de tijera GENIE GS-4655 · 16 m" data-svc="plataforma"><span>Al presupuesto</span></button>
+        </div>
+      </article>
+
+      <article class="fcard brk rv" data-type="plataforma" data-sub="tijera" data-cap="26" style="--d:.1s">
+        <span class="ck ck--tl"></span><span class="ck ck--br"></span>
+        <div class="fcard-top"><span class="ftag">Tijera</span><span class="fava"><i></i>FLOTA PROPIA</span></div>
+        <div class="fcard-img"><img src="assets/p-tijera.png" alt="Plataforma de tijera LIFTLUX de 26 metros" loading="lazy"></div>
+        <h3>LIFTLUX<small>TIJERA DE GRAN ALTURA</small></h3>
+        <ul class="fspec">
+          <li><span>Altura de trabajo</span><b>26 <i>m</i></b></li>
+          <li><span>Familia</span><b>Tijera 6 – 26 m</b></li>
+        </ul>
+        <div class="fcard-cta">
+          <a class="btn btn--mini btn--pdf" href="https://gruaslozano.com/wp-content/uploads/2026/01/Gruas-Lozano-Plataforma-LIFTLUX-Scissor-Lifts.pdf" target="_blank" rel="noopener"><span>Ficha PDF ↗</span></a>
+          <button class="btn btn--mini btn--or" data-model="Plataforma de tijera LIFTLUX · 26 m" data-svc="plataforma"><span>Al presupuesto</span></button>
+        </div>
+      </article>
+
+      <article class="fcard brk rv" data-type="plataforma" data-sub="articulada" data-cap="16" style="--d:.15s">
+        <span class="ck ck--tl"></span><span class="ck ck--br"></span>
+        <div class="fcard-top"><span class="ftag">Articulada</span><span class="fava"><i></i>FLOTA PROPIA</span></div>
+        <div class="fcard-img"><img src="assets/p-articulada.png" alt="Plataforma articulada Haulotte HA16 RTJ PRO" loading="lazy"></div>
+        <h3>HA16 RTJ PRO<small>ARTICULADA DIÉSEL</small></h3>
+        <ul class="fspec">
+          <li><span>Altura de trabajo</span><b>16 <i>m</i></b></li>
+          <li><span>Familia</span><b>Articulada 12 – 40 m</b></li>
+        </ul>
+        <div class="fcard-cta">
+          <a class="btn btn--mini btn--pdf" href="https://gruaslozano.com/wp-content/uploads/2026/01/Gruas-Lozano-Plataforma-Articulada-HA16-RTJ-PRO.pdf" target="_blank" rel="noopener"><span>Ficha PDF ↗</span></a>
+          <button class="btn btn--mini btn--or" data-model="Plataforma articulada HA16 RTJ PRO · 16 m" data-svc="plataforma"><span>Al presupuesto</span></button>
+        </div>
+      </article>
+
+      <article class="fcard brk rv" data-type="plataforma" data-sub="articulada" data-cap="26" style="--d:.2s">
+        <span class="ck ck--tl"></span><span class="ck ck--br"></span>
+        <div class="fcard-top"><span class="ftag">Articulada</span><span class="fava"><i></i>FLOTA PROPIA</span></div>
+        <div class="fcard-img"><img src="assets/p-articulada.png" alt="Plataforma articulada Haulotte HA26 RTJ PRO" loading="lazy"></div>
+        <h3>HA26 RTJ PRO<small>ARTICULADA DIÉSEL</small></h3>
+        <ul class="fspec">
+          <li><span>Altura de trabajo</span><b>26 <i>m</i></b></li>
+          <li><span>Familia</span><b>Articulada 12 – 40 m</b></li>
+        </ul>
+        <div class="fcard-cta">
+          <a class="btn btn--mini btn--pdf" href="https://gruaslozano.com/wp-content/uploads/2026/01/Gruas-Lozano-Plataforma-Articulada-HA26-RTJ-PRO.pdf" target="_blank" rel="noopener"><span>Ficha PDF ↗</span></a>
+          <button class="btn btn--mini btn--or" data-model="Plataforma articulada HA26 RTJ PRO · 26 m" data-svc="plataforma"><span>Al presupuesto</span></button>
+        </div>
+      </article>
+
+      <article class="fcard brk rv" data-type="plataforma" data-sub="articulada" data-cap="40" style="--d:.25s">
+        <span class="ck ck--tl"></span><span class="ck ck--br"></span>
+        <div class="fcard-top"><span class="ftag">Articulada</span><span class="fava"><i></i>FLOTA PROPIA</span></div>
+        <div class="fcard-img"><img src="assets/p-jlg1250.png" alt="Plataforma articulada JLG 1250AJP" loading="lazy"></div>
+        <h3>JLG 1250AJP<small>ARTICULADA ULTRA ALTURA</small></h3>
+        <ul class="fspec">
+          <li><span>Altura de trabajo</span><b>40 <i>m</i></b></li>
+          <li><span>Familia</span><b>Articulada 12 – 40 m</b></li>
+        </ul>
+        <div class="fcard-cta">
+          <a class="btn btn--mini btn--pdf" href="https://gruaslozano.com/wp-content/uploads/2026/01/Gruas-Lozano-Plataforma-Articulada-1250AJP.pdf" target="_blank" rel="noopener"><span>Ficha PDF ↗</span></a>
+          <button class="btn btn--mini btn--or" data-model="Plataforma articulada JLG 1250AJP · 40 m" data-svc="plataforma"><span>Al presupuesto</span></button>
+        </div>
+      </article>
+
+      <article class="fcard brk rv" data-type="plataforma" data-sub="telescopica" data-cap="16" style="--d:.3s">
+        <span class="ck ck--tl"></span><span class="ck ck--br"></span>
+        <div class="fcard-top"><span class="ftag">Telescópica</span><span class="fava"><i></i>FLOTA PROPIA</span></div>
+        <div class="fcard-img"><img src="assets/p-h16tpx.png" alt="Plataforma telescópica Haulotte H16TPX" loading="lazy"></div>
+        <h3>H16 TPX<small>TELESCÓPICA DIÉSEL</small></h3>
+        <ul class="fspec">
+          <li><span>Altura de trabajo</span><b>16 <i>m</i></b></li>
+          <li><span>Familia</span><b>Telescópica 16 – 43,5 m</b></li>
+        </ul>
+        <div class="fcard-cta">
+          <a class="btn btn--mini btn--pdf" href="https://gruaslozano.com/wp-content/uploads/2026/01/Gruas-Lozano-Plataforma-Telescopica-H14TX-H16TPX.pdf" target="_blank" rel="noopener"><span>Ficha PDF ↗</span></a>
+          <button class="btn btn--mini btn--or" data-model="Plataforma telescópica H16 TPX · 16 m" data-svc="plataforma"><span>Al presupuesto</span></button>
+        </div>
+      </article>
+
+      <article class="fcard brk rv" data-type="plataforma" data-sub="telescopica" data-cap="28" style="--d:.35s">
+        <span class="ck ck--tl"></span><span class="ck ck--br"></span>
+        <div class="fcard-top"><span class="ftag">Telescópica</span><span class="fava"><i></i>FLOTA PROPIA</span></div>
+        <div class="fcard-img"><img src="assets/p-jlg860.png" alt="Plataforma telescópica JLG 860SJ" loading="lazy"></div>
+        <h3>JLG 860SJ<small>TELESCÓPICA DIÉSEL</small></h3>
+        <ul class="fspec">
+          <li><span>Altura de trabajo</span><b>28 <i>m</i></b></li>
+          <li><span>Familia</span><b>Telescópica 16 – 43,5 m</b></li>
+        </ul>
+        <div class="fcard-cta">
+          <a class="btn btn--mini btn--pdf" href="https://gruaslozano.com/wp-content/uploads/2026/01/Gruas-Lozano-Plataforma-Telescopica-JLG-860SJ.pdf" target="_blank" rel="noopener"><span>Ficha PDF ↗</span></a>
+          <button class="btn btn--mini btn--or" data-model="Plataforma telescópica JLG 860SJ · 28 m" data-svc="plataforma"><span>Al presupuesto</span></button>
+        </div>
+      </article>
+
+      <article class="fcard brk rv" data-type="plataforma" data-sub="telescopica" data-cap="43" style="--d:.4s">
+        <span class="ck ck--tl"></span><span class="ck ck--br"></span>
+        <div class="fcard-top"><span class="ftag">Telescópica</span><span class="fava"><i></i>FLOTA PROPIA</span></div>
+        <div class="fcard-img"><img src="assets/p-jlg1350.png" alt="Plataforma telescópica JLG 1350SPJ de 43 metros" loading="lazy"></div>
+        <h3>JLG 1350SPJ<small>TECHO DEL PARQUE PEMP</small></h3>
+        <ul class="fspec">
+          <li><span>Altura de trabajo</span><b>43 <i>m</i></b></li>
+          <li><span>Familia</span><b>Telescópica 16 – 43,5 m</b></li>
+        </ul>
+        <div class="fcard-cta">
+          <a class="btn btn--mini btn--pdf" href="https://gruaslozano.com/wp-content/uploads/2026/01/Gruas-Lozano-Plataforma-Telescopica-JLG-1350SPJ.pdf" target="_blank" rel="noopener"><span>Ficha PDF ↗</span></a>
+          <button class="btn btn--mini btn--or" data-model="Plataforma telescópica JLG 1350SPJ · 43 m" data-svc="plataforma"><span>Al presupuesto</span></button>
+        </div>
+      </article>
+
+      <article class="fcard brk rv" data-type="plataforma" data-sub="especiales" data-cap="14" style="--d:.45s">
+        <span class="ck ck--tl"></span><span class="ck ck--br"></span>
+        <div class="fcard-top"><span class="ftag">Especial</span><span class="fava"><i></i>FLOTA PROPIA</span></div>
+        <div class="fcard-img"><img src="assets/p-cesta.png" alt="Camión cesta de 14 metros" loading="lazy"></div>
+        <h3>CAMIÓN CESTA<small>PLATAFORMA ESPECIAL</small></h3>
+        <ul class="fspec">
+          <li><span>Altura de trabajo</span><b>14 <i>m</i></b></li>
+          <li><span>Familia</span><b>Especiales</b></li>
+        </ul>
+        <div class="fcard-cta">
+          <a class="btn btn--mini btn--pdf" href="https://gruaslozano.com/wp-content/uploads/2026/01/Gruas-Lozano-Plataforma-Especiales-Camion-Cesta-14m.pdf" target="_blank" rel="noopener"><span>Ficha PDF ↗</span></a>
+          <button class="btn btn--mini btn--or" data-model="Camión cesta · 14 m" data-svc="plataforma"><span>Al presupuesto</span></button>
+        </div>
+      </article>
+
+      <article class="fcard brk rv" data-type="plataforma" data-sub="especiales" data-cap="23" style="--d:.5s">
+        <span class="ck ck--tl"></span><span class="ck ck--br"></span>
+        <div class="fcard-top"><span class="ftag">Especial</span><span class="fava"><i></i>FLOTA PROPIA</span></div>
+        <div class="fcard-img"><img src="assets/p-aerea23.png" alt="Plataforma sobre orugas HINOWA Light Lift 23" loading="lazy"></div>
+        <h3>HINOWA LL 23<small>PLATAFORMA SOBRE ORUGAS</small></h3>
+        <ul class="fspec">
+          <li><span>Altura de trabajo</span><b>23 <i>m</i></b></li>
+          <li><span>Familia</span><b>Especiales</b></li>
+        </ul>
+        <div class="fcard-cta">
+          <a class="btn btn--mini btn--pdf" href="https://gruaslozano.com/wp-content/uploads/2024/09/ORUGA-HINOWA-LIGHT-LIFT-23-pdf-n.pdf" target="_blank" rel="noopener"><span>Ficha PDF ↗</span></a>
+          <button class="btn btn--mini btn--or" data-model="Plataforma sobre orugas HINOWA Light Lift 23 · 23 m" data-svc="plataforma"><span>Al presupuesto</span></button>
+        </div>
+      </article>
+
+      <article class="fcard brk rv" data-type="plataforma" data-sub="especiales" data-cap="10" style="--d:.55s">
+        <span class="ck ck--tl"></span><span class="ck ck--br"></span>
+        <div class="fcard-top"><span class="ftag">Especial</span><span class="fava"><i></i>FLOTA PROPIA</span></div>
+        <div class="fcard-img"><img src="assets/p-mastil.png" alt="Plataforma de mástil vertical STAR 8/10" loading="lazy"></div>
+        <h3>MÁSTIL STAR 8/10<small>MÁSTIL VERTICAL</small></h3>
+        <ul class="fspec">
+          <li><span>Altura de trabajo</span><b>10 <i>m</i></b></li>
+          <li><span>Familia</span><b>Especiales</b></li>
+        </ul>
+        <div class="fcard-cta">
+          <a class="btn btn--mini btn--pdf" href="https://gruaslozano.com/wp-content/uploads/2026/01/Gruas-Lozano-Plataformas-Especiales-STAR8-10.pdf" target="_blank" rel="noopener"><span>Ficha PDF ↗</span></a>
+          <button class="btn btn--mini btn--or" data-model="Plataforma de mástil vertical STAR 8/10 · 10 m" data-svc="plataforma"><span>Al presupuesto</span></button>
+        </div>
+      </article>
+
+      <!-- ============ CAMIONES GRÚA AUTOCARGANTES (8 · catálogo oficial) ============ -->
+      <article class="fcard brk rv" data-type="autocargante" data-cap="44">
+        <span class="ck ck--tl"></span><span class="ck ck--br"></span>
+        <div class="fcard-top"><span class="ftag">Camión grúa</span><span class="fava"><i></i>FLOTA PROPIA</span></div>
+        <div class="fcard-img"><img src="assets/a-camion.png" alt="Camión grúa Palfinger PK 44002" loading="lazy"></div>
+        <h3>PK 44002<small>PALFINGER</small></h3>
+        <ul class="fspec">
+          <li><span>Marca</span><b>Palfinger</b></li>
+          <li><span>Configuración</span><b>Estándar</b></li>
+        </ul>
+        <div class="fcard-cta">
+          <a class="btn btn--mini btn--pdf" href="https://gruaslozano.com/wp-content/uploads/2026/02/Gruas-Lozano-Camiones-Grua-PALFINGER-PK-4400_2.pdf" target="_blank" rel="noopener"><span>Ficha PDF ↗</span></a>
+          <button class="btn btn--mini btn--or" data-model="Camión grúa PALFINGER PK 44002" data-svc="autocargante"><span>Al presupuesto</span></button>
+        </div>
+      </article>
+
+      <article class="fcard brk rv" data-type="autocargante" data-cap="45" style="--d:.05s">
+        <span class="ck ck--tl"></span><span class="ck ck--br"></span>
+        <div class="fcard-top"><span class="ftag">Camión grúa</span><span class="fava"><i></i>FLOTA PROPIA</span></div>
+        <div class="fcard-img"><img src="assets/a-pk45002.png" alt="Camión grúa Palfinger PK 45002 TEC" loading="lazy"></div>
+        <h3>PK 45002 TEC<small>PALFINGER</small></h3>
+        <ul class="fspec">
+          <li><span>Marca</span><b>Palfinger</b></li>
+          <li><span>Configuración</span><b>Estándar</b></li>
+        </ul>
+        <div class="fcard-cta">
+          <a class="btn btn--mini btn--pdf" href="https://gruaslozano.com/portfolio/pk-45002-tec/" target="_blank" rel="noopener"><span>Ficha ↗</span></a>
+          <button class="btn btn--mini btn--or" data-model="Camión grúa PALFINGER PK 45002 TEC" data-svc="autocargante"><span>Al presupuesto</span></button>
+        </div>
+      </article>
+
+      <article class="fcard brk rv" data-type="autocargante" data-cap="58" style="--d:.1s">
+        <span class="ck ck--tl"></span><span class="ck ck--br"></span>
+        <div class="fcard-top"><span class="ftag">Camión grúa</span><span class="fava"><i></i>FLOTA PROPIA</span></div>
+        <div class="fcard-img"><img src="assets/a-pk580.png" alt="Camión grúa Palfinger PK 580 TEC con JIB" loading="lazy"></div>
+        <h3>PK 580 TEC<small>PALFINGER · CON JIB</small></h3>
+        <ul class="fspec">
+          <li><span>Marca</span><b>Palfinger</b></li>
+          <li><span>Configuración</span><b>Con <i>JIB</i></b></li>
+        </ul>
+        <div class="fcard-cta">
+          <a class="btn btn--mini btn--pdf" href="https://gruaslozano.com/wp-content/uploads/2026/02/Gruas-Lozano-Camiones-Grua-PK580-TEC.pdf" target="_blank" rel="noopener"><span>Ficha PDF ↗</span></a>
+          <button class="btn btn--mini btn--or" data-model="Camión grúa PALFINGER PK 580 TEC (con JIB)" data-svc="autocargante"><span>Al presupuesto</span></button>
+        </div>
+      </article>
+
+      <article class="fcard brk rv" data-type="autocargante" data-cap="60" style="--d:.15s">
+        <span class="ck ck--tl"></span><span class="ck ck--br"></span>
+        <div class="fcard-top"><span class="ftag">Camión grúa</span><span class="fava"><i></i>FLOTA PROPIA</span></div>
+        <div class="fcard-img"><img src="assets/a-pk45002.png" alt="Camión grúa Palfinger PK 60002 con JIB" loading="lazy"></div>
+        <h3>PK 60002<small>PALFINGER · CON JIB</small></h3>
+        <ul class="fspec">
+          <li><span>Marca</span><b>Palfinger</b></li>
+          <li><span>Configuración</span><b>Con <i>JIB</i></b></li>
+        </ul>
+        <div class="fcard-cta">
+          <a class="btn btn--mini btn--pdf" href="https://gruaslozano.com/wp-content/uploads/2026/02/Gruas-Lozano-Camiones-Grua-PK_60002.pdf" target="_blank" rel="noopener"><span>Ficha PDF ↗</span></a>
+          <button class="btn btn--mini btn--or" data-model="Camión grúa PALFINGER PK 60002 (con JIB)" data-svc="autocargante"><span>Al presupuesto</span></button>
+        </div>
+      </article>
+
+      <article class="fcard brk rv" data-type="autocargante" data-cap="72" style="--d:.2s">
+        <span class="ck ck--tl"></span><span class="ck ck--br"></span>
+        <div class="fcard-top"><span class="ftag">Camión grúa</span><span class="fava"><i></i>FLOTA PROPIA</span></div>
+        <div class="fcard-img"><img src="assets/a-pk72002.png" alt="Camión grúa Palfinger PK 72002 con JIB" loading="lazy"></div>
+        <h3>PK 72002<small>PALFINGER · CON JIB</small></h3>
+        <ul class="fspec">
+          <li><span>Marca</span><b>Palfinger</b></li>
+          <li><span>Configuración</span><b>Con <i>JIB</i></b></li>
+        </ul>
+        <div class="fcard-cta">
+          <a class="btn btn--mini btn--pdf" href="https://gruaslozano.com/wp-content/uploads/2026/02/Gruas-Lozano-Camiones-Grua-PALFINGER-PK-72000-JIB.pdf" target="_blank" rel="noopener"><span>Ficha PDF ↗</span></a>
+          <button class="btn btn--mini btn--or" data-model="Camión grúa PALFINGER PK 72002 (con JIB)" data-svc="autocargante"><span>Al presupuesto</span></button>
+        </div>
+      </article>
+
+      <article class="fcard brk rv" data-type="autocargante" data-cap="31" style="--d:.25s">
+        <span class="ck ck--tl"></span><span class="ck ck--br"></span>
+        <div class="fcard-top"><span class="ftag">Camión grúa</span><span class="fava"><i></i>FLOTA PROPIA</span></div>
+        <div class="fcard-img"><img src="assets/a-fassi.png" alt="Camión grúa Fassi 315" loading="lazy"></div>
+        <h3>FASSI 315<small>FASSI</small></h3>
+        <ul class="fspec">
+          <li><span>Marca</span><b>Fassi</b></li>
+          <li><span>Configuración</span><b>Estándar</b></li>
+        </ul>
+        <div class="fcard-cta">
+          <a class="btn btn--mini btn--pdf" href="https://gruaslozano.com/wp-content/uploads/2026/02/Gruas-Lozano-Camiones-Grua-Tabla-Fassi-315.pdf" target="_blank" rel="noopener"><span>Ficha PDF ↗</span></a>
+          <button class="btn btn--mini btn--or" data-model="Camión grúa FASSI 315" data-svc="autocargante"><span>Al presupuesto</span></button>
+        </div>
+      </article>
+
+      <article class="fcard brk rv" data-type="autocargante" data-cap="45" style="--d:.3s">
+        <span class="ck ck--tl"></span><span class="ck ck--br"></span>
+        <div class="fcard-top"><span class="ftag">Camión grúa</span><span class="fava"><i></i>FLOTA PROPIA</span></div>
+        <div class="fcard-img"><img src="assets/a-fassi.png" alt="Camión grúa Fassi 450" loading="lazy"></div>
+        <h3>FASSI 450<small>FASSI</small></h3>
+        <ul class="fspec">
+          <li><span>Marca</span><b>Fassi</b></li>
+          <li><span>Configuración</span><b>Estándar</b></li>
+        </ul>
+        <div class="fcard-cta">
+          <a class="btn btn--mini btn--pdf" href="https://gruaslozano.com/wp-content/uploads/2026/02/Gruas-Lozano-Camiones-Grua-Tabla-Fassi-450.pdf" target="_blank" rel="noopener"><span>Ficha PDF ↗</span></a>
+          <button class="btn btn--mini btn--or" data-model="Camión grúa FASSI 450" data-svc="autocargante"><span>Al presupuesto</span></button>
+        </div>
+      </article>
+
+      <article class="fcard brk rv" data-type="autocargante" data-cap="70" style="--d:.35s">
+        <span class="ck ck--tl"></span><span class="ck ck--br"></span>
+        <div class="fcard-top"><span class="ftag">Camión grúa</span><span class="fava"><i></i>FLOTA PROPIA</span></div>
+        <div class="fcard-img"><img src="assets/a-hiab700.png" alt="Camión grúa Hiab 700-E" loading="lazy"></div>
+        <h3>HIAB 700-E<small>HIAB</small></h3>
+        <ul class="fspec">
+          <li><span>Marca</span><b>Hiab</b></li>
+          <li><span>Configuración</span><b>Estándar</b></li>
+        </ul>
+        <div class="fcard-cta">
+          <a class="btn btn--mini btn--pdf" href="https://gruaslozano.com/wp-content/uploads/2026/02/Gruas-Lozano-Camiones-Grua-HIab-700-E.pdf" target="_blank" rel="noopener"><span>Ficha PDF ↗</span></a>
+          <button class="btn btn--mini btn--or" data-model="Camión grúa HIAB 700-E" data-svc="autocargante"><span>Al presupuesto</span></button>
+        </div>
+      </article>
+    </div>
+
+    <div class="fl-note rv">
+      <p><b>Esto es solo una selección.</b> El parque completo suma 13 grúas móviles, más de 50 modelos de plataformas (600 unidades) y 8 camiones grúa, todos con ficha técnica oficial. ¿No encuentra su configuración? Se la localizamos.</p>
+      <a class="btn btn--or" href="#presupuesto"><span>Consultar disponibilidad</span><svg class="ar" width="14" height="12" viewBox="0 0 14 12" fill="none"><path d="M1 6h11M8 1l5 5-5 5" stroke="currentColor" stroke-width="1.8"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= INGENIERÍA ======================= -->
+<header class="phead" data-prlx>
+  <img src="assets/ph-ingenieria.jpg" alt="Maniobra de ingeniería de Grúas Lozano">
+  <div class="wrap">
+    <p class="crumb">GRÚAS Y PLATAFORMAS LOZANO — INGENIERÍA</p>
+    <h1>Ingeniería</h1>
+  </div>
+</header>
+<section class="sec sec--paper" id="ingenieria">
+  <span class="sec-idx" aria-hidden="true">05</span>
+  <div class="wrap">
+    <div class="ing-grid">
+      <div>
+        <header class="shead rv" style="margin-bottom:0">
+          <p class="eyebrow"><span class="tick"></span>05 · DEPARTAMENTO TÉCNICO</p>
+          <h2 class="title tl">
+            <span class="tl-l"><span>La maniobra se gana</span></span>
+            <span class="tl-l"><span>sobre el <em>plano.</em></span></span>
+          </h2>
+          <p class="sub">Desde nuestro Departamento Técnico desarrollamos <b>procedimientos de maniobras</b> para trabajos de grúas móviles de complejidad, con software específico para cada máquina de la flota.</p>
+        </header>
+
+        <ol class="steps rv">
+          <li>
+            <div>
+              <h4>Estudio del caso</h4>
+              <p>Estudio minucioso de los recursos necesarios en cada trabajo y de las circunstancias de la obra.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <h4>Cálculo con LICCON y CRANIMAX</h4>
+              <p>Cálculo de variables críticas: presiones ejercidas sobre el terreno y condiciones máximas de trabajo.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <h4>Representación en planos</h4>
+              <p>La maniobra se representa en planos para seleccionar la máquina adecuada por dimensiones y capacidad técnica.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <h4>Ejecución con garantías</h4>
+              <p>Maniobra conforme a los requisitos de seguridad y PRL, con mano de obra especializada y seguro de la mercancía manipulada.</p>
+            </div>
+          </li>
+        </ol>
+
+        <div class="soft-chips rv">
+          <span class="schip"><i></i>LICCON</span>
+          <span class="schip"><i></i>CRANIMAX</span>
+          <span class="schip"><i></i>Presiones de terreno</span>
+          <span class="schip"><i></i>Planos de maniobra</span>
+          <span class="schip"><i></i>Transportes especiales</span>
+        </div>
+      </div>
+
+      <figure class="frame rv" style="--d:.15s">
+        <img src="assets/oficina-tecnica.png" alt="Departamento técnico de Grúas Lozano trabajando con software de maniobras" loading="lazy">
+        <figcaption>
+          <span>DEPARTAMENTO TÉCNICO — GRUPO LOZANO</span>
+          <b>LICCON · CRANIMAX</b>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= SECTORES ======================= -->
+<header class="phead" data-prlx>
+  <img src="assets/ph-sectores.jpg" alt="Sectores de actividad del Grupo Lozano">
+  <div class="wrap">
+    <p class="crumb">GRÚAS Y PLATAFORMAS LOZANO — SECTORES</p>
+    <h1>Sectores</h1>
+  </div>
+</header>
+<section class="sec" id="sectores">
+  <span class="sec-idx" aria-hidden="true">04</span>
+  <div class="wrap">
+    <header class="shead rv">
+      <p class="eyebrow"><span class="tick"></span>04 · SECTORES</p>
+      <h2 class="title tl">
+        <span class="tl-l"><span>Donde hay que elevar,</span></span>
+        <span class="tl-l"><span>allí <em>estamos.</em></span></span>
+      </h2>
+      <p class="sub">Las empresas del Grupo Lozano atesoran una larga experiencia desde sus orígenes en una amplia gama de sectores, abarcando <b>todas las actividades donde hay alquiler de maquinaria de elevación</b>. En el sector naval somos proveedores directos de las principales empresas de Andalucía.</p>
+    </header>
+
+    <div class="sect-grid" style="margin-top:0">
+      <figure class="sect rv"><img src="assets/sec-industria.jpg" alt="Sector industria" loading="lazy"><h4>Industria<small>SIDERÚRGICAS · CEMENTERAS · QUÍMICO</small></h4></figure>
+      <figure class="sect rv" style="--d:.06s"><img src="assets/sec-mineria.jpg" alt="Sector minería" loading="lazy"><h4>Minería<small>PROVEEDORES ACREDITADOS</small></h4></figure>
+      <figure class="sect rv" style="--d:.12s"><img src="assets/sec-construccion.jpg" alt="Sector construcción" loading="lazy"><h4>Construcción<small>OBRA CIVIL · PREFABRICADOS</small></h4></figure>
+      <figure class="sect rv" style="--d:.18s"><img src="assets/sec-eolicas.jpg" alt="Sector eólico" loading="lazy"><h4>Eólica<small>PERSONAL CERTIFICADO GWO</small></h4></figure>
+      <figure class="sect rv" style="--d:.24s"><img src="assets/sec-termosolares.jpg" alt="Sector termosolar y fotovoltaico" loading="lazy"><h4>Solar<small>FOTOVOLTAICA · TERMOSOLAR</small></h4></figure>
+      <figure class="sect rv" style="--d:.3s"><img src="assets/sec-otros.jpg" alt="Otros sectores" loading="lazy"><h4>Naval y otros<small>AEROPUERTOS · GRANDES EVENTOS</small></h4></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= GALERÍA EN OBRA ======================= -->
+<section class="gallery" id="galeria" aria-label="Grúas Lozano en obra">
+  <div class="wrap gallery-head rv">
+    <p class="eyebrow"><span class="tick"></span>EN OBRA</p>
+    <h2 class="title">Nuestras máquinas,<br><em>en acción.</em></h2>
+    <p class="sub">Izados reales, montajes en altura y maniobras del día a día del Grupo Lozano por toda Andalucía y Extremadura.</p>
+  </div>
+
+  <div class="gstrip" aria-hidden="true">
+    <div class="gtrack gtrack--l">
+      <figure class="gph"><img src="assets/gal-11.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph"><img src="assets/gal-01.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph gph--tall"><img src="assets/gal-12.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph"><img src="assets/gal-02.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph"><img src="assets/gal-13.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph"><img src="assets/gal-03.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph"><img src="assets/gal-14.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph"><img src="assets/gal-04.jpg" alt="" loading="lazy"></figure>
+      <!-- duplicado para bucle continuo -->
+      <figure class="gph"><img src="assets/gal-11.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph"><img src="assets/gal-01.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph gph--tall"><img src="assets/gal-12.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph"><img src="assets/gal-02.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph"><img src="assets/gal-13.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph"><img src="assets/gal-03.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph"><img src="assets/gal-14.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph"><img src="assets/gal-04.jpg" alt="" loading="lazy"></figure>
+    </div>
+  </div>
+
+  <div class="gstrip" aria-hidden="true">
+    <div class="gtrack gtrack--r">
+      <figure class="gph"><img src="assets/gal-15.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph"><img src="assets/gal-05.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph"><img src="assets/gal-16.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph"><img src="assets/gal-06.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph"><img src="assets/gal-09.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph"><img src="assets/gal-07.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph"><img src="assets/gal-10.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph"><img src="assets/gal-08.jpg" alt="" loading="lazy"></figure>
+      <!-- duplicado para bucle continuo -->
+      <figure class="gph"><img src="assets/gal-15.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph"><img src="assets/gal-05.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph"><img src="assets/gal-16.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph"><img src="assets/gal-06.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph"><img src="assets/gal-09.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph"><img src="assets/gal-07.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph"><img src="assets/gal-10.jpg" alt="" loading="lazy"></figure>
+      <figure class="gph"><img src="assets/gal-08.jpg" alt="" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= HISTORIA ======================= -->
+<header class="phead" data-prlx>
+  <img src="assets/ph-historia.jpg" alt="Historia del Grupo Lozano">
+  <div class="wrap">
+    <p class="crumb">GRÚAS Y PLATAFORMAS LOZANO — HISTORIA</p>
+    <h1>Historia</h1>
+  </div>
+</header>
+<section class="sec" id="historia">
+  <span class="sec-idx" aria-hidden="true">01</span>
+  <div class="wrap">
+    <div class="hist-top">
+      <header class="shead rv" style="margin-bottom:0">
+        <p class="eyebrow"><span class="tick"></span>01 · HISTORIA · DESDE 1959</p>
+        <h2 class="title tl">
+          <span class="tl-l"><span>La primera grúa</span></span>
+          <span class="tl-l"><span>de <em>Sevilla.</em></span></span>
+        </h2>
+        <p class="sub">Empresa familiar fundada por <b>D. Juan Lozano López en 1959</b>, nace como la primera empresa de grúas dedicada al servicio público que se ubica en Sevilla. Más de sesenta años en el mercado del alquiler de maquinaria de elevación la avalan como <b>empresa de referencia del sector</b>.</p>
+      </header>
+      <figure class="hist-shot rv" style="--d:.15s">
+        <img src="assets/historia-1959.jpg" alt="Fotografía de archivo de las primeras grúas de Grúas Lozano" loading="lazy">
+        <img class="badge" src="assets/badge-60.png" alt="Más de 60 años" loading="lazy">
+        <figcaption>ARCHIVO GRÚAS LOZANO — PRIMERAS UNIDADES DEL PARQUE</figcaption>
+      </figure>
+    </div>
+
+    <div class="tline-wrap rv">
+      <p class="tline-hint"><span>EVOLUCIÓN DEL GRUPO</span><b>DESLICE →</b></p>
+      <div class="tline" id="tline">
+        <div class="tnode"><b>1959</b><h4>Fundación</h4><p>Juan Lozano López funda en Sevilla la primera empresa de grúas de servicio público de la ciudad.</p></div>
+        <div class="tnode"><b>1965</b><h4>Jerez de la Frontera</h4><p>Apertura de la primera delegación fuera de Sevilla.</p></div>
+        <div class="tnode"><b>1968</b><h4>Cádiz</h4><p>Apertura de delegación en Cádiz.</p></div>
+        <div class="tnode"><b>1989</b><h4>Primeras plataformas</h4><p>Adquisición de las primeras plataformas elevadoras del grupo.</p></div>
+        <div class="tnode"><b>1991</b><h4>Plataformas Lozano</h4><p>Constitución de Grulosa —hoy Plataformas Lozano— para independizar el negocio de plataformas.</p></div>
+        <div class="tnode"><b>1992</b><h4>Huelva</h4><p>Apertura de delegación en Huelva.</p></div>
+        <div class="tnode"><b>1999</b><h4>Algeciras</h4><p>Apertura de delegación en el Campo de Gibraltar.</p></div>
+        <div class="tnode"><b>2002</b><h4>Badajoz</h4><p>El grupo cruza a Extremadura: delegación en Badajoz.</p></div>
+        <div class="tnode"><b>2004</b><h4>Málaga</h4><p>Apertura de delegación en Málaga.</p></div>
+        <div class="tnode"><b>2006</b><h4>Granada</h4><p>Apertura de delegación en Granada.</p></div>
+        <div class="tnode"><b>2020</b><h4>Córdoba</h4><p>Apertura de delegación en Córdoba.</p></div>
+        <div class="tnode"><b>2025</b><h4>Navalmoral de la Mata</h4><p>La delegación más reciente de la red, en el norte de Extremadura.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= FORMACIÓN ======================= -->
+<header class="phead" data-prlx>
+  <img src="assets/svc-plataformas.jpg" alt="Plataformas elevadoras móviles para personal">
+  <div class="wrap">
+    <p class="crumb">GRÚAS Y PLATAFORMAS LOZANO — FORMACIÓN</p>
+    <h1>Formación</h1>
+  </div>
+</header>
+<section class="sec" id="formacion">
+  <span class="sec-idx" aria-hidden="true">06</span>
+  <div class="wrap">
+    <div class="ing-grid">
+      <div>
+        <header class="shead rv" style="margin-bottom:0">
+          <p class="eyebrow"><span class="tick"></span>06 · FORMACIÓN PEMP</p>
+          <h2 class="title tl">
+            <span class="tl-l"><span>Formamos a quienes</span></span>
+            <span class="tl-l"><span>trabajan en <em>altura.</em></span></span>
+          </h2>
+          <p class="sub">PLATAFORMAS LOZANO está adscrita a los centros de formación de <b>ANAPAT e IPAF</b>: formamos a su personal en las condiciones que establece la norma <b>UNE-58923</b>, expidiendo el carnet homologado en cada una de las categorías de PEMP.</p>
+        </header>
+
+        <ul class="q-points rv">
+          <li><span class="pk">✓</span><span><b>Carnet homologado</b> por ANAPAT e IPAF en cada categoría de plataforma.</span></li>
+          <li><span class="pk">✓</span><span><b>Norma UNE-58923:</b> requisito cada vez más exigido en todos los trabajos con plataformas elevadoras móviles para personal.</span></li>
+          <li><span class="pk">✓</span><span><b>Empresas homologadas en los principales portales CAE</b>, requisito indispensable para prestar servicios actualmente.</span></li>
+        </ul>
+
+        <div class="q-alt rv">
+          <small>SOLICITE SU FORMACIÓN</small>
+          <a href="mailto:direccion.comercial@plataformaslozano.com" style="font-size:1.05rem">direccion.comercial@plataformaslozano.com</a>
+          <p style="margin-top:.2rem"><a href="mailto:plataformas@plataformaslozano.com" style="color:var(--txt);text-decoration:none">plataformas@plataformaslozano.com</a></p>
+        </div>
+      </div>
+
+      <figure class="frame rv" style="--d:.15s">
+        <img src="assets/svc-plataformas.jpg" alt="Plataformas elevadoras trabajando en entorno urbano" loading="lazy">
+        <figcaption>
+          <span>EMPRESA FORMADORA AUTORIZADA</span>
+          <b>ANAPAT · IPAF · UNE-58923</b>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= CERTIFICACIONES ======================= -->
+<header class="phead" data-prlx>
+  <img src="assets/ph-certificaciones.jpg" alt="Certificaciones del Grupo Lozano">
+  <div class="wrap">
+    <p class="crumb">GRÚAS Y PLATAFORMAS LOZANO — CERTIFICACIONES</p>
+    <h1>Certificaciones</h1>
+  </div>
+</header>
+<section class="sec" id="certificaciones">
+  <span class="sec-idx" aria-hidden="true">07</span>
+  <div class="wrap">
+    <header class="shead rv">
+      <p class="eyebrow"><span class="tick"></span>07 · ACREDITACIONES</p>
+      <h2 class="title tl">
+        <span class="tl-l"><span>Certificados</span></span>
+        <span class="tl-l"><span>que puede <em>verificar.</em></span></span>
+      </h2>
+      <p class="sub">Las empresas del Grupo están certificadas en las normas <b>UNE-EN-ISO 9001, 14001 y 45001</b> por una entidad acreditada por ENAC, y bajo ANAPAT en la norma <b>ISO 18878</b> de formación de operadores de plataformas elevadoras móviles para personal.</p>
+    </header>
+
+    <div class="certs rv" style="margin-top:0">
+      <a class="cert" href="https://gruaslozano.com/wp-content/uploads/2026/01/GRUAS-LOZANO-ISO-9001.2015-CALIDAD.pdf" target="_blank" rel="noopener">
+        <span class="cert-img"><img src="assets/cert-9001.png" alt="Certificado SGS ISO 9001" loading="lazy"></span>
+        <h5>ISO 9001:2015</h5>
+        <p>Gestión de calidad certificada por entidad acreditada por ENAC.</p>
+        <span class="pdf">VER CERTIFICADO ↗</span>
+      </a>
+      <a class="cert" href="https://gruaslozano.com/wp-content/uploads/2026/01/GRUAS-LOZANO-ISO-14001.2015-MA.pdf" target="_blank" rel="noopener">
+        <span class="cert-img"><img src="assets/cert-14001.png" alt="Certificado SGS ISO 14001" loading="lazy"></span>
+        <h5>ISO 14001:2015</h5>
+        <p>Gestión ambiental certificada en todas las empresas del grupo.</p>
+        <span class="pdf">VER CERTIFICADO ↗</span>
+      </a>
+      <a class="cert" href="https://gruaslozano.com/wp-content/uploads/2026/01/GRUAS-LOZANO-ISO-45001.2018-PRL.pdf" target="_blank" rel="noopener">
+        <span class="cert-img"><img src="assets/cert-45001.png" alt="Certificado SGS ISO 45001" loading="lazy"></span>
+        <h5>ISO 45001:2018</h5>
+        <p>Seguridad y salud en el trabajo. La prevención no se subcontrata.</p>
+        <span class="pdf">VER CERTIFICADO ↗</span>
+      </a>
+      <div class="cert">
+        <span class="cert-img"><img src="assets/cert-gwo.png" alt="Certificación GWO" loading="lazy"></span>
+        <h5>GWO</h5>
+        <p>Personal capacitado y renovado periódicamente para montaje y mantenimiento de parques eólicos.</p>
+      </div>
+      <div class="cert">
+        <span class="cert-img"><img src="assets/cert-ipaf.png" alt="Centro de formación IPAF" loading="lazy"></span>
+        <h5>ANAPAT · IPAF</h5>
+        <p>Centro de formación adscrito: carnet homologado de operador PEMP según UNE-58923 e ISO 18878.</p>
+      </div>
+      <div class="cert">
+        <span class="cert-img" style="font:600 .85rem/1.2 var(--fm);color:#2D2926">CAE</span>
+        <h5>Portales CAE</h5>
+        <p>Empresas homologadas en los principales portales de coordinación de actividades empresariales.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= NOTICIAS ======================= -->
+<header class="phead" data-prlx>
+  <img src="assets/ph-noticias.jpg" alt="Actualidad del Grupo Lozano">
+  <div class="wrap">
+    <p class="crumb">GRÚAS Y PLATAFORMAS LOZANO — NOTICIAS</p>
+    <h1>Noticias</h1>
+  </div>
+</header>
+<section class="sec sec--paper" id="noticias">
+  <span class="sec-idx" aria-hidden="true">08</span>
+  <div class="wrap">
+    <header class="shead rv">
+      <p class="eyebrow"><span class="tick"></span>08 · NOTICIAS</p>
+      <h2 class="title tl">
+        <span class="tl-l"><span>Información</span></span>
+        <span class="tl-l"><span>corporativa <em>oficial.</em></span></span>
+      </h2>
+      <p class="sub">Convocatorias y anuncios oficiales de las sociedades del Grupo Lozano, publicados en gruaslozano.com.</p>
+    </header>
+
+    <div class="nws rv">
+      <a class="nitem" href="https://gruaslozano.com/convocatoria-junta-general-ordinaria-2026-gruas-lozano-sa/" target="_blank" rel="noopener">
+        <span class="tagy">2026</span><b>Convocatoria Junta General Ordinaria — Grúas Lozano S.A.</b><small>LEER ↗</small>
+      </a>
+      <a class="nitem" href="https://gruaslozano.com/convocatoria-junta-general-ordinaria-2026-plataformas-lozano-sl/" target="_blank" rel="noopener">
+        <span class="tagy">2026</span><b>Convocatoria Junta General Ordinaria — Plataformas Lozano S.L.</b><small>LEER ↗</small>
+      </a>
+      <a class="nitem" href="https://gruaslozano.com/convocatoria-junta-general-ordinaria-2026-tecniplataformas-lozano-sl/" target="_blank" rel="noopener">
+        <span class="tagy">2026</span><b>Convocatoria Junta General Ordinaria — Tecniplataformas Lozano S.L.</b><small>LEER ↗</small>
+      </a>
+      <a class="nitem" href="https://gruaslozano.com/convocatoria-junta-general-ordinaria-2026-loain-sl/" target="_blank" rel="noopener">
+        <span class="tagy">2026</span><b>Convocatoria Junta General Ordinaria — Loain S.L.</b><small>LEER ↗</small>
+      </a>
+      <a class="nitem" href="https://gruaslozano.com/convocatoria-junta-general-ordinaria-2026-garde-activos-sl/" target="_blank" rel="noopener">
+        <span class="tagy">2026</span><b>Convocatoria Junta General Ordinaria — Garde Activos S.L.</b><small>LEER ↗</small>
+      </a>
+      <a class="nitem" href="https://gruaslozano.com/noticias/" target="_blank" rel="noopener">
+        <span class="tagy" style="background:var(--ink);color:var(--paper)">+</span><b>Ver todas las noticias en gruaslozano.com</b><small>IR ↗</small>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= DELEGACIONES ======================= -->
+<header class="phead" data-prlx>
+  <img src="assets/ph-contacto.jpg" alt="Delegaciones del Grupo Lozano">
+  <div class="wrap">
+    <p class="crumb">GRÚAS Y PLATAFORMAS LOZANO — DELEGACIONES</p>
+    <h1>Delegaciones</h1>
+  </div>
+</header>
+<section class="sec sec--paper" id="delegaciones">
+  <span class="sec-idx" aria-hidden="true">09</span>
+  <div class="wrap">
+    <header class="shead rv">
+      <p class="eyebrow"><span class="tick"></span>09 · RED TERRITORIAL</p>
+      <h2 class="title tl">
+        <span class="tl-l"><span>11 delegaciones.</span></span>
+        <span class="tl-l"><span>Una grúa siempre <em>cerca.</em></span></span>
+      </h2>
+      <p class="sub">Red de oficinas propia con presencia en <b>Andalucía y Extremadura</b> y capacidad de operar en proyectos en cualquier punto. Cada delegación, con su teléfono directo.</p>
+    </header>
+
+    <div class="del-cards">
+      <article class="dcard2 dcard2--hq rv">
+        <div class="dcard2-img"><img src="assets/del-sevilla.jpg" alt="Sede central de Grúas Lozano en Alcalá de Guadaíra" loading="lazy"><span class="dbadge dbadge--hq">Sede central</span></div>
+        <div class="dcard2-b">
+          <h3>Sevilla</h3>
+          <p class="addr">P.I. La Red, calle 9 nº 1 · Ctra. Sevilla–Málaga km 5,2 · 41500 Alcalá de Guadaíra. Plataformas Lozano en P.I. La Red nº 13 e instalaciones en Mercasevilla.</p>
+          <div class="dcard2-ft">
+            <a class="dphone" href="tel:+34955634500"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><span><small>Teléfono directo</small><b>955 634 500</b></span></a>
+            <a class="dmail" href="mailto:gruaslozano@gruaslozano.com">gruaslozano@gruaslozano.com</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="dcard2 rv" style="--d:.04s">
+        <div class="dcard2-img"><img src="assets/del-jerez.jpg" alt="Delegación de Jerez de la Frontera" loading="lazy"><span class="dbadge">Desde 1965</span></div>
+        <div class="dcard2-b">
+          <h3>Jerez de la Frontera</h3>
+          <p class="addr">P.I. El Portal · Avda. Alcalde Cantos Ropero nº 93 · 11408 Jerez de la Frontera (Cádiz).</p>
+          <div class="dcard2-ft"><a class="dphone" href="tel:+34956144127"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><span><small>Teléfono directo</small><b>956 144 127</b></span></a></div>
+        </div>
+      </article>
+
+      <article class="dcard2 rv" style="--d:.08s">
+        <div class="dcard2-img"><img src="assets/del-algeciras.jpg" alt="Delegación de Algeciras" loading="lazy"><span class="dbadge">Desde 1999</span></div>
+        <div class="dcard2-b">
+          <h3>Algeciras</h3>
+          <p class="addr">Sector TA-03, calle 3, parcela I-78 · La Pólvora (Taraguilla) · 11360 San Roque (Cádiz).</p>
+          <div class="dcard2-ft"><a class="dphone" href="tel:+34666496943"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><span><small>Teléfono directo</small><b>666 496 943</b></span></a></div>
+        </div>
+      </article>
+
+      <article class="dcard2 rv" style="--d:.12s">
+        <div class="dcard2-img"><img src="assets/del-huelva.jpg" alt="Delegación de Huelva" loading="lazy"><span class="dbadge">Desde 1992</span></div>
+        <div class="dcard2-b">
+          <h3>Huelva</h3>
+          <p class="addr">Polígono Industrial Pesquero Norte · c/ Alonso Ojeda s/n · Huelva.</p>
+          <div class="dcard2-ft"><a class="dphone" href="tel:+34959260126"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><span><small>Teléfono directo</small><b>959 260 126</b></span></a></div>
+        </div>
+      </article>
+
+      <article class="dcard2 rv" style="--d:.16s">
+        <div class="dcard2-img"><img src="assets/del-cordoba.jpg" alt="Delegación de Córdoba" loading="lazy"><span class="dbadge">Desde 2020</span></div>
+        <div class="dcard2-b">
+          <h3>Córdoba</h3>
+          <p class="addr">Plataformas Lozano Córdoba · Carretera Madrid–Cádiz km 392 · 14610 Córdoba.</p>
+          <div class="dcard2-ft"><a class="dphone" href="tel:+34697313084"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><span><small>Teléfono directo</small><b>697 313 084</b></span></a></div>
+        </div>
+      </article>
+
+      <article class="dcard2 rv" style="--d:.2s">
+        <div class="dcard2-img"><img src="assets/del-malaga.jpg" alt="Delegación de Málaga" loading="lazy"><span class="dbadge">Desde 2004</span></div>
+        <div class="dcard2-b">
+          <h3>Málaga</h3>
+          <p class="addr">Pol. Ind. de Trevélez · c/ Gaspar Cassadó y Calibran, parc. I-3 · 29590 Campanillas (Málaga).</p>
+          <div class="dcard2-ft"><a class="dphone" href="tel:+34952179478"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><span><small>Teléfono directo</small><b>952 179 478</b></span></a></div>
+        </div>
+      </article>
+
+      <article class="dcard2 rv" style="--d:.24s">
+        <div class="dcard2-img"><img src="assets/del-granada.jpg" alt="Delegación de Granada" loading="lazy"><span class="dbadge">Desde 2006</span></div>
+        <div class="dcard2-b">
+          <h3>Granada</h3>
+          <p class="addr">Plataformas Lozano Granada · c/ Bernard Vicent · 18230 Santa Fe (Granada).</p>
+          <div class="dcard2-ft"><a class="dphone" href="tel:+34958440777"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><span><small>Teléfono directo</small><b>958 440 777</b></span></a></div>
+        </div>
+      </article>
+
+      <article class="dcard2 rv" style="--d:.28s">
+        <div class="dcard2-img"><img src="assets/del-jaen.jpg" alt="Delegación de Jaén" loading="lazy"><span class="dbadge">Delegación</span></div>
+        <div class="dcard2-b">
+          <h3>Jaén</h3>
+          <p class="addr">Plataformas Lozano Jaén · servicio de plataformas elevadoras para toda la provincia.</p>
+          <div class="dcard2-ft"><a class="dphone" href="tel:+34671645879"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><span><small>Teléfono directo</small><b>671 645 879</b></span></a></div>
+        </div>
+      </article>
+
+      <article class="dcard2 rv" style="--d:.32s">
+        <div class="dcard2-img"><img src="assets/del-almeria.jpg" alt="Delegación de Almería" loading="lazy"><span class="dbadge">Delegación</span></div>
+        <div class="dcard2-b">
+          <h3>Almería</h3>
+          <p class="addr">Plataformas Lozano Almería · Carretera de Pechina · 04250 Pechina (Almería).</p>
+          <div class="dcard2-ft"><a class="dphone" href="tel:+34637267690"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><span><small>Teléfono directo</small><b>637 267 690</b></span></a></div>
+        </div>
+      </article>
+
+      <article class="dcard2 rv" style="--d:.36s">
+        <div class="dcard2-img"><img src="assets/del-almendralejo.jpg" alt="Delegación de Almendralejo" loading="lazy"><span class="dbadge">Desde 2002</span></div>
+        <div class="dcard2-b">
+          <h3>Almendralejo</h3>
+          <p class="addr">Plataformas Lozano Almendralejo · Av. Pdte. Juan Carlos Rodríguez Ibarra, 3 · 06200 Almendralejo (Badajoz).</p>
+          <div class="dcard2-ft"><a class="dphone" href="tel:+34924664630"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><span><small>Teléfono directo</small><b>924 664 630</b></span></a></div>
+        </div>
+      </article>
+
+      <article class="dcard2 rv" style="--d:.4s">
+        <div class="dcard2-img"><img src="assets/del-navalmoral.jpg" alt="Delegación de Navalmoral de la Mata" loading="lazy"><span class="dbadge">Desde 2025</span></div>
+        <div class="dcard2-b">
+          <h3>Navalmoral de la Mata</h3>
+          <p class="addr">La delegación más reciente de la red, al servicio del norte de Extremadura (Cáceres).</p>
+          <div class="dcard2-ft"><a class="dphone" href="tel:+34667472182"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><span><small>Teléfono directo</small><b>667 472 182</b></span></a></div>
+        </div>
+      </article>
+
+      <article class="dcard2 dcard2--cta rv" style="--d:.44s">
+        <div class="dcard2-ctab">
+          <p class="dcta-k">¿NO VES TU ZONA?</p>
+          <h3>Operamos en todo el territorio nacional</h3>
+          <p>Para proyectos especiales nos desplazamos a cualquier punto de España. Llámanos y lo organizamos.</p>
+          <a class="btn btn--or" href="tel:+34955634500"><span>955 634 500</span></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= PRESUPUESTO ======================= -->
+<header class="phead" data-prlx>
+  <img src="assets/ph-presupuesto.jpg" alt="Contacto y presupuesto Grúas Lozano">
+  <div class="wrap">
+    <p class="crumb">GRÚAS Y PLATAFORMAS LOZANO — PRESUPUESTO</p>
+    <h1>Presupuesto</h1>
+  </div>
+</header>
+<section class="sec" id="presupuesto">
+  <span class="sec-idx" aria-hidden="true">10</span>
+  <div class="wrap">
+    <div class="q-grid">
+      <div>
+        <header class="shead rv" style="margin-bottom:0">
+          <p class="eyebrow"><span class="tick"></span>10 · PRESUPUESTO</p>
+          <h2 class="title tl">
+            <span class="tl-l"><span>Su presupuesto,</span></span>
+            <span class="tl-l"><span>en tres <em>pasos.</em></span></span>
+          </h2>
+          <p class="sub">Cuéntenos qué hay que elevar y dónde. Un técnico de su delegación más cercana le responde con propuesta cerrada.</p>
+        </header>
+
+        <ul class="q-points rv">
+          <li><span class="pk">✓</span><span><b>Estudio minucioso de cada caso</b>, como establece nuestro método de trabajo.</span></li>
+          <li><span class="pk">✓</span><span><b>Seguridad y PRL</b>: maniobras conforme a los requisitos técnicos establecidos.</span></li>
+          <li><span class="pk">✓</span><span><b>Asesoramiento de flota:</b> si hay un equipo más eficiente para su carga, se lo diremos.</span></li>
+        </ul>
+
+        <div class="q-alt rv">
+          <small>¿PREFIERE LLAMAR? — CENTRALITA SEVILLA</small>
+          <a href="tel:+34955634500">955 634 500</a>
+          <p>O contacte directamente con su delegación: los teléfonos directos están en el mapa.</p>
+        </div>
+      </div>
+
+      <form class="qform rv" id="qform" novalidate style="--d:.15s">
+        <div class="fprog" id="fprog" aria-hidden="true">
+          <div class="fpseg act" data-step="1"><small>1 · SERVICIO</small><i></i></div>
+          <div class="fpseg" data-step="2"><small>2 · OBRA</small><i></i></div>
+          <div class="fpseg" data-step="3"><small>3 · CONTACTO</small><i></i></div>
+        </div>
+
+        <div id="fpanels">
+          <!-- PASO 1 -->
+          <fieldset class="fstep act" data-step="1">
+            <h3><em>01.</em> ¿Qué necesita elevar?</h3>
+
+            <div class="prefill" id="prefill">
+              <svg viewBox="0 0 24 24"><path d="M4 20h16M6 20V9l9-4M15 5v6m-3 0h6"/></svg>
+              <p>Equipo seleccionado: <b id="prefillName"></b></p>
+              <button type="button" id="prefillRm" aria-label="Quitar equipo seleccionado">Quitar ✕</button>
+            </div>
+
+            <div class="svc-pick" role="radiogroup" aria-label="Tipo de servicio">
+              <label class="spick">
+                <input type="radio" name="svc" value="Grúa móvil autopropulsada" checked>
+                <span class="bx"><svg viewBox="0 0 48 48"><path d="M5 38h30v6H5z"/><path d="M10 38v-8h8L36 10"/><path d="M36 10v12m-5 0h10"/></svg><b>Grúa móvil</b></span>
+              </label>
+              <label class="spick">
+                <input type="radio" name="svc" value="Plataforma elevadora">
+                <span class="bx"><svg viewBox="0 0 48 48"><path d="M14 5h20v9H14z"/><path d="M17 14l14 12M31 14L17 26M17 26l14 12M31 26L17 38"/><path d="M12 38h24v5H12z"/></svg><b>Plataforma elevadora</b></span>
+              </label>
+              <label class="spick">
+                <input type="radio" name="svc" value="Camión grúa autocargante">
+                <span class="bx"><svg viewBox="0 0 48 48"><path d="M4 36h40v6H4z"/><path d="M6 36v-9h7v9"/><path d="M17 36v-8l9-10 11 7"/><path d="M37 25v8"/></svg><b>Camión grúa</b></span>
+              </label>
+              <label class="spick">
+                <input type="radio" name="svc" value="Maniobra especial / ingeniería">
+                <span class="bx"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="13"/><path d="M24 3v8M24 37v8M3 24h8M37 24h8"/></svg><b>Maniobra especial</b></span>
+              </label>
+            </div>
+
+            <div class="frow">
+              <div class="fld">
+                <label for="qcap">Capacidad / altura estimada</label>
+                <select id="qcap" name="capacidad">
+                  <option value="No lo sé — necesito asesoramiento">No lo sé — asesórenme</option>
+                  <option>Hasta 80 t / 20 m</option>
+                  <option>80 – 230 t / 20 – 43 m</option>
+                  <option>Más de 230 t / maniobra singular</option>
+                </select>
+              </div>
+              <div class="fld">
+                <label for="qdate">Fecha de inicio <i>*</i></label>
+                <input type="date" id="qdate" name="fecha" required>
+              </div>
+            </div>
+            <div class="frow">
+              <div class="fld">
+                <label for="qdur">Duración prevista</label>
+                <select id="qdur" name="duracion">
+                  <option>1 día</option>
+                  <option>2 – 7 días</option>
+                  <option>Varias semanas</option>
+                  <option>Varios meses / obra completa</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="fnav">
+              <button type="button" class="btn btn--or" data-next><span>Siguiente · Datos de obra</span><svg class="ar" width="14" height="12" viewBox="0 0 14 12" fill="none"><path d="M1 6h11M8 1l5 5-5 5" stroke="currentColor" stroke-width="1.8"/></svg></button>
+            </div>
+            <p class="ferr" data-err>Revise los campos marcados para continuar.</p>
+          </fieldset>
+
+          <!-- PASO 2 -->
+          <fieldset class="fstep" data-step="2">
+            <h3><em>02.</em> ¿Dónde está la obra?</h3>
+            <div class="frow">
+              <div class="fld">
+                <label for="qprov">Provincia <i>*</i></label>
+                <select id="qprov" name="provincia" required>
+                  <option value="">Seleccione provincia…</option>
+                  <option>Sevilla</option><option>Cádiz</option><option>Huelva</option>
+                  <option>Córdoba</option><option>Málaga</option><option>Granada</option>
+                  <option>Jaén</option><option>Almería</option><option>Badajoz</option>
+                  <option>Cáceres</option><option>Otra (proyecto nacional)</option>
+                </select>
+              </div>
+              <div class="fld">
+                <label for="qcity">Municipio / emplazamiento <i>*</i></label>
+                <input type="text" id="qcity" name="municipio" placeholder="P. ej.: Dos Hermanas, P.I. Carretera de la Isla" required>
+              </div>
+            </div>
+            <div class="frow frow--1">
+              <div class="fld">
+                <label for="qdesc">Describa la carga o el trabajo</label>
+                <textarea id="qdesc" name="descripcion" placeholder="P. ej.: izado de 2 climatizadoras de 4,2 t a cubierta de nave de 12 m, acceso por vial de 6 m…"></textarea>
+              </div>
+            </div>
+            <label class="fcheck">
+              <input type="checkbox" id="qstudy" name="estudio">
+              <span>Necesito <b>estudio de maniobra del Departamento Técnico</b> (plano y procedimiento).</span>
+            </label>
+
+            <div class="fnav">
+              <button type="button" class="btn btn--back" data-back><span>← Atrás</span></button>
+              <button type="button" class="btn btn--or" data-next><span>Siguiente · Contacto</span><svg class="ar" width="14" height="12" viewBox="0 0 14 12" fill="none"><path d="M1 6h11M8 1l5 5-5 5" stroke="currentColor" stroke-width="1.8"/></svg></button>
+            </div>
+            <p class="ferr" data-err>Revise los campos marcados para continuar.</p>
+          </fieldset>
+
+          <!-- PASO 3 -->
+          <fieldset class="fstep" data-step="3">
+            <h3><em>03.</em> ¿A quién respondemos?</h3>
+            <div class="frow">
+              <div class="fld">
+                <label for="qcomp">Empresa <i>*</i></label>
+                <input type="text" id="qcomp" name="empresa" placeholder="Razón social" required>
+              </div>
+              <div class="fld">
+                <label for="qname">Nombre y apellidos <i>*</i></label>
+                <input type="text" id="qname" name="nombre" placeholder="Persona de contacto" required>
+              </div>
+            </div>
+            <div class="frow">
+              <div class="fld">
+                <label for="qmail">Email <i>*</i></label>
+                <input type="email" id="qmail" name="email" placeholder="nombre@empresa.com" required>
+              </div>
+              <div class="fld">
+                <label for="qtel">Teléfono <i>*</i></label>
+                <input type="tel" id="qtel" name="telefono" placeholder="600 000 000" required>
+              </div>
+            </div>
+
+            <div class="fsummary">
+              <small>RESUMEN DE SU SOLICITUD</small>
+              <p id="qsummary">—</p>
+            </div>
+
+            <label class="fcheck" id="rgpdWrap">
+              <input type="checkbox" id="qrgpd" name="rgpd" required>
+              <span>He leído y acepto la <a href="https://gruaslozano.com/politica-privacidad/" target="_blank" rel="noopener">Política de Privacidad</a>. El responsable del tratamiento es <b>GRÚAS LOZANO</b>. La finalidad de la recogida de datos es la de poder atender sus cuestiones, <b>sin ceder sus datos a terceros</b>. Tiene derecho a saber qué información tenemos sobre usted, corregirla o eliminarla.</span>
+            </label>
+
+            <div class="fnav">
+              <button type="button" class="btn btn--back" data-back><span>← Atrás</span></button>
+              <button type="submit" class="btn btn--or" id="qsubmit"><span>Enviar solicitud</span><svg class="ar" width="14" height="12" viewBox="0 0 14 12" fill="none"><path d="M1 6h11M8 1l5 5-5 5" stroke="currentColor" stroke-width="1.8"/></svg></button>
+            </div>
+            <p class="ferr" data-err>Revise los campos marcados: los datos de contacto y la aceptación de privacidad son necesarios.</p>
+          </fieldset>
+        </div>
+
+        <!-- ÉXITO -->
+        <div class="fsuccess" id="fsuccess" role="status">
+          <svg class="okring" viewBox="0 0 100 100">
+            <circle pathLength="1" cx="50" cy="50" r="46"/>
+            <path pathLength="1" d="M30 52l14 13 26-30"/>
+          </svg>
+          <h3>Solicitud registrada</h3>
+          <span class="ref" id="qref">REF. GL-2026-0000</span>
+          <p>Un técnico de su delegación más cercana le contactará a la mayor brevedad.<br>¿Lo necesita ya? Llámenos: <b>955 634 500</b>.</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= CTA FINAL ======================= -->
+<section class="cta">
+  <div class="cta-bg" aria-hidden="true"><img src="assets/cta-bg.jpg" alt="" loading="lazy"></div>
+  <div class="wrap">
+    <h2 class="rv">¿Hay carga<br>mañana a las <em>7:00?</em></h2>
+    <a class="cta-tel rv" style="--d:.12s" href="tel:+34955634500">
+      <small>LLÁMENOS — CENTRALITA SEVILLA</small>
+      <b>955 634 500</b>
+    </a>
+    <a class="btn btn--or rv" style="--d:.2s" href="#presupuesto"><span>Pedir presupuesto</span><svg class="ar" width="14" height="12" viewBox="0 0 14 12" fill="none"><path d="M1 6h11M8 1l5 5-5 5" stroke="currentColor" stroke-width="1.8"/></svg></a>
+  </div>
+</section>
+
+</main>
+
+<!-- ======================= FOOTER ======================= -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#inicio" aria-label="Volver arriba">
+          <img class="flogo" src="assets/logo-light.png" alt="LOZANO — Elevación, Ingeniería y Transporte">
+        </a>
+        <p>Empresa familiar fundada en 1959. Servicio integral en el campo de la elevación: grúas móviles, plataformas elevadoras y camiones grúa, con flota propia.</p>
+        <div class="foot-seals">
+          <span>ISO 9001</span><span>ISO 14001</span><span>ISO 45001</span><span>GWO</span><span>ANAPAT · IPAF</span>
+        </div>
+      </div>
+      <div>
+        <h5>Localización</h5>
+        <ul>
+          <li>Polígono Industrial La Red, calle 9, nº 1</li>
+          <li>Carretera de Sevilla a Málaga Km 5,200</li>
+          <li>41500 Alcalá de Guadaíra · Sevilla</li>
+          <li style="margin-top:.8rem"><a href="tel:+34955634500" class="mono"><b>(+34) 955 634 500</b></a></li>
+          <li><a href="mailto:gruaslozano@gruaslozano.com">gruaslozano@gruaslozano.com</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Servicios</h5>
+        <ul>
+          <li><a href="#flota">Grúas móviles autopropulsadas</a></li>
+          <li><a href="#flota">Plataformas elevadoras</a></li>
+          <li><a href="#flota">Camiones grúa autocargantes</a></li>
+          <li><a href="#ingenieria">Ingeniería de maniobras</a></li>
+          <li><a href="https://gruaslozano.com/formacion/" target="_blank" rel="noopener">Formación PEMP (ANAPAT · IPAF)</a></li>
+          <li><a href="#presupuesto">Pedir presupuesto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Delegaciones</h5>
+        <ul class="foot-del">
+          <li>Sevilla — HQ</li><li>Jerez de la Fra.</li><li>Algeciras</li><li>Huelva</li>
+          <li>Córdoba</li><li>Málaga</li><li>Granada</li><li>Jaén</li>
+          <li>Almería</li><li>Almendralejo</li><li>Navalmoral</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="foot-eu">
+      <img src="assets/eu-financiacion.png" alt="Financiado por la Unión Europea — NextGenerationEU · Plan de Recuperación, Transformación y Resiliencia">
+    </div>
+
+    <div class="foot-bot">
+      <p>© <span id="yr">2026</span> Grupo Lozano — Todos los derechos reservados.</p>
+      <nav aria-label="Legal">
+        <a href="https://gruaslozano.com/aviso-legal/" target="_blank" rel="noopener">Aviso legal</a>
+        <a href="https://gruaslozano.com/politica-privacidad/" target="_blank" rel="noopener">Política de privacidad</a>
+        <a href="https://gruaslozano.com/politica-de-cookies/" target="_blank" rel="noopener">Política de cookies</a>
+        <a href="https://gruaslozano.com/declaracion-de-accesibilidad/" target="_blank" rel="noopener">Accesibilidad</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<!-- barra de acción móvil -->
+<div class="mbar">
+  <a class="call" href="tel:+34955634500">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="1.8"/></svg>
+    955 634 500
+  </a>
+  <a class="go" href="#presupuesto">Pedir presupuesto</a>
+</div>
+
+<script>
+(function(){
+'use strict';
+var $=function(s,c){return (c||document).querySelector(s)};
+var $$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---------- intro de entrada + arranque del hero ---------- */
+function setLoaded(){document.body.classList.add('ld')}
+var intro=document.getElementById('intro');
+if(intro&&!reduced){
+  document.documentElement.style.overflow='hidden';
+  var t0=Date.now();
+  var closeIntro=function(){
+    if(intro._closed)return;intro._closed=true;
+    intro.classList.add('done');
+    document.documentElement.style.overflow='';
+    setTimeout(setLoaded,250);
+    setTimeout(function(){if(intro.parentNode)intro.parentNode.removeChild(intro)},850);
+  };
+  window.addEventListener('load',function(){
+    setTimeout(closeIntro,Math.max(0,2000-(Date.now()-t0)));
+  });
+  setTimeout(closeIntro,3500);
+}else{
+  if(intro&&intro.parentNode)intro.parentNode.removeChild(intro);
+  window.addEventListener('load',setLoaded);
+  setTimeout(setLoaded,900);
+}
+
+/* ---------- reloj Sevilla ---------- */
+var clock=$('#clock');
+function tick(){
+  if(!clock)return;
+  try{
+    clock.textContent=new Intl.DateTimeFormat('es-ES',{hour:'2-digit',minute:'2-digit',timeZone:'Europe/Madrid'}).format(new Date());
+  }catch(e){
+    var d=new Date();clock.textContent=('0'+d.getHours()).slice(-2)+':'+('0'+d.getMinutes()).slice(-2);
+  }
+}
+tick();setInterval(tick,30000);
+
+/* ---------- magic scroll: header, progreso, parallax, scrub ---------- */
+var hdr=$('#hdr'),pbar=$('#pbar');
+var heroCopy=$('.hero-copy'),heroShot=$('.hero-shot'),heroShotImg=$('.hero-shot img');
+var pheads=$$('.phead');
+var tline=$('#tline'),tsec=$('#historia');
+var magicSec=$('.magic'),mLines=$$('.m-l'),mBig=$('#mbig');
+var sectTiles=$$('.sect'),sectGrid=$('.sect-grid');
+var mqBand=$('.mq');
+var lastY=0;
+var vh=window.innerHeight,ticking=false;
+/* efectos pesados de scroll: solo en pantalla grande con ratón (no en móvil/iPad) */
+function isFancy(){
+  try{return !reduced && window.matchMedia('(min-width:1025px) and (hover:hover) and (pointer:fine)').matches;}
+  catch(e){return !reduced && window.innerWidth>=1025;}
+}
+var fancy=isFancy();
+function resetFX(){
+  [heroCopy,heroShot].forEach(function(el){if(el){el.style.transform='';el.style.opacity='';}});
+  if(heroShotImg)heroShotImg.style.removeProperty('--pz');
+  mLines.forEach(function(el){el.style.opacity='';el.style.transform='';el.style.filter='';});
+  sectTiles.forEach(function(el){el.style.transform='';});
+  if(mqBand)mqBand.style.transform='';
+  pheads.forEach(function(ph){
+    var img=ph.firstElementChild;if(img&&img.tagName==='IMG')img.style.removeProperty('--py');
+    var w=ph.querySelector('.wrap');if(w)w.style.transform='';
+  });
+}
+window.addEventListener('resize',function(){
+  vh=window.innerHeight;
+  var f=isFancy();
+  if(f!==fancy){fancy=f;if(!fancy)resetFX();}
+},{passive:true});
+function paint(){
+  ticking=false;
+  var y=window.scrollY||0;
+  hdr.classList.toggle('sc',y>40);
+  var max=document.documentElement.scrollHeight-vh;
+  pbar.style.transform='scaleX('+(max>0?y/max:0)+')';
+  if(reduced||!fancy)return;
+  /* hero: el texto sube más lento y se desvanece; la foto respira */
+  var dv=y-lastY;lastY=y;
+  if(heroCopy&&y<vh*1.3){
+    heroCopy.style.transform='translateY('+(y*.22)+'px)';
+    heroCopy.style.opacity=String(Math.max(0,1-y/(vh*.72)));
+    if(heroShot){
+      heroShot.style.transform='translateY('+(y*.1)+'px) rotate('+Math.min(1.2,y/vh*1.6)+'deg)';
+      if(heroShotImg)heroShotImg.style.setProperty('--pz',String(1+Math.min(.14,y/vh*.2)));
+    }
+  }
+  /* declaración pinned: líneas + año gigante 1959→hoy */
+  if(magicSec){
+    var mr=magicSec.getBoundingClientRect();
+    if(mr.top<vh&&mr.bottom>0){
+      var span=Math.max(1,mr.height-vh);
+      var mp=Math.min(1,Math.max(0,-mr.top/span));
+      for(var j=0;j<mLines.length;j++){
+        var lp=Math.min(1,Math.max(0,mp*5-j*1.1));
+        mLines[j].style.opacity=String(.08+.92*lp);
+        mLines[j].style.transform='translateY('+((1-lp)*46).toFixed(1)+'px)';
+        mLines[j].style.filter='blur('+((1-lp)*7).toFixed(1)+'px)';
+      }
+      if(mBig)mBig.textContent=String(Math.round(1959+mp*((new Date().getFullYear())-1959)));
+    }
+  }
+  /* sectores: las piezas se recolocan al entrar */
+  if(sectGrid&&sectTiles.length){
+    var sr=sectGrid.getBoundingClientRect();
+    if(sr.top<vh&&sr.bottom>0){
+      var sp=Math.min(1,Math.max(0,(vh-sr.top)/(vh*.95)));
+      for(var k=0;k<sectTiles.length;k++){
+        var dir=(k%3)-1;
+        sectTiles[k].style.transform='translateY('+(dir*(1-sp)*52).toFixed(1)+'px)';
+      }
+    }
+  }
+  /* la cinta de certificaciones deriva con el scroll */
+  if(mqBand){
+    var qr=mqBand.getBoundingClientRect();
+    if(qr.bottom>0&&qr.top<vh){
+      mqBand.style.transform='translateX('+(((qr.top+qr.height/2)/vh-.5)*70).toFixed(1)+'px)';
+    }
+  }
+  /* parallax en bandas de imagen */
+  for(var i=0;i<pheads.length;i++){
+    var r=pheads[i].getBoundingClientRect();
+    if(r.bottom<-80||r.top>vh+80)continue;
+    var prog=(r.top+r.height/2-vh/2)/vh; /* -0.5..0.5 aprox */
+    var img=pheads[i].firstElementChild;
+    if(img&&img.tagName==='IMG')img.style.setProperty('--py',(prog*95).toFixed(1)+'px');
+    var w=pheads[i].querySelector('.wrap');
+    if(w)w.style.transform='translateY('+(prog*-30).toFixed(1)+'px)';
+  }
+  /* scrub horizontal del timeline mientras se atraviesa Historia */
+  if(tline&&tsec&&!tline._userTouched){
+    var tr=tsec.getBoundingClientRect();
+    var total=tr.height+vh*.4;
+    var p=Math.min(1,Math.max(0,(vh*.7-tr.top)/total));
+    var maxX=tline.scrollWidth-tline.clientWidth;
+    if(maxX>0)tline.scrollLeft=p*maxX;
+  }
+}
+function onScroll(){
+  if(!ticking){ticking=true;requestAnimationFrame(paint)}
+}
+window.addEventListener('scroll',onScroll,{passive:true});
+paint();
+if(tline){
+  ['pointerdown','wheel','touchstart'].forEach(function(ev){
+    tline.addEventListener(ev,function(){tline._userTouched=true},{passive:true});
+  });
+}
+
+/* ---------- menú móvil ---------- */
+var burger=$('#burger'),mmenu=$('#mmenu');
+function setMenu(open){
+  burger.classList.toggle('open',open);
+  mmenu.classList.toggle('open',open);
+  burger.setAttribute('aria-expanded',String(open));
+  document.body.style.overflow=open?'hidden':'';
+}
+burger.addEventListener('click',function(){setMenu(!mmenu.classList.contains('open'))});
+$$('.mmenu a').forEach(function(a){a.addEventListener('click',function(){setMenu(false)})});
+
+/* ---------- scrollspy ---------- */
+var spyLinks=$$('.nav a[data-spy]'),spyMap={};
+spyLinks.forEach(function(a){
+  var el=document.getElementById(a.getAttribute('data-spy'));
+  if(el)spyMap[el.id]=a;
+});
+var spyObs=new IntersectionObserver(function(es){
+  es.forEach(function(e){
+    if(e.isIntersecting&&spyMap[e.target.id]){
+      spyLinks.forEach(function(a){a.classList.remove('act')});
+      spyMap[e.target.id].classList.add('act');
+    }
+  });
+},{rootMargin:'-35% 0px -55% 0px'});
+Object.keys(spyMap).forEach(function(id){spyObs.observe(document.getElementById(id))});
+
+/* ---------- reveals al hacer scroll ---------- */
+var rvObs=new IntersectionObserver(function(es){
+  es.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.add('on');rvObs.unobserve(e.target)}
+  });
+},{threshold:.15,rootMargin:'0px 0px -36px 0px'});
+$$('.rv').forEach(function(el){rvObs.observe(el)});
+
+/* ---------- contadores ---------- */
+function animateCount(el){
+  var to=parseInt(el.getAttribute('data-to'),10)||0;
+  if(reduced){el.textContent=to;return}
+  var dur=1800,t0=null;
+  function step(t){
+    if(!t0)t0=t;
+    var p=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-p,3);
+    el.textContent=Math.round(to*e);
+    if(p<1)requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+var cntObs=new IntersectionObserver(function(es){
+  es.forEach(function(e){
+    if(e.isIntersecting){animateCount(e.target);cntObs.unobserve(e.target)}
+  });
+},{threshold:.6});
+$$('[data-cnt]').forEach(function(el){cntObs.observe(el)});
+
+/* ---------- selector de flota ---------- */
+var tabs=$$('#fltabs .ftab'),chipsBox=$('#flchips'),grid=$('#flgrid'),
+    cards=$$('.fcard',grid),countEl=$('#flcount');
+var CHIPS={
+  grua:{label:'TONELAJE:',mode:'cap',ranges:[['Todas',0,1e9],['≤ 80 t',0,80],['90 – 230 t',81,230],['450 – 700 t',231,1e9]]},
+  plataforma:{label:'TIPO:',mode:'sub',ranges:[['Todas','*'],['Tijera','tijera'],['Articuladas','articulada'],['Telescópicas','telescopica'],['Especiales','especiales']]},
+  autocargante:null
+};
+var curType='all',curMin=0,curMax=1e9,curSub='*';
+function renderChips(){
+  var cfg=CHIPS[curType];
+  if(curType==='all'){
+    chipsBox.innerHTML='<span class="lbl">SELECCIONE UNA CATEGORÍA PARA AFINAR EL FILTRO —</span>';
+    return;
+  }
+  if(!cfg){
+    chipsBox.innerHTML='<span class="lbl">8 MODELOS — PALFINGER · FASSI · HIAB · TABLAS DE CARGA OFICIALES</span>';
+    return;
+  }
+  var html='<span class="lbl">'+cfg.label+'</span>';
+  cfg.ranges.forEach(function(r,i){
+    if(cfg.mode==='cap'){
+      html+='<button type="button" class="fchip'+(i===0?' act':'')+'" data-min="'+r[1]+'" data-max="'+r[2]+'">'+r[0]+'</button>';
+    }else{
+      html+='<button type="button" class="fchip'+(i===0?' act':'')+'" data-sub="'+r[1]+'">'+r[0]+'</button>';
+    }
+  });
+  chipsBox.innerHTML=html;
+  $$('.fchip',chipsBox).forEach(function(ch){
+    ch.addEventListener('click',function(){
+      $$('.fchip',chipsBox).forEach(function(c){c.classList.remove('act')});
+      ch.classList.add('act');
+      if(ch.hasAttribute('data-sub')){
+        curSub=ch.getAttribute('data-sub');curMin=0;curMax=1e9;
+      }else{
+        curMin=+ch.getAttribute('data-min');curMax=+ch.getAttribute('data-max');curSub='*';
+      }
+      applyFilter();
+    });
+  });
+}
+function applyFilter(){
+  var n=0;
+  cards.forEach(function(c){
+    var okT=curType==='all'||c.getAttribute('data-type')===curType;
+    var cap=+c.getAttribute('data-cap');
+    var okC=curType==='all'||(cap>=curMin&&cap<=curMax);
+    var okS=curSub==='*'||c.getAttribute('data-sub')===curSub;
+    var show=okT&&okC&&okS;
+    c.classList.toggle('hide',!show);
+    if(show){
+      c.classList.remove('in');
+      void c.offsetWidth;
+      c.style.setProperty('--d',(n*0.05)+'s');
+      c.classList.add('in');
+      n++;
+    }
+  });
+  countEl.innerHTML='<b>'+n+'</b> EQUIPO'+(n===1?'':'S')+'<br>'+(curType==='all'?'PARQUE PROPIO':'FILTRADOS');
+}
+tabs.forEach(function(t){
+  t.addEventListener('click',function(){
+    tabs.forEach(function(x){x.classList.remove('act');x.setAttribute('aria-selected','false')});
+    t.classList.add('act');t.setAttribute('aria-selected','true');
+    curType=t.getAttribute('data-type');curMin=0;curMax=1e9;curSub='*';
+    renderChips();applyFilter();
+  });
+});
+renderChips();
+
+/* ---------- pre-selección de equipo → formulario ---------- */
+var prefill=$('#prefill'),prefillName=$('#prefillName');
+var svcMap={grua:'Grúa móvil autopropulsada',plataforma:'Plataforma elevadora',autocargante:'Camión grúa autocargante'};
+$$('.fcard [data-model]').forEach(function(b){
+  b.addEventListener('click',function(){
+    prefillName.textContent=b.getAttribute('data-model');
+    prefill.classList.add('show');
+    var val=svcMap[b.getAttribute('data-svc')];
+    var radio=document.querySelector('#qform input[name="svc"][value="'+val+'"]');
+    if(radio)radio.checked=true;
+    var dest=document.getElementById('presupuesto');
+    if(dest)dest.scrollIntoView({behavior:reduced?'auto':'smooth'});
+  });
+});
+$('#prefillRm').addEventListener('click',function(){
+  prefill.classList.remove('show');prefillName.textContent='';
+});
+
+/* ---------- formulario en 3 pasos ---------- */
+var form=$('#qform'),steps=$$('.fstep',form),segs=$$('.fpseg',form),cur=1;
+function stepPanel(n){
+  return steps.filter(function(s){return +s.getAttribute('data-step')===n})[0];
+}
+function goto(n){
+  steps.forEach(function(s){
+    var k=+s.getAttribute('data-step');
+    s.classList.toggle('act',k===n);
+    s.classList.toggle('left',k<n);
+  });
+  segs.forEach(function(s){
+    var k=+s.getAttribute('data-step');
+    s.classList.toggle('act',k===n);
+    s.classList.toggle('done',k<n);
+  });
+  cur=n;
+  if(n===3)buildSummary();
+}
+function validateStep(n){
+  var panel=stepPanel(n),ok=true;
+  $$('input,select,textarea',panel).forEach(function(f){
+    f.classList.remove('err');
+    var w=f.closest('.fcheck');if(w)w.classList.remove('err');
+    if(!f.required)return;
+    var bad;
+    if(f.type==='checkbox')bad=!f.checked;
+    else if(f.type==='email')bad=!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(f.value.trim());
+    else bad=!f.value.trim();
+    if(bad){
+      ok=false;
+      if(f.type==='checkbox'&&w)w.classList.add('err');else f.classList.add('err');
+    }
+  });
+  var err=$('.ferr',panel);
+  if(err)err.classList.toggle('show',!ok);
+  if(!ok){form.classList.remove('shake');void form.offsetWidth;form.classList.add('shake')}
+  return ok;
+}
+form.addEventListener('click',function(e){
+  if(e.target.closest('[data-next]')){if(validateStep(cur))goto(cur+1)}
+  else if(e.target.closest('[data-back]')){goto(cur-1)}
+});
+form.addEventListener('input',function(e){
+  var f=e.target;f.classList.remove('err');
+  var w=f.closest('.fcheck');if(w)w.classList.remove('err');
+});
+function fmtDate(v){
+  if(!v)return 'fecha por confirmar';
+  var d=new Date(v+'T00:00:00');
+  return d.toLocaleDateString('es-ES',{day:'numeric',month:'long',year:'numeric'});
+}
+function buildSummary(){
+  var svc=document.querySelector('#qform input[name="svc"]:checked').value;
+  var machine=prefill.classList.contains('show')?' — '+prefillName.textContent:'';
+  var html='<b>'+svc+'</b>'+machine+'<br>'+
+    $('#qcap').value+' · desde <b>'+fmtDate($('#qdate').value)+'</b> · '+$('#qdur').value+'<br>'+
+    ($('#qcity').value||'—')+' ('+($('#qprov').value||'provincia s/d')+')'+
+    ($('#qstudy').checked?' · <b>con estudio de maniobra</b>':'');
+  $('#qsummary').innerHTML=html;
+}
+form.addEventListener('submit',function(e){
+  e.preventDefault();
+  if(!validateStep(3))return;
+  var btn=$('#qsubmit');
+  btn.disabled=true;
+  btn.querySelector('span').textContent='Enviando…';
+  setTimeout(function(){
+    $('#fprog').style.display='none';
+    $('#fpanels').style.display='none';
+    $('#qref').textContent='REF. GL-'+(new Date().getFullYear())+'-'+String(Math.floor(1000+Math.random()*9000));
+    $('#fsuccess').classList.add('show');
+    $('#fsuccess').scrollIntoView({behavior:reduced?'auto':'smooth',block:'center'});
+  },900);
+});
+
+/* ---------- año del footer ---------- */
+$('#yr').textContent=String(new Date().getFullYear());
+})();
+</script>
+</body>
+</html>
