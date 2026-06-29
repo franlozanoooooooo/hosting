@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Clínica GALA">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e4f1ef"/>
+      <stop offset="1" stop-color="#cfe6e3"/>
+    </linearGradient>
+    <linearGradient id="mk" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1a7e8c"/>
+      <stop offset="1" stop-color="#0f5b66"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <circle cx="980" cy="150" r="260" fill="#bfe0db" opacity="0.5"/>
+  <circle cx="210" cy="690" r="200" fill="#d9efe9" opacity="0.6"/>
+  <g transform="translate(520,300)">
+    <rect x="0" y="0" width="160" height="160" rx="46" fill="url(#mk)"/>
+    <path d="M116 59 A 40 40 0 1 0 116 101" fill="none" stroke="#ffffff" stroke-width="17" stroke-linecap="round"/>
+    <path d="M116 80 H 86" fill="none" stroke="#ffffff" stroke-width="17" stroke-linecap="round"/>
+    <circle cx="127" cy="42" r="7" fill="#7fd6ce"/>
+  </g>
+  <text x="600" y="540" text-anchor="middle" font-family="'Manrope','Segoe UI',system-ui,sans-serif" font-size="38" font-weight="800" letter-spacing="-0.5" fill="#0c2a2f">Clínica GALA</text>
+  <text x="600" y="582" text-anchor="middle" font-family="'Manrope','Segoe UI',system-ui,sans-serif" font-size="19" font-weight="700" letter-spacing="4" fill="#5f7370">ESTÉTICA DENTAL · SEVILLA</text>
+</svg>
