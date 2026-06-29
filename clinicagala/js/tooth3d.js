@@ -72,12 +72,8 @@ if (canvas && wrap) {
     const fill = new THREE.DirectionalLight(0xeaf6f4, 0.45); fill.position.set(0, 3.5, 2); scene.add(fill);
 
     // Materiales para los modos brackets / ortodoncia invisible
-    const bracketMat = new THREE.MeshPhysicalMaterial({ color: 0xf0f3f5, metalness: 1.0, roughness: 0.22, clearcoat: 0.7, envMapIntensity: 1.6 });
+    const bracketMat = new THREE.MeshPhysicalMaterial({ color: 0xeef1f3, metalness: 1.0, roughness: 0.24, clearcoat: 0.7, envMapIntensity: 1.6 });
     const wireMat = new THREE.MeshStandardMaterial({ color: 0xeef1f3, metalness: 1.0, roughness: 0.24, envMapIntensity: 1.6 });
-    // Gomitas (ligaduras) de colores, como en unos brackets reales
-    const elasticMats = [0x1f6fff, 0xff1f7d, 0xffc21f, 0x16c258, 0x12c8c0, 0xff6a14].map(
-      (c) => new THREE.MeshStandardMaterial({ color: c, roughness: 0.4, metalness: 0.0, emissive: new THREE.Color(c), emissiveIntensity: 0.28 })
-    );
     const clearMat = new THREE.MeshPhysicalMaterial({
       color: 0xeaf7ff, metalness: 0.0, roughness: 0.04, transmission: 0.92, thickness: 0.2, ior: 1.4,
       clearcoat: 1.0, clearcoatRoughness: 0.03, transparent: true, opacity: 0.55, depthWrite: false, envMapIntensity: 1.7,
@@ -96,21 +92,16 @@ if (canvas && wrap) {
       geo.computeVertexNormals(); return geo;
     }
     const bracketBox = roundedBox(5, 0.28);
-    // Bracket realista: placa metálica + 4 aletas + GOMITA de color (ligadura)
-    // rodeando la cara frontal, con el alambre pasando por el centro.
-    function makeBracket(s, elasticMat) {
+    // Bracket metálico: placa base + 4 aletas, con canal horizontal para el alambre.
+    function makeBracket(s) {
       const g = new THREE.Group();
       const base = new THREE.Mesh(bracketBox, bracketMat); base.scale.set(s, s, s * 0.34); g.add(base);
       for (const sx of [-1, 1]) for (const sy of [-1, 1]) {
         const w = new THREE.Mesh(bracketBox, bracketMat);
-        w.scale.set(s * 0.3, s * 0.3, s * 0.5);
-        w.position.set(sx * s * 0.32, sy * s * 0.32, s * 0.18);
+        w.scale.set(s * 0.3, s * 0.32, s * 0.55);
+        w.position.set(sx * s * 0.32, sy * s * 0.3, s * 0.2);
         g.add(w);
       }
-      // Gomita de color: anillo que abraza el bracket (como las ligaduras reales)
-      const elastic = new THREE.Mesh(new THREE.TorusGeometry(s * 0.46, s * 0.13, 10, 20), elasticMat || elasticMats[0]);
-      elastic.position.z = s * 0.18;
-      g.add(elastic);
       return g;
     }
 
@@ -184,7 +175,6 @@ if (canvas && wrap) {
       const mw = teethMesh.matrixWorld;
       const pos = teethMesh.geometry.attributes.position;
       const nor = teethMesh.geometry.attributes.normal;
-      let colorIdx = 0; // recorre la paleta de gomitas
 
       // Coloca un cuadrado por diente en una arcada (banda vertical [yLo,yHi]):
       // detecta el bulto labial de cada corona y enhebra el alambre por todos.
@@ -227,23 +217,23 @@ if (canvas && wrap) {
           for (let k = 0; k < M; k++) peaks.push(Math.round((prof.length - 1) * k / (M - 1)));
         }
         const worldUp = new THREE.Vector3(0, 1, 0);
-        const midY = (yLo + yHi) * 0.5; // MISMA altura para todos -> fila alineada
         const pts = [];
         for (const pi of peaks) {
           const o = prof[pi];
-          // Posición: centro del diente (x) y superficie (z), pero a una ALTURA FIJA.
-          const base = new THREE.Vector3(o.p.x, midY, o.p.z);
-          // Cara recta hacia fuera (horizontal), sin giro -> brackets derechos.
-          const fwd = new THREE.Vector3(o.n.x, 0, o.n.z);
+          // Dirección hacia fuera (perpendicular a la superficie, casi horizontal).
+          const fwd = new THREE.Vector3(o.n.x, o.n.y * 0.4, o.n.z);
           if (fwd.lengthSq() < 1e-4) fwd.set(0, 0, 1);
           fwd.normalize();
           const right = new THREE.Vector3().crossVectors(worldUp, fwd).normalize();
-          const basis = new THREE.Matrix4().makeBasis(right, worldUp, fwd);
-          const br = makeBracket(brScale, elasticMats[colorIdx++ % elasticMats.length]);
+          if (right.lengthSq() < 1e-4) right.set(1, 0, 0);
+          const up = new THREE.Vector3().crossVectors(fwd, right).normalize();
+          const basis = new THREE.Matrix4().makeBasis(right, up, fwd);
+          const br = makeBracket(brScale);
           br.quaternion.setFromRotationMatrix(basis);
-          br.position.copy(base).addScaledVector(fwd, brScale * 0.10); // a ras del diente
+          // SOBRE la superficie real del diente (o.p) -> nunca flota.
+          br.position.copy(o.p).addScaledVector(fwd, brScale * 0.10);
           bracesGroup.add(br);
-          pts.push(base.clone().addScaledVector(fwd, brScale * 0.28)); // alambre por la ranura
+          pts.push(o.p.clone().addScaledVector(fwd, brScale * 0.26)); // alambre por la ranura
         }
         if (pts.length > 1) {
           const curve = new THREE.CatmullRomCurve3(pts, false, "catmullrom", 0.2);
