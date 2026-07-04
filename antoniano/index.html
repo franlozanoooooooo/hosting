@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Club Atlético Antoniano — Fútbol, cantera y sentimiento en Lebrija · Desde 1963</title>
+<meta name="description" content="Web oficial del Club Atlético Antoniano (Lebrija, Sevilla). Seis décadas de fútbol y cantera, tres participaciones históricas en la Copa del Rey ante Real Betis, CD Lugo, CD Castellón y Villarreal CF. Estadio Municipal de Lebrija.">
+<meta name="theme-color" content="#0A1730">
+<meta property="og:title" content="Club Atlético Antoniano — Desde 1963">
+<meta property="og:description" content="Fútbol, cantera y sentimiento blanquiazul en Lebrija. Tres citas históricas con la élite en la Copa del Rey.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230A1730'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='15' font-weight='700' text-anchor='middle' fill='%23C4A053'%3EA%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,400..900;1,62..125,400..700&family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SportsTeam","name":"Club Atlético Antoniano","sport":"Fútbol","foundingDate":"1963","location":{"@type":"Place","name":"Estadio Municipal de Lebrija","address":{"@type":"PostalAddress","addressLocality":"Lebrija","addressRegion":"Sevilla","addressCountry":"ES"}},"memberOf":{"@type":"SportsOrganization","name":"Segunda Federación · Grupo IV"}}
+</script>
+<style>
+/* ============================================================
+   CLUB ATLÉTICO ANTONIANO — «Marfil, marino y oro viejo»
+   Lebrija · desde 1963 · blanquiazul
+   Una página · scroll continuo · intro, parallax y reveals
+   Hecho a mano, sin frameworks.
+   ============================================================ */
+:root{
+  --bg:#F4F1EA;          /* marfil / papel */
+  --bg2:#FFFFFF;
+  --bg3:#EAE5DA;         /* piedra */
+  --ink:#0F1A30;         /* tinta marino */
+  --dim:#586274;         /* pizarra apagada */
+  --navy:#0A1730;        /* marino profundo (secciones oscuras) */
+  --navy2:#0E2247;
+  --blue:#1C50A6;        /* azul institucional */
+  --blue-d:#153F86;
+  --blue-soft:rgba(28,80,166,.10);
+  --gold:#C4A053;        /* oro viejo (Copa, herencia) */
+  --gold-d:#A8863C;
+  --gold-soft:rgba(196,160,83,.14);
+  --line:rgba(15,26,48,.14);
+  --line2:rgba(15,26,48,.08);
+  --line-d:rgba(255,255,255,.16);
+  --sh:0 26px 60px -32px rgba(10,23,48,.42);
+  --sh-sm:0 12px 30px -18px rgba(10,23,48,.32);
+  --r:14px;
+  --r-lg:22px;
+  --fd:'Archivo',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --fs:'Fraunces',Georgia,'Times New Roman',serif;
+  --fm:'IBM Plex Mono',ui-monospace,'SF Mono',monospace;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --hdr-h:82px;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--hdr-h) + 12px)}
+body{
+  font:400 1rem/1.72 var(--fd);
+  background:var(--bg);
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  position:relative;
+}
+/* grano de papel muy sutil */
+body::before{
+  content:"";position:fixed;inset:0;z-index:9998;pointer-events:none;opacity:.035;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+::selection{background:var(--blue);color:#fff}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,select,textarea{font:inherit;color:inherit}
+.wrap{width:min(1200px,92vw);margin-inline:auto}
+.mono{font-family:var(--fm)}
+
+/* ---------- tipografía de marca ---------- */
+.eyebrow{
+  display:inline-flex;align-items:center;gap:.75rem;
+  font:600 .7rem/1 var(--fm);letter-spacing:.24em;text-transform:uppercase;color:var(--blue-d);
+  margin-bottom:1.3rem;
+}
+.eyebrow .tick{width:30px;height:2px;background:var(--gold);flex:none;position:relative}
+.eyebrow .tick::after{content:"";position:absolute;right:0;top:-2px;width:6px;height:6px;border-radius:50%;background:var(--gold)}
+.eyebrow.on-dark{color:var(--gold)}
+.eyebrow.on-dark .tick{background:var(--gold)}
+.title{
+  font-weight:850;font-stretch:112%;text-transform:uppercase;
+  font-size:clamp(2.05rem,4.6vw,3.55rem);line-height:1.02;letter-spacing:-.012em;color:var(--ink);
+}
+.title em{font-style:normal;color:var(--blue)}
+.title .ser{font-family:var(--fs);font-weight:400;font-stretch:100%;text-transform:none;font-style:italic;letter-spacing:0;color:var(--gold-d)}
+.sub{max-width:60ch;color:var(--dim);margin-top:1.25rem;font-size:1.06rem}
+.sub b{color:var(--ink);font-weight:650}
+.sec{position:relative;padding:clamp(4.5rem,8vw,7.5rem) 0;overflow:hidden}
+.sec--paper{background:var(--bg2)}
+.sec--stone{background:var(--bg3)}
+.sec-idx{
+  position:absolute;top:.7rem;right:-.3rem;z-index:0;pointer-events:none;user-select:none;
+  font-weight:900;font-stretch:70%;line-height:.8;font-size:clamp(6rem,15vw,12rem);
+  color:transparent;-webkit-text-stroke:1.5px rgba(15,26,48,.07);font-family:var(--fd);
+}
+.shead{position:relative;z-index:1;margin-bottom:clamp(2.4rem,4.5vw,3.4rem)}
+
+/* reveals de línea en titulares */
+.tl-l{display:block;overflow:hidden;padding:.12em 0 .06em;margin:-.12em 0 -.06em}
+.tl-l>span{display:block;transform:translateY(115%);transition:transform 1s var(--ease)}
+.on .tl-l>span,.tl.on .tl-l>span{transform:none}
+.tl-l:nth-child(2)>span{transition-delay:.08s}
+.tl-l:nth-child(3)>span{transition-delay:.16s}
+
+/* reveal genérico */
+.rv{opacity:0;transform:translateY(30px);transition:opacity .9s var(--ease) var(--d,0s),transform .9s var(--ease) var(--d,0s)}
+.rv.on{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important}
+  html{scroll-behavior:auto}
+  .rv,.tl-l>span{opacity:1;transform:none}
+  .phead img{transform:none!important}
+}
+
+/* ---------- botones (rectángulo con esquina) ---------- */
+.btn{
+  position:relative;display:inline-flex;align-items:center;justify-content:center;gap:.6rem;
+  padding:.95rem 1.6rem;font:700 .82rem/1 var(--fm);letter-spacing:.12em;text-transform:uppercase;
+  border-radius:4px;background:var(--blue);color:#fff;transition:transform .3s var(--ease),background .3s,box-shadow .3s;
+  box-shadow:0 12px 26px -14px rgba(28,80,166,.7);
+}
+.btn:hover{background:var(--blue-d);transform:translateY(-2px)}
+.btn--gold{background:var(--gold);color:var(--navy);box-shadow:0 12px 26px -14px rgba(196,160,83,.75)}
+.btn--gold:hover{background:var(--gold-d)}
+.btn--ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line);box-shadow:none}
+.btn--ghost:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.btn--ghost.on-dark{color:#fff;border-color:rgba(255,255,255,.3)}
+.btn--ghost.on-dark:hover{background:#fff;color:var(--navy)}
+.btn .ar{transition:transform .3s var(--ease)}
+.btn:hover .ar{transform:translateX(3px)}
+
+/* pinstripe de camiseta (textura sutil sobre marino) */
+.pin{
+  background-image:repeating-linear-gradient(90deg,rgba(255,255,255,.035) 0 1px,transparent 1px 13px);
+}
+
+/* ============================================================
+   ESCUDO placeholder (monograma) — reemplazar por el oficial
+   ============================================================ */
+.crest{display:block;width:100%;height:100%}
+.crest .fld{fill:var(--navy)}
+.crest .rim{fill:none;stroke:var(--gold);stroke-width:3}
+.crest .mono{fill:#fff;font-family:var(--fs);font-weight:600}
+.crest .yr{fill:var(--gold);font-family:var(--fm);font-weight:600;letter-spacing:1px}
+.crest .bar{fill:var(--blue)}
+
+/* ============================================================
+   INTRO de entrada (escudo + líneas)
+   ============================================================ */
+#intro{
+  position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.7rem;
+  background:var(--navy);
+}
+#intro.done{opacity:0;visibility:hidden;transition:opacity .7s ease,visibility .7s ease}
+.intro-row{display:flex;align-items:center;gap:1.6rem;width:min(720px,86vw)}
+.intro-line{height:2px;flex:1;background:var(--gold);transform:scaleX(0);animation:introline 1.1s var(--ease) .35s forwards}
+.intro-line:first-child{transform-origin:right}
+.intro-line:last-child{transform-origin:left}
+@keyframes introline{to{transform:scaleX(1)}}
+.intro-crest{width:96px;height:112px;flex:none;opacity:0;transform:scale(.88);animation:intrologo .8s var(--ease) .1s forwards}
+@keyframes intrologo{to{opacity:1;transform:none}}
+.intro-tag{
+  font:600 .74rem/1.5 var(--fm);letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.72);
+  opacity:0;animation:introfade .7s ease .85s forwards;text-align:center;padding:0 6vw;
+}
+@keyframes introfade{to{opacity:1}}
+@media (prefers-reduced-motion:reduce){#intro{display:none}}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+#hdr{
+  position:fixed;top:0;left:0;right:0;z-index:900;height:var(--hdr-h);
+  display:flex;align-items:center;transition:background .4s var(--ease),box-shadow .4s,height .4s var(--ease);
+}
+#hdr.sc{height:66px;background:rgba(244,241,234,.86);backdrop-filter:saturate(140%) blur(14px);box-shadow:0 1px 0 var(--line)}
+#hdr .wrap{display:flex;align-items:center;justify-content:space-between;gap:1.4rem}
+.brand{display:flex;align-items:center;gap:.85rem;color:var(--ink)}
+.brand .bc{width:40px;height:47px;flex:none;filter:drop-shadow(0 4px 10px rgba(10,23,48,.25))}
+.brand .bt{display:flex;flex-direction:column;line-height:1}
+.brand .bt b{font-weight:850;font-stretch:108%;text-transform:uppercase;letter-spacing:.01em;font-size:1.02rem}
+.brand .bt span{font:500 .58rem/1.4 var(--fm);letter-spacing:.22em;text-transform:uppercase;color:var(--dim);margin-top:.28rem}
+#hdr.sc .brand{color:var(--ink)}
+/* cuando estamos sobre el hero oscuro (no scrolled) el texto es claro */
+#hdr:not(.sc) .brand{color:#fff}
+#hdr:not(.sc) .brand .bt span{color:rgba(255,255,255,.72)}
+.nav{display:flex;align-items:center;gap:2rem}
+.nav a[data-spy]{
+  position:relative;font:600 .74rem/1 var(--fm);letter-spacing:.14em;text-transform:uppercase;color:inherit;padding:.4rem 0;transition:opacity .25s;
+}
+#hdr:not(.sc) .nav a[data-spy]{color:rgba(255,255,255,.82)}
+#hdr:not(.sc) .nav a[data-spy]:hover{color:#fff}
+#hdr.sc .nav a[data-spy]{color:var(--dim)}
+#hdr.sc .nav a[data-spy]:hover{color:var(--ink)}
+.nav a[data-spy]::after{content:"";position:absolute;left:0;right:100%;bottom:-2px;height:2px;background:var(--gold);transition:right .3s var(--ease)}
+.nav a[data-spy].act::after,.nav a[data-spy]:hover::after{right:0}
+.nav .btn{padding:.7rem 1.15rem}
+.nav-cta{display:flex;align-items:center;gap:.9rem}
+#pbar{position:absolute;left:0;bottom:0;height:2px;width:100%;transform:scaleX(0);transform-origin:left;background:var(--gold);opacity:0;transition:opacity .3s}
+#hdr.sc #pbar{opacity:1}
+.burger{display:none;width:44px;height:44px;flex-direction:column;justify-content:center;gap:6px;padding:0 10px}
+.burger span{display:block;height:2px;background:currentColor;border-radius:2px;transition:transform .34s var(--ease),opacity .2s}
+#hdr:not(.sc) .burger{color:#fff}
+.burger.open span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+
+/* menú móvil */
+#mmenu{
+  position:fixed;inset:0;z-index:850;background:var(--navy);display:flex;flex-direction:column;gap:.2rem;padding:1.5rem 8vw;overflow-y:auto;
+  opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .4s var(--ease),transform .4s var(--ease),visibility .4s;
+}
+/* centrado con margen automático: centra si cabe, permite scroll si no */
+#mmenu::before,#mmenu::after{content:"";margin:auto 0;flex:none}
+#mmenu.open{opacity:1;visibility:visible;transform:none}
+#mmenu a{font-weight:800;font-stretch:110%;text-transform:uppercase;font-size:clamp(1.7rem,7vw,2.5rem);color:#fff;padding:.5rem 0;border-bottom:1px solid rgba(255,255,255,.09);display:flex;align-items:center;justify-content:space-between}
+#mmenu a span{font:500 .7rem/1 var(--fm);color:var(--gold);letter-spacing:.1em}
+#mmenu .mm-foot{margin-top:2rem;font:500 .74rem/1.7 var(--fm);letter-spacing:.08em;color:rgba(255,255,255,.6)}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:flex-end;background:var(--navy);overflow:hidden;isolation:isolate}
+.hero-media{position:absolute;inset:0;z-index:-2;overflow:hidden}
+.hero-media .ph{position:absolute;inset:-4% -2%;width:104%;height:108%}
+.hero-media::after{content:"";position:absolute;inset:0;z-index:2;
+  background:linear-gradient(180deg,rgba(10,23,48,.62) 0%,rgba(10,23,48,.30) 34%,rgba(10,23,48,.72) 78%,rgba(10,23,48,.94) 100%);}
+.hero-grid{position:absolute;inset:0;z-index:-1;opacity:.5;
+  background:linear-gradient(90deg,rgba(255,255,255,.04) 0 1px,transparent 1px 15px)}
+.hero .wrap{position:relative;z-index:3;padding:calc(var(--hdr-h) + 3.2rem) 0 clamp(2.4rem,5vw,4rem)}
+.hero-copy{max-width:min(940px,94%)}
+.hero-kick{display:inline-flex;align-items:center;gap:.8rem;font:600 .74rem/1 var(--fm);letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:1.6rem}
+.hero-kick .tick{width:34px;height:2px;background:var(--gold)}
+.hero h1{
+  color:#fff;font-weight:900;font-stretch:116%;text-transform:uppercase;
+  font-size:clamp(2.9rem,9vw,7rem);line-height:.92;letter-spacing:-.02em;
+}
+.hero h1 .l2{color:var(--gold);position:relative}
+.hero-lead{margin-top:1.7rem;max-width:56ch;color:rgba(255,255,255,.86);font-size:clamp(1.05rem,1.7vw,1.32rem);line-height:1.6}
+.hero-lead b{color:#fff;font-weight:600}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2.2rem}
+.scroll-hint{position:absolute;left:50%;bottom:1.5rem;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:.5rem;font:500 .62rem/1 var(--fm);letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.scroll-hint .rail{width:1px;height:38px;background:linear-gradient(180deg,rgba(255,255,255,.5),transparent);overflow:hidden;position:relative}
+.scroll-hint .rail::after{content:"";position:absolute;top:-40%;left:0;width:1px;height:40%;background:var(--gold);animation:scrolldot 1.9s var(--ease) infinite}
+@keyframes scrolldot{to{top:100%}}
+
+/* marcador (scoreboard) del hero */
+.scoreboard{
+  position:relative;z-index:3;margin-top:clamp(2.6rem,5vw,3.6rem);
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.14);border-radius:8px;overflow:hidden;
+}
+.sb-cell{background:rgba(10,23,48,.55);padding:1.3rem 1.4rem;backdrop-filter:blur(3px)}
+.sb-cell .n{font:600 clamp(1.7rem,3.2vw,2.5rem)/1 var(--fm);color:#fff;letter-spacing:-.01em}
+.sb-cell .n .u{color:var(--gold);font-size:.5em;vertical-align:.35em;margin-left:.1em}
+.sb-cell .k{margin-top:.5rem;font:500 .64rem/1.4 var(--fm);letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.62)}
+
+/* ============================================================
+   PLACEHOLDERS de foto (reemplazar por <img>)
+   ============================================================ */
+.ph{
+  position:relative;overflow:hidden;background:
+    radial-gradient(120% 120% at 20% 10%,#12244a 0%,#0A1730 60%,#070f22 100%);
+  display:flex;align-items:center;justify-content:center;
+}
+.ph::before{content:"";position:absolute;inset:0;opacity:.5;
+  background-image:repeating-linear-gradient(90deg,rgba(255,255,255,.03) 0 1px,transparent 1px 16px)}
+.ph-mark{width:34%;max-width:150px;opacity:.16;filter:grayscale(1)}
+.ph-cap{position:absolute;left:0;right:0;bottom:0;padding:.7rem .9rem;font:500 .6rem/1.4 var(--fm);letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:.5rem}
+.ph-cap::before{content:"◨";color:var(--gold);opacity:.8}
+.figframe{position:relative;border-radius:var(--r);overflow:hidden;box-shadow:var(--sh)}
+.figframe .ph{width:100%;height:100%}
+
+/* ============================================================
+   EL CLUB / HISTORIA
+   ============================================================ */
+.club-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2.2rem,4vw,4rem);align-items:center}
+.club-copy p{color:var(--dim);margin-top:1.1rem;max-width:52ch}
+.club-copy p b{color:var(--ink);font-weight:650}
+.club-lead{font-family:var(--fs)!important;font-style:italic;font-size:clamp(1.35rem,2.4vw,1.75rem)!important;line-height:1.4!important;color:var(--ink)!important;max-width:26ch!important;margin-top:0!important}
+.club-lead::first-letter{color:var(--gold-d)}
+.club-media{position:relative;aspect-ratio:4/5;border-radius:var(--r-lg)}
+.club-media.figframe{overflow:visible}
+.club-media .ph{position:absolute;inset:0;border-radius:var(--r-lg);overflow:hidden}
+.club-media .stamp{
+  position:absolute;left:-26px;bottom:26px;z-index:4;width:118px;height:118px;border-radius:50%;
+  background:var(--gold);color:var(--navy);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+  box-shadow:var(--sh);font-family:var(--fm);
+}
+.club-media .stamp b{font-weight:600;font-size:2rem;line-height:1}
+.club-media .stamp span{font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;margin-top:.25rem}
+.club-tags{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.9rem}
+.club-tags .tg{font:600 .68rem/1 var(--fm);letter-spacing:.1em;text-transform:uppercase;color:var(--blue-d);background:var(--blue-soft);border:1px solid rgba(28,80,166,.16);padding:.55rem .8rem;border-radius:999px}
+
+/* franja de declaración con año gigante (pinned) */
+.magic{position:relative;background:var(--navy);color:#fff;min-height:100vh}
+.magic .pinwrap{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;text-align:center;padding:0 6vw}
+.magic .myear{font:600 clamp(7rem,26vw,20rem)/.8 var(--fm);color:transparent;-webkit-text-stroke:1.5px rgba(196,160,83,.4);letter-spacing:-.02em;pointer-events:none;position:absolute;z-index:0}
+.magic .mlines{position:relative;z-index:2;max-width:20ch}
+.magic .m-l{font-weight:800;font-stretch:112%;text-transform:uppercase;font-size:clamp(1.5rem,4.4vw,3rem);line-height:1.06;letter-spacing:-.01em}
+/* el fundido por scroll solo donde el JS lo anima (escritorio con ratón, sin reduced-motion) */
+@media (min-width:1025px) and (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  .magic{min-height:150vh}
+  .magic .m-l{opacity:.1}
+}
+.magic .m-l em{font-style:normal;color:var(--gold)}
+.magic .mfoot{position:relative;z-index:2;margin-top:2rem;font:500 .72rem/1.6 var(--fm);letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+
+/* ============================================================
+   BANDA PARALLAX (entre secciones)
+   ============================================================ */
+.phead{position:relative;height:clamp(300px,50vh,540px);display:flex;align-items:flex-end;overflow:hidden;background:var(--navy)}
+.phead .ph{position:absolute;left:0;right:0;top:-24%;height:150%;width:100%;will-change:transform;transform:translateY(var(--py,0px))}
+.phead::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,23,48,.55),rgba(10,23,48,.2) 45%,rgba(10,23,48,.85))}
+.phead .wrap{position:relative;z-index:2;padding-bottom:2rem;will-change:transform}
+.phead .crumb{font:600 .66rem/1 var(--fm);letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+.phead h2{margin-top:.7rem;font-weight:850;font-stretch:112%;text-transform:uppercase;color:#fff;font-size:clamp(1.9rem,4.8vw,3.1rem);line-height:1;letter-spacing:-.01em}
+.phead p{margin-top:.8rem;max-width:52ch;color:rgba(255,255,255,.82)}
+
+/* ============================================================
+   COPA DEL REY — timeline / marcadores
+   ============================================================ */
+.copa{background:var(--navy);color:#fff;position:relative}
+.copa .sec-idx{-webkit-text-stroke-color:rgba(255,255,255,.06)}
+.copa .title{color:#fff}
+.copa .title em{color:var(--gold)}
+.copa .sub{color:rgba(255,255,255,.78)}
+.copa .sub b{color:#fff}
+.cintro{display:grid;grid-template-columns:1.3fr .7fr;gap:2.4rem;align-items:end;position:relative;z-index:1}
+.cintro .cbig{font:600 clamp(3.4rem,8vw,6rem)/.9 var(--fm);color:var(--gold);text-align:right;letter-spacing:-.02em}
+.cintro .cbig small{display:block;font-size:.2em;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-top:.6rem}
+.timeline{margin-top:clamp(2.8rem,5vw,4rem);position:relative;display:flex;flex-direction:column;gap:clamp(1.4rem,2.5vw,2rem)}
+.timeline::before{content:"";position:absolute;left:111px;top:10px;bottom:10px;width:2px;background:linear-gradient(180deg,transparent,rgba(196,160,83,.5) 12%,rgba(196,160,83,.5) 88%,transparent);}
+@media(max-width:760px){.timeline::before{left:9px}}
+.tie{
+  position:relative;display:grid;grid-template-columns:96px 1fr;gap:0 2.2rem;align-items:start;
+}
+.tie .yr{
+  grid-column:1;text-align:right;font:600 1.02rem/1.1 var(--fm);color:var(--gold);padding-top:1.6rem;position:relative;
+}
+.tie .yr small{display:block;font-size:.62rem;letter-spacing:.06em;color:rgba(255,255,255,.5);margin-top:.3rem}
+.tie .dot{position:absolute;left:105px;top:1.85rem;width:14px;height:14px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 5px rgba(196,160,83,.16);z-index:2}
+@media(max-width:760px){
+  .tie{grid-template-columns:1fr;gap:.35rem}
+  .tie .yr{grid-column:1;text-align:left;padding:0 0 0 2rem;order:-1}
+  .tie .dot{left:3px;top:.35rem}
+  .card{grid-column:1;margin-left:2rem}
+}
+.card{
+  grid-column:2;background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.1);border-radius:var(--r-lg);padding:clamp(1.4rem,2.6vw,2.1rem);
+  transition:transform .4s var(--ease),border-color .4s,box-shadow .4s;
+}
+.card:hover{transform:translateY(-4px);border-color:rgba(196,160,83,.4);box-shadow:0 30px 60px -34px rgba(0,0,0,.6)}
+.card .rnd{display:flex;flex-wrap:wrap;align-items:center;gap:.7rem;font:600 .66rem/1 var(--fm);letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.card .rnd .badge{color:var(--navy);background:var(--gold);padding:.35rem .6rem;border-radius:4px;letter-spacing:.1em}
+.card .rnd .badge.div1{background:#fff;color:var(--navy)}
+.card .rnd .badge.gesta{background:var(--blue);color:#fff}
+.score{display:flex;align-items:center;gap:clamp(.8rem,2.5vw,1.8rem);margin:1.2rem 0 .3rem;flex-wrap:wrap}
+.score .team{display:flex;align-items:center;gap:.7rem;min-width:0}
+.score .team .mini{width:34px;height:40px;flex:none;opacity:.95}
+.score .team .nm{font-weight:800;font-stretch:106%;text-transform:uppercase;font-size:clamp(.95rem,1.5vw,1.15rem);line-height:1.05;letter-spacing:.01em}
+.score .team.home .nm{color:#fff}
+.score .team.away .nm{color:rgba(255,255,255,.82)}
+.score .res{font:600 clamp(1.9rem,4vw,2.7rem)/1 var(--fm);color:var(--gold);letter-spacing:.04em;white-space:nowrap}
+.score .res .pk{display:block;font-size:.34em;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-top:.4rem;text-align:center}
+.card .meta{display:flex;flex-wrap:wrap;gap:.4rem 1.2rem;margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.1);font:500 .72rem/1.5 var(--fm);letter-spacing:.04em;color:rgba(255,255,255,.6)}
+.card .meta span{display:inline-flex;align-items:center;gap:.4rem}
+.card .meta span::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--gold);opacity:.7}
+.card .note{margin-top:1rem;color:rgba(255,255,255,.8);max-width:60ch}
+.card .note b{color:#fff;font-weight:650}
+/* doble marcador (la gesta 2025) */
+.card--gesta{border-color:rgba(196,160,83,.32);background:linear-gradient(180deg,rgba(196,160,83,.09),rgba(255,255,255,.02))}
+.dblscore{display:grid;grid-template-columns:1fr;gap:.9rem;margin:1.1rem 0 .3rem}
+.dblscore .leg{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.85rem 1rem;background:rgba(10,23,48,.4);border:1px solid rgba(255,255,255,.09);border-radius:10px}
+.dblscore .leg .lg-t{display:flex;flex-direction:column;gap:.15rem;min-width:0}
+.dblscore .leg .lg-t b{font-weight:800;font-stretch:106%;text-transform:uppercase;font-size:.95rem;letter-spacing:.01em}
+.dblscore .leg .lg-t small{font:500 .62rem/1.2 var(--fm);letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.dblscore .leg .lg-r{font:600 1.55rem/1 var(--fm);color:var(--gold);white-space:nowrap;text-align:right}
+.dblscore .leg .lg-r em{display:block;font-style:normal;font-size:.42em;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-top:.25rem}
+.dblscore .leg--win{border-color:rgba(196,160,83,.4)}
+.dblscore .leg--win .lg-r{color:#fff}
+
+/* ============================================================
+   CANTERA
+   ============================================================ */
+.cant-top{display:grid;grid-template-columns:1fr .85fr;gap:clamp(2rem,4vw,3.6rem);align-items:center;margin-bottom:clamp(2.6rem,4vw,3.4rem)}
+.cant-top .figframe{aspect-ratio:5/4}
+.cant-copy p{color:var(--dim);margin-top:1.1rem;max-width:52ch}
+.cant-copy p b{color:var(--ink);font-weight:650}
+.cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden}
+.cat{background:var(--bg2);padding:1.6rem 1.5rem;position:relative;transition:background .3s,transform .3s var(--ease)}
+.cat:hover{background:#fff}
+.cat .cn{font:600 .74rem/1 var(--fm);color:#8A6E2F;letter-spacing:.02em}
+.cat .ct{margin-top:.7rem;font-weight:850;font-stretch:108%;text-transform:uppercase;font-size:1.28rem;letter-spacing:-.01em;color:var(--ink)}
+.cat .cd{margin-top:.5rem;font:500 .78rem/1.5 var(--fm);color:var(--dim);letter-spacing:.02em}
+.cat::after{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--blue);transform:scaleY(0);transform-origin:top;transition:transform .35s var(--ease)}
+.cat:hover::after{transform:scaleY(1)}
+.cant-values{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.4rem;margin-top:2.2rem}
+.val{padding-top:1.3rem;border-top:2px solid var(--ink)}
+.val h4{font-weight:800;font-stretch:108%;text-transform:uppercase;font-size:1rem;letter-spacing:.01em}
+.val p{color:var(--dim);margin-top:.5rem;font-size:.92rem}
+
+/* ============================================================
+   NOTICIAS (vacía — punto de anclaje del plugin de Instagram)
+   ============================================================ */
+.news{background:var(--bg3);position:relative}
+.news .shead{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:1.4rem;max-width:none}
+.ig-mount{
+  position:relative;min-height:340px;border:1.5px dashed var(--line);border-radius:var(--r-lg);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;text-align:center;padding:3rem 1.5rem;
+  background:
+    radial-gradient(60% 80% at 50% 0%,rgba(28,80,166,.05),transparent 70%),var(--bg2);
+}
+.ig-mount .ig-ic{width:56px;height:56px;border-radius:16px;border:2px solid var(--blue);display:flex;align-items:center;justify-content:center;color:var(--blue)}
+.ig-mount .ig-ic svg{width:28px;height:28px}
+.ig-mount h3{font-weight:800;font-stretch:108%;text-transform:uppercase;font-size:1.15rem;color:var(--ink)}
+.ig-mount p{color:var(--dim);max-width:46ch;font-size:.96rem}
+.ig-mount .ig-tag{font:600 .64rem/1 var(--fm);letter-spacing:.18em;text-transform:uppercase;color:var(--blue-d);background:var(--blue-soft);padding:.5rem .8rem;border-radius:999px}
+
+/* ============================================================
+   CONTACTO / FOOTER
+   ============================================================ */
+.contact{background:var(--navy);color:#fff;position:relative}
+.contact .sec-idx{-webkit-text-stroke-color:rgba(255,255,255,.06)}
+.contact .title{color:#fff}
+.ct-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2.4rem,5vw,4.5rem);align-items:start;position:relative;z-index:1}
+.ct-list{display:flex;flex-direction:column;gap:.2rem;margin-top:1.4rem}
+.ct-row{display:flex;gap:1.2rem;padding:1.3rem 0;border-bottom:1px solid rgba(255,255,255,.12)}
+.ct-row .ic{width:22px;flex:none;color:var(--gold);padding-top:.15rem}
+.ct-row .ic svg{width:20px;height:20px}
+.ct-row .rt b{display:block;font:500 .66rem/1 var(--fm);letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:.45rem}
+.ct-row .rt a,.ct-row .rt span{font-size:1.06rem;color:#fff}
+.ct-row .rt a:hover{color:var(--gold)}
+.ct-row .rt small{display:block;color:rgba(255,255,255,.55);font-size:.85rem;margin-top:.2rem}
+.ct-social{display:flex;gap:.7rem;margin-top:1.8rem;flex-wrap:wrap}
+.ct-social a{display:inline-flex;align-items:center;gap:.55rem;padding:.7rem 1.1rem;border:1px solid rgba(255,255,255,.2);border-radius:999px;font:600 .72rem/1 var(--fm);letter-spacing:.1em;text-transform:uppercase;transition:background .3s,color .3s,border-color .3s}
+.ct-social a:hover{background:#fff;color:var(--navy);border-color:#fff}
+.ct-social a svg{width:16px;height:16px}
+.ct-card{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.12);border-radius:var(--r-lg);padding:clamp(1.6rem,3vw,2.4rem)}
+.ct-card .cc-crest{width:74px;height:87px;margin-bottom:1.2rem}
+.ct-card h3{font-weight:850;font-stretch:110%;text-transform:uppercase;font-size:1.4rem;line-height:1.05}
+.ct-card p{color:rgba(255,255,255,.75);margin-top:.8rem;font-size:.98rem}
+.ct-card .map{margin-top:1.4rem;aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.12)}
+
+footer.ft{background:#070f22;color:rgba(255,255,255,.7);padding:3rem 0 2.2rem;position:relative}
+.ft-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1.4rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,.1)}
+.ft-brand{display:flex;align-items:center;gap:.9rem;color:#fff}
+.ft-brand .fc{width:38px;height:45px;flex:none}
+.ft-brand .fbt{display:flex;flex-direction:column}
+.ft-brand .fbt b{font-weight:850;font-stretch:108%;text-transform:uppercase;font-size:1.05rem}
+.ft-brand .fbt span{font:500 .58rem/1.4 var(--fm);letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-top:.25rem}
+.ft-nav{display:flex;flex-wrap:wrap;gap:1.4rem;font:600 .72rem/1 var(--fm);letter-spacing:.12em;text-transform:uppercase}
+.ft-nav a{color:rgba(255,255,255,.7)}
+.ft-nav a:hover{color:var(--gold)}
+.ft-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;margin-top:1.6rem;font:500 .72rem/1.7 var(--fm);letter-spacing:.03em;color:rgba(255,255,255,.5)}
+.ft-bottom a{color:rgba(255,255,255,.6)}
+.ft-bottom a:hover{color:var(--gold)}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width:960px){
+  .nav{display:none}
+  .burger{display:flex}
+  .nav-cta .btn{display:none}
+  .club-grid,.cintro,.cant-top,.ct-grid{grid-template-columns:1fr}
+  .cat-grid{grid-template-columns:repeat(2,1fr)}
+  .cintro .cbig{text-align:left}
+  .club-media{aspect-ratio:16/10;max-width:520px}
+  .club-media .stamp{left:auto;right:20px;bottom:-26px}
+  .cant-top .figframe{max-width:560px}
+}
+@media (max-width:640px){
+  .scoreboard{grid-template-columns:repeat(2,1fr)}
+  .hero-cta{flex-direction:column;align-items:stretch}
+  .hero-cta .btn{width:100%}
+  .score{gap:.6rem 1rem}
+  .dblscore .leg{flex-direction:column;align-items:flex-start;gap:.55rem}
+  .dblscore .leg .lg-r{text-align:left}
+  .dblscore .leg .lg-r em{display:inline;margin-left:.6em;vertical-align:.14em}
+  .ft-top{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     ESCUDO — PLACEHOLDER (monograma)
+     ▸ Reemplazar por el escudo oficial del club:
+       guarda el fichero en  antoniano/assets/escudo.svg  (o .png)
+       y sustituye los <svg class="crest"> por <img src="assets/escudo.svg">
+     ============================================================ -->
+
+<!-- Intro de entrada -->
+<div id="intro" aria-hidden="true">
+  <div class="intro-row">
+    <span class="intro-line"></span>
+    <svg class="intro-crest crest" viewBox="0 0 100 118" aria-hidden="true">
+      <path class="fld" d="M6 6h88v58c0 26-20 40-44 48C26 104 6 90 6 64Z"/>
+      <path class="rim" d="M6 6h88v58c0 26-20 40-44 48C26 104 6 90 6 64Z"/>
+      <rect class="bar" x="6" y="6" width="88" height="16"/>
+      <text class="yr" x="50" y="18.5" text-anchor="middle" font-size="9">1963</text>
+      <text class="mono" x="50" y="70" text-anchor="middle" font-size="34">CAA</text>
+    </svg>
+    <span class="intro-line"></span>
+  </div>
+  <span class="intro-tag">Club Atlético Antoniano · Lebrija · Desde 1963</span>
+</div>
+
+<!-- Header -->
+<header id="hdr">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Club Atlético Antoniano — inicio">
+      <svg class="bc crest" viewBox="0 0 100 118" aria-hidden="true">
+        <path class="fld" d="M6 6h88v58c0 26-20 40-44 48C26 104 6 90 6 64Z"/>
+        <path class="rim" d="M6 6h88v58c0 26-20 40-44 48C26 104 6 90 6 64Z"/>
+        <rect class="bar" x="6" y="6" width="88" height="16"/>
+        <text class="yr" x="50" y="18.5" text-anchor="middle" font-size="9">1963</text>
+        <text class="mono" x="50" y="70" text-anchor="middle" font-size="34">CAA</text>
+      </svg>
+      <span class="bt"><b>C.A. Antoniano</b><span>Lebrija · Sevilla</span></span>
+    </a>
+    <nav class="nav" aria-label="Principal">
+      <a data-spy="club" href="#club">El Club</a>
+      <a data-spy="copa" href="#copa">Copa del Rey</a>
+      <a data-spy="cantera" href="#cantera">Cantera</a>
+      <a data-spy="noticias" href="#noticias">Noticias</a>
+      <a data-spy="contacto" href="#contacto">Contacto</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn--gold" href="#contacto">Hazte socio</a>
+      <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mmenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div id="pbar"></div>
+  </div>
+</header>
+
+<!-- Menú móvil -->
+<div id="mmenu" aria-hidden="true">
+  <a href="#club">El Club <span>01</span></a>
+  <a href="#copa">Copa del Rey <span>02</span></a>
+  <a href="#cantera">Cantera <span>03</span></a>
+  <a href="#noticias">Noticias <span>04</span></a>
+  <a href="#contacto">Contacto <span>05</span></a>
+  <div class="mm-foot">Estadio Municipal de Lebrija · Segunda Federación</div>
+</div>
+
+<main>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="top">
+    <div class="hero-media">
+      <!-- FOTO PRINCIPAL: sustituir este <figure> por
+           <img src="assets/hero.jpg" alt="La afición del Antoniano en el Municipal de Lebrija"> -->
+      <figure class="ph" role="img" aria-label="Fotografía principal del equipo o del estadio (pendiente)">
+        <svg class="ph-mark crest" viewBox="0 0 100 118"><path class="fld" d="M6 6h88v58c0 26-20 40-44 48C26 104 6 90 6 64Z" fill="#fff"/><text x="50" y="70" text-anchor="middle" font-size="34" fill="#fff" font-family="Fraunces,serif">CAA</text></svg>
+        <figcaption class="ph-cap">Foto principal · equipo / estadio</figcaption>
+      </figure>
+    </div>
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="hero-copy">
+        <span class="hero-kick"><span class="tick"></span>Lebrija · Sevilla — desde 1963</span>
+        <h1>Club Atlético<br><span class="l2">Antoniano</span></h1>
+        <p class="hero-lead">Seis décadas de fútbol, cantera y sentimiento blanquiazul en el corazón de Lebrija. Un club humilde que ha aprendido a <b>mirar de tú a tú a la élite</b>.</p>
+        <div class="hero-cta">
+          <a class="btn btn--gold" href="#copa">Nuestra Copa del Rey <span class="ar">→</span></a>
+          <a class="btn btn--ghost on-dark" href="#club">Conoce el club</a>
+        </div>
+      </div>
+      <div class="scoreboard" aria-label="Datos del club">
+        <div class="sb-cell"><div class="n" data-cnt data-to="1963">1963</div><div class="k">Año de fundación</div></div>
+        <div class="sb-cell"><div class="n"><span data-cnt data-to="3">0</span></div><div class="k">Copas del Rey jugadas</div></div>
+        <div class="sb-cell"><div class="n"><span data-cnt data-to="60">0</span><span class="u">+</span></div><div class="k">Años de historia</div></div>
+        <div class="sb-cell"><div class="n"><span data-cnt data-to="3500">0</span></div><div class="k">Aforo · Mun. de Lebrija</div></div>
+      </div>
+    </div>
+    <div class="scroll-hint" aria-hidden="true"><span class="rail"></span>Desliza</div>
+  </section>
+
+  <!-- ===================== EL CLUB ===================== -->
+  <section class="sec sec--paper" id="club">
+    <span class="sec-idx" aria-hidden="true">01</span>
+    <div class="wrap">
+      <div class="shead rv tl">
+        <span class="eyebrow"><span class="tick"></span>El Club</span>
+        <h2 class="title"><span class="tl-l"><span>La historia de un pueblo</span></span><span class="tl-l"><span>vestida de <em>blanquiazul</em> <span class="ser">desde 1963</span></span></span></h2>
+      </div>
+      <div class="club-grid">
+        <div class="club-copy rv">
+          <p class="sub club-lead">«El fútbol de Lebrija tiene nombre propio, y ese nombre es Antoniano.»</p>
+          <p>El <b>Club Atlético Antoniano</b> nació en <b>1963</b> y tomó su nombre de San Antonio de Padua, patrón muy arraigado en la tradición lebrijana. Desde entonces, el club blanco se ha convertido en símbolo del deporte y del sentimiento de toda una ciudad.</p>
+          <p>Más de <b>seis décadas</b> después, el Antoniano compite en <b>Segunda Federación</b> y disputa sus partidos en el <b>Estadio Municipal de Lebrija</b>, ante una afición fiel que llena la grada cada quince días.</p>
+          <p>Pero por encima de categorías y resultados, el Antoniano es <b>cantera, identidad y pertenencia</b>: un proyecto que forma a los jóvenes de la localidad y que ha sabido, en sus mejores noches, plantar cara a los grandes del fútbol español.</p>
+          <div class="club-tags">
+            <span class="tg">Fundado en 1963</span>
+            <span class="tg">Segunda Federación · G-IV</span>
+            <span class="tg">Municipal de Lebrija</span>
+            <span class="tg">Colores blanquiazules</span>
+          </div>
+        </div>
+        <div class="club-media figframe rv" style="--d:.1s">
+          <!-- FOTO: sustituir por <img src="assets/club.jpg" alt="Equipo / afición del Antoniano"> -->
+          <figure class="ph" role="img" aria-label="Fotografía del club (pendiente)">
+            <svg class="ph-mark crest" viewBox="0 0 100 118"><path d="M6 6h88v58c0 26-20 40-44 48C26 104 6 90 6 64Z" fill="#fff"/><text x="50" y="70" text-anchor="middle" font-size="30" fill="#fff" font-family="Fraunces,serif">CAA</text></svg>
+            <figcaption class="ph-cap">Foto del club · equipo / afición</figcaption>
+          </figure>
+          <div class="stamp"><b>60</b><span>Años · 1963</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== DECLARACIÓN (año gigante) ===================== -->
+  <section class="magic" id="magic" aria-label="Seis décadas de historia">
+    <div class="pinwrap">
+      <div class="myear" id="mbig">1963</div>
+      <div class="mlines">
+        <p class="m-l m-l1">Desde 1963,</p>
+        <p class="m-l m-l2">el mismo <em>escudo,</em></p>
+        <p class="m-l m-l3">la misma <em>ciudad,</em></p>
+        <p class="m-l m-l4">el mismo <em>orgullo.</em></p>
+      </div>
+      <div class="mfoot">Lebrija · Club Atlético Antoniano</div>
+    </div>
+  </section>
+
+  <!-- ===================== BANDA PARALLAX (Copa) ===================== -->
+  <section class="phead" aria-hidden="false">
+    <!-- FOTO: sustituir por <img src="assets/copa-band.jpg" alt="Noche de Copa del Rey en el Municipal de Lebrija"> -->
+    <figure class="ph" role="img" aria-label="Banda fotográfica de Copa del Rey (pendiente)">
+      <svg class="ph-mark crest" viewBox="0 0 100 118"><path d="M6 6h88v58c0 26-20 40-44 48C26 104 6 90 6 64Z" fill="#fff"/></svg>
+      <figcaption class="ph-cap">Foto · noche de Copa del Rey</figcaption>
+    </figure>
+    <div class="wrap">
+      <span class="crumb">02 — El torneo del K.O.</span>
+      <h2>Cuando el fútbol modesto<br>sueña a lo grande</h2>
+      <p>Tres veces el sorteo de la Copa del Rey ha cruzado a un club de barrio con la aristocracia del fútbol español. Y tres veces Lebrija se ha vestido de gala.</p>
+    </div>
+  </section>
+
+  <!-- ===================== COPA DEL REY ===================== -->
+  <section class="sec copa" id="copa">
+    <span class="sec-idx" aria-hidden="true">02</span>
+    <div class="wrap">
+      <div class="shead rv tl">
+        <span class="eyebrow on-dark"><span class="tick"></span>La Copa del Rey</span>
+        <h2 class="title"><span class="tl-l"><span>Tres citas históricas</span></span><span class="tl-l"><span>con la <em>élite</em> <span class="ser">del fútbol</span></span></span></h2>
+        <p class="sub">El Antoniano ha disputado la Copa del Rey en <b>tres ocasiones</b>, midiéndose a clubes de Primera y Segunda División. Su historia en el torneo es la de un David que nunca dejó de creer.</p>
+      </div>
+
+      <div class="cintro rv">
+        <div></div>
+        <div class="cbig">×3<small>Participaciones</small></div>
+      </div>
+
+      <div class="timeline">
+
+        <!-- 2019-20 · Real Betis -->
+        <article class="tie rv">
+          <div class="yr">2019<small>2019·20</small></div>
+          <span class="dot" aria-hidden="true"></span>
+          <div class="card">
+            <div class="rnd">
+              <span class="badge div1">Primera División</span>
+              <span>Copa del Rey · Primera ronda</span>
+            </div>
+            <div class="score">
+              <div class="team home">
+                <svg class="mini crest" viewBox="0 0 100 118" aria-hidden="true"><path class="fld" d="M6 6h88v58c0 26-20 40-44 48C26 104 6 90 6 64Z"/><path class="rim" d="M6 6h88v58c0 26-20 40-44 48C26 104 6 90 6 64Z"/><text class="mono" x="50" y="70" text-anchor="middle" font-size="30">A</text></svg>
+                <span class="nm">C.A. Antoniano</span>
+              </div>
+              <div class="res" aria-label="Antoniano 0 Real Betis 4">0<span style="opacity:.5;margin:0 .1em">–</span>4</div>
+              <div class="team away"><span class="nm">Real Betis</span></div>
+            </div>
+            <div class="meta">
+              <span>Estadio Benito Villamarín</span>
+              <span>19 dic 2019</span>
+            </div>
+            <p class="note"><b>El estreno histórico.</b> El Antoniano debutaba en la Copa del Rey nada menos que ante un grande de Sevilla. El aforo del Municipal obligó a trasladar el partido al Benito Villamarín, donde los blanquiazules disfrutaron de su gran noche pese a caer ante los goles verdiblancos.</p>
+          </div>
+        </article>
+
+        <!-- 2023-24 · CD Lugo -->
+        <article class="tie rv">
+          <div class="yr">2023<small>2023·24</small></div>
+          <span class="dot" aria-hidden="true"></span>
+          <div class="card">
+            <div class="rnd">
+              <span class="badge">Categoría superior</span>
+              <span>Copa del Rey · Primera ronda</span>
+            </div>
+            <div class="score">
+              <div class="team home">
+                <svg class="mini crest" viewBox="0 0 100 118" aria-hidden="true"><path class="fld" d="M6 6h88v58c0 26-20 40-44 48C26 104 6 90 6 64Z"/><path class="rim" d="M6 6h88v58c0 26-20 40-44 48C26 104 6 90 6 64Z"/><text class="mono" x="50" y="70" text-anchor="middle" font-size="30">A</text></svg>
+                <span class="nm">C.A. Antoniano</span>
+              </div>
+              <div class="res" aria-label="Antoniano 0 CD Lugo 1">0<span style="opacity:.5;margin:0 .1em">–</span>1</div>
+              <div class="team away"><span class="nm">C.D. Lugo</span></div>
+            </div>
+            <div class="meta">
+              <span>Estadio Municipal de Lebrija</span>
+              <span>1 nov 2023</span>
+            </div>
+            <p class="note"><b>De tú a tú.</b> Esta vez la eliminatoria se jugó en casa, en Lebrija. El Antoniano firmó una actuación seria y ordenada ante un rival de superior categoría; el único gol del choque no llegó hasta el minuto 77. Derrota mínima y honor intacto.</p>
+          </div>
+        </article>
+
+        <!-- 2025-26 · La gesta -->
+        <article class="tie rv">
+          <div class="yr">2025<small>2025·26</small></div>
+          <span class="dot" aria-hidden="true"></span>
+          <div class="card card--gesta">
+            <div class="rnd">
+              <span class="badge gesta">La gesta</span>
+              <span>Copa del Rey · 1ª y 2ª ronda</span>
+            </div>
+            <div class="dblscore">
+              <div class="leg leg--win">
+                <div class="lg-t"><b>Antoniano — CD Castellón</b><small>1ª ronda · Segunda División · 30 oct 2025</small></div>
+                <div class="lg-r">1–0<em>Victoria</em></div>
+              </div>
+              <div class="leg">
+                <div class="lg-t"><b>Antoniano — Villarreal CF</b><small>2ª ronda · Primera División · 3 dic 2025</small></div>
+                <div class="lg-r">1–1<em>Cayó en penaltis</em></div>
+              </div>
+            </div>
+            <div class="meta">
+              <span>Estadio Municipal de Lebrija</span>
+              <span>Otoño 2025</span>
+            </div>
+            <p class="note"><b>La mayor gesta de su historia.</b> El Antoniano eliminó a todo un <b>CD Castellón</b> de Segunda División con un tanto de Juan Serrano en el minuto 82. En la siguiente ronda plantó cara al <b>Villarreal CF</b> de Primera durante 120 minutos: empató 1–1 y solo cayó en la tanda de penaltis. Lebrija entera lo vivió como una fiesta.</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CANTERA ===================== -->
+  <section class="sec sec--paper" id="cantera">
+    <span class="sec-idx" aria-hidden="true">03</span>
+    <div class="wrap">
+      <div class="cant-top">
+        <div class="cant-copy rv tl">
+          <span class="eyebrow"><span class="tick"></span>La cantera blanquiazul</span>
+          <h2 class="title"><span class="tl-l"><span>El futuro se</span></span><span class="tl-l"><span>forma <em>en casa</em></span></span></h2>
+          <p>La cantera es el corazón del Club Atlético Antoniano. Cada temporada, decenas de niñas y niños de Lebrija visten de blanquiazul por primera vez y empiezan a escribir su propia historia.</p>
+          <p>Nuestro objetivo va más allá del resultado: <b>formar personas</b> a través del fútbol, transmitiendo esfuerzo, respeto y sentido de pertenencia. Del primer día en la escuela hasta el salto al primer equipo, todos los pasos se dan con el mismo escudo en el pecho.</p>
+        </div>
+        <div class="figframe rv" style="--d:.1s">
+          <!-- FOTO: sustituir por <img src="assets/cantera.jpg" alt="Equipos de la cantera del Antoniano"> -->
+          <figure class="ph" role="img" aria-label="Fotografía de la cantera (pendiente)">
+            <svg class="ph-mark crest" viewBox="0 0 100 118"><path d="M6 6h88v58c0 26-20 40-44 48C26 104 6 90 6 64Z" fill="#fff"/><text x="50" y="70" text-anchor="middle" font-size="30" fill="#fff" font-family="Fraunces,serif">CAA</text></svg>
+            <figcaption class="ph-cap">Foto · equipos de cantera</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="cat-grid rv">
+        <div class="cat"><div class="cn">01</div><div class="ct">Escuela</div><div class="cd">Primeros pasos</div></div>
+        <div class="cat"><div class="cn">02</div><div class="ct">Prebenjamín</div><div class="cd">Fútbol-7</div></div>
+        <div class="cat"><div class="cn">03</div><div class="ct">Benjamín</div><div class="cd">Fútbol-7</div></div>
+        <div class="cat"><div class="cn">04</div><div class="ct">Alevín</div><div class="cd">Fútbol-7</div></div>
+        <div class="cat"><div class="cn">05</div><div class="ct">Infantil</div><div class="cd">Fútbol-11</div></div>
+        <div class="cat"><div class="cn">06</div><div class="ct">Cadete</div><div class="cd">Fútbol-11</div></div>
+        <div class="cat"><div class="cn">07</div><div class="ct">Juvenil</div><div class="cd">Fútbol-11</div></div>
+        <div class="cat"><div class="cn">08</div><div class="ct">Primer equipo</div><div class="cd">Segunda Federación</div></div>
+      </div>
+
+      <div class="cant-values rv">
+        <div class="val"><h4>Formación integral</h4><p>Trabajamos el talento dentro del campo y los valores fuera de él, con un método común para todas las categorías.</p></div>
+        <div class="val"><h4>Cantera propia</h4><p>Apostamos por los jugadores de Lebrija y comarca, con un camino claro desde la escuela hasta el primer equipo.</p></div>
+        <div class="val"><h4>Sentido de club</h4><p>Un solo escudo, una sola familia. La pertenencia al Antoniano se lleva con orgullo dentro y fuera del campo.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== NOTICIAS (sección vacía para el plugin) ===================== -->
+  <section class="sec news" id="noticias">
+    <span class="sec-idx" aria-hidden="true">04</span>
+    <div class="wrap">
+      <div class="shead rv tl">
+        <div>
+          <span class="eyebrow"><span class="tick"></span>Actualidad</span>
+          <h2 class="title"><span class="tl-l"><span>Últimas <em>noticias</em></span></span></h2>
+        </div>
+        <a class="btn btn--ghost" href="https://www.instagram.com/caantoniano/" target="_blank" rel="noopener" aria-label="Perfil de Instagram del club">Síguenos en Instagram <span class="ar">→</span></a>
+      </div>
+
+      <!-- ============================================================
+           PUNTO DE ANCLAJE DEL FEED DE NOTICIAS / INSTAGRAM
+           ▸ Aquí se insertará el plugin de WordPress que muestra
+             las publicaciones de Instagram.
+           ▸ Deja el contenedor #ig-feed vacío o pega dentro el
+             shortcode / embed del plugin. Todo lo de dentro de
+             .ig-mount es solo un marcador visual y puede borrarse.
+           ============================================================ -->
+      <div id="ig-feed" class="rv">
+        <div class="ig-mount">
+          <div class="ig-ic" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </div>
+          <span class="ig-tag">Sección lista para el feed</span>
+          <h3>Muy pronto, aquí verás nuestras publicaciones</h3>
+          <p>Esta sección mostrará automáticamente las últimas noticias y publicaciones del Instagram oficial del Club Atlético Antoniano.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACTO ===================== -->
+  <section class="sec contact" id="contacto">
+    <span class="sec-idx" aria-hidden="true">05</span>
+    <div class="wrap">
+      <div class="ct-grid">
+        <div class="rv tl">
+          <span class="eyebrow on-dark"><span class="tick"></span>Contacto</span>
+          <h2 class="title"><span class="tl-l"><span>Nos vemos en</span></span><span class="tl-l"><span>el <em>Municipal</em></span></span></h2>
+          <div class="ct-list">
+            <div class="ct-row">
+              <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
+              <div class="rt"><b>Estadio</b><span>Estadio Municipal de Lebrija</span><small>Lebrija, Sevilla · Andalucía</small></div>
+            </div>
+            <div class="ct-row">
+              <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6 12 13 2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg></span>
+              <div class="rt"><b>Email</b><a href="mailto:info@caantoniano.com">info@caantoniano.com</a><small>Sustituir por el correo oficial del club</small></div>
+            </div>
+            <div class="ct-row">
+              <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg></span>
+              <div class="rt"><b>Teléfono</b><span>+34 000 000 000</span><small>Sustituir por el teléfono oficial del club</small></div>
+            </div>
+          </div>
+          <div class="ct-social">
+            <a href="https://www.facebook.com/CAAntoniano/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3l.5-3H14V4.5c0-.9.3-1.5 1.6-1.5H17V.2C16.7.1 15.6 0 14.4 0 11.9 0 10 1.5 10 4.3V6H7v3h3v9h4Z"/></svg>
+              Facebook
+            </a>
+            <a href="https://www.instagram.com/caantoniano/" target="_blank" rel="noopener" aria-label="Instagram del club">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+              Instagram
+            </a>
+          </div>
+        </div>
+
+        <div class="ct-card rv" style="--d:.1s">
+          <svg class="cc-crest crest" viewBox="0 0 100 118" aria-hidden="true">
+            <path class="fld" d="M6 6h88v58c0 26-20 40-44 48C26 104 6 90 6 64Z"/>
+            <path class="rim" d="M6 6h88v58c0 26-20 40-44 48C26 104 6 90 6 64Z"/>
+            <rect class="bar" x="6" y="6" width="88" height="16"/>
+            <text class="yr" x="50" y="18.5" text-anchor="middle" font-size="9">1963</text>
+            <text class="mono" x="50" y="70" text-anchor="middle" font-size="34">CAA</text>
+          </svg>
+          <h3>Hazte socio</h3>
+          <p>Formar parte del Antoniano es sostener el fútbol de tu ciudad. Súmate como socio y vive cada partido desde dentro, con tu club y tu gente.</p>
+          <a class="btn btn--gold" href="mailto:info@caantoniano.com" style="margin-top:1.4rem">Quiero ser socio <span class="ar">→</span></a>
+          <!-- MAPA: opcional — insertar aquí un <iframe> de Google Maps del estadio -->
+          <div class="map">
+            <figure class="ph" role="img" aria-label="Ubicación del estadio (pendiente)" style="height:100%">
+              <svg class="ph-mark crest" viewBox="0 0 100 118" style="width:22%"><path d="M6 6h88v58c0 26-20 40-44 48C26 104 6 90 6 64Z" fill="#fff"/></svg>
+              <figcaption class="ph-cap">Mapa · Municipal de Lebrija</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-top">
+      <a class="ft-brand" href="#top">
+        <svg class="fc crest" viewBox="0 0 100 118" aria-hidden="true">
+          <path class="fld" d="M6 6h88v58c0 26-20 40-44 48C26 104 6 90 6 64Z"/>
+          <path class="rim" d="M6 6h88v58c0 26-20 40-44 48C26 104 6 90 6 64Z"/>
+          <rect class="bar" x="6" y="6" width="88" height="16"/>
+          <text class="mono" x="50" y="70" text-anchor="middle" font-size="34">CAA</text>
+        </svg>
+        <span class="fbt"><b>Club Atlético Antoniano</b><span>Lebrija · Desde 1963</span></span>
+      </a>
+      <nav class="ft-nav" aria-label="Pie">
+        <a href="#club">El Club</a>
+        <a href="#copa">Copa del Rey</a>
+        <a href="#cantera">Cantera</a>
+        <a href="#noticias">Noticias</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+    <div class="ft-bottom">
+      <span>© <span id="yr">2026</span> Club Atlético Antoniano · Todos los derechos reservados.</span>
+      <span>Estadio Municipal de Lebrija · Segunda Federación · Grupo IV</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+'use strict';
+var $=function(s,c){return (c||document).querySelector(s)};
+var $$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* año en el pie */
+try{$('#yr').textContent=new Date().getFullYear();}catch(e){}
+
+/* ---------- intro de entrada ---------- */
+var intro=document.getElementById('intro');
+if(intro&&!reduced){
+  document.documentElement.style.overflow='hidden';
+  var t0=Date.now();
+  var closeIntro=function(){
+    if(intro._closed)return;intro._closed=true;
+    intro.classList.add('done');
+    document.documentElement.style.overflow='';
+    setTimeout(function(){if(intro.parentNode)intro.parentNode.removeChild(intro)},800);
+  };
+  window.addEventListener('load',function(){setTimeout(closeIntro,Math.max(0,1900-(Date.now()-t0)))});
+  setTimeout(closeIntro,3400);
+}else if(intro&&intro.parentNode){
+  intro.parentNode.removeChild(intro);
+}
+
+/* ---------- scroll: header, progreso, parallax, año gigante ---------- */
+var hdr=$('#hdr'),pbar=$('#pbar');
+var heroCopy=$('.hero-copy'),heroMedia=$('.hero-media .ph');
+var pheads=$$('.phead');
+var magicSec=$('.magic'),mLines=$$('.m-l'),mBig=$('#mbig');
+var vh=window.innerHeight,ticking=false;
+var nowYear=(function(){try{return new Date().getFullYear();}catch(e){return 2026;}})();
+
+function isFancy(){
+  try{return !reduced && window.matchMedia('(min-width:1025px) and (hover:hover) and (pointer:fine)').matches;}
+  catch(e){return !reduced && window.innerWidth>=1025;}
+}
+var fancy=isFancy();
+function resetFX(){
+  if(heroCopy){heroCopy.style.transform='';heroCopy.style.opacity='';}
+  if(heroMedia)heroMedia.style.transform='';
+  mLines.forEach(function(el){el.style.opacity='';el.style.transform='';el.style.filter='';});
+  pheads.forEach(function(ph){
+    var img=ph.querySelector('.ph');if(img)img.style.removeProperty('--py');
+    var w=ph.querySelector('.wrap');if(w)w.style.transform='';
+  });
+}
+window.addEventListener('resize',function(){
+  vh=window.innerHeight;var f=isFancy();
+  if(f!==fancy){fancy=f;if(!fancy)resetFX();}
+},{passive:true});
+
+function paint(){
+  ticking=false;
+  var y=window.scrollY||0;
+  hdr.classList.toggle('sc',y>40);
+  var max=document.documentElement.scrollHeight-vh;
+  pbar.style.transform='scaleX('+(max>0?y/max:0)+')';
+  if(reduced||!fancy)return;
+  /* hero: texto sube más lento y se desvanece; la foto respira */
+  if(heroCopy&&y<vh*1.3){
+    heroCopy.style.transform='translateY('+(y*.2)+'px)';
+    heroCopy.style.opacity=String(Math.max(0,1-y/(vh*.78)));
+    if(heroMedia)heroMedia.style.transform='translateY('+(y*.12)+'px) scale('+(1+Math.min(.12,y/vh*.16))+')';
+  }
+  /* declaración pinned: líneas + año 1963→hoy */
+  if(magicSec){
+    var mr=magicSec.getBoundingClientRect();
+    if(mr.top<vh&&mr.bottom>0){
+      var span=Math.max(1,mr.height-vh);
+      var mp=Math.min(1,Math.max(0,-mr.top/span));
+      for(var j=0;j<mLines.length;j++){
+        var lp=Math.min(1,Math.max(0,mp*4.4-j*1));
+        mLines[j].style.opacity=String(.1+.9*lp);
+        mLines[j].style.transform='translateY('+((1-lp)*44).toFixed(1)+'px)';
+        mLines[j].style.filter='blur('+((1-lp)*6).toFixed(1)+'px)';
+      }
+      if(mBig)mBig.textContent=String(Math.round(1963+mp*(nowYear-1963)));
+    }
+  }
+  /* parallax en bandas de imagen */
+  for(var i=0;i<pheads.length;i++){
+    var r=pheads[i].getBoundingClientRect();
+    if(r.bottom<-80||r.top>vh+80)continue;
+    var prog=(r.top+r.height/2-vh/2)/vh;
+    var img=pheads[i].querySelector('.ph');
+    if(img)img.style.setProperty('--py',(prog*90).toFixed(1)+'px');
+    var w=pheads[i].querySelector('.wrap');
+    if(w)w.style.transform='translateY('+(prog*-28).toFixed(1)+'px)';
+  }
+}
+function onScroll(){if(!ticking){ticking=true;requestAnimationFrame(paint)}}
+window.addEventListener('scroll',onScroll,{passive:true});
+paint();
+
+/* ---------- menú móvil (con gestión de foco y Escape) ---------- */
+var burger=$('#burger'),mmenu=$('#mmenu');
+var mainEl=$('main'),footEl=$('footer');
+var lastFocus=null;
+function setMenu(open){
+  burger.classList.toggle('open',open);
+  mmenu.classList.toggle('open',open);
+  burger.setAttribute('aria-expanded',String(open));
+  mmenu.setAttribute('aria-hidden',String(!open));
+  document.body.style.overflow=open?'hidden':'';
+  [mainEl,footEl].forEach(function(el){
+    if(!el)return;
+    try{el.inert=open}catch(e){}
+    if(open)el.setAttribute('aria-hidden','true');else el.removeAttribute('aria-hidden');
+  });
+  if(open){
+    lastFocus=document.activeElement;
+    var first=mmenu.querySelector('a');
+    if(first)setTimeout(function(){first.focus()},80);
+  }else if(lastFocus){
+    try{lastFocus.focus()}catch(e){}
+    lastFocus=null;
+  }
+}
+if(burger){
+  burger.addEventListener('click',function(){setMenu(!mmenu.classList.contains('open'))});
+  $$('#mmenu a').forEach(function(a){a.addEventListener('click',function(){setMenu(false)})});
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&mmenu.classList.contains('open'))setMenu(false);
+  });
+}
+
+/* ---------- scrollspy ---------- */
+var spyLinks=$$('.nav a[data-spy]'),spyMap={};
+spyLinks.forEach(function(a){
+  var el=document.getElementById(a.getAttribute('data-spy'));
+  if(el)spyMap[el.id]=a;
+});
+var spyObs=new IntersectionObserver(function(es){
+  es.forEach(function(e){
+    if(e.isIntersecting&&spyMap[e.target.id]){
+      spyLinks.forEach(function(a){a.classList.remove('act')});
+      spyMap[e.target.id].classList.add('act');
+    }
+  });
+},{rootMargin:'-40% 0px -55% 0px'});
+Object.keys(spyMap).forEach(function(id){spyObs.observe(document.getElementById(id))});
+
+/* ---------- reveals ---------- */
+var rvObs=new IntersectionObserver(function(es){
+  es.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.add('on');rvObs.unobserve(e.target)}
+  });
+},{threshold:.14,rootMargin:'0px 0px -40px 0px'});
+$$('.rv').forEach(function(el){rvObs.observe(el)});
+
+/* ---------- contadores ---------- */
+function animateCount(el){
+  var to=parseInt(el.getAttribute('data-to'),10)||0;
+  var isYear=to>=1900&&to<=2100;
+  if(reduced){el.textContent=to;return}
+  var dur=1700,t0=null;
+  function step(t){
+    if(!t0)t0=t;
+    var p=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-p,3);
+    el.textContent=isYear?String(Math.round(to*e)):Math.round(to*e).toLocaleString('es-ES');
+    if(p<1)requestAnimationFrame(step);else el.textContent=isYear?to:to.toLocaleString('es-ES');
+  }
+  requestAnimationFrame(step);
+}
+var cntObs=new IntersectionObserver(function(es){
+  es.forEach(function(e){
+    if(e.isIntersecting){animateCount(e.target);cntObs.unobserve(e.target)}
+  });
+},{threshold:.6});
+$$('[data-cnt]').forEach(function(el){cntObs.observe(el)});
+
+})();
+</script>
+</body>
+</html>
