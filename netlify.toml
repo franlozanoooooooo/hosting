@@ -1,0 +1,4 @@
+# Publica la web estática del Club Atlético Antoniano (carpeta antoniano/)
+[build]
+  publish = "antoniano"
+  command = ""
