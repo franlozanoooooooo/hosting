@@ -50,9 +50,6 @@ exista la imagen real. Para poner tus fotos, basta con dejar estos archivos en `
 | `assets/destacada.jpg` | Imagen de la **noticia destacada** |
 | `assets/estadio.jpg` | Fondo de la sección **Estadio** |
 | `assets/patrocinadores.png` | Logos de **patrocinadores** |
-| `assets/img/copa-betis.jpg` | **Noches de Copa** · 2019, el Villamarín rojiblanco |
-| `assets/img/copa-lugo.jpg` | **Noches de Copa** · 2023, estreno copero del Municipal |
-| `assets/img/copa-villarreal.jpg` | **Noches de Copa** · 2025, la noche del Villarreal |
 
 > No hace falta tocar el código: si el archivo existe, se muestra; si no, se ve el fondo
 > rojiblanco de respaldo.
