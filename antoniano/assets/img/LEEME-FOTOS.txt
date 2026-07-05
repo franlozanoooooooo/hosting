@@ -1,0 +1,30 @@
+════════════════════════════════════════════════════════════════════
+  FOTOS DE LA WEB — QUÉ ARCHIVO VA EN CADA SITIO
+════════════════════════════════════════════════════════════════════
+
+Sube aquí (carpeta assets/img/) tus fotos con EXACTAMENTE estos
+nombres. No hay que tocar ni una línea de código: en cuanto el
+archivo exista, la web lo muestra. Mientras falte, se ve un fondo
+rojiblanco con el nombre del archivo que se espera.
+
+  portada.jpg          Foto grande de la portada (héroe).
+                       Ideal: afición/equipo, horizontal, mín. 1920px ancho.
+
+  club.jpg             Sección "El Club" (historia).
+                       Ideal: vertical (4:5), plantilla o estadio.
+
+  copa-betis.jpg       Noche de Copa 2019 contra el Real Betis.
+  copa-lugo.jpg        Noche de Copa contra el CD Lugo.
+  copa-2025.jpg        Copa 2025-26 (Castellón / Villarreal).
+                       Ideal: horizontales (16:10).
+
+  cantera.jpg          Sección "La Cantera".
+                       Ideal: horizontal (4:3), fútbol base.
+
+  abonos.jpg           Cartel de la campaña de abonos 2026/27
+                       (el cartel granate "Lebrija, mi fuerza eres tú").
+
+CONSEJOS
+- Formato JPG (o WEBP cambiando la extensión también en index.html).
+- Peso recomendado: menos de 400 KB por foto (usa tinypng.com).
+- Los nombres van en minúsculas y sin espacios.
