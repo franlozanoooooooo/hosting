@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 300" role="img" aria-label="Escudo del Club Atlético Antoniano de Lebrija">
+  <title>Club Atlético Antoniano · Lebrija</title>
+
+  <!-- Marco angular rojo (homenaje a la F del escudo original) -->
+  <g fill="none" stroke="#E1261C" stroke-width="7" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M48 28 H196 V70 H150" />
+    <path d="M70 50 H176" />
+    <path d="M48 28 V250 L96 290" />
+    <path d="M70 70 V210" />
+  </g>
+
+  <!-- Balón granate con costuras blancas -->
+  <g transform="translate(140,120)">
+    <circle r="62" fill="#6E1423" stroke="#fff" stroke-width="2.5" />
+    <g fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round">
+      <path d="M-62 -8 C -28 -28, 14 -30, 40 -54" />
+      <path d="M-58 22 C -20 6, 26 6, 60 -16" />
+      <path d="M-30 56 C -16 22, -8 -16, 6 -60" />
+      <path d="M22 58 C 18 24, 30 -8, 50 -36" />
+      <circle r="20" fill="none" stroke="#fff" stroke-width="3" />
+    </g>
+  </g>
+
+  <!-- Texto LEBRIJA -->
+  <text x="120" y="232" text-anchor="middle"
+        font-family="Oswald, Arial Narrow, sans-serif" font-weight="700"
+        font-size="40" letter-spacing="2" fill="#111">LEBRIJA</text>
+
+  <!-- Flores rojas con tallos verdes -->
+  <g transform="translate(120,270)">
+    <path d="M-2 8 C -18 0, -30 -18, -40 -30" fill="none" stroke="#3FA34D" stroke-width="4" stroke-linecap="round"/>
+    <path d="M2 8 C 18 0, 30 -18, 40 -30" fill="none" stroke="#3FA34D" stroke-width="4" stroke-linecap="round"/>
+    <path d="M-1 10 L 1 -2" fill="none" stroke="#3FA34D" stroke-width="4" stroke-linecap="round"/>
+    <g fill="#E1261C">
+      <path d="M-40 -34 l5 -11 5 11 11 1 -8 8 3 11 -11 -6 -11 6 3 -11 -8 -8z"/>
+      <path d="M40 -34 l5 -11 5 11 11 1 -8 8 3 11 -11 -6 -11 6 3 -11 -8 -8z"/>
+    </g>
+    <circle cx="-35" cy="-30" r="2.4" fill="#fff"/>
+    <circle cx="45" cy="-30" r="2.4" fill="#fff"/>
+  </g>
+</svg>
