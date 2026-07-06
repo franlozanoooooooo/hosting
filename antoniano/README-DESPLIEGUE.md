@@ -35,7 +35,8 @@ Trucos:
 | **Redes sociales**: enlaza los perfiles oficiales (ahora apuntan a `#`) | `index.html` → `footer__social` |
 | **Aviso legal y privacidad**: crea las páginas y enlázalas | `index.html` → `footer__bottom` |
 | **Noticias**: sustituye las tarjetas de la hemeroteca cuando haya noticias nuevas | `index.html` → sección `#noticias` |
-| **Calendario/clasificación**: cuando arranque la temporada, añade el próximo partido en la sección Partidos | `index.html` → sección `#partidos` |
+| **Logos de patrocinadores**: ahora son logotipos de texto; cámbialos por los archivos oficiales | `index.html` → sección `#patrocinadores` |
+| **"Hazte patrocinador"**: enlaza a un email o formulario de contacto | `index.html` → `sponsors__cta` |
 | **Fotos reales** (héroe, Copa, plantilla): añade `assets/img/` y colócalas donde quieras | `index.html` |
 
 ## Enlaces ya configurados
@@ -44,11 +45,19 @@ Trucos:
 - **Clasificación**: página oficial de 2ª RFEF en <https://www.rfef.es/es/competiciones/segunda-federacion>
 - Noticias de la hemeroteca → El Pespunte y Ayuntamiento de Lebrija
 
+## Navegación por secciones
+
+La web funciona como "páginas": al entrar solo se ve **Inicio**; cada sección
+(El Club, Copa del Rey, Noticias, Patrocinadores) se abre desde el menú.
+Funciona con la parte final de la URL (`#club`, `#copa`…), así que se pueden
+compartir enlaces directos a una sección. Sin JavaScript, la página completa
+queda visible como fallback.
+
 ## Estructura
 
 ```
 antoniano/
-├── index.html          ← toda la web (una página con anclas)
+├── index.html          ← toda la web (vistas conmutables por hash)
 ├── 404.html            ← página de error personalizada
 ├── .htaccess           ← caché + gzip + 404 (Apache/Hostinger)
 ├── robots.txt / sitemap.xml

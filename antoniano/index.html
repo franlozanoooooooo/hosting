@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Club Atlético Antoniano · Pasión rojiblanca desde 1963 · Lebrija</title>
-  <meta name="description" content="Web oficial del Club Atlético Antoniano de Lebrija (Sevilla). Fundado en 1963, milita en 2ª RFEF Grupo IV. Historia, noches de Copa del Rey, noticias y entradas.">
+  <title>Club Atlético Antoniano · Lebrija, mi fuerza eres tú</title>
+  <meta name="description" content="Web oficial del Club Atlético Antoniano de Lebrija (Sevilla). Fundado en 1963, milita en 2ª RFEF Grupo IV. Historia, noches de Copa del Rey, noticias, patrocinadores y entradas.">
   <meta name="theme-color" content="#C8102E">
 
   <!-- Open Graph · TODO: sustituye TU-DOMINIO por el dominio real al desplegar -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Club Atlético Antoniano · Pasión rojiblanca desde 1963">
-  <meta property="og:description" content="El club de Lebrija: fútbol, cantera y orgullo de pueblo. Entradas, historia y noches de Copa.">
+  <meta property="og:title" content="Club Atlético Antoniano · Lebrija, mi fuerza eres tú">
+  <meta property="og:description" content="El club de Lebrija: fútbol, cantera y orgullo de pueblo desde 1963. Entradas, historia y noches de Copa.">
   <meta property="og:image" content="https://TU-DOMINIO.com/assets/og.jpg">
   <meta property="og:locale" content="es_ES">
 
@@ -26,52 +26,58 @@
 <body>
 
   <!-- ══════════════════════ ESCUDO (símbolo reutilizable) ══════════════════════
-       Recreación vectorial del escudo. Para usar el archivo original del club,
-       sustituye los <svg class="crest"> por <img src="assets/escudo.png">.     -->
+       Recreación vectorial del escudo oficial: banderín rojo con esquina plegada
+       y gancho, balón vintage granate, LEBRIJA y las clavellinas.
+       Para usar el archivo original del club, sustituye los <svg class="crest">
+       por <img src="assets/escudo.png">.                                        -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
     <symbol id="crest" viewBox="0 0 860 1010">
-      <!-- Banderín (raíles exterior e interior) -->
-      <g class="crest-pennant" fill="none" stroke="#E4251C" stroke-width="15">
-        <path class="rail rail--outer" d="M 468 952 Q 300 862 226 720 Q 168 607 168 470 L 168 140 L 690 140 L 690 332 L 600 332"/>
-        <path class="rail rail--inner" d="M 452 906 Q 320 830 254 706 Q 200 600 200 470 L 200 172 L 658 172 L 658 300 L 600 300"/>
-        <path class="rail rail--cap"   d="M 600 339 L 600 293"/>
-        <path class="rail rail--tail"  d="M 474 952 L 448 952 L 448 902"/>
-        <g class="crest-hatch" stroke-width="13">
-          <path d="M 172 200 L 200 172"/>
-          <path d="M 172 232 L 232 172"/>
-          <path d="M 172 264 L 264 172"/>
-          <path d="M 658 216 L 690 216"/>
-          <path d="M 658 254 L 690 254"/>
+      <g class="crest-pennant" fill="none" stroke="#E4251C" stroke-width="13">
+        <!-- barra superior + gancho en J -->
+        <path class="rail" d="M 123 72 L 549 72 L 549 166 L 501 166 L 501 108"/>
+        <path class="rail" d="M 152 100 L 521 100 L 521 138"/>
+        <!-- pliegue diagonal de la esquina -->
+        <g class="crest-hatch">
+          <path d="M 125 78 L 163 272"/>
+          <path d="M 154 104 L 198 260"/>
+          <path d="M 183 104 L 224 246"/>
         </g>
+        <!-- raíl izquierdo con curva hacia la punta -->
+        <path class="rail" d="M 163 272 L 163 545 Q 163 680 245 775 Q 305 845 366 882"/>
+        <path class="rail" d="M 198 258 L 198 542 Q 198 668 268 755 Q 316 812 352 838"/>
+        <!-- corte escalonado de la punta -->
+        <path class="rail rail--tail" d="M 372 884 L 338 884 L 338 840"/>
       </g>
       <!-- Balón vintage -->
-      <g class="crest-ball" transform="translate(440,388)">
-        <circle r="150" fill="#6E1414"/>
-        <g fill="none" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round">
-          <path d="M -7 -149 C -36 -71, -36 71, -7 149"/>
-          <path d="M 49 -141 C 89 -62, 89 62, 49 141"/>
-          <path d="M -67 -134 C -107 -58, -107 58, -67 134"/>
-          <path d="M -7 -54 C 36 -64, 67 -71, 109 -96"/>
-          <path d="M -7 54 C 36 64, 67 71, 109 96"/>
+      <g transform="translate(434,380)">
+        <g class="crest-ball">
+          <circle r="145" fill="#6E1414"/>
+          <g fill="none" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round">
+            <path d="M -7 -143 C -35 -68, -35 68, -7 143"/>
+            <path d="M 47 -135 C 85 -60, 85 60, 47 135"/>
+            <path d="M -64 -129 C -103 -56, -103 56, -64 129"/>
+            <path d="M -7 -52 C 35 -61, 64 -68, 105 -92"/>
+            <path d="M -7 52 C 35 61, 64 68, 105 92"/>
+          </g>
         </g>
       </g>
       <!-- Nombre (color configurable con --crest-word) -->
-      <text class="crest-word" x="430" y="655" text-anchor="middle"
+      <text class="crest-word" x="434" y="598" text-anchor="middle"
             font-family="'Zilla Slab',Georgia,'Times New Roman',serif" font-weight="700"
-            font-size="96" letter-spacing="8" fill="var(--crest-word,#0E0E0E)">LEBRIJA</text>
+            font-size="86" letter-spacing="7" fill="var(--crest-word,#0E0E0E)">LEBRIJA</text>
       <!-- Clavellinas de Lebrija -->
       <g class="crest-flowers">
         <g fill="none" stroke="#3F9B33" stroke-width="12" stroke-linecap="round">
-          <path d="M 375 838 C 400 890, 430 928, 466 958"/>
-          <path d="M 498 826 C 472 888, 444 926, 412 960"/>
-          <path d="M 414 906 L 380 924"/>
-          <path d="M 452 924 L 484 944"/>
+          <path d="M 372 712 C 392 756, 415 782, 448 806"/>
+          <path d="M 502 696 C 478 750, 452 776, 425 810"/>
+          <path d="M 405 762 L 372 780"/>
+          <path d="M 445 780 L 476 800"/>
         </g>
-        <g transform="translate(368,802) rotate(-14)">
+        <g transform="translate(365,680) rotate(-14) scale(1.28)">
           <polygon fill="#E4251C" points="46,0 23.4,13.5 23,39.8 0,27 -23,39.8 -23.4,13.5 -46,0 -23.4,-13.5 -23,-39.8 0,-27 23,-39.8 23.4,-13.5"/>
           <polygon fill="#FFFFFF" points="14,0 3.5,3.5 0,14 -3.5,3.5 -14,0 -3.5,-3.5 0,-14 3.5,-3.5"/>
         </g>
-        <g transform="translate(502,792) rotate(12)">
+        <g transform="translate(508,662) rotate(12) scale(1.28)">
           <polygon fill="#E4251C" points="46,0 23.4,13.5 23,39.8 0,27 -23,39.8 -23.4,13.5 -46,0 -23.4,-13.5 -23,-39.8 0,-27 23,-39.8 23.4,-13.5"/>
           <polygon fill="#FFFFFF" points="14,0 3.5,3.5 0,14 -3.5,3.5 -14,0 -3.5,-3.5 0,-14 3.5,-3.5"/>
         </g>
@@ -84,47 +90,45 @@
        el CSS no puede atravesar el shadow DOM de <use>.              -->
   <div class="preloader" id="preloader" aria-hidden="true">
     <svg class="crest preloader__crest" viewBox="0 0 860 1010">
-      <g class="crest-pennant" fill="none" stroke="#E4251C" stroke-width="15">
-        <path class="rail rail--outer" d="M 468 952 Q 300 862 226 720 Q 168 607 168 470 L 168 140 L 690 140 L 690 332 L 600 332"/>
-        <path class="rail rail--inner" d="M 452 906 Q 320 830 254 706 Q 200 600 200 470 L 200 172 L 658 172 L 658 300 L 600 300"/>
-        <path class="rail rail--cap"   d="M 600 339 L 600 293"/>
-        <path class="rail rail--tail"  d="M 474 952 L 448 952 L 448 902"/>
-        <g class="crest-hatch" stroke-width="13">
-          <path d="M 172 200 L 200 172"/>
-          <path d="M 172 232 L 232 172"/>
-          <path d="M 172 264 L 264 172"/>
-          <path d="M 658 216 L 690 216"/>
-          <path d="M 658 254 L 690 254"/>
+      <g class="crest-pennant" fill="none" stroke="#E4251C" stroke-width="13">
+        <path class="rail" d="M 123 72 L 549 72 L 549 166 L 501 166 L 501 108"/>
+        <path class="rail" d="M 152 100 L 521 100 L 521 138"/>
+        <g class="crest-hatch">
+          <path d="M 125 78 L 163 272"/>
+          <path d="M 154 104 L 198 260"/>
+          <path d="M 183 104 L 224 246"/>
         </g>
+        <path class="rail" d="M 163 272 L 163 545 Q 163 680 245 775 Q 305 845 366 882"/>
+        <path class="rail" d="M 198 258 L 198 542 Q 198 668 268 755 Q 316 812 352 838"/>
+        <path class="rail rail--tail" d="M 372 884 L 338 884 L 338 840"/>
       </g>
-      <g transform="translate(440,388)">
-        <!-- grupo interior animable: así el scale del CSS no pisa el translate -->
+      <g transform="translate(434,380)">
         <g class="crest-ball">
-          <circle r="150" fill="#6E1414"/>
+          <circle r="145" fill="#6E1414"/>
           <g fill="none" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round">
-            <path d="M -7 -149 C -36 -71, -36 71, -7 149"/>
-            <path d="M 49 -141 C 89 -62, 89 62, 49 141"/>
-            <path d="M -67 -134 C -107 -58, -107 58, -67 134"/>
-            <path d="M -7 -54 C 36 -64, 67 -71, 109 -96"/>
-            <path d="M -7 54 C 36 64, 67 71, 109 96"/>
+            <path d="M -7 -143 C -35 -68, -35 68, -7 143"/>
+            <path d="M 47 -135 C 85 -60, 85 60, 47 135"/>
+            <path d="M -64 -129 C -103 -56, -103 56, -64 129"/>
+            <path d="M -7 -52 C 35 -61, 64 -68, 105 -92"/>
+            <path d="M -7 52 C 35 61, 64 68, 105 92"/>
           </g>
         </g>
       </g>
-      <text class="crest-word" x="430" y="655" text-anchor="middle"
+      <text class="crest-word" x="434" y="598" text-anchor="middle"
             font-family="'Zilla Slab',Georgia,'Times New Roman',serif" font-weight="700"
-            font-size="96" letter-spacing="8" fill="#FFFFFF">LEBRIJA</text>
+            font-size="86" letter-spacing="7" fill="#FFFFFF">LEBRIJA</text>
       <g class="crest-flowers">
         <g fill="none" stroke="#3F9B33" stroke-width="12" stroke-linecap="round">
-          <path d="M 375 838 C 400 890, 430 928, 466 958"/>
-          <path d="M 498 826 C 472 888, 444 926, 412 960"/>
-          <path d="M 414 906 L 380 924"/>
-          <path d="M 452 924 L 484 944"/>
+          <path d="M 372 712 C 392 756, 415 782, 448 806"/>
+          <path d="M 502 696 C 478 750, 452 776, 425 810"/>
+          <path d="M 405 762 L 372 780"/>
+          <path d="M 445 780 L 476 800"/>
         </g>
-        <g transform="translate(368,802) rotate(-14)">
+        <g transform="translate(365,680) rotate(-14) scale(1.28)">
           <polygon fill="#E4251C" points="46,0 23.4,13.5 23,39.8 0,27 -23,39.8 -23.4,13.5 -46,0 -23.4,-13.5 -23,-39.8 0,-27 23,-39.8 23.4,-13.5"/>
           <polygon fill="#FFFFFF" points="14,0 3.5,3.5 0,14 -3.5,3.5 -14,0 -3.5,-3.5 0,-14 3.5,-3.5"/>
         </g>
-        <g transform="translate(502,792) rotate(12)">
+        <g transform="translate(508,662) rotate(12) scale(1.28)">
           <polygon fill="#E4251C" points="46,0 23.4,13.5 23,39.8 0,27 -23,39.8 -23.4,13.5 -46,0 -23.4,-13.5 -23,-39.8 0,-27 23,-39.8 23.4,-13.5"/>
           <polygon fill="#FFFFFF" points="14,0 3.5,3.5 0,14 -3.5,3.5 -14,0 -3.5,-3.5 0,-14 3.5,-3.5"/>
         </g>
@@ -134,7 +138,7 @@
   </div>
   <noscript><style>.preloader{display:none}html.js [data-reveal]{opacity:1;transform:none}</style></noscript>
 
-  <a class="skip-link" href="#club">Saltar al contenido</a>
+  <a class="skip-link" href="#principal">Saltar al contenido</a>
 
   <!-- ══════════════════════ CABECERA ══════════════════════ -->
   <header class="header" id="header">
@@ -149,9 +153,8 @@
           <li><a class="nav__link" href="#inicio">Inicio</a></li>
           <li><a class="nav__link" href="#club">El Club</a></li>
           <li><a class="nav__link" href="#copa">Copa del Rey</a></li>
-          <li><a class="nav__link" href="#partidos">Partidos</a></li>
-          <li><a class="nav__link" href="#clasificacion">Clasificación</a></li>
           <li><a class="nav__link" href="#noticias">Noticias</a></li>
+          <li><a class="nav__link" href="#patrocinadores">Patrocinadores</a></li>
           <li><a class="nav__link" href="#contacto">Contacto</a></li>
         </ul>
         <a class="btn btn--sm nav__cta" href="https://antoniano.compralaentrada.com/" target="_blank" rel="noopener">
@@ -166,49 +169,66 @@
     </div>
   </header>
 
-  <main>
+  <!-- Cada .view es una "página": solo se muestra la activa.
+       Sin JavaScript, todas quedan visibles en una sola página. -->
+  <main id="principal">
 
-    <!-- ══════════════════════ HERO ══════════════════════ -->
-    <section class="hero" id="inicio">
-      <div class="hero__bg" aria-hidden="true">
-        <div class="hero__light hero__light--l"></div>
-        <div class="hero__light hero__light--r"></div>
-        <div class="hero__stripes"></div>
-        <svg class="crest hero__crest" data-parallax="0.12"><use href="#crest"/></svg>
-      </div>
+    <!-- ══════════════════════ VISTA: INICIO ══════════════════════ -->
+    <div class="view" id="inicio">
+      <section class="hero">
+        <div class="hero__bg" aria-hidden="true">
+          <div class="hero__light hero__light--l"></div>
+          <div class="hero__light hero__light--r"></div>
+          <div class="hero__stripes"></div>
+          <svg class="crest hero__crest" data-parallax="0.12"><use href="#crest"/></svg>
+        </div>
 
-      <div class="container hero__content">
-        <p class="hero__kicker"><span class="tick" aria-hidden="true"></span>Club Atlético Antoniano · Lebrija · 2ª RFEF — Grupo IV</p>
-        <h1 class="hero__title">
-          <span class="hero__line"><span>Pasión</span></span>
-          <span class="hero__line hero__line--red"><span>rojiblanca</span></span>
-          <span class="hero__line hero__line--outline"><span>desde 1963</span></span>
-        </h1>
-        <p class="hero__sub">Fútbol, cantera y orgullo de pueblo en el corazón del Bajo Guadalquivir.</p>
-        <div class="hero__actions">
-          <a class="btn" href="https://antoniano.compralaentrada.com/" target="_blank" rel="noopener">
-            Comprar entradas
-            <svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><path fill="currentColor" d="M4 2h10v10h-2V5.4L4.7 12.7 3.3 11.3 10.6 4H4V2z"/></svg>
-          </a>
-          <a class="btn btn--ghost" href="#club">Conoce el club</a>
+        <div class="container hero__content">
+          <p class="hero__kicker"><span class="tick" aria-hidden="true"></span>Club Atlético Antoniano · Lebrija · 2ª RFEF — Grupo IV</p>
+          <h1 class="hero__title">
+            <span class="hero__line"><span>Lebrija,</span></span>
+            <span class="hero__line hero__line--red"><span>mi fuerza</span></span>
+            <span class="hero__line hero__line--outline"><span>eres tú</span></span>
+          </h1>
+          <p class="hero__sub">Pasión rojiblanca desde 1963. Fútbol, cantera y orgullo de pueblo en el corazón del Bajo Guadalquivir.</p>
+          <div class="hero__actions">
+            <a class="btn" href="https://antoniano.compralaentrada.com/" target="_blank" rel="noopener">
+              Comprar entradas
+              <svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><path fill="currentColor" d="M4 2h10v10h-2V5.4L4.7 12.7 3.3 11.3 10.6 4H4V2z"/></svg>
+            </a>
+            <a class="btn btn--ghost" href="#club">Conoce el club</a>
+          </div>
+        </div>
+
+        <a class="hero__scroll" href="#entradas" aria-label="Bajar al final de la página">
+          <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6 9l6 6 6-6"/></svg>
+        </a>
+      </section>
+
+      <!-- Cinta rojiblanca -->
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee__track">
+          <span>Lebrija, mi fuerza eres tú <i class="dot"></i> Pasión rojiblanca desde 1963 <i class="dot"></i> Estadio Municipal de Lebrija <i class="dot"></i></span>
+          <span>Lebrija, mi fuerza eres tú <i class="dot"></i> Pasión rojiblanca desde 1963 <i class="dot"></i> Estadio Municipal de Lebrija <i class="dot"></i></span>
         </div>
       </div>
 
-      <a class="hero__scroll" href="#club" aria-label="Bajar a la sección El Club">
-        <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6 9l6 6 6-6"/></svg>
-      </a>
-    </section>
-
-    <!-- Cinta rojiblanca -->
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee__track">
-        <span>Pasión rojiblanca <i class="dot"></i> Desde 1963 <i class="dot"></i> Lebrija, mi fuerza eres tú <i class="dot"></i> Estadio Municipal de Lebrija <i class="dot"></i></span>
-        <span>Pasión rojiblanca <i class="dot"></i> Desde 1963 <i class="dot"></i> Lebrija, mi fuerza eres tú <i class="dot"></i> Estadio Municipal de Lebrija <i class="dot"></i></span>
-      </div>
+      <!-- CTA entradas -->
+      <section class="cta" id="entradas">
+        <div class="container cta__inner">
+          <p class="kicker kicker--light" data-reveal><span class="tick" aria-hidden="true"></span>Afición</p>
+          <h2 class="cta__title" data-reveal>Vive el <em>Municipal</em></h2>
+          <p class="cta__text" data-reveal>Cada partido en Lebrija es una fiesta. Consigue tu entrada y empuja al Antoniano hacia otra noche grande.</p>
+          <a class="btn btn--xl" href="https://antoniano.compralaentrada.com/" target="_blank" rel="noopener" data-reveal>
+            Comprar entradas
+            <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M4 2h10v10h-2V5.4L4.7 12.7 3.3 11.3 10.6 4H4V2z"/></svg>
+          </a>
+        </div>
+      </section>
     </div>
 
-    <!-- ══════════════════════ EL CLUB ══════════════════════ -->
-    <section class="section club" id="club">
+    <!-- ══════════════════════ VISTA: EL CLUB ══════════════════════ -->
+    <section class="view section club" id="club">
       <span class="club__watermark" aria-hidden="true">1963</span>
       <div class="container">
         <div class="club__grid">
@@ -263,117 +283,89 @@
       </div>
     </section>
 
-    <!-- ══════════════════════ COPA DEL REY ══════════════════════ -->
-    <section class="section copa" id="copa">
-      <div class="container">
-        <header class="copa__head">
-          <p class="kicker kicker--light" data-reveal><span class="tick" aria-hidden="true"></span>Copa del Rey</p>
-          <h2 class="title title--light" data-reveal>Noches <em>de Copa</em></h2>
-          <p class="copa__intro" data-reveal>Tres veces llamó el Rey a la puerta de Lebrija. Del Villamarín teñido de rojiblanco a la noche en que un equipo de Champions necesitó los penaltis para escapar del Municipal. Esta es la historia del Antoniano en la Copa del Rey: tres participaciones y cuatro noches grandes que ya son memoria colectiva de un pueblo.</p>
-        </header>
+    <!-- ══════════════════════ VISTA: COPA DEL REY ══════════════════════ -->
+    <div class="view" id="copa">
+      <section class="section copa">
+        <div class="container">
+          <header class="copa__head">
+            <p class="kicker kicker--light" data-reveal><span class="tick" aria-hidden="true"></span>Copa del Rey</p>
+            <h2 class="title title--light" data-reveal>Noches <em>de Copa</em></h2>
+            <p class="copa__intro" data-reveal>Tres veces llamó el Rey a la puerta de Lebrija. Del Villamarín teñido de rojiblanco a la noche en que un equipo de Champions necesitó los penaltis para escapar del Municipal. Esta es la historia del Antoniano en la Copa del Rey: tres participaciones y cuatro noches grandes que ya son memoria colectiva de un pueblo.</p>
+          </header>
 
-        <div class="timeline" id="timeline">
-          <div class="timeline__line" aria-hidden="true"><span class="timeline__progress"></span></div>
+          <div class="timeline" id="timeline">
+            <div class="timeline__line" aria-hidden="true"><span class="timeline__progress"></span></div>
 
-          <!-- 2019 -->
-          <article class="hito" data-reveal>
-            <span class="hito__year" aria-hidden="true">2019</span>
-            <div class="hito__card">
-              <span class="hito__tag">Primera participación copera de la historia del club.</span>
-              <h3 class="hito__title">El Villamarín se tiñe de Lebrija</h3>
-              <p class="hito__meta">Copa del Rey 2019-20 · 1ª ronda — 19·12·2019</p>
-              <p class="hito__score">Antoniano <b>0</b><span>–</span><b>4</b> Real Betis</p>
-              <p class="hito__venue">Estadio Benito Villamarín · 10.000 entradas agotadas en Lebrija</p>
-              <div class="hito__body">
-                <p>La primera Copa de la historia se ganó antes de jugarse: un 2-0 al Atlético Porcuna en la ronda previa metió al Antoniano, entonces en Tercera, en el sorteo grande. Tocó el Betis. Como el Municipal no fue homologado por la Federación, la eliminatoria se mudó al Benito Villamarín… con el Antoniano ejerciendo de local en casa ajena.</p>
-                <p>Lebrija agotó las 10.000 entradas y tiñó la Preferencia de rojo y blanco en una noche de lluvia. Tello —de penalti—, Kaptoum, Lainez y Meléndez firmaron el 0-4. El resultado quedó en la ficha; la fiesta, para el pueblo.</p>
+            <!-- 2019 -->
+            <article class="hito" data-reveal>
+              <span class="hito__year" aria-hidden="true">2019</span>
+              <div class="hito__card">
+                <span class="hito__tag">Primera participación copera de la historia del club.</span>
+                <h3 class="hito__title">El Villamarín se tiñe de Lebrija</h3>
+                <p class="hito__meta">Copa del Rey 2019-20 · 1ª ronda — 19·12·2019</p>
+                <p class="hito__score">Antoniano <b>0</b><span>–</span><b>4</b> Real Betis</p>
+                <p class="hito__venue">Estadio Benito Villamarín · 10.000 entradas agotadas en Lebrija</p>
+                <div class="hito__body">
+                  <p>La primera Copa de la historia se ganó antes de jugarse: un 2-0 al Atlético Porcuna en la ronda previa metió al Antoniano, entonces en Tercera, en el sorteo grande. Tocó el Betis. Como el Municipal no fue homologado por la Federación, la eliminatoria se mudó al Benito Villamarín… con el Antoniano ejerciendo de local en casa ajena.</p>
+                  <p>Lebrija agotó las 10.000 entradas y tiñó la Preferencia de rojo y blanco en una noche de lluvia. Tello —de penalti—, Kaptoum, Lainez y Meléndez firmaron el 0-4. El resultado quedó en la ficha; la fiesta, para el pueblo.</p>
+                </div>
               </div>
-            </div>
-          </article>
+            </article>
 
-          <!-- 2023 -->
-          <article class="hito" data-reveal>
-            <span class="hito__year" aria-hidden="true">2023</span>
-            <div class="hito__card">
-              <span class="hito__tag">Estreno copero del Estadio Municipal de Lebrija.</span>
-              <h3 class="hito__title">La Copa, por fin, en el Municipal</h3>
-              <p class="hito__meta">Copa del Rey 2023-24 · 1ª ronda — 01·11·2023</p>
-              <p class="hito__score">Antoniano <b>0</b><span>–</span><b>1</b> CD Lugo</p>
-              <p class="hito__venue">Estadio Municipal de Lebrija · Primera Copa en casa</p>
-              <div class="hito__body">
-                <p>El premio al histórico ascenso a Segunda Federación fue volver al sorteo… y esta vez sí, con el fútbol copero aterrizando en el Estadio Municipal de Lebrija. Enfrente, el CD Lugo, un equipo de Primera Federación con pasado reciente en el fútbol profesional.</p>
-                <p>El Antoniano compitió de tú a tú toda la noche y la eliminatoria solo se decidió a once minutos del final, con un cabezazo de Antonetti. Un 0-1 que supo a poco, pero que dejó una certeza: este equipo ya no le tiene miedo a nadie.</p>
+            <!-- 2023 -->
+            <article class="hito" data-reveal>
+              <span class="hito__year" aria-hidden="true">2023</span>
+              <div class="hito__card">
+                <span class="hito__tag">Estreno copero del Estadio Municipal de Lebrija.</span>
+                <h3 class="hito__title">La Copa, por fin, en el Municipal</h3>
+                <p class="hito__meta">Copa del Rey 2023-24 · 1ª ronda — 01·11·2023</p>
+                <p class="hito__score">Antoniano <b>0</b><span>–</span><b>1</b> CD Lugo</p>
+                <p class="hito__venue">Estadio Municipal de Lebrija · Primera Copa en casa</p>
+                <div class="hito__body">
+                  <p>El premio al histórico ascenso a Segunda Federación fue volver al sorteo… y esta vez sí, con el fútbol copero aterrizando en el Estadio Municipal de Lebrija. Enfrente, el CD Lugo, un equipo de Primera Federación con pasado reciente en el fútbol profesional.</p>
+                  <p>El Antoniano compitió de tú a tú toda la noche y la eliminatoria solo se decidió a once minutos del final, con un cabezazo de Antonetti. Un 0-1 que supo a poco, pero que dejó una certeza: este equipo ya no le tiene miedo a nadie.</p>
+                </div>
               </div>
-            </div>
-          </article>
+            </article>
 
-          <!-- 2025 -->
-          <article class="hito" data-reveal>
-            <span class="hito__year" aria-hidden="true">2025</span>
-            <div class="hito__card">
-              <span class="hito__tag">Un Champions contra las cuerdas en el Municipal.</span>
-              <h3 class="hito__title">La gesta: un Champions sufrió hasta los penaltis</h3>
+            <!-- 2025 -->
+            <article class="hito" data-reveal>
+              <span class="hito__year" aria-hidden="true">2025</span>
+              <div class="hito__card">
+                <span class="hito__tag">Un Champions contra las cuerdas en el Municipal.</span>
+                <h3 class="hito__title">La gesta: un Champions sufrió hasta los penaltis</h3>
 
-              <p class="hito__meta">Copa del Rey 2025-26 · 1ª ronda — 30·10·2025</p>
-              <p class="hito__score">Antoniano <b>1</b><span>–</span><b>0</b> CD Castellón</p>
-              <p class="hito__venue">Juan Serrano, min. 82 · Primera eliminatoria superada en la historia</p>
+                <p class="hito__meta">Copa del Rey 2025-26 · 1ª ronda — 30·10·2025</p>
+                <p class="hito__score">Antoniano <b>1</b><span>–</span><b>0</b> CD Castellón</p>
+                <p class="hito__venue">Juan Serrano, min. 82 · Primera eliminatoria superada en la historia</p>
 
-              <hr class="hito__sep">
+                <hr class="hito__sep">
 
-              <p class="hito__meta">Copa del Rey 2025-26 · 2ª ronda — 03·12·2025</p>
-              <p class="hito__score">Antoniano <b>1</b><span>–</span><b>1</b> Villarreal CF</p>
-              <p class="hito__venue">Prórroga · Penaltis 3-5 · Municipal de Lebrija, lleno con grada supletoria</p>
+                <p class="hito__meta">Copa del Rey 2025-26 · 2ª ronda — 03·12·2025</p>
+                <p class="hito__score">Antoniano <b>1</b><span>–</span><b>1</b> Villarreal CF</p>
+                <p class="hito__venue">Prórroga · Penaltis 3-5 · Municipal de Lebrija, lleno con grada supletoria</p>
 
-              <div class="hito__body">
-                <p>La tercera Copa llegó con el club consolidado en Segunda Federación —venía de rozar el ascenso a Primera Federación en el playoff—, y fue la mejor de todas. Primero cayó el CD Castellón, de Segunda División: gol de Juan Serrano en el 82 y primera eliminatoria superada en la historia rojiblanca.</p>
-                <p>El premio fue mayúsculo: el Villarreal, equipo de Champions League, en un Municipal reforzado con grada supletoria y lleno hasta la bandera. Ayoze adelantó al submarino en la prórroga, de cabeza a córner de Parejo, y Jesús García empató para desatar la locura. Solo los penaltis, con parada de Tenas incluida, separaron al Antoniano de la mayor gesta de la Copa. El equipo se marchó eliminado y ovacionado.</p>
+                <div class="hito__body">
+                  <p>La tercera Copa llegó con el club consolidado en Segunda Federación —venía de rozar el ascenso a Primera Federación en el playoff—, y fue la mejor de todas. Primero cayó el CD Castellón, de Segunda División: gol de Juan Serrano en el 82 y primera eliminatoria superada en la historia rojiblanca.</p>
+                  <p>El premio fue mayúsculo: el Villarreal, equipo de Champions League, en un Municipal reforzado con grada supletoria y lleno hasta la bandera. Ayoze adelantó al submarino en la prórroga, de cabeza a córner de Parejo, y Jesús García empató para desatar la locura. Solo los penaltis, con parada de Tenas incluida, separaron al Antoniano de la mayor gesta de la Copa. El equipo se marchó eliminado y ovacionado.</p>
+                </div>
               </div>
-            </div>
-          </article>
+            </article>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- ══════════════════════ LEMA ══════════════════════ -->
-    <section class="lema" aria-label="Lema de la temporada">
-      <div class="lema__inner container">
-        <p class="lema__kicker" data-reveal>Lema de la temporada</p>
-        <p class="lema__quote" data-reveal>«Lebrija, mi fuerza <em>eres tú</em>»</p>
-      </div>
-    </section>
-
-    <!-- ══════════════════════ TEMPORADA: PARTIDOS + CLASIFICACIÓN ══════════════════════ -->
-    <section class="section temporada" id="partidos">
-      <div class="container">
-        <p class="kicker" data-reveal><span class="tick" aria-hidden="true"></span>Temporada 2026-27</p>
-        <h2 class="title" data-reveal>Rumbo al <em>Municipal</em></h2>
-
-        <div class="temporada__grid" data-reveal-group>
-          <article class="card" data-reveal>
-            <svg class="card__icon" viewBox="0 0 24 24" width="30" height="30" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M7 2v4M17 2v4M3 8h18M4 4h16a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z"/><path fill="currentColor" d="M7 12h3v3H7z"/></svg>
-            <h3 class="card__title">Partidos</h3>
-            <p class="card__text">El calendario oficial de la temporada 2026-27 se anunciará próximamente. Vive cada jornada en el Estadio Municipal de Lebrija y empuja al equipo desde la grada.</p>
-            <a class="btn" href="https://antoniano.compralaentrada.com/" target="_blank" rel="noopener">
-              Comprar entradas
-              <svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><path fill="currentColor" d="M4 2h10v10h-2V5.4L4.7 12.7 3.3 11.3 10.6 4H4V2z"/></svg>
-            </a>
-          </article>
-
-          <article class="card" id="clasificacion" data-reveal>
-            <svg class="card__icon" viewBox="0 0 24 24" width="30" height="30" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg>
-            <h3 class="card__title">Clasificación</h3>
-            <p class="card__text">Consulta la clasificación oficial y actualizada del Grupo IV de Segunda Federación, la categoría nacional en la que compite el Antoniano.</p>
-            <a class="btn btn--ghost btn--dark" href="https://www.rfef.es/es/competiciones/segunda-federacion" target="_blank" rel="noopener">
-              Ver clasificación RFEF
-              <svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><path fill="currentColor" d="M4 2h10v10h-2V5.4L4.7 12.7 3.3 11.3 10.6 4H4V2z"/></svg>
-            </a>
-          </article>
+      <!-- Lema -->
+      <section class="lema" aria-label="Lema de la temporada">
+        <div class="lema__inner container">
+          <p class="lema__kicker" data-reveal>Lema de la temporada</p>
+          <p class="lema__quote" data-reveal>«Lebrija, mi fuerza <em>eres tú</em>»</p>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
 
-    <!-- ══════════════════════ NOTICIAS ══════════════════════ -->
-    <section class="section noticias" id="noticias">
+    <!-- ══════════════════════ VISTA: NOTICIAS ══════════════════════ -->
+    <section class="view section noticias" id="noticias">
       <div class="container">
         <p class="kicker" data-reveal><span class="tick" aria-hidden="true"></span>Noticias</p>
         <h2 class="title" data-reveal>Hemeroteca <em>rojiblanca</em></h2>
@@ -416,16 +408,55 @@
       </div>
     </section>
 
-    <!-- ══════════════════════ CTA ENTRADAS ══════════════════════ -->
-    <section class="cta">
-      <div class="container cta__inner">
-        <p class="kicker kicker--light" data-reveal><span class="tick" aria-hidden="true"></span>Afición</p>
-        <h2 class="cta__title" data-reveal>Vive el <em>Municipal</em></h2>
-        <p class="cta__text" data-reveal>Cada partido en Lebrija es una fiesta. Consigue tu entrada y empuja al Antoniano hacia otra noche grande.</p>
-        <a class="btn btn--xl" href="https://antoniano.compralaentrada.com/" target="_blank" rel="noopener" data-reveal>
-          Comprar entradas
-          <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M4 2h10v10h-2V5.4L4.7 12.7 3.3 11.3 10.6 4H4V2z"/></svg>
-        </a>
+    <!-- ══════════════════════ VISTA: PATROCINADORES ══════════════════════ -->
+    <section class="view section sponsors" id="patrocinadores">
+      <div class="container">
+        <p class="kicker" data-reveal><span class="tick" aria-hidden="true"></span>Patrocinadores</p>
+        <h2 class="title" data-reveal>Nuestros <em>patrocinadores</em></h2>
+        <p class="sponsors__intro" data-reveal>Empresas que hacen posible el proyecto rojiblanco, dentro y fuera del campo.</p>
+
+        <!-- TODO: sustituye los logotipos de texto por los archivos oficiales
+             (assets/img/patrocinadores/*.png) cuando los tengas -->
+        <div class="sponsors__grid" data-reveal-group>
+          <article class="sponsor" data-reveal>
+            <div class="sponsor__logo">
+              <svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true"><path fill="currentColor" d="M2 4h20L12 21 2 4zm5.2 3L12 15l4.8-8H7.2z"/></svg>
+              <span class="sponsor__mark">GRUPO VELÁZQUEZ<small>MULTIMARCA</small></span>
+            </div>
+            <p class="sponsor__name">Grupo Velázquez</p>
+          </article>
+
+          <article class="sponsor" data-reveal>
+            <div class="sponsor__logo">
+              <svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" class="sponsor__ico--green"><path fill="currentColor" d="M12 2c3 0 5.5 2.2 5.5 5 1.8.6 3 2.2 3 4.1 0 2.4-2 4.4-4.5 4.4H8c-2.5 0-4.5-2-4.5-4.4 0-1.9 1.2-3.5 3-4.1C6.5 4.2 9 2 12 2z"/><path fill="currentColor" d="M11 15h2v7h-2z"/></svg>
+              <span class="sponsor__mark">SIPCAM<small>IBERIA</small></span>
+            </div>
+            <p class="sponsor__name">Sipcam Iberia</p>
+          </article>
+
+          <article class="sponsor" data-reveal>
+            <div class="sponsor__logo">
+              <svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" class="sponsor__ico--orange"><path fill="currentColor" d="M3 3h5l4 11L16 3h5l-7.5 18h-3L3 3z"/></svg>
+              <span class="sponsor__mark">VELA<small class="sponsor__sub--orange">VENTANAS</small></span>
+            </div>
+            <p class="sponsor__name">Vela Ventanas</p>
+          </article>
+
+          <article class="sponsor" data-reveal>
+            <div class="sponsor__logo">
+              <svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" class="sponsor__ico--green"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path fill="currentColor" d="M12 5c2.2 0 4 1.6 4 3.7 1.3.5 2.2 1.6 2.2 3 0 1.8-1.5 3.3-3.4 3.3H9.2c-1.9 0-3.4-1.5-3.4-3.3 0-1.4.9-2.5 2.2-3C8 6.6 9.8 5 12 5z"/><path fill="currentColor" d="M11.2 14h1.6v5h-1.6z"/></svg>
+              <span class="sponsor__mark">ALGOSUR<small>ALGODONERA DEL SUR</small></span>
+            </div>
+            <p class="sponsor__name">Algosur</p>
+          </article>
+        </div>
+
+        <div class="sponsors__cta" data-reveal>
+          <a class="btn btn--ghost btn--dark" href="#contacto">
+            Hazte patrocinador
+            <svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><path fill="currentColor" d="M4 2h10v10h-2V5.4L4.7 12.7 3.3 11.3 10.6 4H4V2z"/></svg>
+          </a>
+        </div>
       </div>
     </section>
 
@@ -453,11 +484,11 @@
             </ul>
           </div>
           <div>
-            <p class="footer__head">Temporada</p>
+            <p class="footer__head">Afición</p>
             <ul>
-              <li><a href="#partidos">Partidos</a></li>
-              <li><a href="https://www.rfef.es/es/competiciones/segunda-federacion" target="_blank" rel="noopener">Clasificación RFEF</a></li>
               <li><a href="https://antoniano.compralaentrada.com/" target="_blank" rel="noopener">Entradas</a></li>
+              <li><a href="#patrocinadores">Patrocinadores</a></li>
+              <li><a href="https://www.rfef.es/es/competiciones/segunda-federacion" target="_blank" rel="noopener">Clasificación RFEF</a></li>
             </ul>
           </div>
           <div>

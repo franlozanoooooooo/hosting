@@ -1,7 +1,7 @@
 /* ═══════════════════════════════════════════════════════════════
    CLUB ATLÉTICO ANTONIANO · main.js
-   Preloader · header · menú móvil · reveal · contadores ·
-   timeline · parallax · scrollspy · volver arriba
+   Preloader · router de vistas · header · menú móvil · reveal ·
+   contadores · timeline · parallax · volver arriba
    Sin dependencias. Respeta prefers-reduced-motion.
    ═══════════════════════════════════════════════════════════════ */
 (function () {
@@ -41,7 +41,7 @@
     setTimeout(finishIntro, 5000); // red de seguridad
   }
 
-  /* ── Header con scroll ─────────────────────────────────────── */
+  /* ── Header, parallax y línea de la Copa ───────────────────── */
   var header = document.getElementById('header');
   var totop = document.getElementById('totop');
   var heroCrest = document.querySelector('[data-parallax]');
@@ -61,8 +61,8 @@
       heroCrest.style.transform = 'translateY(' + (y * f) + 'px)';
     }
 
-    // Progreso de la línea de la Copa
-    if (tlProgress && timeline) {
+    // Progreso de la línea de la Copa (solo si la vista está visible)
+    if (tlProgress && timeline && timeline.offsetParent) {
       var r = timeline.getBoundingClientRect();
       var vh = window.innerHeight;
       var p = (vh * 0.55 - r.top) / r.height;
@@ -77,6 +77,61 @@
     if (!ticking) { requestAnimationFrame(onScroll); ticking = true; }
   }, { passive: true });
   onScroll();
+
+  /* ── Router de vistas (#inicio, #club, #copa, …) ───────────── */
+  var views = {};
+  document.querySelectorAll('.view').forEach(function (v) { views[v.id] = v; });
+  var footer = document.getElementById('contacto');
+  var navLinks = document.querySelectorAll('.nav__link[href^="#"]');
+  var activeView = null;
+
+  function setActive(id) {
+    navLinks.forEach(function (l) {
+      l.classList.toggle('is-active', l.getAttribute('href') === '#' + id);
+    });
+  }
+
+  function activate(id) {
+    if (activeView === id) return;
+    Object.keys(views).forEach(function (k) {
+      views[k].classList.toggle('is-active', k === id);
+    });
+    activeView = id;
+    // sobre las vistas claras la cabecera necesita fondo desde el principio
+    if (header) header.classList.toggle('is-solid', id !== 'inicio');
+    window.scrollTo(0, 0);
+    requestAnimationFrame(onScroll);
+  }
+
+  function route(hash, isInitial) {
+    var id = (hash || '').replace(/^#/, '') || 'inicio';
+
+    // Contacto = pie de página, visible en todas las vistas
+    if (id === 'contacto') {
+      if (!activeView) activate('inicio');
+      setActive('contacto');
+      if (footer) footer.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
+      return;
+    }
+
+    if (views[id]) { activate(id); setActive(id); return; }
+
+    // Ancla interior (p. ej. #entradas): activar su vista y desplazarse
+    var el = document.getElementById(id);
+    if (el) {
+      var parent = el.closest('.view');
+      if (parent && views[parent.id]) {
+        if (activeView !== parent.id) { activate(parent.id); setActive(parent.id); }
+        el.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
+        return;
+      }
+    }
+
+    if (isInitial) { activate('inicio'); setActive('inicio'); }
+  }
+
+  window.addEventListener('hashchange', function () { route(location.hash); });
+  route(location.hash, true);
 
   /* ── Menú móvil ────────────────────────────────────────────── */
   var burger = document.getElementById('burger');
@@ -112,7 +167,7 @@
     });
   }
 
-  /* ── Reveal al hacer scroll ────────────────────────────────── */
+  /* ── Reveal al hacer scroll / al mostrar cada vista ────────── */
   var revealEls = document.querySelectorAll('[data-reveal]');
   if (reduceMotion || !('IntersectionObserver' in window)) {
     revealEls.forEach(function (el) { el.classList.add('is-visible'); });
@@ -162,26 +217,6 @@
     counters.forEach(function (el) { ioCount.observe(el); });
   } else {
     counters.forEach(function (el) { el.textContent = el.getAttribute('data-count'); });
-  }
-
-  /* ── Scrollspy (enlace activo) ─────────────────────────────── */
-  var navLinks = document.querySelectorAll('.nav__link[href^="#"]');
-  var sections = [];
-  navLinks.forEach(function (link) {
-    var sec = document.querySelector(link.getAttribute('href'));
-    if (sec) sections.push({ link: link, sec: sec });
-  });
-  if ('IntersectionObserver' in window && sections.length) {
-    var ioSpy = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          navLinks.forEach(function (l) { l.classList.remove('is-active'); });
-          var match = sections.find(function (s) { return s.sec === entry.target; });
-          if (match) match.link.classList.add('is-active');
-        }
-      });
-    }, { rootMargin: '-38% 0px -55% 0px' });
-    sections.forEach(function (s) { ioSpy.observe(s.sec); });
   }
 
   /* ── Volver arriba ─────────────────────────────────────────── */

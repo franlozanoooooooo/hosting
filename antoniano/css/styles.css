@@ -84,6 +84,15 @@ em{font-style:normal}
 .container{max-width:var(--container);margin-inline:auto;padding-inline:var(--gutter)}
 .section{padding-block:var(--section)}
 
+/* ── Vistas (navegación por secciones) ────────────────────────── */
+html.js .view{display:none}
+html.js .view.is-active{display:block;animation:viewIn .5s var(--ease)}
+@keyframes viewIn{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+/* las vistas interiores empiezan bajo la cabecera fija */
+.view--pad,#club,#copa,#noticias,#patrocinadores{padding-top:calc(86px + var(--section))}
+#copa{padding-top:0}
+#copa .copa{padding-top:calc(86px + var(--section))}
+
 /* ── Utilidades de marca ──────────────────────────────────────── */
 .kicker{
   display:flex;align-items:center;gap:.65rem;
@@ -191,7 +200,7 @@ html.js .preloader:not(.no-anim) .preloader__bar span{animation:barFill 1.9s .15
   height:86px;
   transition:height var(--t-med) var(--ease);
 }
-.header.is-scrolled{background:rgba(10,10,11,.92);backdrop-filter:blur(10px);box-shadow:0 6px 24px rgba(0,0,0,.35)}
+.header.is-scrolled,.header.is-solid{background:rgba(10,10,11,.92);backdrop-filter:blur(10px);box-shadow:0 6px 24px rgba(0,0,0,.35)}
 .header.is-scrolled .header__inner{height:66px}
 
 .header__brand{display:flex;align-items:center;gap:.8rem;min-height:44px}
@@ -456,22 +465,39 @@ html.js .hero:not(.hero--in) .hero__kicker{opacity:0;transform:translateY(18px)}
 }
 .lema__quote em{color:var(--black)}
 
-/* ── Temporada ────────────────────────────────────────────────── */
-.temporada{background:var(--smoke)}
-.temporada__grid{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem;margin-top:2.6rem}
-.card{
-  background:#fff;border:1px solid var(--line);border-top:4px solid var(--red);
-  padding:clamp(1.8rem,3.5vw,2.6rem);
-  display:flex;flex-direction:column;align-items:flex-start;gap:1.05rem;
-  transition:transform var(--t-med) var(--ease),box-shadow var(--t-med) var(--ease);
+/* ── Patrocinadores ───────────────────────────────────────────── */
+.sponsors{background:var(--smoke)}
+.sponsors__intro{color:var(--muted);max-width:44rem}
+.sponsors__grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:1.2rem;margin-top:2.6rem;
 }
-.card:hover{transform:translateY(-6px);box-shadow:0 22px 44px rgba(27,27,30,.12)}
-.card__icon{color:var(--red)}
-.card__title{
-  font-family:var(--font-display);font-weight:400;font-size:1.55rem;
-  text-transform:uppercase;letter-spacing:.02em;
+.sponsor{
+  background:#fff;border:1px solid var(--line);
+  padding:1.6rem 1.4rem 1.4rem;text-align:center;
+  transition:transform var(--t-med) var(--ease),box-shadow var(--t-med) var(--ease),border-color var(--t-med) var(--ease);
 }
-.card__text{color:var(--muted);flex:1}
+.sponsor:hover{transform:translateY(-6px);box-shadow:0 22px 44px rgba(27,27,30,.12);border-color:rgba(200,16,46,.35)}
+.sponsor__logo{
+  min-height:96px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;
+  color:#17171A;
+  filter:grayscale(1);opacity:.8;
+  transition:filter var(--t-med) var(--ease),opacity var(--t-med) var(--ease);
+}
+.sponsor:hover .sponsor__logo{filter:grayscale(0);opacity:1}
+.sponsor__ico--green{color:#2E7D32}
+.sponsor__ico--orange{color:#E8650D}
+.sponsor__mark{
+  display:flex;flex-direction:column;gap:.15rem;
+  font-weight:800;font-size:1.12rem;letter-spacing:.05em;line-height:1.1;
+}
+.sponsor__mark small{font-size:.62rem;font-weight:600;letter-spacing:.32em;color:var(--muted)}
+.sponsor__sub--orange{color:#E8650D !important}
+.sponsor__name{
+  margin-top:1rem;padding-top:.9rem;border-top:1px solid var(--line);
+  font-size:.8rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+}
+.sponsors__cta{display:flex;justify-content:center;margin-top:2.6rem}
 
 /* ── Noticias ─────────────────────────────────────────────────── */
 .noticias__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;margin-top:2.6rem}
@@ -636,7 +662,6 @@ html.js [data-reveal].is-visible{opacity:1;transform:none}
   .hito:nth-child(odd) .hito__card{order:0;justify-self:start}
   .hito__card{max-width:none}
 
-  .temporada__grid{grid-template-columns:1fr}
   .noticias__grid{grid-template-columns:1fr;max-width:560px}
   .footer__top{flex-direction:column}
 }

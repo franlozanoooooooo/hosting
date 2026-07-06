@@ -1,42 +1,39 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 1010">
   <!-- Escudo del Club Atlético Antoniano (recreación vectorial).
        Sustituye este archivo por el original del club si lo prefieres. -->
-  <g fill="none" stroke="#E4251C" stroke-width="15">
-    <path d="M 468 952 Q 300 862 226 720 Q 168 607 168 470 L 168 140 L 690 140 L 690 332 L 600 332"/>
-    <path d="M 452 906 Q 320 830 254 706 Q 200 600 200 470 L 200 172 L 658 172 L 658 300 L 600 300"/>
-    <path d="M 600 339 L 600 293"/>
-    <path d="M 474 952 L 448 952 L 448 902"/>
-    <g stroke-width="13">
-      <path d="M 172 200 L 200 172"/>
-      <path d="M 172 232 L 232 172"/>
-      <path d="M 172 264 L 264 172"/>
-      <path d="M 658 216 L 690 216"/>
-      <path d="M 658 254 L 690 254"/>
-    </g>
+  <g fill="none" stroke="#E4251C" stroke-width="13">
+    <path d="M 123 72 L 549 72 L 549 166 L 501 166 L 501 108"/>
+    <path d="M 152 100 L 521 100 L 521 138"/>
+    <path d="M 125 78 L 163 272"/>
+    <path d="M 154 104 L 198 260"/>
+    <path d="M 183 104 L 224 246"/>
+    <path d="M 163 272 L 163 545 Q 163 680 245 775 Q 305 845 366 882"/>
+    <path d="M 198 258 L 198 542 Q 198 668 268 755 Q 316 812 352 838"/>
+    <path d="M 372 884 L 338 884 L 338 840"/>
   </g>
-  <g transform="translate(440,388)">
-    <circle r="150" fill="#6E1414"/>
+  <g transform="translate(434,380)">
+    <circle r="145" fill="#6E1414"/>
     <g fill="none" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round">
-      <path d="M -7 -149 C -36 -71, -36 71, -7 149"/>
-      <path d="M 49 -141 C 89 -62, 89 62, 49 141"/>
-      <path d="M -67 -134 C -107 -58, -107 58, -67 134"/>
-      <path d="M -7 -54 C 36 -64, 67 -71, 109 -96"/>
-      <path d="M -7 54 C 36 64, 67 71, 109 96"/>
+      <path d="M -7 -143 C -35 -68, -35 68, -7 143"/>
+      <path d="M 47 -135 C 85 -60, 85 60, 47 135"/>
+      <path d="M -64 -129 C -103 -56, -103 56, -64 129"/>
+      <path d="M -7 -52 C 35 -61, 64 -68, 105 -92"/>
+      <path d="M -7 52 C 35 61, 64 68, 105 92"/>
     </g>
   </g>
-  <text x="430" y="655" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="700" font-size="96" letter-spacing="8" fill="#0E0E0E">LEBRIJA</text>
+  <text x="434" y="598" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="700" font-size="86" letter-spacing="7" fill="#0E0E0E">LEBRIJA</text>
   <g>
     <g fill="none" stroke="#3F9B33" stroke-width="12" stroke-linecap="round">
-      <path d="M 375 838 C 400 890, 430 928, 466 958"/>
-      <path d="M 498 826 C 472 888, 444 926, 412 960"/>
-      <path d="M 414 906 L 380 924"/>
-      <path d="M 452 924 L 484 944"/>
+      <path d="M 372 712 C 392 756, 415 782, 448 806"/>
+      <path d="M 502 696 C 478 750, 452 776, 425 810"/>
+      <path d="M 405 762 L 372 780"/>
+      <path d="M 445 780 L 476 800"/>
     </g>
-    <g transform="translate(368,802) rotate(-14)">
+    <g transform="translate(365,680) rotate(-14) scale(1.28)">
       <polygon fill="#E4251C" points="46,0 23.4,13.5 23,39.8 0,27 -23,39.8 -23.4,13.5 -46,0 -23.4,-13.5 -23,-39.8 0,-27 23,-39.8 23.4,-13.5"/>
       <polygon fill="#FFFFFF" points="14,0 3.5,3.5 0,14 -3.5,3.5 -14,0 -3.5,-3.5 0,-14 3.5,-3.5"/>
     </g>
-    <g transform="translate(502,792) rotate(12)">
+    <g transform="translate(508,662) rotate(12) scale(1.28)">
       <polygon fill="#E4251C" points="46,0 23.4,13.5 23,39.8 0,27 -23,39.8 -23.4,13.5 -46,0 -23.4,-13.5 -23,-39.8 0,-27 23,-39.8 23.4,-13.5"/>
       <polygon fill="#FFFFFF" points="14,0 3.5,3.5 0,14 -3.5,3.5 -14,0 -3.5,-3.5 0,-14 3.5,-3.5"/>
     </g>
