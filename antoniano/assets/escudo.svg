@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 1010">
+  <!-- Escudo del Club Atlético Antoniano (recreación vectorial).
+       Sustituye este archivo por el original del club si lo prefieres. -->
+  <g fill="none" stroke="#E4251C" stroke-width="15">
+    <path d="M 468 952 Q 300 862 226 720 Q 168 607 168 470 L 168 140 L 690 140 L 690 332 L 600 332"/>
+    <path d="M 452 906 Q 320 830 254 706 Q 200 600 200 470 L 200 172 L 658 172 L 658 300 L 600 300"/>
+    <path d="M 600 339 L 600 293"/>
+    <path d="M 474 952 L 448 952 L 448 902"/>
+    <g stroke-width="13">
+      <path d="M 172 200 L 200 172"/>
+      <path d="M 172 232 L 232 172"/>
+      <path d="M 172 264 L 264 172"/>
+      <path d="M 658 216 L 690 216"/>
+      <path d="M 658 254 L 690 254"/>
+    </g>
+  </g>
+  <g transform="translate(440,388)">
+    <circle r="150" fill="#6E1414"/>
+    <g fill="none" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round">
+      <path d="M -7 -149 C -36 -71, -36 71, -7 149"/>
+      <path d="M 49 -141 C 89 -62, 89 62, 49 141"/>
+      <path d="M -67 -134 C -107 -58, -107 58, -67 134"/>
+      <path d="M -7 -54 C 36 -64, 67 -71, 109 -96"/>
+      <path d="M -7 54 C 36 64, 67 71, 109 96"/>
+    </g>
+  </g>
+  <text x="430" y="655" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="700" font-size="96" letter-spacing="8" fill="#0E0E0E">LEBRIJA</text>
+  <g>
+    <g fill="none" stroke="#3F9B33" stroke-width="12" stroke-linecap="round">
+      <path d="M 375 838 C 400 890, 430 928, 466 958"/>
+      <path d="M 498 826 C 472 888, 444 926, 412 960"/>
+      <path d="M 414 906 L 380 924"/>
+      <path d="M 452 924 L 484 944"/>
+    </g>
+    <g transform="translate(368,802) rotate(-14)">
+      <polygon fill="#E4251C" points="46,0 23.4,13.5 23,39.8 0,27 -23,39.8 -23.4,13.5 -46,0 -23.4,-13.5 -23,-39.8 0,-27 23,-39.8 23.4,-13.5"/>
+      <polygon fill="#FFFFFF" points="14,0 3.5,3.5 0,14 -3.5,3.5 -14,0 -3.5,-3.5 0,-14 3.5,-3.5"/>
+    </g>
+    <g transform="translate(502,792) rotate(12)">
+      <polygon fill="#E4251C" points="46,0 23.4,13.5 23,39.8 0,27 -23,39.8 -23.4,13.5 -46,0 -23.4,-13.5 -23,-39.8 0,-27 23,-39.8 23.4,-13.5"/>
+      <polygon fill="#FFFFFF" points="14,0 3.5,3.5 0,14 -3.5,3.5 -14,0 -3.5,-3.5 0,-14 3.5,-3.5"/>
+    </g>
+  </g>
+</svg>
