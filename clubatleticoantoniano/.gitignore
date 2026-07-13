@@ -12,3 +12,6 @@ coverage/
 
 # Artefactos de compilación de TypeScript
 *.tsbuildinfo
+
+# Zips de la exportación estática (se generan con scripts/exportar-estatico.sh)
+antoniano-web-estatica-*.zip
