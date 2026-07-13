@@ -15,3 +15,6 @@ coverage/
 
 # Zips de la exportación estática (se generan con scripts/exportar-estatico.sh)
 antoniano-web-estatica-*.zip
+
+# Salida de la exportación estática de Next (STATIC_EXPORT=1)
+out/
