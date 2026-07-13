@@ -1,0 +1,54 @@
+name: Deploy Club Atlético Antoniano to Netlify
+# Despliega la web del club (clubatleticoantoniano/) en el sitio de Netlify
+# club-atletico-antoniano.netlify.app.
+#
+# Requiere el secreto NETLIFY_AUTH_TOKEN (token personal de Netlify:
+# app.netlify.com → User settings → Applications → Personal access tokens).
+# Si el secreto no está configurado, el workflow se salta el despliegue.
+on:
+  workflow_dispatch:
+  push:
+    branches: ["claude/zip-content-analysis-mbpq93"]
+    paths:
+      - "clubatleticoantoniano/**"
+      - ".github/workflows/netlify-club.yml"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      NETLIFY_SITE_ID: 0f8418d9-60e0-4096-9892-6c74782905b1
+    steps:
+      - name: Comprobar que existe NETLIFY_AUTH_TOKEN
+        id: token
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        run: |
+          if [ -n "$NETLIFY_AUTH_TOKEN" ]; then
+            echo "disponible=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "disponible=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::Falta el secreto NETLIFY_AUTH_TOKEN; se omite el despliegue."
+          fi
+
+      - uses: actions/checkout@v4
+        if: steps.token.outputs.disponible == 'true'
+
+      - uses: actions/setup-node@v4
+        if: steps.token.outputs.disponible == 'true'
+        with:
+          node-version: 22
+
+      - name: Instalar dependencias (pnpm)
+        if: steps.token.outputs.disponible == 'true'
+        working-directory: clubatleticoantoniano
+        run: |
+          corepack enable
+          pnpm install --frozen-lockfile
+
+      - name: Build y deploy a Netlify
+        if: steps.token.outputs.disponible == 'true'
+        working-directory: clubatleticoantoniano
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        run: npx -y netlify-cli@latest deploy --build --prod

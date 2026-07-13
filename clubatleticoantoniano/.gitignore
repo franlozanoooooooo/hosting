@@ -1,0 +1,20 @@
+node_modules/
+.next/
+dist/
+.turbo/
+*.log
+.env
+.env.local
+.env.*.local
+coverage/
+.DS_Store
+/packages/db/generated/
+
+# Artefactos de compilación de TypeScript
+*.tsbuildinfo
+
+# Zips de la exportación estática (se generan con scripts/exportar-estatico.sh)
+antoniano-web-estatica-*.zip
+
+# Salida de la exportación estática de Next (STATIC_EXPORT=1)
+out/

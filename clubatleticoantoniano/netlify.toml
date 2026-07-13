@@ -1,0 +1,15 @@
+# Despliegue de la web (apps/web) en Netlify — monorepo pnpm.
+#
+# Sin `base`: así funciona igual si el sitio apunta a la raíz de este proyecto
+# (zip suelto) o si se enlaza el repo `hosting` poniendo como base directory
+# `clubatleticoantoniano` en la UI de Netlify. La build se lanza desde la raíz
+# del workspace y se publica la salida de apps/web.
+[build]
+  command = "pnpm --filter @caa/web build"
+  publish = "apps/web/.next"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
