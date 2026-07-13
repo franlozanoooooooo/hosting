@@ -1,0 +1,28 @@
+name: Deploy Club Atlético Antoniano to Netlify
+# Despliegue manual: la web del club (clubatleticoantoniano/) se construye en
+# el sistema de build de Netlify. El comando necesita una URL firmada efímera
+# que genera el conector MCP de Netlify (deploy-site) en cada despliegue.
+on:
+  workflow_dispatch:
+    inputs:
+      deploy_proxy_path:
+        description: "URL firmada del proxy de despliegue de Netlify (efímera, un solo uso)"
+        required: true
+        type: string
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Subir y construir en Netlify
+        working-directory: clubatleticoantoniano
+        env:
+          DEPLOY_PROXY_PATH: ${{ inputs.deploy_proxy_path }}
+        run: >-
+          npx -y @netlify/mcp@latest
+          --site-id 0f8418d9-60e0-4096-9892-6c74782905b1
+          --proxy-path "$DEPLOY_PROXY_PATH"
