@@ -1,0 +1,169 @@
+@import "tailwindcss";
+
+/* ───────── Tokens de marca · Club Atlético Antoniano ───────── */
+:root {
+  --brand: #c8102e;        /* rojo carmín */
+  --brand-deep: #8f0a20;   /* carmín oscuro (hover) */
+  --brand-dark: #15110f;   /* tinta casi negra, cálida */
+  --accent: #d9a441;       /* oro viejo, uso muy puntual */
+  --surface: #ffffff;
+  --surface-muted: #f4f3f1;/* hueso */
+  --surface-dark: #15110f;
+  --border: #e3e1dd;
+  --border-strong: #d2cfca;
+  --text: #1b1714;
+  --text-muted: #6b6660;
+}
+
+@theme inline {
+  --color-brand: var(--brand);
+  --color-brand-deep: var(--brand-deep);
+  --color-brand-dark: var(--brand-dark);
+  --color-accent: var(--accent);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-surface-dark: var(--surface-dark);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-display: var(--font-barlow), "Arial Narrow", ui-sans-serif, system-ui,
+    sans-serif;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--surface);
+    color: var(--text);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 0.98;
+    letter-spacing: 0.01em;
+    text-wrap: balance;
+  }
+  a { color: inherit; }
+  *:focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .container-page { @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8; }
+
+  /* Antetítulo con filete carmín, recurso de club */
+  .eyebrow {
+    @apply inline-flex items-center gap-2.5 text-[0.7rem] font-bold uppercase tracking-[0.2em] text-text-muted;
+  }
+  .eyebrow::before {
+    content: "";
+    @apply inline-block h-[3px] w-7 bg-brand;
+  }
+  .eyebrow-light { @apply text-white/70; }
+
+  .section-title {
+    @apply font-display text-4xl font-extrabold uppercase tracking-tight text-brand-dark sm:text-5xl;
+  }
+
+  /* Botones cuadrados, en mayúsculas */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 text-xs font-bold uppercase tracking-[0.14em] transition-colors;
+  }
+  .btn-primary { background-color: var(--brand); color: #fff; }
+  .btn-primary:hover { background-color: var(--brand-deep); }
+  .btn-dark { background-color: var(--brand-dark); color: #fff; }
+  .btn-dark:hover { background-color: #000; }
+  .btn-outline-light { color: #fff; border: 1px solid rgba(255,255,255,.55); }
+  .btn-outline-light:hover { background: #fff; color: var(--brand-dark); }
+  .btn-outline-dark { color: var(--brand-dark); border: 1px solid var(--border-strong); }
+  .btn-outline-dark:hover { background: var(--brand-dark); color: #fff; }
+
+  .link-more {
+    @apply inline-flex items-center gap-1.5 text-[0.7rem] font-bold uppercase tracking-[0.14em] text-brand transition-colors hover:text-brand-deep;
+  }
+
+  /* ───────── Ambiente futbolístico ───────── */
+
+  /* Héroe de página con foto de fondo y degradado de tinta */
+  .page-hero {
+    @apply relative isolate overflow-hidden bg-brand-dark text-white;
+  }
+  .page-hero > .page-hero-img {
+    @apply absolute inset-0 -z-20 h-full w-full object-cover;
+  }
+  .page-hero::before {
+    content: "";
+    @apply absolute inset-0 -z-10;
+    background:
+      linear-gradient(to top, rgba(21, 17, 15, 0.95), rgba(21, 17, 15, 0.55) 55%, rgba(21, 17, 15, 0.35)),
+      linear-gradient(to right, rgba(21, 17, 15, 0.55), transparent 70%);
+  }
+  .page-hero::after {
+    content: "";
+    @apply absolute inset-x-0 bottom-0 h-1.5 bg-brand;
+  }
+
+  /* Corte diagonal inferior, recurso de cartelería deportiva */
+  .clip-slant {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2.5rem), 0 100%);
+  }
+
+  /* Tarjeta con foto: imagen + degradado + texto encima */
+  .card-photo {
+    @apply relative isolate flex min-h-64 flex-col justify-end overflow-hidden p-5 text-white;
+  }
+  .card-photo > img {
+    @apply absolute inset-0 -z-20 h-full w-full object-cover transition-transform duration-500;
+  }
+  .card-photo:hover > img {
+    transform: scale(1.06);
+  }
+  .card-photo::before {
+    content: "";
+    @apply absolute inset-0 -z-10;
+    background: linear-gradient(to top, rgba(21, 17, 15, 0.92) 15%, rgba(21, 17, 15, 0.25) 60%, rgba(21, 17, 15, 0.05));
+  }
+
+  /* Sección oscura con foto tenue de fondo (graderío) */
+  .section-photo-dark {
+    @apply relative isolate overflow-hidden bg-brand-dark text-white;
+  }
+  .section-photo-dark > .section-photo-img {
+    @apply absolute inset-0 -z-20 h-full w-full object-cover opacity-25;
+  }
+  .section-photo-dark::before {
+    content: "";
+    @apply absolute inset-0 -z-10;
+    background: linear-gradient(to bottom, rgba(21, 17, 15, 0.75), rgba(21, 17, 15, 0.92));
+  }
+
+  /* Intro: red de seguridad sin JS — si la página no hidrata (conexión lenta,
+     error de script), el overlay se desvanece solo pasados 4s. */
+  .intro-overlay {
+    animation: intro-fallback 0.7s ease 4s forwards;
+  }
+  @keyframes intro-fallback {
+    to {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  /* Filete de rayas carmín, guiño a la bufanda del club */
+  .stripes-brand {
+    background: repeating-linear-gradient(
+      -45deg,
+      var(--brand) 0 10px,
+      var(--brand-deep) 10px 20px
+    );
+  }
+}

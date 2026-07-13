@@ -1,0 +1,134 @@
+{
+  "competicion": "Segunda Federación · Grupo IV",
+  "temporada": "2025-26",
+  "actualizado": "2026-06-11T18:23:53.824Z",
+  "fuente": "Wikipedia",
+  "filas": [
+    {
+      "pos": 1,
+      "equipo": "C. D. Extremadura",
+      "pj": 34,
+      "pts": 63,
+      "esCAA": false
+    },
+    {
+      "pos": 2,
+      "equipo": "Deportiva Minera",
+      "pj": 34,
+      "pts": 63,
+      "esCAA": false
+    },
+    {
+      "pos": 3,
+      "equipo": "Águilas F. C.",
+      "pj": 34,
+      "pts": 61,
+      "esCAA": false
+    },
+    {
+      "pos": 4,
+      "equipo": "Xerez C. D.",
+      "pj": 34,
+      "pts": 59,
+      "esCAA": false
+    },
+    {
+      "pos": 5,
+      "equipo": "Real Jaén C. F.",
+      "pj": 34,
+      "pts": 58,
+      "esCAA": false
+    },
+    {
+      "pos": 6,
+      "equipo": "R. C. Recreativo de Huelva",
+      "pj": 34,
+      "pts": 57,
+      "esCAA": false
+    },
+    {
+      "pos": 7,
+      "equipo": "UCAM Murcia C. F.",
+      "pj": 34,
+      "pts": 55,
+      "esCAA": false
+    },
+    {
+      "pos": 8,
+      "equipo": "Linares Deportivo",
+      "pj": 34,
+      "pts": 47,
+      "esCAA": false
+    },
+    {
+      "pos": 9,
+      "equipo": "F. C. La Unión Atlético",
+      "pj": 34,
+      "pts": 45,
+      "esCAA": false
+    },
+    {
+      "pos": 10,
+      "equipo": "C. F. Lorca Deportiva",
+      "pj": 34,
+      "pts": 45,
+      "esCAA": false
+    },
+    {
+      "pos": 11,
+      "equipo": "Yeclano Deportivo",
+      "pj": 34,
+      "pts": 44,
+      "esCAA": false
+    },
+    {
+      "pos": 12,
+      "equipo": "Atlético Antoniano",
+      "pj": 34,
+      "pts": 44,
+      "esCAA": true
+    },
+    {
+      "pos": 13,
+      "equipo": "C. D. Estepona",
+      "pj": 34,
+      "pts": 44,
+      "esCAA": false
+    },
+    {
+      "pos": 14,
+      "equipo": "Salerm Puente Genil",
+      "pj": 34,
+      "pts": 40,
+      "esCAA": false
+    },
+    {
+      "pos": 15,
+      "equipo": "Xerez Deportivo F. C.",
+      "pj": 34,
+      "pts": 36,
+      "esCAA": false
+    },
+    {
+      "pos": 16,
+      "equipo": "U. D. Melilla",
+      "pj": 34,
+      "pts": 34,
+      "esCAA": false
+    },
+    {
+      "pos": 17,
+      "equipo": "U. D. Almería \"B\"",
+      "pj": 34,
+      "pts": 21,
+      "esCAA": false
+    },
+    {
+      "pos": 18,
+      "equipo": "Atlético Malagueño",
+      "pj": 34,
+      "pts": 21,
+      "esCAA": false
+    }
+  ]
+}

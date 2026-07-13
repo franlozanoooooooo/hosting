@@ -1,0 +1,452 @@
+// Club Atlético Antoniano — Esquema Prisma (PostgreSQL)
+// Implementación canónica del modelo de datos. Ver docs/02-modelo-datos.md
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ──────────────────────────── Enums ────────────────────────────
+enum Rol {
+  SUPER_ADMIN
+  ADMIN
+  COORDINADOR
+  ENTRENADOR
+  FAMILIA
+}
+
+enum Parentesco {
+  PADRE
+  MADRE
+  TUTOR_LEGAL
+  OTRO
+}
+
+enum EstadoCuota {
+  PENDIENTE
+  EN_REMESA
+  PAGADA
+  IMPAGADA
+  DEVUELTA
+  CONDONADA
+}
+
+enum EstadoPago {
+  INICIADO
+  CONFIRMADO
+  FALLIDO
+  REEMBOLSADO
+}
+
+enum EstadoMandato {
+  PENDIENTE
+  ACTIVO
+  CANCELADO
+  EXPIRADO
+}
+
+enum MetodoPago {
+  SEPA_GOCARDLESS
+  TARJETA_STRIPE
+  TRANSFERENCIA
+  EFECTIVO
+}
+
+enum TipoDocumento {
+  FICHA_FEDERATIVA
+  AUTORIZACION
+  PROTECCION_DATOS
+  CERTIFICADO_MEDICO
+  OTRO
+}
+
+enum TipoEvento {
+  ENTRENAMIENTO
+  PARTIDO
+  EVENTO
+}
+
+// ──────────────────────────── Identidad ────────────────────────────
+model Usuario {
+  id           String   @id @default(cuid())
+  email        String?  @unique
+  dni          String?  @unique
+  passwordHash String   @map("password_hash")
+  rol          Rol      @default(FAMILIA)
+  activo       Boolean  @default(true)
+  ultimoAcceso DateTime? @map("ultimo_acceso")
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  tutor          Tutor?
+  staff          Staff?
+  auditLogs      AuditLog[]
+  consentimientos Consentimiento[]
+  comunicaciones  ComunicacionDestino[]
+  compras         CompraEntrada[]
+  refreshTokens   RefreshToken[]
+
+  @@map("usuario")
+}
+
+model RefreshToken {
+  id        String   @id @default(cuid())
+  usuario   Usuario  @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+  usuarioId String   @map("usuario_id")
+  tokenHash String   @map("token_hash")
+  expiraEn  DateTime @map("expira_en")
+  revocado  Boolean  @default(false)
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@index([usuarioId])
+  @@map("refresh_token")
+}
+
+model Tutor {
+  id        String  @id @default(cuid())
+  usuario   Usuario @relation(fields: [usuarioId], references: [id])
+  usuarioId String  @unique @map("usuario_id")
+  nombre    String
+  apellidos String
+  dni       String  @unique
+  telefono  String?
+  email     String?
+
+  jugadores TutorJugador[]
+  mandatos  MandatoSepa[]
+
+  @@index([apellidos, nombre])
+  @@map("tutor")
+}
+
+model Staff {
+  id        String  @id @default(cuid())
+  usuario   Usuario @relation(fields: [usuarioId], references: [id])
+  usuarioId String  @unique @map("usuario_id")
+  nombre    String
+  apellidos String
+  cargo     String? // p.ej. "Coordinador cantera", "Entrenador"
+  telefono  String?
+
+  equipos StaffEquipo[]
+
+  @@map("staff")
+}
+
+// ──────────────────────────── Deportivo ────────────────────────────
+model Categoria {
+  id          String   @id @default(cuid())
+  nombre      String   @unique // Prebenjamín, Benjamín, Alevín...
+  edadMin     Int?     @map("edad_min")
+  edadMax     Int?     @map("edad_max")
+  orden       Int      @default(0)
+
+  equipos    Equipo[]
+  planCuotas PlanCuota[]
+
+  @@map("categoria")
+}
+
+model Equipo {
+  id          String    @id @default(cuid())
+  nombre      String    // "Alevín A"
+  temporada   String    // "2025/2026"
+  categoria   Categoria @relation(fields: [categoriaId], references: [id])
+  categoriaId String    @map("categoria_id")
+
+  jugadores Jugador[]
+  staff     StaffEquipo[]
+  eventos   Evento[]
+
+  @@unique([nombre, temporada])
+  @@index([categoriaId])
+  @@map("equipo")
+}
+
+model StaffEquipo {
+  staff    Staff  @relation(fields: [staffId], references: [id], onDelete: Cascade)
+  staffId  String @map("staff_id")
+  equipo   Equipo @relation(fields: [equipoId], references: [id], onDelete: Cascade)
+  equipoId String @map("equipo_id")
+  rolEquipo String @map("rol_equipo") // "Entrenador", "Segundo entrenador", "Delegado"
+
+  @@id([staffId, equipoId])
+  @@map("staff_equipo")
+}
+
+model Jugador {
+  id             String   @id @default(cuid())
+  nombre         String
+  apellidos      String
+  fechaNacimiento DateTime @map("fecha_nacimiento") @db.Date
+  dorsal         Int?
+  equipo         Equipo?  @relation(fields: [equipoId], references: [id])
+  equipoId       String?  @map("equipo_id")
+  activo         Boolean  @default(true)
+  createdAt      DateTime @default(now()) @map("created_at")
+
+  tutores    TutorJugador[]
+  documentos Documento[]
+  cuotas     Cuota[]
+
+  @@index([apellidos, nombre])
+  @@index([equipoId])
+  @@map("jugador")
+}
+
+model TutorJugador {
+  tutor             Tutor      @relation(fields: [tutorId], references: [id], onDelete: Cascade)
+  tutorId           String     @map("tutor_id")
+  jugador           Jugador    @relation(fields: [jugadorId], references: [id], onDelete: Cascade)
+  jugadorId         String     @map("jugador_id")
+  parentesco        Parentesco @default(TUTOR_LEGAL)
+  esContactoPrincipal Boolean  @default(false) @map("es_contacto_principal")
+
+  @@id([tutorId, jugadorId])
+  @@index([jugadorId])
+  @@map("tutor_jugador")
+}
+
+// ──────────────────────────── Pagos ────────────────────────────
+model PlanCuota {
+  id              String    @id @default(cuid())
+  nombre          String    // "Cuota mensual Alevín 2025/26"
+  categoria       Categoria? @relation(fields: [categoriaId], references: [id])
+  categoriaId     String?   @map("categoria_id")
+  importeCentimos Int       @map("importe_centimos")
+  periodicidad    String    @default("MENSUAL") // MENSUAL, TRIMESTRAL, ANUAL, MATRICULA
+  diaCobro        Int       @default(5) @map("dia_cobro")
+  activo          Boolean   @default(true)
+
+  cuotas Cuota[]
+
+  @@map("plan_cuota")
+}
+
+model MandatoSepa {
+  id            String        @id @default(cuid())
+  tutor         Tutor         @relation(fields: [tutorId], references: [id])
+  tutorId       String        @map("tutor_id")
+  providerMandateId String?   @unique @map("provider_mandate_id") // GoCardless mandate id
+  ibanLast4     String        @map("iban_last4")
+  titular       String        // nombre del titular de la cuenta
+  estado        EstadoMandato @default(PENDIENTE)
+  firmadoEn     DateTime?     @map("firmado_en")
+  createdAt     DateTime      @default(now()) @map("created_at")
+
+  cuotas Cuota[]
+
+  @@index([tutorId])
+  @@map("mandato_sepa")
+}
+
+model Cuota {
+  id              String      @id @default(cuid())
+  jugador         Jugador     @relation(fields: [jugadorId], references: [id])
+  jugadorId       String      @map("jugador_id")
+  plan            PlanCuota?  @relation(fields: [planId], references: [id])
+  planId          String?     @map("plan_id")
+  periodo         String      // "2026-01" (año-mes)
+  concepto        String
+  importeCentimos Int         @map("importe_centimos")
+  estado          EstadoCuota @default(PENDIENTE)
+  mandato         MandatoSepa? @relation(fields: [mandatoId], references: [id])
+  mandatoId       String?     @map("mandato_id")
+  remesa          Remesa?     @relation(fields: [remesaId], references: [id])
+  remesaId        String?     @map("remesa_id")
+  venceEn         DateTime?   @map("vence_en") @db.Date
+  createdAt       DateTime    @default(now()) @map("created_at")
+
+  pagos Pago[]
+
+  @@unique([jugadorId, periodo, concepto])
+  @@index([estado])
+  @@index([remesaId])
+  @@map("cuota")
+}
+
+model Remesa {
+  id          String   @id @default(cuid())
+  referencia  String   @unique // "REM-2026-01"
+  fechaCobro  DateTime @map("fecha_cobro") @db.Date
+  totalCentimos Int    @default(0) @map("total_centimos")
+  estado      String   @default("BORRADOR") // BORRADOR, ENVIADA, COBRADA, CERRADA
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  cuotas Cuota[]
+
+  @@map("remesa")
+}
+
+model Pago {
+  id                String     @id @default(cuid())
+  cuota             Cuota?     @relation(fields: [cuotaId], references: [id])
+  cuotaId           String?    @map("cuota_id")
+  metodo            MetodoPago
+  estado            EstadoPago @default(INICIADO)
+  importeCentimos   Int        @map("importe_centimos")
+  providerPaymentId String?    @unique @map("provider_payment_id")
+  reciboUrl         String?    @map("recibo_url") // PDF en storage
+  pagadoEn          DateTime?  @map("pagado_en")
+  createdAt         DateTime   @default(now()) @map("created_at")
+
+  @@index([cuotaId])
+  @@map("pago")
+}
+
+// ──────────────────────────── Documentos ────────────────────────────
+model Documento {
+  id         String        @id @default(cuid())
+  jugador    Jugador       @relation(fields: [jugadorId], references: [id], onDelete: Cascade)
+  jugadorId  String        @map("jugador_id")
+  tipo       TipoDocumento
+  nombre     String
+  storageKey String        @map("storage_key") // ruta en S3/Supabase
+  mimeType   String        @map("mime_type")
+  caducaEn   DateTime?     @map("caduca_en") @db.Date
+  subidoPor  String?       @map("subido_por")
+  createdAt  DateTime      @default(now()) @map("created_at")
+
+  @@index([jugadorId, tipo])
+  @@map("documento")
+}
+
+// ──────────────────────────── Comunicaciones / Calendario ────────────────────────────
+model Comunicacion {
+  id         String   @id @default(cuid())
+  titulo     String
+  cuerpo     String
+  urgente    Boolean  @default(false)
+  esConvocatoria Boolean @default(false) @map("es_convocatoria")
+  autorId    String?  @map("autor_id")
+  createdAt  DateTime @default(now()) @map("created_at")
+
+  destinos ComunicacionDestino[]
+
+  @@map("comunicacion")
+}
+
+model ComunicacionDestino {
+  id             String       @id @default(cuid())
+  comunicacion   Comunicacion @relation(fields: [comunicacionId], references: [id], onDelete: Cascade)
+  comunicacionId String       @map("comunicacion_id")
+  usuario        Usuario      @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+  usuarioId      String       @map("usuario_id")
+  leidoEn        DateTime?    @map("leido_en")
+
+  @@unique([comunicacionId, usuarioId])
+  @@index([usuarioId])
+  @@map("comunicacion_destino")
+}
+
+model Evento {
+  id        String     @id @default(cuid())
+  equipo    Equipo?    @relation(fields: [equipoId], references: [id])
+  equipoId  String?    @map("equipo_id")
+  tipo      TipoEvento
+  titulo    String
+  inicio    DateTime
+  fin       DateTime?
+  lugar     String?
+  rival     String?    // para PARTIDO
+  createdAt DateTime   @default(now()) @map("created_at")
+
+  @@index([equipoId, inicio])
+  @@map("evento")
+}
+
+// ──────────────────────────── Web pública ────────────────────────────
+model CategoriaNoticia {
+  id      String   @id @default(cuid())
+  nombre  String   @unique
+  slug    String   @unique
+  noticias Noticia[]
+
+  @@map("categoria_noticia")
+}
+
+model Noticia {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  titulo      String
+  extracto    String?
+  cuerpo      String
+  portadaUrl  String?  @map("portada_url")
+  destacada   Boolean  @default(false)
+  publicada   Boolean  @default(false)
+  publicadaEn DateTime? @map("publicada_en")
+  categoria   CategoriaNoticia? @relation(fields: [categoriaId], references: [id])
+  categoriaId String?  @map("categoria_id")
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  @@index([publicada, publicadaEn])
+  @@map("noticia")
+}
+
+model EventoEntrada {
+  id            String   @id @default(cuid())
+  titulo        String   // "CAA vs Rival - Jornada 10"
+  fecha         DateTime
+  lugar         String?
+  precioCentimos Int     @map("precio_centimos")
+  aforo         Int?
+  vendidas      Int      @default(0)
+  activo        Boolean  @default(true)
+
+  compras CompraEntrada[]
+
+  @@map("evento_entrada")
+}
+
+model CompraEntrada {
+  id                String     @id @default(cuid())
+  evento            EventoEntrada @relation(fields: [eventoId], references: [id])
+  eventoId          String     @map("evento_id")
+  usuario           Usuario?   @relation(fields: [usuarioId], references: [id])
+  usuarioId         String?    @map("usuario_id")
+  emailComprador    String?    @map("email_comprador")
+  cantidad          Int        @default(1)
+  importeCentimos   Int        @map("importe_centimos")
+  estado            EstadoPago @default(INICIADO)
+  providerPaymentId String?    @unique @map("provider_payment_id")
+  createdAt         DateTime   @default(now()) @map("created_at")
+
+  @@index([eventoId])
+  @@map("compra_entrada")
+}
+
+// ──────────────────────────── RGPD / Auditoría ────────────────────────────
+model AuditLog {
+  id        String   @id @default(cuid())
+  usuario   Usuario? @relation(fields: [usuarioId], references: [id])
+  usuarioId String?  @map("usuario_id")
+  accion    String   // "LOGIN", "CREAR_CUOTA", "VER_DOCUMENTO"...
+  entidad   String?  // "Jugador", "Cuota"
+  entidadId String?  @map("entidad_id")
+  ip        String?
+  userAgent String?  @map("user_agent")
+  metadata  Json?
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@index([usuarioId, createdAt])
+  @@index([entidad, entidadId])
+  @@map("audit_log")
+}
+
+model Consentimiento {
+  id          String   @id @default(cuid())
+  usuario     Usuario  @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+  usuarioId   String   @map("usuario_id")
+  tipo        String   // "PROTECCION_DATOS", "IMAGEN_MENOR", "COMUNICACIONES"
+  version     String   // versión del texto legal aceptado
+  otorgado    Boolean  @default(true)
+  otorgadoEn  DateTime @default(now()) @map("otorgado_en")
+  revocadoEn  DateTime? @map("revocado_en")
+
+  @@index([usuarioId, tipo])
+  @@map("consentimiento")
+}

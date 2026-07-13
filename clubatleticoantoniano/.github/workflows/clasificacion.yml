@@ -1,0 +1,31 @@
+name: Actualizar clasificación
+
+# Refresca la tabla desde Wikipedia cada día a las 06:00 (Europe/Madrid)
+on:
+  schedule:
+    - cron: "0 5 * * *"
+  workflow_dispatch: {}
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: corepack enable
+      - run: pnpm install --frozen-lockfile
+      - name: Bajar clasificación de Wikipedia
+        run: node apps/web/scripts/fetch-standings.mjs
+      - name: Commit si hay cambios
+        run: |
+          if ! git diff --quiet -- apps/web/lib/standings.json; then
+            git config user.name "caa-bot"
+            git config user.email "bot@cantonioano.es"
+            git add apps/web/lib/standings.json
+            git commit -m "chore: actualizar clasificación"
+            git push
+          else
+            echo "Sin cambios en la clasificación."
+          fi
