@@ -1,0 +1,2371 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ============================================================
+     SEO / META
+     ============================================================ -->
+<title>La Fábrica · Vehículos de ocasión revisados y garantizados</title>
+<meta name="description" content="Concesionario de vehículos de ocasión en Sevilla. Coches revisados, garantizados y al mejor precio. Financiación a medida, garantía incluida y entrega inmediata.">
+<meta name="keywords" content="vehículos de ocasión, coches segunda mano, concesionario Sevilla, coches km 0, financiación coches, La Fábrica">
+<meta name="author" content="La Fábrica">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0d0f12">
+<link rel="canonical" href="https://lafabrica.example/">
+
+<!-- Open Graph / redes sociales -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="La Fábrica">
+<meta property="og:title" content="La Fábrica · Vehículos de ocasión revisados y garantizados">
+<meta property="og:description" content="Vehículos de ocasión revisados, garantizados y al mejor precio.">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="La Fábrica · Vehículos de ocasión">
+<meta name="twitter:description" content="Vehículos de ocasión revisados, garantizados y al mejor precio.">
+
+<!-- Favicon: monograma LF en SVG embebido (sin peticiones externas) -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230d0f12'/%3E%3Cpath d='M16 16h7v25h14v7H16z' fill='%23fff'/%3E%3Cpath d='M33 16h16v7H40v6h8v7h-8v12h-7z' fill='%23e11d2e'/%3E%3C/svg%3E">
+
+<!-- Tipografía -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Datos estructurados para buscadores -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AutoDealer",
+  "name": "La Fábrica",
+  "description": "Concesionario de vehículos de ocasión revisados y garantizados.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Polígono Industrial El Torno, Nave 14",
+    "postalCode": "41930",
+    "addressLocality": "Bormujos",
+    "addressRegion": "Sevilla",
+    "addressCountry": "ES"
+  },
+  "telephone": "+34955123456",
+  "email": "info@lafabricamotor.es",
+  "priceRange": "€€",
+  "openingHours": ["Mo-Fr 09:30-14:00", "Mo-Fr 16:30-20:00", "Sa 10:00-14:00"]
+}
+</script>
+
+<style>
+/* ============================================================
+   1. VARIABLES Y RESET
+   ============================================================ */
+:root {
+  --blanco:      #ffffff;
+  --negro:       #0d0f12;
+  --negro-2:     #14171b;
+  --gris-osc:    #1e2228;
+  --gris-osc-2:  #2b3037;
+  --gris:        #6b7480;
+  --gris-claro:  #f4f6f8;
+  --gris-borde:  #e4e8ed;
+  --rojo:        #e11d2e;
+  --rojo-osc:    #b3121f;
+  --rojo-claro:  #fdecee;
+
+  --radio:       18px;
+  --radio-sm:    12px;
+  --radio-lg:    26px;
+
+  --sombra-sm:   0 2px 8px rgba(13,15,18,.06);
+  --sombra:      0 8px 30px rgba(13,15,18,.09);
+  --sombra-lg:   0 24px 60px rgba(13,15,18,.16);
+  --sombra-rojo: 0 10px 30px rgba(225,29,46,.32);
+
+  --ease:        cubic-bezier(.22,.61,.36,1);
+  --header-h:    76px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;              /* scroll suave nativo */
+  scroll-padding-top: calc(var(--header-h) + 16px);
+  -webkit-text-size-adjust: 100%;
+  overflow-x: clip;                     /* red de seguridad: nunca scroll lateral */
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--negro);
+  background: var(--blanco);
+  line-height: 1.65;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+body.no-scroll { overflow: hidden; }
+
+h1, h2, h3, h4 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -.02em;
+}
+
+img { max-width: 100%; display: block; }
+a   { color: inherit; text-decoration: none; }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; border: none; background: none; }
+
+:focus-visible {
+  outline: 3px solid var(--rojo);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ============================================================
+   2. UTILIDADES
+   ============================================================ */
+.contenedor { width: min(1240px, 100% - 48px); margin-inline: auto; }
+
+/* Los hijos de rejilla no deben poder crecer por su contenido mínimo
+   (evita desbordamientos horizontales por textos o selects largos) */
+.contacto-grid > *, .filtros-grid > *, .rejilla-coches > *, .rejilla-ventajas > *,
+.pie-grid > *, .cifras-grid > *, .ficha > *, .form-grid > * { min-width: 0; }
+
+.seccion { padding: clamp(72px, 9vw, 120px) 0; }
+
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 9px;
+  font-size: .74rem; font-weight: 700; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--rojo); margin-bottom: 16px;
+}
+.eyebrow::before {
+  content: ''; width: 26px; height: 2px;
+  background: var(--rojo); border-radius: 2px;
+}
+
+.titulo-seccion { font-size: clamp(2rem, 4.2vw, 3.1rem); margin-bottom: 16px; }
+
+.sub-seccion {
+  color: var(--gris); font-size: 1.06rem;
+  max-width: 620px; line-height: 1.7;
+}
+
+.cabecera-seccion { margin-bottom: 52px; }
+
+/* --- Botones --- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  padding: 15px 30px; border-radius: 100px;
+  font-weight: 600; font-size: .96rem; letter-spacing: .01em;
+  transition: transform .35s var(--ease), box-shadow .35s var(--ease),
+              background .3s var(--ease), color .3s var(--ease);
+  white-space: nowrap;
+}
+.btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+.btn-rojo { background: var(--rojo); color: #fff; box-shadow: var(--sombra-rojo); }
+.btn-rojo:hover { background: var(--rojo-osc); transform: translateY(-3px); box-shadow: 0 16px 38px rgba(225,29,46,.42); }
+
+.btn-negro { background: var(--negro); color: #fff; }
+.btn-negro:hover { background: var(--gris-osc-2); transform: translateY(-3px); box-shadow: var(--sombra); }
+
+.btn-linea { border: 1.5px solid var(--gris-borde); color: var(--negro); background: #fff; }
+.btn-linea:hover { border-color: var(--negro); transform: translateY(-3px); box-shadow: var(--sombra-sm); }
+
+.btn-fantasma { border: 1.5px solid rgba(255,255,255,.32); color: #fff; }
+.btn-fantasma:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.6); transform: translateY(-3px); }
+
+/* --- Animación al hacer scroll --- */
+.reveal {
+  opacity: 0; transform: translateY(34px);
+  transition: opacity .85s var(--ease), transform .85s var(--ease);
+  will-change: opacity, transform;
+}
+.reveal.visible { opacity: 1; transform: none; }
+
+/* ============================================================
+   3. CABECERA / NAVEGACIÓN
+   ============================================================ */
+.cabecera {
+  position: fixed; inset: 0 0 auto 0; z-index: 900;
+  height: var(--header-h);
+  display: flex; align-items: center;
+  background: rgba(13,15,18,0);
+  transition: background .45s var(--ease), box-shadow .45s var(--ease),
+              height .45s var(--ease), backdrop-filter .45s var(--ease);
+}
+.cabecera.solida {
+  background: rgba(13,15,18,.92);
+  backdrop-filter: saturate(180%) blur(14px);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  box-shadow: 0 1px 0 rgba(255,255,255,.07), 0 10px 30px rgba(0,0,0,.28);
+  height: 66px;
+}
+
+.cabecera .contenedor { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+
+.logo { display: flex; align-items: center; gap: 11px; color: #fff; }
+.logo-marca {
+  width: 40px; height: 40px; border-radius: 11px;
+  background: var(--rojo); color: #fff;
+  display: grid; place-items: center;
+  font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 1.02rem;
+  letter-spacing: -.03em; flex-shrink: 0;
+  box-shadow: var(--sombra-rojo);
+}
+.logo-texto { display: flex; flex-direction: column; line-height: 1.1; }
+.logo-texto strong { font-family: 'Poppins', sans-serif; font-size: 1.06rem; font-weight: 700; letter-spacing: -.02em; }
+.logo-texto span { font-size: .62rem; letter-spacing: .19em; text-transform: uppercase; color: rgba(255,255,255,.55); }
+
+.nav { display: flex; align-items: center; gap: 34px; }
+.nav a {
+  color: rgba(255,255,255,.82); font-size: .93rem; font-weight: 500;
+  position: relative; padding: 6px 0; transition: color .3s var(--ease);
+}
+.nav a::after {
+  content: ''; position: absolute; left: 0; bottom: 0;
+  width: 0; height: 2px; background: var(--rojo); border-radius: 2px;
+  transition: width .35s var(--ease);
+}
+.nav a:hover, .nav a.activo { color: #fff; }
+.nav a:hover::after, .nav a.activo::after { width: 100%; }
+
+.cabecera-acciones { display: flex; align-items: center; gap: 14px; }
+.tel-cabecera {
+  display: inline-flex; align-items: center; gap: 9px;
+  color: #fff; font-weight: 600; font-size: .92rem;
+  padding: 10px 20px; border-radius: 100px;
+  border: 1.5px solid rgba(255,255,255,.24);
+  transition: background .3s var(--ease), border-color .3s var(--ease), transform .3s var(--ease);
+}
+.tel-cabecera:hover { background: var(--rojo); border-color: var(--rojo); transform: translateY(-2px); }
+.tel-cabecera svg { width: 16px; height: 16px; }
+
+/* Botón hamburguesa */
+.hamburguesa {
+  display: none; width: 44px; height: 44px; border-radius: 12px;
+  border: 1.5px solid rgba(255,255,255,.24);
+  flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+}
+.hamburguesa span {
+  display: block; width: 19px; height: 2px; background: #fff; border-radius: 2px;
+  transition: transform .35s var(--ease), opacity .25s var(--ease);
+}
+.hamburguesa.abierto span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburguesa.abierto span:nth-child(2) { opacity: 0; }
+.hamburguesa.abierto span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Menú móvil */
+.nav-movil {
+  position: fixed; inset: 0; z-index: 890;
+  background: rgba(13,15,18,.98);
+  backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
+  opacity: 0; visibility: hidden; transition: opacity .4s var(--ease), visibility .4s;
+}
+.nav-movil.abierto { opacity: 1; visibility: visible; }
+.nav-movil a {
+  color: #fff; font-family: 'Poppins', sans-serif; font-weight: 600;
+  font-size: 1.55rem; padding: 13px 30px; opacity: 0; transform: translateY(18px);
+  transition: opacity .5s var(--ease), transform .5s var(--ease), color .3s;
+}
+.nav-movil.abierto a { opacity: 1; transform: none; }
+.nav-movil a:hover { color: var(--rojo); }
+.nav-movil .btn { margin-top: 22px; }
+
+/* ============================================================
+   4. HERO
+   ============================================================ */
+.hero {
+  position: relative; min-height: 100svh;
+  display: flex; align-items: center;
+  padding: calc(var(--header-h) + 64px) 0 64px;
+  background: var(--negro);
+  color: #fff; overflow: hidden; isolation: isolate;
+}
+
+/* Escenografía del hero, construida solo con CSS (sin imágenes = carga instantánea) */
+.hero::before {
+  content: ''; position: absolute; inset: 0; z-index: -3;
+  background:
+    radial-gradient(1100px 620px at 78% 18%,  rgba(225,29,46,.30), transparent 62%),
+    radial-gradient(900px 560px  at 12% 88%,  rgba(58,88,140,.28), transparent 64%),
+    linear-gradient(165deg, #0d0f12 0%, #14171b 46%, #0a0c0e 100%);
+}
+/* Rejilla técnica sutil */
+.hero::after {
+  content: ''; position: absolute; inset: 0; z-index: -2;
+  background-image:
+    linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(ellipse 92% 72% at 50% 42%, #000 30%, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse 92% 72% at 50% 42%, #000 30%, transparent 78%);
+}
+/* Halo de luz que respira */
+.hero-halo {
+  position: absolute; z-index: -1;
+  width: 780px; height: 780px; right: -180px; top: 50%;
+  transform: translateY(-50%);
+  background: radial-gradient(circle, rgba(225,29,46,.22) 0%, transparent 66%);
+  filter: blur(46px); pointer-events: none;
+  animation: latir 9s ease-in-out infinite;
+}
+@keyframes latir {
+  0%, 100% { opacity: .62; transform: translateY(-50%) scale(1); }
+  50%      { opacity: 1;   transform: translateY(-50%) scale(1.13); }
+}
+
+.hero-contenido { max-width: 780px; position: relative; }
+
+.hero-etiqueta {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 8px 18px 8px 10px; border-radius: 100px;
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.14);
+  font-size: .8rem; font-weight: 500; color: rgba(255,255,255,.9);
+  margin-bottom: 30px;
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+}
+.hero-etiqueta b {
+  background: var(--rojo); color: #fff; font-weight: 700;
+  font-size: .7rem; letter-spacing: .07em; text-transform: uppercase;
+  padding: 4px 11px; border-radius: 100px;
+}
+
+.hero h1 {
+  font-size: clamp(3.3rem, 10.5vw, 7.4rem);
+  font-weight: 800; letter-spacing: -.045em; line-height: .92;
+  margin-bottom: 26px;
+}
+.hero h1 .acento {
+  background: linear-gradient(105deg, #fff 12%, var(--rojo) 92%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+}
+
+.hero-sub {
+  font-size: clamp(1.08rem, 2.3vw, 1.38rem);
+  color: rgba(255,255,255,.76); max-width: 585px;
+  margin-bottom: 40px; line-height: 1.62;
+}
+
+.hero-botones { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 60px; }
+
+/* Indicadores de confianza */
+.hero-garantias {
+  display: flex; flex-wrap: wrap; gap: 12px 34px;
+  padding-top: 34px; border-top: 1px solid rgba(255,255,255,.13);
+}
+.garantia {
+  display: flex; align-items: center; gap: 11px;
+  font-size: .93rem; font-weight: 500; color: rgba(255,255,255,.87);
+}
+.garantia-check {
+  width: 23px; height: 23px; border-radius: 50%;
+  background: rgba(225,29,46,.17); border: 1px solid rgba(225,29,46,.42);
+  display: grid; place-items: center; flex-shrink: 0;
+}
+.garantia-check svg { width: 12px; height: 12px; stroke: var(--rojo); }
+
+/* Indicador de scroll */
+.hero-scroll {
+  position: absolute; left: 50%; bottom: 30px; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 9px;
+  font-size: .68rem; letter-spacing: .2em; text-transform: uppercase;
+  color: rgba(255,255,255,.45);
+}
+.hero-scroll-linea {
+  width: 1px; height: 42px;
+  background: linear-gradient(rgba(255,255,255,.42), transparent);
+  position: relative; overflow: hidden;
+}
+.hero-scroll-linea::after {
+  content: ''; position: absolute; top: -100%; left: 0;
+  width: 100%; height: 100%; background: var(--rojo);
+  animation: bajar 2.1s ease-in-out infinite;
+}
+@keyframes bajar { 0% { top: -100%; } 60%, 100% { top: 100%; } }
+
+/* ============================================================
+   5. BARRA DE CIFRAS
+   ============================================================ */
+.cifras { background: var(--gris-claro); border-bottom: 1px solid var(--gris-borde); }
+.cifras-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 24px; padding: 54px 0;
+}
+.cifra { text-align: center; }
+.cifra strong {
+  display: block; font-family: 'Poppins', sans-serif;
+  font-size: clamp(2rem, 4vw, 2.9rem); font-weight: 800;
+  letter-spacing: -.035em; color: var(--negro); line-height: 1;
+}
+.cifra strong em { color: var(--rojo); font-style: normal; }
+.cifra span {
+  display: block; margin-top: 9px; font-size: .8rem; font-weight: 600;
+  letter-spacing: .11em; text-transform: uppercase; color: var(--gris);
+}
+
+/* ============================================================
+   6. CARRUSEL DESTACADOS
+   ============================================================ */
+.destacados { background: var(--blanco); }
+
+.carrusel-cabecera {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  gap: 28px; margin-bottom: 40px;
+}
+.carrusel-flechas { display: flex; gap: 11px; flex-shrink: 0; }
+.flecha {
+  width: 52px; height: 52px; border-radius: 50%;
+  border: 1.5px solid var(--gris-borde); background: #fff;
+  display: grid; place-items: center;
+  transition: background .3s var(--ease), border-color .3s var(--ease),
+              transform .3s var(--ease), opacity .3s;
+}
+.flecha svg { width: 19px; height: 19px; stroke: var(--negro); transition: stroke .3s; }
+.flecha:hover:not(:disabled) { background: var(--rojo); border-color: var(--rojo); transform: scale(1.09); }
+.flecha:hover:not(:disabled) svg { stroke: #fff; }
+.flecha:disabled { opacity: .32; cursor: not-allowed; }
+
+.carrusel-pista {
+  display: flex; gap: 26px; overflow-x: auto;
+  scroll-snap-type: x mandatory; scroll-behavior: smooth;
+  padding: 8px 4px 30px;
+  scrollbar-width: none; -ms-overflow-style: none;
+}
+.carrusel-pista::-webkit-scrollbar { display: none; }
+.carrusel-pista > * { scroll-snap-align: start; flex: 0 0 clamp(280px, 30%, 372px); }
+
+/* ============================================================
+   7. TARJETA DE VEHÍCULO
+   ============================================================ */
+.coche {
+  background: #fff; border: 1px solid var(--gris-borde);
+  border-radius: var(--radio-lg); overflow: hidden;
+  display: flex; flex-direction: column;
+  box-shadow: var(--sombra-sm);
+  transition: transform .5s var(--ease), box-shadow .5s var(--ease), border-color .5s var(--ease);
+}
+.coche:hover { transform: translateY(-9px); box-shadow: var(--sombra-lg); border-color: transparent; }
+
+.coche-foto {
+  position: relative; aspect-ratio: 4 / 3;
+  background: var(--gris-claro); overflow: hidden;
+}
+.coche-foto img {
+  width: 100%; height: 100%; object-fit: cover;   /* mantiene proporción, encuadre homogéneo */
+  transition: transform .75s var(--ease);
+}
+.coche:hover .coche-foto img { transform: scale(1.07); }
+
+.coche-etiquetas {
+  position: absolute; top: 15px; left: 15px; right: 15px;
+  display: flex; justify-content: space-between; align-items: flex-start; gap: 10px;
+  pointer-events: none;
+}
+.chip-disponible {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: rgba(255,255,255,.94); backdrop-filter: blur(10px);
+  padding: 7px 14px; border-radius: 100px;
+  font-size: .74rem; font-weight: 700; color: var(--negro);
+  box-shadow: var(--sombra-sm);
+}
+.punto-verde {
+  width: 7px; height: 7px; border-radius: 50%; background: #16a34a;
+  box-shadow: 0 0 0 3px rgba(22,163,74,.2);
+  animation: pulso 2.2s ease-in-out infinite;
+}
+@keyframes pulso { 0%,100% { opacity: 1; } 50% { opacity: .42; } }
+
+.chip-anio {
+  background: rgba(13,15,18,.82); backdrop-filter: blur(10px);
+  color: #fff; padding: 7px 14px; border-radius: 100px;
+  font-size: .74rem; font-weight: 700;
+}
+
+.coche-precio-flotante {
+  position: absolute; bottom: 15px; left: 15px;
+  background: var(--rojo); color: #fff;
+  padding: 9px 18px; border-radius: 100px;
+  font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1.12rem;
+  letter-spacing: -.02em; box-shadow: var(--sombra-rojo);
+}
+
+.coche-cuerpo { padding: 24px 24px 26px; display: flex; flex-direction: column; flex: 1; }
+.coche-marca {
+  font-size: .72rem; font-weight: 700; letter-spacing: .15em;
+  text-transform: uppercase; color: var(--rojo); margin-bottom: 6px;
+}
+.coche-modelo {
+  font-family: 'Poppins', sans-serif; font-size: 1.34rem; font-weight: 700;
+  letter-spacing: -.02em; margin-bottom: 3px;
+}
+.coche-version { font-size: .88rem; color: var(--gris); margin-bottom: 20px; }
+
+.coche-datos {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+  padding: 18px 0; margin-bottom: 22px;
+  border-top: 1px solid var(--gris-borde); border-bottom: 1px solid var(--gris-borde);
+}
+.dato { display: flex; align-items: center; gap: 10px; font-size: .87rem; }
+.dato svg { width: 17px; height: 17px; stroke: var(--gris); flex-shrink: 0; }
+.dato span { color: var(--negro); font-weight: 500; }
+
+.coche-cuerpo .btn { margin-top: auto; width: 100%; }
+
+/* ============================================================
+   8. CATÁLOGO Y FILTROS
+   ============================================================ */
+.catalogo { background: var(--gris-claro); }
+
+.panel-filtros {
+  background: #fff; border: 1px solid var(--gris-borde);
+  border-radius: var(--radio-lg); padding: 26px;
+  box-shadow: var(--sombra-sm); margin-bottom: 38px;
+}
+
+.buscador { position: relative; margin-bottom: 20px; }
+.buscador svg {
+  position: absolute; left: 20px; top: 50%; transform: translateY(-50%);
+  width: 19px; height: 19px; stroke: var(--gris); pointer-events: none;
+}
+.buscador input {
+  width: 100%; padding: 16px 20px 16px 52px;
+  border: 1.5px solid var(--gris-borde); border-radius: 100px;
+  background: var(--gris-claro); font-size: .97rem;
+  transition: border-color .3s var(--ease), background .3s var(--ease), box-shadow .3s var(--ease);
+}
+.buscador input:focus {
+  outline: none; border-color: var(--rojo); background: #fff;
+  box-shadow: 0 0 0 4px var(--rojo-claro);
+}
+.buscador input::placeholder { color: var(--gris); }
+
+.filtros-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+  align-items: end;
+}
+.campo-filtro { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.campo-filtro label {
+  font-size: .73rem; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--gris); padding-left: 4px;
+}
+.campo-filtro select {
+  appearance: none; -webkit-appearance: none;
+  padding: 14px 42px 14px 18px;
+  border: 1.5px solid var(--gris-borde); border-radius: var(--radio-sm);
+  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236b7480' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 15px center / 17px;
+  font-size: .93rem; font-weight: 500; cursor: pointer;
+  transition: border-color .3s var(--ease), box-shadow .3s var(--ease);
+}
+.campo-filtro select { width: 100%; max-width: 100%; text-overflow: ellipsis; }
+.campo-filtro select:focus { outline: none; border-color: var(--rojo); box-shadow: 0 0 0 4px var(--rojo-claro); }
+.campo-filtro select:hover { border-color: var(--gris); }
+
+.filtros-pie {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 14px; margin-top: 20px;
+  padding-top: 20px; border-top: 1px solid var(--gris-borde);
+}
+.contador-resultados { font-size: .93rem; color: var(--gris); }
+.contador-resultados strong { color: var(--negro); font-weight: 700; }
+.btn-limpiar {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: .89rem; font-weight: 600; color: var(--rojo);
+  padding: 9px 17px; border-radius: 100px;
+  transition: background .3s var(--ease);
+}
+.btn-limpiar:hover { background: var(--rojo-claro); }
+.btn-limpiar svg { width: 15px; height: 15px; stroke: currentColor; }
+
+.rejilla-coches {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 28px;
+}
+
+/* Entrada escalonada de las tarjetas al filtrar */
+.rejilla-coches > .coche { animation: aparecer .5s var(--ease) backwards; }
+@keyframes aparecer { from { opacity: 0; transform: translateY(22px); } }
+
+.sin-resultados {
+  grid-column: 1 / -1; text-align: center; padding: 76px 24px;
+  background: #fff; border: 1px dashed var(--gris-borde); border-radius: var(--radio-lg);
+}
+.sin-resultados svg { width: 52px; height: 52px; stroke: var(--gris); margin: 0 auto 20px; opacity: .55; }
+.sin-resultados h3 { font-size: 1.32rem; margin-bottom: 9px; }
+.sin-resultados p { color: var(--gris); margin-bottom: 24px; }
+
+/* ============================================================
+   9. ¿POR QUÉ ELEGIR LA FÁBRICA?
+   ============================================================ */
+.ventajas { background: var(--negro); color: #fff; position: relative; overflow: hidden; }
+.ventajas::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(760px 460px at 84% 8%, rgba(225,29,46,.19), transparent 62%);
+  pointer-events: none;
+}
+.ventajas .contenedor { position: relative; }
+.ventajas .titulo-seccion { color: #fff; }
+.ventajas .sub-seccion { color: rgba(255,255,255,.62); }
+
+.rejilla-ventajas {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
+}
+.ventaja {
+  background: rgba(255,255,255,.045);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: var(--radio); padding: 34px 30px;
+  transition: transform .45s var(--ease), background .45s var(--ease), border-color .45s var(--ease);
+  position: relative; overflow: hidden;
+}
+.ventaja::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(225,29,46,.13), transparent 58%);
+  opacity: 0; transition: opacity .45s var(--ease);
+}
+.ventaja:hover {
+  transform: translateY(-7px);
+  background: rgba(255,255,255,.075);
+  border-color: rgba(225,29,46,.42);
+}
+.ventaja:hover::after { opacity: 1; }
+.ventaja > * { position: relative; z-index: 1; }
+
+.ventaja-icono {
+  width: 56px; height: 56px; border-radius: 15px;
+  background: rgba(225,29,46,.15); border: 1px solid rgba(225,29,46,.3);
+  display: grid; place-items: center; margin-bottom: 22px;
+  transition: background .45s var(--ease), transform .45s var(--ease);
+}
+.ventaja:hover .ventaja-icono { background: var(--rojo); transform: scale(1.06) rotate(-4deg); }
+.ventaja-icono svg { width: 26px; height: 26px; stroke: var(--rojo); transition: stroke .45s var(--ease); }
+.ventaja:hover .ventaja-icono svg { stroke: #fff; }
+
+.ventaja h3 { font-size: 1.2rem; margin-bottom: 10px; }
+.ventaja p { color: rgba(255,255,255,.62); font-size: .93rem; line-height: 1.72; }
+
+/* ============================================================
+   10. CONTACTO
+   ============================================================ */
+.contacto { background: var(--blanco); }
+.contacto-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 60px; align-items: start; }
+
+.contacto-info .titulo-seccion { margin-bottom: 18px; }
+.lista-contacto { margin-top: 40px; display: flex; flex-direction: column; gap: 8px; }
+.item-contacto {
+  display: flex; gap: 17px; padding: 17px;
+  border-radius: var(--radio-sm);
+  transition: background .3s var(--ease), transform .3s var(--ease);
+}
+.item-contacto:hover { background: var(--gris-claro); transform: translateX(5px); }
+.item-contacto-icono {
+  width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0;
+  background: var(--rojo-claro); display: grid; place-items: center;
+}
+.item-contacto-icono svg { width: 20px; height: 20px; stroke: var(--rojo); }
+.item-contacto h4 {
+  font-size: .72rem; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--gris); margin-bottom: 4px;
+}
+.item-contacto p { font-weight: 600; font-size: .99rem; line-height: 1.55; }
+.item-contacto p small { display: block; font-weight: 400; font-size: .87rem; color: var(--gris); }
+
+/* Formulario */
+.formulario {
+  background: var(--gris-claro); border: 1px solid var(--gris-borde);
+  border-radius: var(--radio-lg); padding: clamp(28px, 4vw, 44px);
+}
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+/* min-width:0 evita que un <select> con opciones largas ensanche la rejilla */
+.campo { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.campo.ancho { grid-column: 1 / -1; }
+.campo input, .campo select, .campo textarea { width: 100%; max-width: 100%; }
+.campo select { text-overflow: ellipsis; }
+.campo label { font-size: .81rem; font-weight: 600; color: var(--negro); padding-left: 4px; }
+.campo label .req { color: var(--rojo); }
+.campo input, .campo select, .campo textarea {
+  padding: 14px 17px; border: 1.5px solid var(--gris-borde);
+  border-radius: var(--radio-sm); background: #fff; font-size: .96rem;
+  transition: border-color .3s var(--ease), box-shadow .3s var(--ease);
+}
+.campo textarea { resize: vertical; min-height: 122px; font-family: inherit; }
+.campo select {
+  appearance: none; -webkit-appearance: none; cursor: pointer;
+  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236b7480' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 15px center / 17px;
+  padding-right: 42px;
+}
+.campo input:focus, .campo select:focus, .campo textarea:focus {
+  outline: none; border-color: var(--rojo); box-shadow: 0 0 0 4px var(--rojo-claro);
+}
+.campo input:user-invalid, .campo textarea:user-invalid { border-color: var(--rojo); }
+
+.form-legal {
+  display: flex; gap: 11px; align-items: flex-start;
+  font-size: .82rem; color: var(--gris); line-height: 1.6; margin: 6px 0 4px;
+}
+.form-legal input { width: 18px; height: 18px; accent-color: var(--rojo); margin-top: 2px; flex-shrink: 0; cursor: pointer; }
+.form-legal a { color: var(--rojo); font-weight: 600; text-decoration: underline; }
+
+.formulario .btn-rojo { width: 100%; margin-top: 8px; padding: 17px 30px; }
+
+.aviso-form {
+  display: none; align-items: center; gap: 12px;
+  margin-top: 18px; padding: 15px 18px; border-radius: var(--radio-sm);
+  background: #e9f8ef; border: 1px solid #b7e6ca; color: #14663a;
+  font-size: .92rem; font-weight: 500;
+}
+.aviso-form.visible { display: flex; animation: aparecer .45s var(--ease); }
+.aviso-form svg { width: 20px; height: 20px; stroke: #14663a; flex-shrink: 0; }
+
+/* ============================================================
+   11. PIE DE PÁGINA
+   ============================================================ */
+.pie { background: var(--negro); color: rgba(255,255,255,.62); padding: 82px 0 0; }
+.pie-grid {
+  display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+  gap: 48px; padding-bottom: 56px;
+}
+.pie-marca .logo { margin-bottom: 20px; }
+.pie-marca p { font-size: .93rem; line-height: 1.75; max-width: 320px; margin-bottom: 26px; }
+
+.redes { display: flex; gap: 11px; }
+.red {
+  width: 42px; height: 42px; border-radius: 12px;
+  background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.11);
+  display: grid; place-items: center;
+  transition: background .3s var(--ease), transform .3s var(--ease), border-color .3s var(--ease);
+}
+.red svg { width: 18px; height: 18px; fill: rgba(255,255,255,.78); transition: fill .3s; }
+.red:hover { background: var(--rojo); border-color: var(--rojo); transform: translateY(-4px); }
+.red:hover svg { fill: #fff; }
+
+.pie h4 {
+  color: #fff; font-size: .78rem; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase; margin-bottom: 22px;
+}
+.pie-lista { display: flex; flex-direction: column; gap: 12px; }
+.pie-lista a, .pie-lista li { font-size: .93rem; list-style: none; }
+.pie-lista a { transition: color .3s var(--ease), padding-left .3s var(--ease); }
+.pie-lista a:hover { color: var(--rojo); padding-left: 6px; }
+
+.horario-fila {
+  display: flex; justify-content: space-between; gap: 18px;
+  font-size: .89rem; padding: 8px 0;
+  border-bottom: 1px dashed rgba(255,255,255,.1);
+}
+.horario-fila:last-child { border-bottom: none; }
+.horario-fila span:last-child { color: #fff; font-weight: 600; white-space: nowrap; }
+.horario-fila.cerrado span:last-child { color: var(--rojo); }
+
+.pie-base {
+  border-top: 1px solid rgba(255,255,255,.1);
+  /* El hueco inferior deja libre la zona de los botones flotantes,
+     que ocupan unos 135 px desde el borde inferior de la ventana */
+  padding: 26px 0 152px; display: flex; flex-wrap: wrap;
+  align-items: center; justify-content: space-between; gap: 16px;
+  font-size: .85rem;
+}
+.pie-base-enlaces { display: flex; flex-wrap: wrap; gap: 24px; }
+.pie-base-enlaces a { transition: color .3s; }
+.pie-base-enlaces a:hover { color: #fff; }
+
+/* ============================================================
+   12. BOTONES FLOTANTES
+   ============================================================ */
+.flotantes {
+  position: fixed; right: 22px; bottom: 22px; z-index: 850;
+  display: flex; flex-direction: column; align-items: flex-end; gap: 13px;
+}
+.flotante {
+  display: inline-flex; align-items: center; gap: 11px;
+  padding: 14px 22px; border-radius: 100px;
+  color: #fff; font-weight: 600; font-size: .93rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,.26);
+  transition: transform .35s var(--ease), box-shadow .35s var(--ease), filter .3s;
+  opacity: 0; transform: translateY(24px) scale(.85);
+  animation: entrarFlotante .55s var(--ease) forwards;
+}
+.flotante:nth-child(1) { animation-delay: 1.1s; }
+.flotante:nth-child(2) { animation-delay: 1.25s; }
+@keyframes entrarFlotante { to { opacity: 1; transform: none; } }
+
+.flotante svg { width: 21px; height: 21px; flex-shrink: 0; }
+.flotante:hover { transform: translateY(-4px) scale(1.03); box-shadow: 0 16px 40px rgba(0,0,0,.34); }
+
+.flotante-wa { background: #25d366; }
+.flotante-wa svg { fill: #fff; }
+.flotante-tel { background: var(--rojo); }
+.flotante-tel svg { stroke: #fff; fill: none; }
+
+/* Anillo de llamada */
+.flotante-tel::before {
+  content: ''; position: absolute; inset: 0; border-radius: 100px;
+  border: 2px solid var(--rojo); animation: anillo 2.4s ease-out infinite;
+  pointer-events: none;
+}
+.flotante-tel { position: relative; }
+@keyframes anillo {
+  0%   { opacity: .8; transform: scale(1); }
+  100% { opacity: 0;  transform: scale(1.28); }
+}
+
+/* ============================================================
+   13. MODAL DE FICHA
+   ============================================================ */
+.modal {
+  position: fixed; inset: 0; z-index: 1000;
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px; opacity: 0; visibility: hidden;
+  transition: opacity .4s var(--ease), visibility .4s;
+}
+.modal.abierto { opacity: 1; visibility: visible; }
+
+.modal-fondo {
+  position: absolute; inset: 0;
+  background: rgba(13,15,18,.76);
+  backdrop-filter: blur(7px); -webkit-backdrop-filter: blur(7px);
+}
+
+.modal-caja {
+  position: relative; z-index: 1;
+  background: #fff; border-radius: var(--radio-lg);
+  width: min(1080px, 100%); max-height: min(92svh, 940px);
+  overflow-y: auto; overscroll-behavior: contain;
+  box-shadow: var(--sombra-lg);
+  transform: translateY(34px) scale(.965);
+  transition: transform .5s var(--ease);
+}
+.modal.abierto .modal-caja { transform: none; }
+
+.modal-cerrar {
+  position: absolute; top: 17px; right: 17px; z-index: 6;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: rgba(255,255,255,.94); backdrop-filter: blur(10px);
+  display: grid; place-items: center; box-shadow: var(--sombra);
+  transition: background .3s var(--ease), transform .3s var(--ease);
+}
+.modal-cerrar svg { width: 19px; height: 19px; stroke: var(--negro); transition: stroke .3s; }
+.modal-cerrar:hover { background: var(--rojo); transform: rotate(90deg); }
+.modal-cerrar:hover svg { stroke: #fff; }
+
+/* Galería / slider */
+.galeria { position: relative; background: var(--gris-claro); }
+.galeria-marco { position: relative; aspect-ratio: 16 / 10; overflow: hidden; }
+.galeria-slide {
+  position: absolute; inset: 0;
+  opacity: 0; transition: opacity .55s var(--ease);
+}
+.galeria-slide.activo { opacity: 1; }
+.galeria-slide img { width: 100%; height: 100%; object-fit: cover; }
+
+.galeria-flecha {
+  position: absolute; top: 50%; transform: translateY(-50%); z-index: 3;
+  width: 46px; height: 46px; border-radius: 50%;
+  background: rgba(255,255,255,.92); backdrop-filter: blur(10px);
+  display: grid; place-items: center; box-shadow: var(--sombra);
+  transition: background .3s var(--ease), transform .3s var(--ease);
+}
+.galeria-flecha svg { width: 19px; height: 19px; stroke: var(--negro); transition: stroke .3s; }
+.galeria-flecha:hover { background: var(--rojo); }
+.galeria-flecha:hover svg { stroke: #fff; }
+.galeria-flecha.prev { left: 15px; }
+.galeria-flecha.next { right: 15px; }
+.galeria-flecha.prev:hover { transform: translateY(-50%) scale(1.09); }
+.galeria-flecha.next:hover { transform: translateY(-50%) scale(1.09); }
+
+.galeria-puntos {
+  position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%);
+  z-index: 3; display: flex; gap: 8px;
+  background: rgba(13,15,18,.55); backdrop-filter: blur(10px);
+  padding: 9px 14px; border-radius: 100px;
+}
+.punto {
+  width: 8px; height: 8px; border-radius: 100px;
+  background: rgba(255,255,255,.45); transition: background .3s var(--ease), width .3s var(--ease);
+}
+.punto.activo { background: #fff; width: 24px; }
+
+.galeria-chip {
+  position: absolute; top: 17px; left: 17px; z-index: 3;
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,.94); backdrop-filter: blur(10px);
+  padding: 8px 16px; border-radius: 100px;
+  font-size: .78rem; font-weight: 700; box-shadow: var(--sombra-sm);
+}
+
+/* Cuerpo del modal */
+.modal-cuerpo { padding: clamp(24px, 3.6vw, 40px); }
+
+.modal-top {
+  display: flex; flex-wrap: wrap; align-items: flex-start;
+  justify-content: space-between; gap: 20px;
+  padding-bottom: 26px; margin-bottom: 28px;
+  border-bottom: 1px solid var(--gris-borde);
+}
+.modal-marca {
+  font-size: .74rem; font-weight: 700; letter-spacing: .15em;
+  text-transform: uppercase; color: var(--rojo); margin-bottom: 7px;
+}
+.modal-titulo { font-size: clamp(1.7rem, 3.6vw, 2.35rem); margin-bottom: 7px; }
+.modal-version { color: var(--gris); font-size: .98rem; }
+.modal-precio-caja { text-align: right; }
+.modal-precio {
+  font-family: 'Poppins', sans-serif; font-size: clamp(1.9rem, 4vw, 2.6rem);
+  font-weight: 800; color: var(--rojo); letter-spacing: -.035em; line-height: 1;
+}
+.modal-precio-nota { font-size: .82rem; color: var(--gris); margin-top: 7px; }
+
+.modal-seccion { margin-bottom: 32px; }
+.modal-seccion h4 {
+  font-size: .76rem; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--gris); margin-bottom: 16px;
+}
+.modal-seccion p { color: #414952; line-height: 1.78; font-size: .97rem; }
+
+/* Ficha técnica */
+.ficha {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(158px, 1fr)); gap: 2px;
+  background: var(--gris-borde); border: 1px solid var(--gris-borde);
+  border-radius: var(--radio); overflow: hidden;
+}
+.ficha-item { background: #fff; padding: 18px 20px; }
+.ficha-item span {
+  display: flex; align-items: center; gap: 8px;
+  font-size: .74rem; font-weight: 600; letter-spacing: .07em;
+  text-transform: uppercase; color: var(--gris); margin-bottom: 7px;
+}
+.ficha-item span svg { width: 14px; height: 14px; stroke: var(--gris); }
+.ficha-item strong { font-family: 'Poppins', sans-serif; font-size: 1.03rem; font-weight: 600; letter-spacing: -.01em; }
+
+/* Equipamiento */
+.equipamiento { display: flex; flex-wrap: wrap; gap: 9px; }
+.equipo-chip {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--gris-claro); border: 1px solid var(--gris-borde);
+  padding: 9px 15px; border-radius: 100px; font-size: .87rem; font-weight: 500;
+  transition: background .3s var(--ease), border-color .3s var(--ease), transform .3s var(--ease);
+}
+.equipo-chip:hover { background: var(--rojo-claro); border-color: rgba(225,29,46,.32); transform: translateY(-2px); }
+.equipo-chip svg { width: 14px; height: 14px; stroke: var(--rojo); flex-shrink: 0; }
+
+.modal-acciones {
+  display: flex; flex-wrap: wrap; gap: 12px;
+  padding-top: 28px; border-top: 1px solid var(--gris-borde);
+}
+.modal-acciones .btn { flex: 1 1 190px; }
+
+/* ============================================================
+   14. RESPONSIVE
+   ============================================================ */
+@media (max-width: 1080px) {
+  .contacto-grid { grid-template-columns: 1fr; gap: 46px; }
+  .rejilla-ventajas { grid-template-columns: repeat(2, 1fr); }
+  .pie-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+}
+
+@media (max-width: 900px) {
+  .nav, .tel-cabecera { display: none; }
+  .hamburguesa { display: flex; }
+  .filtros-grid { grid-template-columns: 1fr 1fr; }
+  .cifras-grid { grid-template-columns: repeat(2, 1fr); gap: 34px; }
+}
+
+@media (max-width: 720px) {
+  .contenedor { width: min(1240px, 100% - 34px); }
+  .hero { min-height: auto; padding: calc(var(--header-h) + 76px) 0 90px; }
+  .hero-scroll { display: none; }
+  /* Dos columnas limpias en lugar de un flujo irregular */
+  .hero-garantias { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 18px; }
+  .garantia { font-size: .85rem; }
+  .carrusel-cabecera { flex-direction: column; align-items: flex-start; gap: 22px; }
+  .carrusel-pista > * { flex: 0 0 84%; }
+  .rejilla-coches { grid-template-columns: 1fr; }
+  .rejilla-ventajas { grid-template-columns: 1fr; }
+  .form-grid { grid-template-columns: 1fr; }
+  .modal { padding: 0; }
+  .modal-caja { border-radius: 0; max-height: 100svh; height: 100svh; }
+  .modal-precio-caja { text-align: left; }
+  .modal-acciones .btn { flex: 1 1 100%; }
+  .pie-grid { grid-template-columns: 1fr; gap: 36px; }
+  .pie-base { flex-direction: column; text-align: center; }
+  /* En móvil los flotantes se compactan a icono */
+  .flotante { padding: 15px; }
+  .flotante span { display: none; }
+}
+
+@media (max-width: 480px) {
+  .filtros-grid { grid-template-columns: 1fr; }
+  .panel-filtros { padding: 20px; }
+  .coche-datos { grid-template-columns: 1fr; gap: 10px; }
+}
+
+/* Respeto por quien prefiere menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important; animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important; scroll-behavior: auto !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}
+
+/* Impresión */
+@media print {
+  .cabecera, .flotantes, .panel-filtros, .carrusel-flechas, .hero-scroll { display: none !important; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ============================================================
+     CABECERA
+     ============================================================ -->
+<header class="cabecera" id="cabecera">
+  <div class="contenedor">
+    <a href="#inicio" class="logo" aria-label="La Fábrica, inicio">
+      <div class="logo-marca">LF</div>
+      <div class="logo-texto">
+        <strong>La Fábrica</strong>
+        <span>Vehículos de ocasión</span>
+      </div>
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Navegación principal">
+      <a href="#inicio">Inicio</a>
+      <a href="#destacados">Destacados</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#ventajas">Por qué nosotros</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+    <div class="cabecera-acciones">
+      <a href="tel:+34955123456" class="tel-cabecera">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.35 1.9.66 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.31 1.85.53 2.81.66A2 2 0 0 1 22 16.92z"/></svg>
+        955 12 34 56
+      </a>
+      <button class="hamburguesa" id="hamburguesa" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMovil">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Menú móvil -->
+<nav class="nav-movil" id="navMovil" aria-label="Navegación móvil">
+  <a href="#inicio">Inicio</a>
+  <a href="#destacados">Destacados</a>
+  <a href="#catalogo">Catálogo</a>
+  <a href="#ventajas">Por qué nosotros</a>
+  <a href="#contacto">Contacto</a>
+  <a href="tel:+34955123456" class="btn btn-rojo">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.35 1.9.66 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.31 1.85.53 2.81.66A2 2 0 0 1 22 16.92z"/></svg>
+    Llámanos ahora
+  </a>
+</nav>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero" id="inicio">
+  <div class="hero-halo" aria-hidden="true"></div>
+  <div class="contenedor">
+    <div class="hero-contenido">
+      <div class="hero-etiqueta reveal">
+        <b>Nuevo</b> Más de 10 vehículos disponibles en stock
+      </div>
+
+      <h1 class="reveal">La <span class="acento">Fábrica</span></h1>
+
+      <p class="hero-sub reveal">
+        Vehículos de ocasión revisados, garantizados y al mejor precio.
+      </p>
+
+      <div class="hero-botones reveal">
+        <a href="#catalogo" class="btn btn-rojo">
+          Ver vehículos
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#contacto" class="btn btn-fantasma">Solicitar información</a>
+      </div>
+
+      <!-- Indicadores de confianza -->
+      <div class="hero-garantias reveal">
+        <div class="garantia">
+          <span class="garantia-check"><svg viewBox="0 0 24 24" fill="none" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+          Vehículos revisados
+        </div>
+        <div class="garantia">
+          <span class="garantia-check"><svg viewBox="0 0 24 24" fill="none" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+          Financiación disponible
+        </div>
+        <div class="garantia">
+          <span class="garantia-check"><svg viewBox="0 0 24 24" fill="none" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+          Garantía
+        </div>
+        <div class="garantia">
+          <span class="garantia-check"><svg viewBox="0 0 24 24" fill="none" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+          Compra segura
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll" aria-hidden="true">
+    <span class="hero-scroll-linea"></span>
+    Desliza
+  </div>
+</section>
+
+<!-- ============================================================
+     CIFRAS
+     ============================================================ -->
+<section class="cifras">
+  <div class="contenedor">
+    <div class="cifras-grid">
+      <div class="cifra reveal"><strong>+15</strong><span>Años de experiencia</span></div>
+      <div class="cifra reveal"><strong>+1.200</strong><span>Clientes satisfechos</span></div>
+      <div class="cifra reveal"><strong>12<em>m</em></strong><span>De garantía mínima</span></div>
+      <div class="cifra reveal"><strong>100<em>%</em></strong><span>Vehículos revisados</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CARRUSEL DESTACADOS
+     ============================================================ -->
+<section class="seccion destacados" id="destacados">
+  <div class="contenedor">
+    <div class="carrusel-cabecera reveal">
+      <div>
+        <span class="eyebrow">Selección del mes</span>
+        <h2 class="titulo-seccion">Vehículos destacados</h2>
+        <p class="sub-seccion">Una muestra de nuestro stock actual. Todos revisados en nuestro taller y listos para entrega.</p>
+      </div>
+      <div class="carrusel-flechas">
+        <button class="flecha" id="carruselPrev" aria-label="Vehículo anterior">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+        </button>
+        <button class="flecha" id="carruselNext" aria-label="Vehículo siguiente">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="carrusel-pista" id="carruselPista" tabindex="0" aria-label="Carrusel de vehículos destacados"></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CATÁLOGO
+     ============================================================ -->
+<section class="seccion catalogo" id="catalogo">
+  <div class="contenedor">
+    <div class="cabecera-seccion reveal">
+      <span class="eyebrow">Stock disponible</span>
+      <h2 class="titulo-seccion">Nuestro catálogo</h2>
+      <p class="sub-seccion">Filtra por marca, precio, combustible o cambio y encuentra el vehículo que encaja contigo.</p>
+    </div>
+
+    <!-- Panel de filtros -->
+    <div class="panel-filtros reveal">
+      <div class="buscador">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <input type="search" id="buscador" placeholder="Buscar por marca, modelo, color, motor…" aria-label="Buscar vehículos">
+      </div>
+
+      <div class="filtros-grid">
+        <div class="campo-filtro">
+          <label for="filtroMarca">Marca</label>
+          <select id="filtroMarca"><option value="">Todas las marcas</option></select>
+        </div>
+        <div class="campo-filtro">
+          <label for="filtroPrecio">Precio</label>
+          <select id="filtroPrecio">
+            <option value="">Cualquier precio</option>
+            <option value="0-3000">Hasta 3.000 €</option>
+            <option value="3000-5000">3.000 € – 5.000 €</option>
+            <option value="5000-8000">5.000 € – 8.000 €</option>
+            <option value="8000-999999">Más de 8.000 €</option>
+          </select>
+        </div>
+        <div class="campo-filtro">
+          <label for="filtroCombustible">Combustible</label>
+          <select id="filtroCombustible"><option value="">Todos</option></select>
+        </div>
+        <div class="campo-filtro">
+          <label for="filtroCambio">Cambio</label>
+          <select id="filtroCambio"><option value="">Todos</option></select>
+        </div>
+      </div>
+
+      <div class="filtros-pie">
+        <p class="contador-resultados" id="contador" aria-live="polite"></p>
+        <button class="btn-limpiar" id="btnLimpiar">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+          Limpiar filtros
+        </button>
+      </div>
+    </div>
+
+    <div class="rejilla-coches" id="rejillaCoches"></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     VENTAJAS
+     ============================================================ -->
+<section class="seccion ventajas" id="ventajas">
+  <div class="contenedor">
+    <div class="cabecera-seccion reveal">
+      <span class="eyebrow">Nuestro compromiso</span>
+      <h2 class="titulo-seccion">¿Por qué elegir La Fábrica?</h2>
+      <p class="sub-seccion">Comprar un coche de ocasión no tiene por qué ser un salto de fe. Así trabajamos nosotros.</p>
+    </div>
+
+    <div class="rejilla-ventajas" id="rejillaVentajas"></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CONTACTO
+     ============================================================ -->
+<section class="seccion contacto" id="contacto">
+  <div class="contenedor">
+    <div class="contacto-grid">
+
+      <div class="contacto-info reveal">
+        <span class="eyebrow">Hablemos</span>
+        <h2 class="titulo-seccion">¿Te interesa algún vehículo?</h2>
+        <p class="sub-seccion">Cuéntanos qué buscas y te respondemos el mismo día. Sin compromiso y sin letra pequeña.</p>
+
+        <div class="lista-contacto">
+          <div class="item-contacto">
+            <div class="item-contacto-icono">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <h4>Dirección</h4>
+              <p>Polígono Industrial El Torno, Nave 14<small>41930 Bormujos, Sevilla</small></p>
+            </div>
+          </div>
+
+          <a href="tel:+34955123456" class="item-contacto">
+            <div class="item-contacto-icono">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.35 1.9.66 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.31 1.85.53 2.81.66A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <h4>Teléfono</h4>
+              <p>955 12 34 56<small>Móvil y WhatsApp: 655 12 34 56</small></p>
+            </div>
+          </a>
+
+          <a href="mailto:info@lafabricamotor.es" class="item-contacto">
+            <div class="item-contacto-icono">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg>
+            </div>
+            <div>
+              <h4>Email</h4>
+              <p>info@lafabricamotor.es</p>
+            </div>
+          </a>
+
+          <div class="item-contacto">
+            <div class="item-contacto-icono">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <div>
+              <h4>Horario</h4>
+              <p>Lunes a viernes<small>9:30 – 14:00 · 16:30 – 20:00 | Sábados 10:00 – 14:00</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Formulario -->
+      <div class="formulario reveal">
+        <form id="formContacto" novalidate>
+          <div class="form-grid">
+            <div class="campo">
+              <label for="fNombre">Nombre <span class="req">*</span></label>
+              <input type="text" id="fNombre" name="nombre" placeholder="Tu nombre y apellidos" required autocomplete="name">
+            </div>
+            <div class="campo">
+              <label for="fTelefono">Teléfono <span class="req">*</span></label>
+              <input type="tel" id="fTelefono" name="telefono" placeholder="600 00 00 00" required autocomplete="tel" pattern="[0-9+\s\(\)\-]{9,}">
+            </div>
+            <div class="campo ancho">
+              <label for="fEmail">Email <span class="req">*</span></label>
+              <input type="email" id="fEmail" name="email" placeholder="tu@email.com" required autocomplete="email">
+            </div>
+            <div class="campo ancho">
+              <label for="fVehiculo">Vehículo de interés</label>
+              <select id="fVehiculo" name="vehiculo">
+                <option value="">Selecciona un vehículo (opcional)</option>
+              </select>
+            </div>
+            <div class="campo ancho">
+              <label for="fMensaje">Mensaje</label>
+              <textarea id="fMensaje" name="mensaje" placeholder="Cuéntanos qué necesitas: financiación, prueba del vehículo, tasación de tu coche actual…"></textarea>
+            </div>
+          </div>
+
+          <label class="form-legal">
+            <input type="checkbox" id="fLegal" required>
+            <span>He leído y acepto la <a href="#" onclick="return false;">política de privacidad</a> y el tratamiento de mis datos para recibir información comercial.</span>
+          </label>
+
+          <button type="submit" class="btn btn-rojo">
+            Solicitar información
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+
+          <div class="aviso-form" id="avisoForm" role="status">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+            <span id="avisoTexto"></span>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PIE
+     ============================================================ -->
+<footer class="pie">
+  <div class="contenedor">
+    <div class="pie-grid">
+
+      <div class="pie-marca">
+        <div class="logo">
+          <div class="logo-marca">LF</div>
+          <div class="logo-texto">
+            <strong>La Fábrica</strong>
+            <span>Vehículos de ocasión</span>
+          </div>
+        </div>
+        <p>Concesionario multimarca de vehículos de ocasión. Cada coche pasa por nuestro taller antes de salir por la puerta: revisado, garantizado y con su historial a la vista.</p>
+        <div class="redes">
+          <a href="#" class="red" aria-label="Facebook" onclick="return false;">
+            <svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 2.89h-2.33v6.99A10 10 0 0 0 22 12z"/></svg>
+          </a>
+          <a href="#" class="red" aria-label="Instagram" onclick="return false;">
+            <svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.12 1.38C1.36 2.67.94 3.34.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.12.66.66 1.33 1.08 2.12 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.3 1.46-.72 2.12-1.38.66-.66 1.08-1.33 1.38-2.12.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.3-.79-.72-1.46-1.38-2.12C21.33 1.36 20.66.94 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm7.85-10.4a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></svg>
+          </a>
+          <a href="#" class="red" aria-label="YouTube" onclick="return false;">
+            <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.12-2.13C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.52A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.12 2.13c1.88.52 9.38.52 9.38.52s7.5 0 9.38-.52a3 3 0 0 0 2.12-2.13A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.55 15.57V8.43L15.82 12l-6.27 3.57z"/></svg>
+          </a>
+          <a href="https://wa.me/34655123456" class="red" aria-label="WhatsApp" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.47s1.06 2.87 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.23 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.28.17-1.41-.07-.13-.27-.2-.57-.35zM12.04 21.5h-.01a9.47 9.47 0 0 1-4.83-1.32l-.35-.2-3.59.94.96-3.5-.23-.36a9.44 9.44 0 0 1-1.45-5.05c0-5.22 4.26-9.47 9.5-9.47 2.54 0 4.92.99 6.71 2.78a9.4 9.4 0 0 1 2.78 6.7c0 5.22-4.26 9.48-9.49 9.48zM20.46 3.54A11.82 11.82 0 0 0 12.04 0C5.5 0 .18 5.32.18 11.86c0 2.09.55 4.13 1.59 5.93L.08 24l6.35-1.66a11.83 11.83 0 0 0 5.61 1.43h.01c6.53 0 11.85-5.32 11.85-11.86 0-3.17-1.23-6.14-3.47-8.38z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h4>Navegación</h4>
+        <div class="pie-lista">
+          <a href="#inicio">Inicio</a>
+          <a href="#destacados">Destacados</a>
+          <a href="#catalogo">Catálogo</a>
+          <a href="#ventajas">Por qué nosotros</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+      </div>
+
+      <div>
+        <h4>Contacto</h4>
+        <div class="pie-lista">
+          <span>Polígono Industrial El Torno,<br>Nave 14 · 41930 Bormujos<br>Sevilla</span>
+          <a href="tel:+34955123456">955 12 34 56</a>
+          <a href="mailto:info@lafabricamotor.es">info@lafabricamotor.es</a>
+        </div>
+      </div>
+
+      <div>
+        <h4>Horario</h4>
+        <div class="horario-fila"><span>Lunes – Viernes</span><span>9:30 – 14:00</span></div>
+        <div class="horario-fila"><span></span><span>16:30 – 20:00</span></div>
+        <div class="horario-fila"><span>Sábado</span><span>10:00 – 14:00</span></div>
+        <div class="horario-fila cerrado"><span>Domingo</span><span>Cerrado</span></div>
+      </div>
+
+    </div>
+
+    <div class="pie-base">
+      <p>© <span id="anio"></span> La Fábrica · Vehículos de ocasión. Todos los derechos reservados.</p>
+      <div class="pie-base-enlaces">
+        <a href="#" onclick="return false;">Aviso legal</a>
+        <a href="#" onclick="return false;">Política de privacidad</a>
+        <a href="#" onclick="return false;">Política de cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     BOTONES FLOTANTES
+     ============================================================ -->
+<div class="flotantes">
+  <a href="https://wa.me/34655123456?text=Hola%2C%20he%20visto%20vuestra%20web%20y%20me%20interesa%20un%20veh%C3%ADculo."
+     class="flotante flotante-wa" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.47s1.06 2.87 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.23 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.28.17-1.41-.07-.13-.27-.2-.57-.35zM12.04 21.5h-.01a9.47 9.47 0 0 1-4.83-1.32l-.35-.2-3.59.94.96-3.5-.23-.36a9.44 9.44 0 0 1-1.45-5.05c0-5.22 4.26-9.47 9.5-9.47 2.54 0 4.92.99 6.71 2.78a9.4 9.4 0 0 1 2.78 6.7c0 5.22-4.26 9.48-9.49 9.48zM20.46 3.54A11.82 11.82 0 0 0 12.04 0C5.5 0 .18 5.32.18 11.86c0 2.09.55 4.13 1.59 5.93L.08 24l6.35-1.66a11.83 11.83 0 0 0 5.61 1.43h.01c6.53 0 11.85-5.32 11.85-11.86 0-3.17-1.23-6.14-3.47-8.38z"/></svg>
+    <span>WhatsApp</span>
+  </a>
+
+  <a href="tel:+34955123456" class="flotante flotante-tel" aria-label="Llámanos por teléfono">
+    <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.35 1.9.66 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.31 1.85.53 2.81.66A2 2 0 0 1 22 16.92z"/></svg>
+    <span>Llámanos</span>
+  </a>
+</div>
+
+<!-- ============================================================
+     MODAL DE FICHA DE VEHÍCULO
+     ============================================================ -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitulo" aria-hidden="true">
+  <div class="modal-fondo" data-cerrar></div>
+  <div class="modal-caja" id="modalCaja">
+    <button class="modal-cerrar" data-cerrar aria-label="Cerrar ficha">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <div id="modalContenido"></div>
+  </div>
+</div>
+
+<script>
+/* ================================================================
+   LA FÁBRICA · Lógica de la web
+   Sin frameworks, sin dependencias externas.
+   ================================================================ */
+(function () {
+  'use strict';
+
+  /* ==============================================================
+     1. DATOS DE LOS VEHÍCULOS
+     --------------------------------------------------------------
+     `fotos` apunta a archivos locales dentro de assets/coches/.
+     Si un archivo no existe todavía, la imagen cae automáticamente
+     en un marcador vectorial generado con el color real del coche
+     (ver `imagenProvisional` y el manejador `onerror`).
+     Para poner las fotos reales basta con copiar los archivos con
+     esos nombres exactos en assets/coches/ — no hay que tocar código.
+     ============================================================== */
+  const VEHICULOS = [
+    {
+      id: 'peugeot-208-blanco',
+      marca: 'Peugeot',
+      modelo: '208',
+      version: '1.2 PureTech Active 82 CV',
+      anio: 2017,
+      precio: 8500,
+      km: 120000,
+      combustible: 'Gasolina',
+      cambio: 'Manual',
+      color: 'Blanco',
+      colorHex: '#eef1f5',
+      motor: '1.2 PureTech',
+      potencia: '82 CV',
+      puertas: 5,
+      plazas: 5,
+      destacado: true,
+      fotos: [
+        'assets/coches/peugeot-208-blanco-1.jpg',
+        'assets/coches/peugeot-208-blanco-2.jpg',
+        'assets/coches/peugeot-208-blanco-3.jpg'
+      ],
+      descripcion: 'Peugeot 208 en acabado Active, un utilitario urbano con muy buena presencia y consumos contenidos. Vehículo procedente de un único propietario, con libro de mantenimiento sellado y revisiones al día. Carrocería en blanco sin golpes ni retoques de pintura, e interior en muy buen estado de conservación. Entregado con revisión completa, cambio de aceite y filtros, y garantía de 12 meses.',
+      equipamiento: ['Aire acondicionado', 'Pantalla táctil', 'Bluetooth', 'USB', 'Elevalunas eléctricos', 'Cierre centralizado', 'Dirección asistida', 'ABS + ESP', 'Airbags frontales y laterales', 'Ordenador de a bordo', 'Volante multifunción', 'Llantas de aleación']
+    },
+    {
+      id: 'peugeot-208-gris',
+      marca: 'Peugeot',
+      modelo: '208',
+      version: '1.5 BlueHDi Allure 100 CV',
+      anio: 2018,
+      precio: 8900,
+      km: 98000,
+      combustible: 'Diésel',
+      cambio: 'Manual',
+      color: 'Gris',
+      colorHex: '#9aa3ac',
+      motor: '1.5 BlueHDi',
+      potencia: '100 CV',
+      puertas: 5,
+      plazas: 5,
+      destacado: true,
+      fotos: [
+        'assets/coches/peugeot-208-gris-1.jpg',
+        'assets/coches/peugeot-208-gris-2.jpg',
+        'assets/coches/peugeot-208-gris-3.jpg'
+      ],
+      descripcion: 'Peugeot 208 en acabado Allure con el motor 1.5 BlueHDi, la mecánica diésel más equilibrada de la gama: sobra empuje para carretera y baja de 4,5 litros a los cien en uso mixto. Kilometraje bajo y certificado, con historial de mantenimiento completo en red oficial. Pintura gris metalizada en excelente estado y neumáticos con más del 70 % de vida útil.',
+      equipamiento: ['Climatizador automático', 'Navegador GPS', 'Cámara de visión trasera', 'Sensores de aparcamiento', 'Apple CarPlay / Android Auto', 'Control de crucero', 'Limitador de velocidad', 'Llantas de aleación 16"', 'Faros LED diurnos', 'Sensor de luces y lluvia', 'Bluetooth', 'ABS + ESP']
+    },
+    {
+      id: 'mitsubishi-colt-blanco',
+      marca: 'Mitsubishi',
+      modelo: 'Colt',
+      version: '1.3 Invite 95 CV',
+      anio: 2011,
+      precio: 4800,
+      km: 165000,
+      combustible: 'Gasolina',
+      cambio: 'Manual',
+      color: 'Blanco',
+      colorHex: '#f0f2f5',
+      motor: '1.3 MIVEC',
+      potencia: '95 CV',
+      puertas: 5,
+      plazas: 5,
+      destacado: true,
+      fotos: [
+        'assets/coches/mitsubishi-colt-blanco-1.jpg',
+        'assets/coches/mitsubishi-colt-blanco-2.jpg',
+        'assets/coches/mitsubishi-colt-blanco-3.jpg'
+      ],
+      descripcion: 'Mitsubishi Colt, un compacto japonés con fama merecida de fiable y barato de mantener. Mecánica 1.3 gasolina de distribución por cadena, sin sustos de mantenimiento. Muy manejable en ciudad gracias a su radio de giro reducido y con un maletero sorprendentemente aprovechable. Recién revisado: aceite, filtros, pastillas de freno y batería nuevos.',
+      equipamiento: ['Aire acondicionado', 'Elevalunas eléctricos', 'Cierre centralizado', 'Dirección asistida', 'Radio CD / MP3', 'ABS', 'Airbags frontales', 'Asientos traseros abatibles', 'Retrovisores eléctricos']
+    },
+    {
+      id: 'volkswagen-polo-blanco',
+      marca: 'Volkswagen',
+      modelo: 'Polo',
+      version: '1.0 MPI Edition 60 CV',
+      anio: 2015,
+      precio: 5000,
+      km: 180000,
+      combustible: 'Gasolina',
+      cambio: 'Manual',
+      color: 'Blanco',
+      colorHex: '#f2f4f7',
+      motor: '1.0 MPI',
+      potencia: '60 CV',
+      puertas: 5,
+      plazas: 5,
+      destacado: true,
+      fotos: [
+        'assets/coches/volkswagen-polo-blanco-1.jpg',
+        'assets/coches/volkswagen-polo-blanco-2.jpg',
+        'assets/coches/volkswagen-polo-blanco-3.jpg'
+      ],
+      descripcion: 'Volkswagen Polo de la generación 6C, probablemente el utilitario mejor construido de su segmento. Aunque acumula kilómetros, el mantenimiento se ha hecho siempre en plazo y se nota en la mecánica y en los ajustes de carrocería. Ideal como primer coche o como segundo vehículo para el día a día: consumos bajos, seguro barato y una fiabilidad contrastada.',
+      equipamiento: ['Aire acondicionado', 'Bluetooth', 'Radio con pantalla', 'USB / AUX', 'Elevalunas eléctricos', 'Cierre centralizado con mando', 'Dirección asistida', 'ABS + ESP', 'Airbags frontales y laterales', 'Ordenador de a bordo', 'Isofix']
+    },
+    {
+      id: 'ford-focus-negro',
+      marca: 'Ford',
+      modelo: 'Focus',
+      version: '1.6 TDCi Titanium 115 CV',
+      anio: 2013,
+      precio: 5000,
+      km: 175000,
+      combustible: 'Diésel',
+      cambio: 'Manual',
+      color: 'Negro',
+      colorHex: '#16181c',
+      motor: '1.6 TDCi',
+      potencia: '115 CV',
+      puertas: 5,
+      plazas: 5,
+      destacado: true,
+      fotos: [
+        'assets/coches/ford-focus-negro-1.jpg',
+        'assets/coches/ford-focus-negro-2.jpg',
+        'assets/coches/ford-focus-negro-3.jpg'
+      ],
+      descripcion: 'Ford Focus Mk3 en acabado Titanium, el más completo de la gama. Negro metalizado con llantas de aleación de diseño deportivo y lunas tintadas, un conjunto que le sienta especialmente bien. Dinámicamente sigue siendo una referencia: de los compactos que mejor se conducen de su época. Motor 1.6 TDCi de 115 CV, sobrado para carretera y muy contenido en consumo.',
+      equipamiento: ['Climatizador bizona', 'Llantas de aleación 17"', 'Lunas tintadas', 'Sensores de aparcamiento', 'Control de crucero', 'Bluetooth y control por voz', 'Volante multifunción en cuero', 'Faros antiniebla', 'Sensor de luces y lluvia', 'Arranque sin llave', 'ABS + ESP', 'Ordenador de a bordo']
+    },
+    {
+      id: 'peugeot-207-turquesa',
+      marca: 'Peugeot',
+      modelo: '207',
+      version: '1.4 HDi XS 70 CV',
+      anio: 2008,
+      precio: 3500,
+      km: 205000,
+      combustible: 'Diésel',
+      cambio: 'Manual',
+      color: 'Azul turquesa',
+      colorHex: '#31b3bd',
+      motor: '1.4 HDi',
+      potencia: '70 CV',
+      puertas: 5,
+      plazas: 5,
+      destacado: false,
+      fotos: [
+        'assets/coches/peugeot-207-turquesa-1.jpg',
+        'assets/coches/peugeot-207-turquesa-2.jpg',
+        'assets/coches/peugeot-207-turquesa-3.jpg'
+      ],
+      descripcion: 'Peugeot 207 con el conocido 1.4 HDi, una mecánica sencilla y muy resistente que admite kilómetros sin quejarse. Color azul turquesa original, poco habitual y en buen estado de conservación. Coche económico de mantener y con un consumo real por debajo de los 5 litros. Buena opción para desplazamientos diarios largos con presupuesto ajustado.',
+      equipamiento: ['Aire acondicionado', 'Elevalunas eléctricos', 'Cierre centralizado', 'Dirección asistida', 'Radio CD', 'ABS', 'Airbags frontales', 'Faros antiniebla', 'Retrovisores eléctricos']
+    },
+    {
+      id: 'seat-cordoba-gris',
+      marca: 'Seat',
+      modelo: 'Córdoba',
+      version: '1.4 TDi Reference 80 CV',
+      anio: 2006,
+      precio: 2900,
+      km: 210000,
+      combustible: 'Diésel',
+      cambio: 'Manual',
+      color: 'Gris oscuro',
+      colorHex: '#4d545c',
+      motor: '1.4 TDi',
+      potencia: '80 CV',
+      puertas: 4,
+      plazas: 5,
+      destacado: false,
+      fotos: [
+        'assets/coches/seat-cordoba-gris-1.jpg',
+        'assets/coches/seat-cordoba-gris-2.jpg',
+        'assets/coches/seat-cordoba-gris-3.jpg'
+      ],
+      descripcion: 'Seat Córdoba con motor 1.4 TDi del grupo Volkswagen, de los propulsores más duraderos que se han fabricado. Berlina de cuatro puertas con un maletero de 485 litros difícil de igualar en su tamaño. Coche honesto, sin pretensiones, ideal para quien busca fiabilidad y espacio con una inversión mínima. Distribución revisada y embrague en buen estado.',
+      equipamiento: ['Aire acondicionado', 'Elevalunas eléctricos delanteros', 'Cierre centralizado', 'Dirección asistida', 'Radio CD', 'ABS', 'Airbags frontales', 'Maletero de 485 litros']
+    },
+    {
+      id: 'volkswagen-beetle-azul',
+      marca: 'Volkswagen',
+      modelo: 'New Beetle',
+      version: '1.9 TDi 105 CV',
+      anio: 2007,
+      precio: 5500,
+      km: 145000,
+      combustible: 'Diésel',
+      cambio: 'Manual',
+      color: 'Azul',
+      colorHex: '#2f5cb8',
+      motor: '1.9 TDi',
+      potencia: '105 CV',
+      puertas: 3,
+      plazas: 4,
+      destacado: true,
+      fotos: [
+        'assets/coches/volkswagen-beetle-azul-1.jpg',
+        'assets/coches/volkswagen-beetle-azul-2.jpg',
+        'assets/coches/volkswagen-beetle-azul-3.jpg'
+      ],
+      descripcion: 'Volkswagen New Beetle en azul, un icono de diseño que no pasa de moda y que cada año es más difícil de encontrar en buen estado. Monta el legendario 1.9 TDi de 105 CV, con fama de superar sin problemas los 400.000 km si se cuida. Interior con el salpicadero característico y el jarroncito original. Kilometraje bajo para su año y carrocería sin oxidaciones.',
+      equipamiento: ['Climatizador', 'Llantas de aleación', 'Asientos calefactables', 'Elevalunas eléctricos', 'Cierre centralizado', 'Radio CD', 'Control de crucero', 'ABS + ESP', 'Airbags frontales y laterales', 'Faros antiniebla']
+    },
+    {
+      id: 'kia-ceed-blanco',
+      marca: 'Kia',
+      modelo: 'Ceed',
+      version: '1.6 CRDi VGT 115 CV',
+      anio: 2009,
+      precio: 3500,
+      km: 198000,
+      combustible: 'Diésel',
+      cambio: 'Manual',
+      color: 'Blanco',
+      colorHex: '#eff1f4',
+      motor: '1.6 CRDi',
+      potencia: '115 CV',
+      puertas: 5,
+      plazas: 5,
+      destacado: false,
+      fotos: [
+        'assets/coches/kia-ceed-blanco-1.jpg',
+        'assets/coches/kia-ceed-blanco-2.jpg',
+        'assets/coches/kia-ceed-blanco-3.jpg'
+      ],
+      descripcion: 'Kia Ceed de primera generación, el modelo con el que la marca coreana se ganó al público europeo. Diseñado y fabricado en Europa, con un 1.6 CRDi de 115 CV que combina bien empuje y consumo. Compacto amplio, cómodo en viaje y con un maletero de 340 litros. Mantenimiento reciente con cambio de correa de distribución y bomba de agua.',
+      equipamiento: ['Aire acondicionado', 'Elevalunas eléctricos', 'Cierre centralizado', 'Dirección asistida', 'Radio CD / MP3', 'Control de crucero', 'ABS + ESP', 'Airbags frontales y laterales', 'Faros antiniebla', 'Isofix']
+    },
+    {
+      id: 'citroen-c4-plata',
+      marca: 'Citroën',
+      modelo: 'C4',
+      version: '1.6 HDi Cool 92 CV',
+      anio: 2007,
+      precio: 1500,
+      km: 260000,
+      combustible: 'Diésel',
+      cambio: 'Manual',
+      color: 'Gris plata',
+      colorHex: '#c4cad1',
+      motor: '1.6 HDi',
+      potencia: '92 CV',
+      puertas: 5,
+      plazas: 5,
+      destacado: false,
+      fotos: [
+        'assets/coches/citroen-c4-plata-1.jpg',
+        'assets/coches/citroen-c4-plata-2.jpg',
+        'assets/coches/citroen-c4-plata-3.jpg'
+      ],
+      descripcion: 'Citroën C4 con el 1.6 HDi, una de las opciones más económicas de nuestro stock. Es un coche con kilómetros, y lo decimos claro, pero mecánicamente responde y ha pasado nuestra revisión de 40 puntos. Perfecto como coche de trabajo, para trayectos diarios o para quien necesita un vehículo funcional sin invertir apenas. ITV recién pasada y entregado con transferencia incluida.',
+      equipamiento: ['Aire acondicionado', 'Elevalunas eléctricos', 'Cierre centralizado', 'Dirección asistida', 'Radio CD', 'ABS', 'Airbags frontales', 'Ordenador de a bordo', 'ITV recién pasada']
+    }
+  ];
+
+  /* ==============================================================
+     2. IMAGEN PROVISIONAL
+     --------------------------------------------------------------
+     Genera un SVG (como data URI) con la silueta del vehículo
+     pintada en su color real sobre un fondo de estudio.
+     Se usa solo mientras no exista la fotografía real del coche.
+     `variante` cambia la iluminación para que la galería no repita
+     exactamente la misma imagen en cada diapositiva.
+     ============================================================== */
+  function imagenProvisional(colorHex, variante) {
+    const v = variante || 0;
+    const luces = [
+      { fondoA: '#20242b', fondoB: '#0e1014', luz: '52% 34%' },
+      { fondoA: '#262b33', fondoB: '#111419', luz: '30% 40%' },
+      { fondoA: '#1b1f25', fondoB: '#0b0d10', luz: '70% 36%' }
+    ][v % 3];
+
+    // Se aclara/oscurece el color base para simular volumen
+    const claro  = mezclarColor(colorHex, '#ffffff', 0.26);
+    const oscuro = mezclarColor(colorHex, '#000000', 0.42);
+
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+<defs>
+  <radialGradient id="bg" cx="${luces.luz.split(' ')[0]}" cy="${luces.luz.split(' ')[1]}" r="72%">
+    <stop offset="0%" stop-color="${luces.fondoA}"/>
+    <stop offset="100%" stop-color="${luces.fondoB}"/>
+  </radialGradient>
+  <linearGradient id="carroceria" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%"   stop-color="${claro}"/>
+    <stop offset="52%"  stop-color="${colorHex}"/>
+    <stop offset="100%" stop-color="${oscuro}"/>
+  </linearGradient>
+  <linearGradient id="cristal" x1="0" y1="0" x2="0.4" y2="1">
+    <stop offset="0%"   stop-color="#8fa4b8" stop-opacity=".62"/>
+    <stop offset="100%" stop-color="#2b3540" stop-opacity=".82"/>
+  </linearGradient>
+  <radialGradient id="sombra" cx="50%" cy="50%" r="50%">
+    <stop offset="0%"   stop-color="#000" stop-opacity=".55"/>
+    <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+
+<rect width="800" height="600" fill="url(#bg)"/>
+<ellipse cx="400" cy="452" rx="310" ry="34" fill="url(#sombra)"/>
+
+<!-- Carrocería -->
+<path d="M118 392 Q112 344 152 330 L250 300 Q292 236 372 226 L500 226 Q580 232 626 288 L700 312 Q744 326 746 376 L746 396 Q746 414 728 414 L136 414 Q118 414 118 392 Z"
+      fill="url(#carroceria)"/>
+
+<!-- Línea de cintura -->
+<path d="M132 372 L740 372" stroke="#000" stroke-opacity=".14" stroke-width="2"/>
+
+<!-- Lunas -->
+<path d="M272 296 L358 250 Q368 245 382 245 L452 245 L452 292 Z" fill="url(#cristal)"/>
+<path d="M470 245 L500 245 Q568 250 604 292 L470 292 Z" fill="url(#cristal)"/>
+
+<!-- Pasos de rueda -->
+<circle cx="256" cy="410" r="66" fill="${oscuro}"/>
+<circle cx="592" cy="410" r="66" fill="${oscuro}"/>
+
+<!-- Ruedas -->
+<circle cx="256" cy="410" r="54" fill="#15181c"/>
+<circle cx="592" cy="410" r="54" fill="#15181c"/>
+<circle cx="256" cy="410" r="27" fill="#8c949d"/>
+<circle cx="592" cy="410" r="27" fill="#8c949d"/>
+<circle cx="256" cy="410" r="12" fill="#5e666e"/>
+<circle cx="592" cy="410" r="12" fill="#5e666e"/>
+
+<!-- Faros -->
+<path d="M726 330 Q744 334 746 352 L714 352 Z" fill="#ffe9b8" opacity=".9"/>
+<rect x="120" y="336" width="26" height="13" rx="6" fill="#e0442f" opacity=".85"/>
+
+<!-- Tiradores -->
+<rect x="330" y="352" width="26" height="6" rx="3" fill="#000" opacity=".26"/>
+<rect x="470" y="352" width="26" height="6" rx="3" fill="#000" opacity=".26"/>
+</svg>`;
+
+    return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+  }
+
+  /** Mezcla dos colores hexadecimales en la proporción indicada (0–1). */
+  function mezclarColor(hexA, hexB, cantidad) {
+    const a = hexAJson(hexA), b = hexAJson(hexB);
+    const c = (x, y) => Math.round(x + (y - x) * cantidad).toString(16).padStart(2, '0');
+    return '#' + c(a.r, b.r) + c(a.g, b.g) + c(a.b, b.b);
+  }
+  function hexAJson(hex) {
+    const h = hex.replace('#', '');
+    return {
+      r: parseInt(h.substring(0, 2), 16),
+      g: parseInt(h.substring(2, 4), 16),
+      b: parseInt(h.substring(4, 6), 16)
+    };
+  }
+
+  /* ==============================================================
+     3. UTILIDADES DE FORMATO
+     ============================================================== */
+  const $  = (sel, ctx) => (ctx || document).querySelector(sel);
+  const $$ = (sel, ctx) => Array.from((ctx || document).querySelectorAll(sel));
+
+  /* Separador de millares con punto, también en cifras de 4 dígitos
+     (el formato por defecto del español omite el punto en 8500) */
+  const sep       = n => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  const fmtPrecio = n => sep(n) + ' €';
+  const fmtKm     = n => sep(n) + ' km';
+
+  /** Escapa texto antes de inyectarlo como HTML. */
+  function esc(str) {
+    return String(str).replace(/[&<>"']/g, s => (
+      { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[s]
+    ));
+  }
+
+  /* --- Iconos reutilizables (SVG en línea, sin peticiones) --- */
+  const ICONOS = {
+    km:    '<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 12l4-3M12 7v1"/></svg>',
+    anio:  '<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>',
+    fuel:  '<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 22V4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v18M3 12h10"/><path d="M17 8l3 3v8a2 2 0 0 1-4 0V5"/></svg>',
+    caja:  '<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v18M18 3v18M6 12h12M6 7h12"/></svg>',
+    motor: '<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 10h4l2-3h4l2 3h2v6h-2l-2 3h-4l-2-3H6z"/><path d="M4 12H2M22 12h-2"/></svg>',
+    pot:   '<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg>',
+    color: '<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18 4.5 4.5 0 0 0 0-9 4.5 4.5 0 0 1 0-9z"/></svg>',
+    puerta:'<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V4a1 1 0 0 1 1-1h11a1 1 0 0 1 1 1v17"/><path d="M2 21h20M13 12h.01"/></svg>',
+    check: '<svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>'
+  };
+
+  /* ==============================================================
+     4. TARJETA DE VEHÍCULO
+     ============================================================== */
+  function plantillaTarjeta(coche, indice) {
+    const provisional = imagenProvisional(coche.colorHex, 0);
+    return `
+      <article class="coche" data-id="${coche.id}" style="animation-delay:${Math.min(indice * 55, 440)}ms">
+        <div class="coche-foto">
+          <img src="${coche.fotos[0]}" alt="${esc(coche.marca)} ${esc(coche.modelo)} ${esc(coche.color)} de ocasión"
+               loading="lazy" decoding="async" width="800" height="600"
+               data-provisional="${provisional}"
+               onerror="this.onerror=null;this.src=this.dataset.provisional;">
+          <div class="coche-etiquetas">
+            <span class="chip-disponible"><i class="punto-verde"></i>Disponible</span>
+            <span class="chip-anio">${coche.anio}</span>
+          </div>
+          <div class="coche-precio-flotante">${fmtPrecio(coche.precio)}</div>
+        </div>
+
+        <div class="coche-cuerpo">
+          <p class="coche-marca">${esc(coche.marca)}</p>
+          <h3 class="coche-modelo">${esc(coche.modelo)}</h3>
+          <p class="coche-version">${esc(coche.version)}</p>
+
+          <div class="coche-datos">
+            <div class="dato">${ICONOS.km}<span>${fmtKm(coche.km)}</span></div>
+            <div class="dato">${ICONOS.anio}<span>${coche.anio}</span></div>
+            <div class="dato">${ICONOS.fuel}<span>${esc(coche.combustible)}</span></div>
+            <div class="dato">${ICONOS.caja}<span>${esc(coche.cambio)}</span></div>
+          </div>
+
+          <button class="btn btn-negro" data-ver="${coche.id}">
+            Ver detalles
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+      </article>`;
+  }
+
+  /* ==============================================================
+     5. CATÁLOGO Y FILTROS
+     ============================================================== */
+  const rejilla    = $('#rejillaCoches');
+  const contador   = $('#contador');
+  const inpBuscar  = $('#buscador');
+  const selMarca   = $('#filtroMarca');
+  const selPrecio  = $('#filtroPrecio');
+  const selFuel    = $('#filtroCombustible');
+  const selCambio  = $('#filtroCambio');
+
+  /** Rellena un desplegable con los valores únicos de una propiedad. */
+  function poblarSelect(select, propiedad) {
+    const valores = [...new Set(VEHICULOS.map(v => v[propiedad]))].sort((a, b) => a.localeCompare(b, 'es'));
+    valores.forEach(val => {
+      const opt = document.createElement('option');
+      opt.value = val;
+      opt.textContent = val;
+      select.appendChild(opt);
+    });
+  }
+
+  poblarSelect(selMarca,  'marca');
+  poblarSelect(selFuel,   'combustible');
+  poblarSelect(selCambio, 'cambio');
+
+  /** Devuelve los vehículos que cumplen todos los filtros activos. */
+  function filtrar() {
+    const texto  = inpBuscar.value.trim().toLowerCase();
+    const marca  = selMarca.value;
+    const fuel   = selFuel.value;
+    const cambio = selCambio.value;
+    const rango  = selPrecio.value ? selPrecio.value.split('-').map(Number) : null;
+
+    return VEHICULOS.filter(v => {
+      if (marca  && v.marca !== marca)             return false;
+      if (fuel   && v.combustible !== fuel)        return false;
+      if (cambio && v.cambio !== cambio)           return false;
+      if (rango  && (v.precio < rango[0] || v.precio > rango[1])) return false;
+
+      if (texto) {
+        // Se busca sobre un texto plano que reúne los campos relevantes
+        const blob = [
+          v.marca, v.modelo, v.version, v.color,
+          v.combustible, v.cambio, v.motor, v.potencia, v.anio
+        ].join(' ').toLowerCase();
+        if (!blob.includes(texto)) return false;
+      }
+      return true;
+    });
+  }
+
+  /** Repinta la rejilla del catálogo aplicando los filtros. */
+  function pintarCatalogo() {
+    const resultados = filtrar();
+
+    if (!resultados.length) {
+      rejilla.innerHTML = `
+        <div class="sin-resultados">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35M8 11h6"/></svg>
+          <h3>No hemos encontrado vehículos</h3>
+          <p>Prueba a cambiar los filtros o a buscar con otras palabras.</p>
+          <button class="btn btn-rojo" id="btnLimpiar2">Limpiar filtros</button>
+        </div>`;
+      $('#btnLimpiar2').addEventListener('click', limpiarFiltros);
+    } else {
+      rejilla.innerHTML = resultados.map(plantillaTarjeta).join('');
+    }
+
+    const n = resultados.length;
+    contador.innerHTML = n === VEHICULOS.length
+      ? `Mostrando <strong>${n}</strong> vehículos disponibles`
+      : `<strong>${n}</strong> ${n === 1 ? 'vehículo encontrado' : 'vehículos encontrados'} de ${VEHICULOS.length}`;
+  }
+
+  function limpiarFiltros() {
+    inpBuscar.value = '';
+    selMarca.value = selPrecio.value = selFuel.value = selCambio.value = '';
+    pintarCatalogo();
+  }
+
+  /* Retardo para no repintar en cada pulsación de tecla */
+  let temporizador;
+  inpBuscar.addEventListener('input', () => {
+    clearTimeout(temporizador);
+    temporizador = setTimeout(pintarCatalogo, 180);
+  });
+
+  [selMarca, selPrecio, selFuel, selCambio].forEach(s => s.addEventListener('change', pintarCatalogo));
+  $('#btnLimpiar').addEventListener('click', limpiarFiltros);
+
+  pintarCatalogo();
+
+  /* ==============================================================
+     6. CARRUSEL DE DESTACADOS
+     ============================================================== */
+  const pista = $('#carruselPista');
+  const destacados = VEHICULOS.filter(v => v.destacado);
+  pista.innerHTML = destacados.map(plantillaTarjeta).join('');
+
+  const btnPrev = $('#carruselPrev');
+  const btnNext = $('#carruselNext');
+
+  /** Desplaza el carrusel el ancho de una tarjeta. */
+  function moverCarrusel(direccion) {
+    const tarjeta = pista.querySelector('.coche');
+    if (!tarjeta) return;
+    const paso = tarjeta.getBoundingClientRect().width + 26; // ancho + gap
+    pista.scrollBy({ left: paso * direccion, behavior: 'smooth' });
+  }
+
+  btnPrev.addEventListener('click', () => moverCarrusel(-1));
+  btnNext.addEventListener('click', () => moverCarrusel(1));
+
+  /** Desactiva las flechas al llegar a los extremos. */
+  function actualizarFlechas() {
+    const max = pista.scrollWidth - pista.clientWidth - 4;
+    btnPrev.disabled = pista.scrollLeft <= 4;
+    btnNext.disabled = pista.scrollLeft >= max;
+  }
+  pista.addEventListener('scroll', actualizarFlechas, { passive: true });
+  window.addEventListener('resize', actualizarFlechas);
+  actualizarFlechas();
+
+  /* Arrastre con el ratón en escritorio */
+  let arrastrando = false, inicioX = 0, inicioScroll = 0;
+  pista.addEventListener('mousedown', e => {
+    arrastrando = true;
+    inicioX = e.pageX;
+    inicioScroll = pista.scrollLeft;
+    pista.style.cursor = 'grabbing';
+    pista.style.scrollBehavior = 'auto';
+  });
+  window.addEventListener('mouseup', () => {
+    arrastrando = false;
+    pista.style.cursor = '';
+    pista.style.scrollBehavior = '';
+  });
+  pista.addEventListener('mousemove', e => {
+    if (!arrastrando) return;
+    e.preventDefault();
+    pista.scrollLeft = inicioScroll - (e.pageX - inicioX);
+  });
+
+  /* Navegación con teclado */
+  pista.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') { e.preventDefault(); moverCarrusel(1); }
+    if (e.key === 'ArrowLeft')  { e.preventDefault(); moverCarrusel(-1); }
+  });
+
+  /* ==============================================================
+     7. VENTAJAS
+     ============================================================== */
+  const VENTAJAS = [
+    {
+      titulo: 'Vehículos revisados',
+      texto: 'Cada coche pasa una revisión de 40 puntos en nuestro taller antes de ponerse a la venta. Si algo no está bien, se arregla o no se vende.',
+      icono: '<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>'
+    },
+    {
+      titulo: 'Garantía incluida',
+      texto: 'Todos nuestros vehículos salen con 12 meses de garantía mínima, ampliable a 24. Cubre motor, caja de cambios y grupos mecánicos.',
+      icono: '<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>'
+    },
+    {
+      titulo: 'Financiación a medida',
+      texto: 'Estudiamos tu caso y te ofrecemos hasta 96 meses sin entrada. Respuesta en menos de 24 horas y sin compromiso de aceptación.',
+      icono: '<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg>'
+    },
+    {
+      titulo: 'Compra segura',
+      texto: 'Historial verificado, kilometraje certificado e informe de la DGT de cada vehículo. Te lo enseñamos todo antes de que firmes nada.',
+      icono: '<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>'
+    },
+    {
+      titulo: 'Atención personalizada',
+      texto: 'Sin comerciales a comisión ni presión para cerrar. Escuchamos qué necesitas y te decimos con franqueza qué coche te encaja.',
+      icono: '<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>'
+    },
+    {
+      titulo: 'Entrega inmediata',
+      texto: 'Nos ocupamos de la transferencia, el seguro y la ITV si hace falta. En 48 horas puedes tener el coche en la puerta de tu casa.',
+      icono: '<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>'
+    }
+  ];
+
+  $('#rejillaVentajas').innerHTML = VENTAJAS.map(v => `
+    <article class="ventaja reveal">
+      <div class="ventaja-icono">${v.icono}</div>
+      <h3>${v.titulo}</h3>
+      <p>${v.texto}</p>
+    </article>`).join('');
+
+  /* ==============================================================
+     8. MODAL DE FICHA
+     ============================================================== */
+  const modal      = $('#modal');
+  const modalCaja  = $('#modalCaja');
+  const modalCont  = $('#modalContenido');
+  let indiceSlide  = 0;
+  let numSlides    = 0;
+  let ultimoFoco   = null;
+
+  function plantillaModal(c) {
+    const slides = c.fotos.map((foto, i) => `
+      <div class="galeria-slide${i === 0 ? ' activo' : ''}" data-slide="${i}">
+        <img src="${foto}" alt="${esc(c.marca)} ${esc(c.modelo)} — imagen ${i + 1} de ${c.fotos.length}"
+             loading="${i === 0 ? 'eager' : 'lazy'}" decoding="async"
+             data-provisional="${imagenProvisional(c.colorHex, i)}"
+             onerror="this.onerror=null;this.src=this.dataset.provisional;">
+      </div>`).join('');
+
+    const puntos = c.fotos.map((_, i) =>
+      `<button class="punto${i === 0 ? ' activo' : ''}" data-punto="${i}" aria-label="Imagen ${i + 1}"></button>`
+    ).join('');
+
+    const ficha = [
+      ['Kilómetros',   fmtKm(c.km),        ICONOS.km],
+      ['Año',          c.anio,             ICONOS.anio],
+      ['Motor',        c.motor,            ICONOS.motor],
+      ['Potencia',     c.potencia,         ICONOS.pot],
+      ['Combustible',  c.combustible,      ICONOS.fuel],
+      ['Transmisión',  c.cambio,           ICONOS.caja],
+      ['Color',        c.color,            ICONOS.color],
+      ['Puertas',      c.puertas + ' puertas', ICONOS.puerta]
+    ].map(([et, val, ico]) => `
+      <div class="ficha-item">
+        <span>${ico}${et}</span>
+        <strong>${esc(val)}</strong>
+      </div>`).join('');
+
+    const equipo = c.equipamiento.map(e =>
+      `<span class="equipo-chip">${ICONOS.check}${esc(e)}</span>`
+    ).join('');
+
+    const mensajeWA = encodeURIComponent(
+      `Hola, me interesa el ${c.marca} ${c.modelo} ${c.version} (${c.anio}) de ${fmtPrecio(c.precio)}. ¿Sigue disponible?`
+    );
+
+    return `
+      <div class="galeria">
+        <span class="galeria-chip"><i class="punto-verde"></i>Disponible</span>
+        <div class="galeria-marco" id="galeriaMarco">${slides}</div>
+        <button class="galeria-flecha prev" id="galPrev" aria-label="Imagen anterior">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+        </button>
+        <button class="galeria-flecha next" id="galNext" aria-label="Imagen siguiente">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+        <div class="galeria-puntos" id="galPuntos">${puntos}</div>
+      </div>
+
+      <div class="modal-cuerpo">
+        <div class="modal-top">
+          <div>
+            <p class="modal-marca">${esc(c.marca)}</p>
+            <h2 class="modal-titulo" id="modalTitulo">${esc(c.modelo)}</h2>
+            <p class="modal-version">${esc(c.version)} · ${c.anio}</p>
+          </div>
+          <div class="modal-precio-caja">
+            <div class="modal-precio">${fmtPrecio(c.precio)}</div>
+            <p class="modal-precio-nota">Financiación desde ${Math.round(c.precio / 60)} €/mes</p>
+          </div>
+        </div>
+
+        <div class="modal-seccion">
+          <h4>Descripción</h4>
+          <p>${esc(c.descripcion)}</p>
+        </div>
+
+        <div class="modal-seccion">
+          <h4>Ficha técnica</h4>
+          <div class="ficha">${ficha}</div>
+        </div>
+
+        <div class="modal-seccion">
+          <h4>Equipamiento</h4>
+          <div class="equipamiento">${equipo}</div>
+        </div>
+
+        <div class="modal-acciones">
+          <a href="https://wa.me/34655123456?text=${mensajeWA}" class="btn btn-rojo" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.47s1.06 2.87 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.23 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.28.17-1.41-.07-.13-.27-.2-.57-.35zM12.04 21.5h-.01a9.47 9.47 0 0 1-4.83-1.32l-.35-.2-3.59.94.96-3.5-.23-.36a9.44 9.44 0 0 1-1.45-5.05c0-5.22 4.26-9.47 9.5-9.47 2.54 0 4.92.99 6.71 2.78a9.4 9.4 0 0 1 2.78 6.7c0 5.22-4.26 9.48-9.49 9.48z"/></svg>
+            Preguntar por WhatsApp
+          </a>
+          <a href="tel:+34955123456" class="btn btn-negro">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.35 1.9.66 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.31 1.85.53 2.81.66A2 2 0 0 1 22 16.92z"/></svg>
+            Llamar ahora
+          </a>
+          <button class="btn btn-linea" data-solicitar="${c.id}">Solicitar información</button>
+        </div>
+      </div>`;
+  }
+
+  /** Muestra la diapositiva indicada de la galería. */
+  function irASlide(n) {
+    if (!numSlides) return;
+    indiceSlide = (n + numSlides) % numSlides;
+    $$('.galeria-slide', modalCont).forEach((s, i) => s.classList.toggle('activo', i === indiceSlide));
+    $$('.punto', modalCont).forEach((p, i) => p.classList.toggle('activo', i === indiceSlide));
+  }
+
+  function abrirModal(id) {
+    const coche = VEHICULOS.find(v => v.id === id);
+    if (!coche) return;
+
+    ultimoFoco = document.activeElement;
+    modalCont.innerHTML = plantillaModal(coche);
+    indiceSlide = 0;
+    numSlides = coche.fotos.length;
+
+    modal.classList.add('abierto');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('no-scroll');
+    modalCaja.scrollTop = 0;
+
+    /* Controles de la galería */
+    $('#galPrev').addEventListener('click', () => irASlide(indiceSlide - 1));
+    $('#galNext').addEventListener('click', () => irASlide(indiceSlide + 1));
+    $$('.punto', modalCont).forEach(p =>
+      p.addEventListener('click', () => irASlide(Number(p.dataset.punto)))
+    );
+
+    /* Deslizar con el dedo en móvil */
+    const marco = $('#galeriaMarco');
+    let tocaX = null;
+    marco.addEventListener('touchstart', e => { tocaX = e.changedTouches[0].clientX; }, { passive: true });
+    marco.addEventListener('touchend', e => {
+      if (tocaX === null) return;
+      const dif = e.changedTouches[0].clientX - tocaX;
+      if (Math.abs(dif) > 45) irASlide(indiceSlide + (dif < 0 ? 1 : -1));
+      tocaX = null;
+    }, { passive: true });
+
+    /* "Solicitar información" lleva al formulario con el coche preseleccionado */
+    const btnSolicitar = modalCont.querySelector('[data-solicitar]');
+    if (btnSolicitar) {
+      btnSolicitar.addEventListener('click', () => {
+        cerrarModal();
+        $('#fVehiculo').value = coche.id;
+        /* No se enfoca el campo: un foco automático marcaría el campo
+           vacío como inválido antes de que el usuario escriba nada. */
+        setTimeout(() => $('#contacto').scrollIntoView({ behavior: 'smooth', block: 'start' }), 260);
+      });
+    }
+
+    setTimeout(() => $('.modal-cerrar').focus(), 120);
+  }
+
+  function cerrarModal() {
+    modal.classList.remove('abierto');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('no-scroll');
+    numSlides = 0;
+    if (ultimoFoco) ultimoFoco.focus();
+    setTimeout(() => { if (!modal.classList.contains('abierto')) modalCont.innerHTML = ''; }, 420);
+  }
+
+  /* Delegación: cualquier "Ver detalles" o clic en la foto abre la ficha */
+  document.addEventListener('click', e => {
+    const btnVer = e.target.closest('[data-ver]');
+    if (btnVer) { abrirModal(btnVer.dataset.ver); return; }
+
+    const foto = e.target.closest('.coche-foto');
+    if (foto) {
+      const tarjeta = foto.closest('.coche');
+      if (tarjeta) abrirModal(tarjeta.dataset.id);
+      return;
+    }
+
+    if (e.target.closest('[data-cerrar]')) cerrarModal();
+  });
+
+  /* Teclado: Esc cierra, flechas navegan la galería */
+  document.addEventListener('keydown', e => {
+    if (!modal.classList.contains('abierto')) return;
+    if (e.key === 'Escape')     cerrarModal();
+    if (e.key === 'ArrowRight') irASlide(indiceSlide + 1);
+    if (e.key === 'ArrowLeft')  irASlide(indiceSlide - 1);
+  });
+
+  /* ==============================================================
+     9. FORMULARIO DE CONTACTO
+     ============================================================== */
+  const selVehiculo = $('#fVehiculo');
+  VEHICULOS.forEach(v => {
+    const opt = document.createElement('option');
+    opt.value = v.id;
+    opt.textContent = `${v.marca} ${v.modelo} ${v.version} — ${fmtPrecio(v.precio)}`;
+    selVehiculo.appendChild(opt);
+  });
+
+  const formulario = $('#formContacto');
+  const aviso      = $('#avisoForm');
+  const avisoTexto = $('#avisoTexto');
+
+  formulario.addEventListener('submit', e => {
+    e.preventDefault();
+
+    /* Validación nativa del navegador */
+    if (!formulario.checkValidity()) {
+      formulario.reportValidity();
+      return;
+    }
+
+    const nombre = $('#fNombre').value.trim().split(' ')[0];
+    avisoTexto.textContent = `¡Gracias, ${nombre}! Hemos recibido tu solicitud y te contactamos en menos de 24 horas.`;
+    aviso.classList.add('visible');
+
+    formulario.reset();
+
+    /* Nota: en producción, aquí se enviaría el formulario al servidor
+       (fetch a un endpoint, Formspree, etc.). */
+    setTimeout(() => aviso.classList.remove('visible'), 9000);
+  });
+
+  /* ==============================================================
+     10. CABECERA, MENÚ MÓVIL Y NAVEGACIÓN ACTIVA
+     ============================================================== */
+  const cabecera = $('#cabecera');
+  const btnHamb  = $('#hamburguesa');
+  const navMovil = $('#navMovil');
+
+  /* Fondo sólido al bajar */
+  const alScroll = () => cabecera.classList.toggle('solida', window.scrollY > 40);
+  window.addEventListener('scroll', alScroll, { passive: true });
+  alScroll();
+
+  function alternarMenu(forzar) {
+    const abierto = forzar !== undefined ? forzar : !navMovil.classList.contains('abierto');
+    navMovil.classList.toggle('abierto', abierto);
+    btnHamb.classList.toggle('abierto', abierto);
+    btnHamb.setAttribute('aria-expanded', String(abierto));
+    document.body.classList.toggle('no-scroll', abierto);
+
+    /* Entrada escalonada de los enlaces */
+    $$('a', navMovil).forEach((a, i) => {
+      a.style.transitionDelay = abierto ? `${90 + i * 55}ms` : '0ms';
+    });
+  }
+
+  btnHamb.addEventListener('click', () => alternarMenu());
+  $$('a', navMovil).forEach(a => a.addEventListener('click', () => alternarMenu(false)));
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && navMovil.classList.contains('abierto')) alternarMenu(false);
+  });
+
+  /* Marca el enlace de la sección visible */
+  const secciones = ['inicio', 'destacados', 'catalogo', 'ventajas', 'contacto']
+    .map(id => document.getElementById(id)).filter(Boolean);
+
+  const observadorNav = new IntersectionObserver(entradas => {
+    entradas.forEach(en => {
+      if (!en.isIntersecting) return;
+      $$('.nav a').forEach(a =>
+        a.classList.toggle('activo', a.getAttribute('href') === '#' + en.target.id)
+      );
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+
+  secciones.forEach(s => observadorNav.observe(s));
+
+  /* ==============================================================
+     11. ANIMACIONES AL HACER SCROLL
+     ============================================================== */
+  const observadorReveal = new IntersectionObserver((entradas, obs) => {
+    entradas.forEach((en, i) => {
+      if (!en.isIntersecting) return;
+      /* Pequeño escalonado entre elementos que entran a la vez */
+      setTimeout(() => en.target.classList.add('visible'), i * 85);
+      obs.unobserve(en.target);
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+  function observarReveals() {
+    $$('.reveal:not(.visible)').forEach(el => observadorReveal.observe(el));
+  }
+  observarReveals();
+
+  /* El hero se muestra de inmediato, sin esperar al scroll */
+  setTimeout(() => $$('.hero .reveal').forEach((el, i) => {
+    setTimeout(() => el.classList.add('visible'), i * 110);
+  }), 90);
+
+  /* ==============================================================
+     12. DETALLES FINALES
+     ============================================================== */
+  $('#anio').textContent = new Date().getFullYear();
+
+})();
+</script>
+
+</body>
+</html>
